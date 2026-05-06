@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="DSI mark">
+  
+  
+  <g fill="#1C1A19">
+    
+    <circle cx="10" cy="10" r="3"></circle>
+    <circle cx="22" cy="10" r="3"></circle>
+    <circle cx="34" cy="10" r="3"></circle>
+    <circle cx="46" cy="10" r="3"></circle>
+    
+    <circle cx="10" cy="22" r="3"></circle>
+    <circle cx="22" cy="22" r="3"></circle>
+    <circle cx="34" cy="22" r="3"></circle>
+    <circle cx="46" cy="22" r="3"></circle>
+    
+    <rect x="7" y="31" width="42" height="6" rx="3" fill="#C5050C"></rect>
+    
+    <circle cx="10" cy="46" r="3"></circle>
+    <circle cx="22" cy="46" r="3"></circle>
+    <circle cx="34" cy="46" r="3"></circle>
+    <circle cx="46" cy="46" r="3"></circle>
+  </g>
+</svg>

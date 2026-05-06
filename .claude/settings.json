@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'LAST_COMMIT=$(git log -1 --format=%ct 2>/dev/null); NOW=$(date +%s); if [ -n \"$LAST_COMMIT\" ] && [ $((NOW - LAST_COMMIT)) -lt 60 ] && [ -f ROADMAP.md ]; then UPDATED=$(stat -f \"%Sm\" -t \"%Y-%m-%d\" ROADMAP.md 2>/dev/null || echo \"unknown\"); echo \"[Roadmap Nudge] ROADMAP.md last updated: $UPDATED. If this commit touches milestone work, update ROADMAP.md.\"; fi'"
+          }
+        ]
+      }
+    ]
+  }
+}
