@@ -92,4 +92,4 @@ The site is built with Jekyll and deployed to GitHub Pages via GitHub Actions. P
 
 ## Credits
 
-Developed at the [UW-Madison Data Science Institute](https://dsi.wisc.edu) as part of the [ICICLE AI Institute](https://icicle.ai/) project, funded by the National Science Foundation.
+Developed at the [UW-Madison Data Science Institute](https://dsi.wisc.edu). The FEAST application was originally developed under the [ICICLE AI Institute](https://icicle.ai/) (NSF).
