@@ -6,7 +6,7 @@ title: Home
 <div style="display: flex; align-items: center; gap: 24px; margin-bottom: 24px;">
   <img src="{{ site.baseurl }}/assets/feast-icon.svg" alt="FEAST icon" width="120" height="120" style="border-radius: 12px; flex-shrink: 0;">
   <div>
-    <h1 style="margin: 0; border: none; padding: 0;">FEAST Educational Materials</h1>
+    <h1 style="margin: 0; border: none; padding: 0;">FEAST Academy</h1>
     <p style="margin: 8px 0 0; font-size: 1.125rem; color: var(--fg-2);">Six-week onboarding curriculum for student developers joining the <a href="https://fassfrontstage.pods.icicleai.tapis.io/">Food Equity Access Simulation Technology</a> project. Students work through scaffolded guides with LLM-assisted development, progressing from environment setup to independent contributions.</p>
   </div>
 </div>
