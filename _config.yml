@@ -1,6 +1,6 @@
 title: "FEAST Educational Materials"
 description: "Student developer onboarding for the Food Equity Access Simulation Technology project"
-baseurl: "/FEAST_eduational_materials"
+baseurl: "/FEAST_educational_materials"
 exclude:
   - templates/
   - .claude/
