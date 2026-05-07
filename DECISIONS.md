@@ -1,8 +1,81 @@
+---
+layout: default
+title: "Design Decisions"
+---
+
 # Decisions Log
 
 Curriculum and structural design decisions for the FEAST_edu repository. Each entry documents a choice that shapes how the onboarding program works and why we made it. Future adapters should read these before modifying the pattern.
 
 For the ADR template used in the FEAST application repos, see `templates/adr-template.md`.
+
+---
+
+## DEC-004: Curriculum Restructuring to Integrate Tooling, Review Pipelines, and Project Management Artifacts
+
+**Date:** 2026-05-07
+**Status:** Accepted
+
+**Context:** The original 6-week curriculum treats agentic coding tools, code review, and project management artifacts as mid-to-late topics. Agentic tools get a 5-minute mention in Week 1; structured review starts in Week 3; ADRs appear in Week 4. This pacing means students submit PRs for two weeks with no automated checks and no structured review, and don't encounter project management frameworks until halfway through. Three specific gaps were identified:
+
+1. **Agentic coding tools.** Claude Code is never named or set up. CLAUDE.md is in the templates but not taught. Students have no awareness of the tool landscape (Cursor, Copilot, Aider).
+2. **Automated + human code review.** The review pipeline (CI checks, peer review, LLM adversarial review) doesn't fully exist until Week 3. Weeks 1-2 PRs go through with minimal feedback.
+3. **Project management artifacts.** ADRs, roadmaps, and the distinction between manually written vs. LLM-generated versions of these artifacts aren't covered until Week 4, after students have already been making undocumented design decisions.
+
+The overriding design constraint: get students contributing real work as soon as possible. If front-loading more educational content into Weeks 1-2 accomplishes that, the tradeoff is worth it.
+
+**Decision:** Restructure the curriculum to integrate all three topics earlier, with a progression from manual to tool-assisted:
+
+**Week 1 changes:**
+- Expand "How LLM tools fit" from 5 min to 20 min. Rename to "Agentic coding tools: setup and the landscape." Cover Claude Code, Cursor, Copilot, Aider. Demo CLAUDE.md as both documentation and agent configuration. Include a brief hands-on comparison if students have access to multiple tools.
+- Add Claude Code (or best-available agentic tool) to the setup scaffold, alongside repo cloning. Tool access depends on what's available via GitHub educational accounts; the scaffold handles multiple paths.
+- Plant the project management artifacts seed (5 min): show CLAUDE.md, ROADMAP.md, DECISIONS.md in the FEAST_edu repo. No deep dive; just establish they exist.
+- Solo work: students create a CLAUDE.md in their FEAST repo fork.
+- Trim the architecture step lifecycle from 15 to 10 min (students learn it better by tracing it themselves). Net lesson time increase: ~10 min.
+
+**Week 2 changes:**
+- Restructure group session (30 min to 40-45 min). Add review pipeline introduction (15 min): explain the three layers (automated CI, human peer review, LLM adversarial review added Week 3). Demo a GitHub Actions linting workflow.
+- Require peer review on all Week 2 PRs (previously deferred to "reviewed as a group in Week 3").
+- Reorder linting scaffold (#24) to prioritize CI setup first, then fixes. Once CI exists, every subsequent PR gets automated checks.
+- Introduce ADRs (5 min). Show the template. The linting student writes an ADR for their configuration choices.
+- Tighten edge-case brainstorming demo from ~15 to ~10 min.
+
+**Week 3 changes:**
+- Adversarial review demo adds a formalized manual LLM review rotation: each PR gets a designated reviewer who runs adversarial review in a fresh session and posts findings. No CI-based automation for now.
+- Require ADR-format specs for #74 (optimization) and brief diagnosis write-ups for #47 (bug fix).
+
+**Week 4 changes:**
+- Reframe topic from "ADRs" to "Project management artifacts: manual vs. auto-generated." Students have been writing ADRs since Week 2; this session goes deeper.
+- Demo generating an ADR from a diff/PR using Claude Code. Compare manual vs. generated. Discuss when each is appropriate.
+- Cover roadmap maintenance and CLAUDE.md updates.
+
+**Week 5 changes:**
+- Add review pipeline retrospective (10 min): what's the CI catching, what are humans catching, what's the LLM catching? Adjust process if needed.
+- CLAUDE.md audit: each student reviews and updates theirs.
+
+**Week 6 changes:**
+- Handoff document adds tool configuration handoff and process retrospective sections.
+
+**ADR progression (cross-cutting):**
+- Weeks 2-3: Manual ADR writing. Students learn the structure and practice articulating reasoning.
+- Week 4: Introduce LLM-generated ADRs from diffs and PRs. Compare to manual. Students review and edit generated ADRs.
+- Weeks 5-6: Students choose manual vs. assisted based on decision complexity. Generation from diff/PR context is part of the standard workflow.
+
+**Alternatives considered:**
+- *Keep ADRs in Week 4, review in Week 3, tools as-is.* Simpler change, but leaves the two-week gap where PRs have no structured review, and students make design decisions without a framework for documenting them.
+- *Move everything to Week 1.* Too much for a single session. Week 1 is already the densest week and needs to focus on "get the project running and understand what it does."
+- *Automated LLM review via GitHub Action.* More powerful but adds infrastructure complexity. Manual rotation is sufficient for a 5-person cohort and teaches the skill more directly. Can revisit for larger cohorts.
+
+**Consequences:**
+- (+) Students have CI checks and peer review from their first code PR (Week 2)
+- (+) Agentic tools are set up and configured from Week 1, not introduced as a late topic
+- (+) ADR writing is practiced repeatedly before the "manual vs. auto-generated" lesson, so the comparison is grounded in experience
+- (+) The review pipeline matures incrementally (CI in Week 2, peer review in Week 2, LLM adversarial in Week 3) rather than arriving fully formed in Week 3
+- (+) CLAUDE.md creation in Week 1 gives students ownership of their development environment early
+- (-) Week 1 lesson time increases by ~10 min (70 min total, still within tolerance)
+- (-) Week 2 lesson time increases by ~15 min (45 min total, absorbed from guided work time)
+- (-) Tool access logistics are uncertain; the setup scaffold must handle multiple paths depending on what's available via educational accounts
+- (-) More ADR writing across Weeks 2-4 risks ADR fatigue if not scoped carefully (mitigated by keeping early ADRs short and directly tied to the student's own work)
 
 ---
 

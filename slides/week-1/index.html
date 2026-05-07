@@ -897,13 +897,13 @@
       <h2 class="slide-title" style="margin-bottom: 24px;">This is FEAST. Let's look at it live.</h2>
       <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 32px; align-items: start;">
         <div style="position: relative;">
-          <image-slot
-            id="live-demo-overview"
-            shape="rounded"
-            radius="16"
-            placeholder="Screenshot: fassfrontstage.pods.icicleai.tapis.io — full page with map, sidebar, and store/household markers visible"
-            style="width: 100%; height: 560px;">
-          </image-slot>
+          <iframe
+            src="https://fassfrontstage.pods.icicleai.tapis.io/"
+            style="width: 100%; height: 560px; border: 1px solid var(--border); border-radius: 16px;"
+            loading="lazy"
+            allow="geolocation"
+            title="FEAST live instance">
+          </iframe>
           <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(28,26,25,0.85); color: var(--bone); font-family: var(--font-mono); font-size: 14px; padding: 8px 14px; border-radius: 8px; z-index: 10; letter-spacing: 0.04em;">
             fassfrontstage.pods.icicleai.tapis.io
           </div>
@@ -931,17 +931,48 @@
   </section>
 
   <!-- ============================================================
+       03c — The mission
+       ============================================================ -->
+  <section style="background: var(--ink); color: var(--bone);" class="dark" data-screen-label="03c The mission">
+    <div class="pattern-bg on-dark"></div>
+    <div style="position: relative; margin: auto 0;">
+      <div class="eyebrow-slide on-dark">Why we're here</div>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 80px; line-height: 1.05; letter-spacing: -0.02em; margin: 32px 0 0; color: var(--bone); max-width: 1700px;">
+        Improve FEAST to make it more <span style="color: var(--badger-red);">usable</span>, <span style="color: var(--badger-red);">flexible</span>, and <span style="color: var(--badger-red);">performant</span> — using modern tooling.
+      </h2>
+      <div style="margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1500px;">
+        <div style="padding: 24px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px;">
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--bone); margin-bottom: 8px;">The tool has rough edges</div>
+          <div style="font-size: 20px; color: var(--mist); line-height: 1.4;">Hardcoded geography, missing tests, no CI, inconsistent data handling, mixed frontend patterns.</div>
+        </div>
+        <div style="padding: 24px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px;">
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--bone); margin-bottom: 8px;">Your job: ship improvements</div>
+          <div style="font-size: 20px; color: var(--mist); line-height: 1.4;">Concrete changes that make it better for real users. Every PR moves the product forward.</div>
+        </div>
+        <div style="padding: 24px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px;">
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--bone); margin-bottom: 8px;">Using agentic coding tools</div>
+          <div style="font-size: 20px; color: var(--mist); line-height: 1.4;">Claude Code, Copilot, and modern dev workflows. Learn to work with AI, not just use it.</div>
+        </div>
+      </div>
+      <div class="deck-footer">
+        <span style="color: var(--mist);">Week 1 · Orientation</span>
+        <span style="color: var(--mist);"><span class="dot">●</span> The mission</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        04a — ACT I super-divider: Understanding the system
        ============================================================ -->
   <section style="background: var(--badger-red); color: var(--bone);" class="dark" data-screen-label="04a Act I · Understanding the system">
     <div style="position: absolute; inset: 0; opacity: 0.08; background-image: radial-gradient(circle, #fff 1.5px, transparent 1.5px); background-size: 28px 28px; pointer-events: none;"></div>
     <div style="position: relative; margin: auto 0;">
-      <div style="font-family: var(--font-mono); font-size: 20px; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255,255,255,0.6);">First hour · three parts</div>
+      <div style="font-family: var(--font-mono); font-size: 20px; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255,255,255,0.6);">First hour · four parts</div>
       <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 140px; line-height: 0.96; letter-spacing: -0.03em; margin: 28px 0 0; color: var(--bone); max-width: 1600px;">
         Understanding<br/>
         the system.
       </h2>
-      <div style="margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px;">
+      <div style="margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1500px;">
         <div style="padding: 20px 24px; border: 1px solid rgba(255,255,255,0.25); border-radius: 12px;">
           <div style="font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--bone);">Part 1</div>
           <div style="font-family: var(--font-display); font-size: 18px; color: rgba(255,255,255,0.6); margin-top: 4px;">Food access: the problem</div>
@@ -953,6 +984,10 @@
         <div style="padding: 20px 24px; border: 1px solid rgba(255,255,255,0.25); border-radius: 12px;">
           <div style="font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--bone);">Part 3</div>
           <div style="font-family: var(--font-display); font-size: 18px; color: rgba(255,255,255,0.6); margin-top: 4px;">How the three layers fit together</div>
+        </div>
+        <div style="padding: 20px 24px; border: 1px solid rgba(255,255,255,0.25); border-radius: 12px;">
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--bone);">Part 4</div>
+          <div style="font-family: var(--font-display); font-size: 18px; color: rgba(255,255,255,0.6); margin-top: 4px;">Project management artifacts</div>
         </div>
       </div>
     </div>
@@ -1418,13 +1453,13 @@
       <h2 class="slide-title" style="margin-bottom: 32px;">This is what the agents look like, on a map.</h2>
       <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: stretch;">
         <div style="position: relative;">
-          <image-slot
-            id="map-screenshot-main"
-            shape="rounded"
-            radius="16"
-            placeholder="Screenshot: fassfrontstage.pods.icicleai.tapis.io — zoomed to show household clusters + store markers"
-            style="width: 100%; height: 620px;">
-          </image-slot>
+          <iframe
+            src="https://fassfrontstage.pods.icicleai.tapis.io/"
+            style="width: 100%; height: 620px; border: 1px solid var(--border); border-radius: 16px;"
+            loading="lazy"
+            allow="geolocation"
+            title="FEAST map view">
+          </iframe>
           <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(28,26,25,0.85); color: var(--bone); font-family: var(--font-mono); font-size: 14px; padding: 8px 14px; border-radius: 8px; z-index: 10; letter-spacing: 0.04em;">
             Live: fassfrontstage.pods.icicleai.tapis.io
           </div>
@@ -1759,11 +1794,49 @@
         </div>
       </div>
       <p class="body-text" style="margin-top: 48px; font-size: 26px; max-width: 1500px;">
-        That whole loop, end to end, <strong>is the product.</strong> Internalize it. Every PR you write touches some piece of it.
+        That whole loop, end to end, <strong>is the product.</strong> Student D will trace this in detail. Every PR you write touches some piece of it.
       </p>
       <div class="deck-footer">
         <span>Week 1 · Architecture</span>
         <span><span class="dot">●</span> The "Step" lifecycle</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       24a — Project management artifacts
+       ============================================================ -->
+  <section data-screen-label="24a Project mgmt artifacts">
+    <div class="pattern-bg"></div>
+    <div style="position: relative;">
+      <div class="eyebrow-slide">Part four · how we manage the work</div>
+      <h2 class="slide-title">Three files that keep a project on track.</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 16px;">
+        <div class="card" style="padding: 36px;">
+          <div style="font-family: var(--font-mono); font-size: 16px; color: var(--badger-red); font-weight: 700; letter-spacing: 0.06em;">CLAUDE.md</div>
+          <h3 style="font-size: 28px; margin-top: 14px;">Project context</h3>
+          <p style="font-size: 20px; margin-top: 8px;">What the project is, how to work in it, what conventions to follow. Read by humans and AI agents.</p>
+          <div style="margin-top: 20px; font-family: var(--font-mono); font-size: 15px; color: var(--fg-3);">You'll create one this week.</div>
+        </div>
+        <div class="card" style="padding: 36px;">
+          <div style="font-family: var(--font-mono); font-size: 16px; color: var(--badger-red); font-weight: 700; letter-spacing: 0.06em;">ROADMAP.md</div>
+          <h3 style="font-size: 28px; margin-top: 14px;">What's done, what's next</h3>
+          <p style="font-size: 20px; margin-top: 8px;">A living document. Milestones, dependencies, critical path. Updated after each milestone, not written once and forgotten.</p>
+          <div style="margin-top: 20px; font-family: var(--font-mono); font-size: 15px; color: var(--fg-3);">Maintained by the team.</div>
+        </div>
+        <div class="card" style="padding: 36px;">
+          <div style="font-family: var(--font-mono); font-size: 16px; color: var(--badger-red); font-weight: 700; letter-spacing: 0.06em;">DECISIONS.md</div>
+          <h3 style="font-size: 28px; margin-top: 14px;">Why we chose what we chose</h3>
+          <p style="font-size: 20px; margin-top: 8px;">Architecture Decision Records. Document the reasoning, not just the result. You'll start writing these in Week 2.</p>
+          <div style="margin-top: 20px; font-family: var(--font-mono); font-size: 15px; color: var(--fg-3);">One ADR per design choice.</div>
+        </div>
+      </div>
+      <p class="body-text muted" style="margin-top: 36px; font-size: 22px; max-width: 1500px;">
+        This curriculum repo (FEAST_edu) uses all three. We practice what we teach.
+      </p>
+      <div class="deck-footer">
+        <span>Week 1 · Architecture</span>
+        <span><span class="dot">●</span> Project artifacts</span>
       </div>
     </div>
   </section>
@@ -1780,63 +1853,180 @@
         work.
       </h2>
       <p style="margin-top: 48px; font-family: var(--font-display); font-size: 30px; color: rgba(255,255,255,0.6); max-width: 1200px; line-height: 1.4;">
-        You understand what we're building and why. Now: the rules for LLM-assisted development, getting the app running on your machine, and your first assignments.
+        You understand the system. Now: agentic coding tools, the rules for working with them, getting the app running, and your first assignments.
       </p>
     </div>
   </section>
 
   <!-- ============================================================
-       25 — SECTION DIVIDER · LLM workflow
+       25 — SECTION DIVIDER · Agentic coding tools
        ============================================================ -->
-  <section class="section-divider dark" data-screen-label="25 Section · LLM workflow">
+  <section class="section-divider dark" data-screen-label="25 Section · Agentic tools">
     <div class="pattern-bg on-dark"></div>
     <div style="position: relative;">
-      <div class="part-label">Part four</div>
+      <div class="part-label">Part five</div>
       <h2 class="part-title">
-        How LLM tools<br/>
-        fit into how<br/>
-        we <span class="accent">work.</span>
+        Agentic coding<br/>
+        tools: the<br/>
+        <span class="accent">landscape.</span>
       </h2>
-      <div class="part-meta">5 minutes · the rules, and why they exist</div>
+      <div class="part-meta">20 minutes · tools, rules, and live demo</div>
     </div>
   </section>
 
   <!-- ============================================================
-       25b — The one rule (moved here from opener)
+       25b — Two rules
        ============================================================ -->
-  <section style="background: var(--ink); color: var(--bone);" class="dark" data-screen-label="25b The one rule">
+  <section style="background: var(--ink); color: var(--bone);" class="dark" data-screen-label="25b Two rules">
     <div class="pattern-bg on-dark"></div>
     <div style="position: relative; margin: auto 0;">
-      <div class="eyebrow-slide on-dark">The one rule that doesn't change</div>
-      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 96px; line-height: 1.05; letter-spacing: -0.02em; margin: 32px 0 0; color: var(--bone); max-width: 1700px;">
-        You must be able to <span style="color: var(--badger-red);">explain every line</span> in your PR<br/>
-        without looking at your chat history.
-      </h2>
-      <div style="margin-top: 56px; margin-bottom: 120px; font-family: var(--font-display); font-size: 32px; color: var(--mist); max-width: 1500px; line-height: 1.45;">
-        LLM tools are amplifiers, not replacements. If your defense is &ldquo;Claude wrote it&rdquo; — the review fails before it starts.
+      <div class="eyebrow-slide on-dark">Two rules that never change</div>
+      <div style="display: grid; gap: 48px; max-width: 1700px; margin-top: 32px;">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 18px; color: var(--badger-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Rule 1</div>
+          <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 72px; line-height: 1.05; letter-spacing: -0.02em; color: var(--bone);">
+            You must be able to <span style="color: var(--badger-red);">explain every line</span> in your PR without looking at your chat history.
+          </h2>
+        </div>
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 18px; color: var(--badger-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Rule 2</div>
+          <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 72px; line-height: 1.05; letter-spacing: -0.02em; color: var(--bone);">
+            Write code for <span style="color: var(--badger-red);">future you.</span>
+          </h2>
+          <div style="margin-top: 16px; font-family: var(--font-display); font-size: 28px; color: var(--mist); max-width: 1500px; line-height: 1.45;">
+            Every function, variable name, and structural choice should be readable six months from now. &ldquo;Working&rdquo; is not enough. When you use an AI tool, your job is to shape the output until it meets this standard.
+          </div>
+        </div>
       </div>
       <div class="deck-footer">
-        <span style="color: var(--mist);">Week 1 · LLM workflow</span>
+        <span style="color: var(--mist);">Week 1 · Agentic tools</span>
         <span style="color: var(--mist);"><span class="dot">●</span> The contract</span>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       26 — Good vs bad patterns
+       25c — Tool landscape
        ============================================================ -->
-  <section style="background: var(--cream);" data-screen-label="26 Patterns">
+  <section data-screen-label="25c Tool landscape">
+    <div class="pattern-bg"></div>
+    <div style="position: relative;">
+      <div class="eyebrow-slide">Three categories of AI coding tools</div>
+      <h2 class="slide-title">Know the landscape, not just one tool.</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 16px;">
+        <div class="card" style="padding: 36px; border-color: var(--badger-red); border-width: 2px;">
+          <span class="tag">Primary</span>
+          <h3 style="font-size: 28px; margin-top: 14px;">CLI agents</h3>
+          <p style="font-size: 20px; margin-top: 8px; margin-bottom: 16px;">Run in your terminal, read the whole codebase, execute commands. Conversational interface.</p>
+          <div style="display: grid; gap: 8px;">
+            <div style="font-family: var(--font-mono); font-size: 17px; color: var(--ink);"><strong>Claude Code</strong> <span style="color: var(--fg-3);">- our primary tool</span></div>
+            <div style="font-family: var(--font-mono); font-size: 17px; color: var(--fg-2);">Aider <span style="color: var(--fg-3);">- open source</span></div>
+          </div>
+        </div>
+        <div class="card" style="padding: 36px;">
+          <span class="tag slate">Alternatives</span>
+          <h3 style="font-size: 28px; margin-top: 14px;">AI-native IDEs</h3>
+          <p style="font-size: 20px; margin-top: 8px; margin-bottom: 16px;">Full editors with AI in every interaction. Code completion, inline chat, multi-file editing.</p>
+          <div style="display: grid; gap: 8px;">
+            <div style="font-family: var(--font-mono); font-size: 17px; color: var(--fg-2);">Cursor</div>
+            <div style="font-family: var(--font-mono); font-size: 17px; color: var(--fg-2);">Windsurf</div>
+          </div>
+        </div>
+        <div class="card" style="padding: 36px;">
+          <span class="tag slate">Alternatives</span>
+          <h3 style="font-size: 28px; margin-top: 14px;">Inline assistants</h3>
+          <p style="font-size: 20px; margin-top: 8px; margin-bottom: 16px;">Plugins for VS Code, JetBrains. Autocomplete and inline suggestions. Lightest-weight.</p>
+          <div style="display: grid; gap: 8px;">
+            <div style="font-family: var(--font-mono); font-size: 17px; color: var(--fg-2);">GitHub Copilot</div>
+            <div style="font-family: var(--font-mono); font-size: 17px; color: var(--fg-2);">Codeium</div>
+          </div>
+        </div>
+      </div>
+      <p class="body-text muted" style="margin-top: 36px; font-size: 22px; max-width: 1500px;">
+        We use Claude Code because its conversational interface matches how we want you to work: asking questions, not accepting autocomplete. Its <span class="code-chip">CLAUDE.md</span> files double as project documentation.
+      </p>
+      <div class="deck-footer">
+        <span>Week 1 · Agentic tools</span>
+        <span><span class="dot">●</span> The landscape</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       25d — CLAUDE.md as agent configuration
+       ============================================================ -->
+  <section style="background: var(--cream);" data-screen-label="25d CLAUDE.md as config">
+    <div class="pattern-bg"></div>
+    <div style="position: relative; display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; height: 100%;">
+      <div>
+        <div class="eyebrow-slide">The file that shapes agent behavior</div>
+        <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 72px; line-height: 1.05; letter-spacing: -0.02em; margin: 24px 0 32px; color: var(--ink);">
+          CLAUDE.md<br/>
+          serves two<br/>
+          <span style="color: var(--badger-red);">audiences.</span>
+        </h2>
+        <div style="display: grid; gap: 20px; margin-top: 16px;">
+          <div style="display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start;">
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 36px; color: var(--badger-red);">1</div>
+            <div>
+              <div style="font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--ink);">A new developer</div>
+              <div style="font-size: 20px; color: var(--fg-2); margin-top: 4px;">What is this, how do I work in it?</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start;">
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 36px; color: var(--badger-red);">2</div>
+            <div>
+              <div style="font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--ink);">An AI agent</div>
+              <div style="font-size: 20px; color: var(--fg-2); margin-top: 4px;">What are the conventions, what should I pay attention to?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="padding: 32px; background: var(--white);">
+          <div style="font-family: var(--font-mono); font-size: 14px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">CLAUDE.md</div>
+          <div style="font-family: var(--font-mono); font-size: 17px; color: var(--ink); line-height: 1.7;">
+            <span style="color: var(--badger-red);"># Project Overview</span><br/>
+            FEAST is a food access simulation<br/>
+            tool. Backend: FastAPI + Mesa ABM.<br/>
+            Frontend: React + Leaflet.<br/>
+            <br/>
+            <span style="color: var(--badger-red);"># Code Style</span><br/>
+            - Always use type hints<br/>
+            - Use flake8, ignore E501<br/>
+            - Use descriptive names<br/>
+            <br/>
+            <span style="color: var(--badger-red);"># Git Workflow</span><br/>
+            - main is stable; dev is integration<br/>
+            - Feature branches off dev<br/>
+          </div>
+        </div>
+        <p class="body-text muted" style="font-size: 18px; margin-top: 16px; text-align: center;">
+          <strong style="color: var(--ink);">Demo:</strong> same question, with and without CLAUDE.md
+        </p>
+      </div>
+      <div class="deck-footer">
+        <span>Week 1 · Agentic tools</span>
+        <span><span class="dot">●</span> CLAUDE.md</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       26 — Good vs bad patterns (updated)
+       ============================================================ -->
+  <section style="background: var(--bone);" data-screen-label="26 Patterns">
     <div class="pattern-bg"></div>
     <div style="position: relative; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; height: 100%;">
       <div>
-        <div class="eyebrow-slide">What that rule looks like in practice</div>
+        <div class="eyebrow-slide">What these rules look like in practice</div>
         <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 84px; line-height: 1.05; letter-spacing: -0.02em; margin: 24px 0 32px; color: var(--ink);">
           Reading first.<br/>
           Generating<br/>
           <span style="color: var(--badger-red);">later.</span>
         </h2>
         <p class="body-text muted" style="font-size: 26px; max-width: 700px;">
-          A freshman who learns to generate code in week 1 will never learn to read code. We build the muscle of reading and thinking first — generation comes later, when you can spot when the LLM is wrong.
+          A freshman who learns to generate code in week 1 will never learn to read code. We build the muscle of reading and thinking first. Generation comes later, when you can spot when the tool is wrong.
         </p>
       </div>
       <div>
@@ -1848,37 +2038,43 @@
         <div class="card" style="padding: 36px; background: var(--white); border-color: var(--moss);">
           <span class="tag moss">Good pattern</span>
           <h3 style="font-size: 30px; margin-top: 16px; color: var(--ink);">"Walk me through what this function does and why."</h3>
-          <p style="font-size: 20px;">Accelerates learning. You ship code you understand. Review passes.</p>
+          <p style="font-size: 20px;">Accelerates learning. You understand what you ship. Review passes.</p>
+        </div>
+        <div class="card" style="padding: 36px; background: var(--white); border-color: var(--moss); margin-top: 20px;">
+          <span class="tag moss">Also good</span>
+          <h3 style="font-size: 30px; margin-top: 16px; color: var(--ink);">"Is this the simplest way? What could I remove?"</h3>
+          <p style="font-size: 20px;">Use the tool to push toward clarity. Simpler code is almost always better code.</p>
         </div>
       </div>
       <div class="deck-footer">
-        <span>Week 1 · LLM workflow</span>
-        <span><span class="dot">●</span> The rule</span>
+        <span>Week 1 · Agentic tools</span>
+        <span><span class="dot">●</span> Patterns</span>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       27 — Week 1 LLM rules (allowed / not yet)
+       27 — Week 1 rules (allowed / not yet)
        ============================================================ -->
   <section data-screen-label="27 Week 1 rules">
     <div class="pattern-bg"></div>
     <div style="position: relative;">
       <div class="eyebrow-slide">For week 1, specifically</div>
-      <h2 class="slide-title">LLM tools are for asking questions about code you're reading.</h2>
+      <h2 class="slide-title">Your tools are installed. Use them to ask questions.</h2>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px;">
         <div class="card" style="padding: 36px; border-color: var(--moss); border-width: 1px;">
-          <div style="font-family: var(--font-display); font-weight: 900; font-size: 22px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--moss); margin-bottom: 16px;">✓ Allowed this week</div>
+          <div style="font-family: var(--font-display); font-weight: 900; font-size: 22px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--moss); margin-bottom: 16px;">Allowed this week</div>
           <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; font-size: 22px; color: var(--ink); line-height: 1.45;">
             <li>"What does this function do and why?"</li>
             <li>"Walk me through this control flow."</li>
             <li>"What does this error message mean?"</li>
             <li>"Why is this written with async?"</li>
             <li>"Explain this Mesa concept to me."</li>
+            <li>Compare responses across tools</li>
           </ul>
         </div>
         <div class="card" style="padding: 36px; border-color: var(--badger-red); border-width: 1px;">
-          <div style="font-family: var(--font-display); font-weight: 900; font-size: 22px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--badger-red); margin-bottom: 16px;">✕ Not yet</div>
+          <div style="font-family: var(--font-display); font-weight: 900; font-size: 22px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--badger-red); margin-bottom: 16px;">Not yet</div>
           <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; font-size: 22px; color: var(--ink); line-height: 1.45;">
             <li>Code generation of any kind</li>
             <li>Writing tests for you</li>
@@ -1889,10 +2085,10 @@
         </div>
       </div>
       <p class="body-text muted" style="margin-top: 40px; font-size: 22px; max-width: 1500px;">
-        We unlock more capability week by week — by week 6 you'll have full access. The progression matters. You can't spot when an LLM is wrong about code you can't read.
+        We unlock more capability week by week. By week 6 you'll have full access. The restriction is the point: you're building the skill of reading code first. The tool will still be there when you're ready.
       </p>
       <div class="deck-footer">
-        <span>Week 1 · LLM workflow</span>
+        <span>Week 1 · Agentic tools</span>
         <span><span class="dot">●</span> Week 1 rules</span>
       </div>
     </div>
@@ -1904,7 +2100,7 @@
   <section class="section-divider dark" data-screen-label="28 Section · Setup">
     <div class="pattern-bg on-dark"></div>
     <div style="position: relative;">
-      <div class="part-label">Part five</div>
+      <div class="part-label">Part six</div>
       <h2 class="part-title">
         Setup —<br/>
         get it <span class="accent">running.</span>
@@ -1920,8 +2116,8 @@
     <div class="pattern-bg"></div>
     <div style="position: relative;">
       <div class="eyebrow-slide">Before you start</div>
-      <h2 class="slide-title">Five things on your machine.</h2>
-      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
+      <h2 class="slide-title">Six things on your machine.</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
         <div class="card" style="padding: 28px; min-height: 240px; display: flex; flex-direction: column;">
           <div style="font-family: var(--font-mono); font-size: 14px; color: var(--badger-red); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;">Required</div>
           <h3 style="font-size: 26px; margin-top: 14px;">Python</h3>
@@ -1952,6 +2148,12 @@
           <p style="font-size: 18px;">Python package manager.</p>
           <div style="margin-top: auto; font-family: var(--font-mono); font-size: 14px; color: var(--fg-3);">pip install uv</div>
         </div>
+        <div class="card" style="padding: 28px; min-height: 240px; display: flex; flex-direction: column;">
+          <div style="font-family: var(--font-mono); font-size: 14px; color: var(--badger-red); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;">Install today</div>
+          <h3 style="font-size: 26px; margin-top: 14px;">Claude Code</h3>
+          <p style="font-size: 18px;">Agentic coding tool. Or Copilot as baseline.</p>
+          <div style="margin-top: auto; font-family: var(--font-mono); font-size: 14px; color: var(--fg-3);">npm i -g @anthropic-ai/claude-code</div>
+        </div>
       </div>
       <div class="deck-footer">
         <span>Week 1 · Setup</span>
@@ -1966,8 +2168,8 @@
   <section data-screen-label="30 Setup steps">
     <div class="pattern-bg"></div>
     <div style="position: relative;">
-      <div class="eyebrow-slide">Five steps to a running app</div>
-      <h2 class="slide-title">Don't sweat order — just get one machine working per pair.</h2>
+      <div class="eyebrow-slide">Six steps to a running app</div>
+      <h2 class="slide-title">Don't sweat order. Get one machine working per pair.</h2>
       <div class="setup-grid">
         <div class="setup-step">
           <div class="stepnum">Step 01</div>
@@ -1981,16 +2183,21 @@
         </div>
         <div class="setup-step">
           <div class="stepnum">Step 03</div>
+          <h4>Agentic tool</h4>
+          <div class="cmd">npm i -g @anthropic-ai/claude-code<br/>cd Food-Access-Model &amp;&amp; claude<br/><span style="color: var(--fg-3);"># verify it works, then exit</span></div>
+        </div>
+        <div class="setup-step">
+          <div class="stepnum">Step 04</div>
           <h4>Run backend</h4>
           <div class="cmd">uv run python run_local.py<br/><span style="color: var(--fg-3);"># port 8000, NOT api_server.py</span></div>
         </div>
         <div class="setup-step">
-          <div class="stepnum">Step 04</div>
+          <div class="stepnum">Step 05</div>
           <h4>Frontend env</h4>
           <div class="cmd">cd FASS-Frontend/fass-react<br/>git checkout Brown-County-Frontend<br/>npm install<br/><span style="color: var(--fg-3);"># edit src/shared/client.js:3<br/># baseURL → localhost:8000/api</span></div>
         </div>
         <div class="setup-step">
-          <div class="stepnum">Step 05</div>
+          <div class="stepnum">Step 06</div>
           <h4>Run frontend</h4>
           <div class="cmd">npm run dev<br/># open localhost:5173</div>
         </div>
@@ -2015,13 +2222,13 @@
       <h2 class="slide-title" style="margin-bottom: 32px;">A Leaflet map. Colored households. Clickable stores.</h2>
       <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 32px; align-items: stretch;">
         <div style="position: relative;">
-          <image-slot
-            id="working-screenshot"
-            shape="rounded"
-            radius="16"
-            placeholder="Screenshot: local instance running — household markers (colored dots) + store markers (hexagons/triangles) visible on map"
-            style="width: 100%; height: 600px;">
-          </image-slot>
+          <iframe
+            src="https://fassfrontstage.pods.icicleai.tapis.io/"
+            style="width: 100%; height: 600px; border: 1px solid var(--border); border-radius: 16px;"
+            loading="lazy"
+            allow="geolocation"
+            title="FEAST working state">
+          </iframe>
           <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(28,26,25,0.85); color: var(--bone); font-family: var(--font-mono); font-size: 14px; padding: 8px 14px; border-radius: 8px; z-index: 10; letter-spacing: 0.04em;">
             Or try live: fassfrontstage.pods.icicleai.tapis.io
           </div>
@@ -2143,13 +2350,13 @@
             </div>
           </li>
         </ol>
-        <image-slot
-          id="household-popup"
-          shape="rounded"
-          radius="12"
-          placeholder="Screenshot: household popup showing income, vehicles, food_score, stores_within_1_mile"
-          style="width: 100%; height: 420px;">
-        </image-slot>
+        <iframe
+          src="https://fassfrontstage.pods.icicleai.tapis.io/"
+          style="width: 100%; height: 420px; border: 1px solid var(--border); border-radius: 12px;"
+          loading="lazy"
+          allow="geolocation"
+          title="FEAST household popup">
+        </iframe>
       </div>
       <div class="deck-footer">
         <span>Week 1 · Today's work</span>
@@ -2217,12 +2424,25 @@
     <div style="position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; height: 100%;">
       <div>
         <div class="eyebrow-slide">Your deliverable this week</div>
-        <h2 class="slide-title" style="margin-bottom: 24px;">A short trace, in your own words.</h2>
-        <p class="body-text" style="font-size: 26px; margin-bottom: 24px;">
-          Open a PR adding a markdown file to <span class="code-chip">docs/traces/</span> — three to five paragraphs explaining the endpoint you traced.
-        </p>
-        <p class="body-text muted" style="font-size: 22px;">
-          We review them as a group next week. Write clearly, like you're explaining it to a future you who's forgotten everything. The trace is your understanding made visible.
+        <h2 class="slide-title" style="margin-bottom: 24px;">Two deliverables. One PR.</h2>
+        <div style="display: grid; gap: 24px;">
+          <div style="display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start;">
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 36px; color: var(--badger-red);">1</div>
+            <div>
+              <div style="font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--ink);">Endpoint trace</div>
+              <div style="font-size: 22px; color: var(--fg-2); margin-top: 4px;">A markdown file in <span class="code-chip">docs/traces/</span>. Three to five paragraphs in your own words.</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start;">
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 36px; color: var(--badger-red);">2</div>
+            <div>
+              <div style="font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--ink);">CLAUDE.md</div>
+              <div style="font-size: 22px; color: var(--fg-2); margin-top: 4px;">In the FEAST repo root. Your first project management artifact. Use the template; customize it.</div>
+            </div>
+          </div>
+        </div>
+        <p class="body-text muted" style="font-size: 22px; margin-top: 24px;">
+          Reviewed by a peer before the Week 2 session. Write for future you.
         </p>
       </div>
       <div>
@@ -2255,11 +2475,11 @@
     <div style="position: relative;">
       <div class="part-label">Async this week</div>
       <h2 class="part-title">
-        Explore. File<br/>
-        issues. Build<br/>
-        the <span class="accent">backlog.</span>
+        Explore. Create.<br/>
+        File issues.<br/>
+        Build the <span class="accent">backlog.</span>
       </h2>
-      <div class="part-meta">two parts · self-paced · pair up if helpful</div>
+      <div class="part-meta">three parts · self-paced · pair up if helpful</div>
     </div>
   </section>
 
@@ -2306,12 +2526,49 @@
   </section>
 
   <!-- ============================================================
-       39 — Solo Part 2 — Issue template
+       38b — Solo Part 2 — Create a CLAUDE.md
        ============================================================ -->
-  <section data-screen-label="39 Solo Part 2 · File issues">
+  <section style="background: var(--cream);" data-screen-label="38b Solo Part 2 · CLAUDE.md">
+    <div class="pattern-bg"></div>
+    <div style="position: relative; display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; height: 100%;">
+      <div>
+        <div class="eyebrow-slide">Solo Part 2</div>
+        <h2 class="slide-title" style="margin-bottom: 24px;">Create a CLAUDE.md in your FEAST repo.</h2>
+        <p class="body-text" style="font-size: 26px; margin-bottom: 24px;">
+          Use the template in <span class="code-chip">FEAST_edu/templates/CLAUDE.md</span> as a starting point. Customize it based on what you learned from the architecture overview and your endpoint trace.
+        </p>
+        <p class="body-text muted" style="font-size: 22px; margin-bottom: 16px;">
+          Keep it under 50 lines. You'll update it as you learn more. This is your first project management artifact.
+        </p>
+        <p class="body-text muted" style="font-size: 22px;">
+          Open a PR for it alongside your endpoint trace.
+        </p>
+      </div>
+      <div>
+        <div class="card" style="padding: 32px; background: var(--white);">
+          <div style="font-family: var(--font-mono); font-size: 14px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Your CLAUDE.md should answer</div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; font-size: 22px; color: var(--ink); line-height: 1.45;">
+            <li style="padding-left: 24px; border-left: 3px solid var(--badger-red);">What does this project do?</li>
+            <li style="padding-left: 24px; border-left: 3px solid var(--badger-red);">How do I run it locally?</li>
+            <li style="padding-left: 24px; border-left: 3px solid var(--badger-red);">What conventions should I follow?</li>
+            <li style="padding-left: 24px; border-left: 3px solid var(--badger-red);">What are the key files to know about?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="deck-footer">
+        <span>Week 1 · Solo work</span>
+        <span><span class="dot">●</span> CLAUDE.md</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       39 — Solo Part 3 — Issue template
+       ============================================================ -->
+  <section data-screen-label="39 Solo Part 3 · File issues">
     <div class="pattern-bg"></div>
     <div style="position: relative;">
-      <div class="eyebrow-slide">Solo Part 2 · the part that matters most</div>
+      <div class="eyebrow-slide">Solo Part 3 · the part that matters most</div>
       <h2 class="slide-title">Turn everything you noticed into a GitHub issue.</h2>
       <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px;">
         <div>
@@ -2495,18 +2752,18 @@
     <div style="position: relative;">
       <div class="eyebrow-slide">By end of week 6, this team will have shipped</div>
       <h2 class="slide-title">What success looks like — six weeks from now.</h2>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 22px;">
-        <div class="card" style="padding: 24px;"><span class="tag">#24</span><h3 style="font-size: 22px;">Linting + CI</h3></div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; font-size: 22px;">
+        <div class="card" style="padding: 24px;"><span class="tag">#24</span><h3 style="font-size: 22px;">Linting + CI pipeline</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag">#18 #19 #20</span><h3 style="font-size: 22px;">Type hints across</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag">tests</span><h3 style="font-size: 22px;">First test suite</h3></div>
+        <div class="card" style="padding: 24px;"><span class="tag">review</span><h3 style="font-size: 22px;">3-layer review pipeline</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag">#47</span><h3 style="font-size: 22px;">Store-counting bug fix</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag">#74</span><h3 style="font-size: 22px;">Optimized step function</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag">#91</span><h3 style="font-size: 22px;">Better MFAI algorithm</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag">#94 #79</span><h3 style="font-size: 22px;">Reporting API + metrics</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag">#50</span><h3 style="font-size: 22px;">Cleaner logging</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag">security</span><h3 style="font-size: 22px;">Input validation + CORS</h3></div>
-        <div class="card" style="padding: 24px;"><span class="tag">#67</span><h3 style="font-size: 22px;">Spatial data cleanup</h3></div>
-        <div class="card" style="padding: 24px;"><span class="tag">#27</span><h3 style="font-size: 22px;">Redundant code gone</h3></div>
+        <div class="card" style="padding: 24px;"><span class="tag wheat">ADRs</span><h3 style="font-size: 22px;">Documented decisions</h3></div>
         <div class="card" style="padding: 24px;"><span class="tag moss">+ yours</span><h3 style="font-size: 22px;">Issues you'll file this week</h3></div>
       </div>
       <p class="body-text" style="margin-top: 40px; font-size: 26px; max-width: 1500px;">

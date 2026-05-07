@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Writing Tests"
+---
+
 # Guide: Writing Your First Tests
 
 ## Context

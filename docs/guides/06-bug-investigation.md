@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Investigating Bugs"
+---
+
 # Guide: Investigating and Fixing a Bug
 
 **Related issue**: #47 (Stores within 1 Mile logic)

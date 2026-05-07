@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Optimizing Performance"
+---
+
 # Guide: Optimizing the Step Function
 
 **Related issue**: #74

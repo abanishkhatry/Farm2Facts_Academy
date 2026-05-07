@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Setting Up Linting"
+---
+
 # Guide: Setting Up Linting and CI
 
 **Related issue**: #24

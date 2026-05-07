@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Environment Setup"
+---
+
 # Guide: Environment Setup
 
 ## Context

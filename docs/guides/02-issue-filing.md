@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Filing Good Issues"
+---
+
 # Guide: Filing Good Issues
 
 ## Context

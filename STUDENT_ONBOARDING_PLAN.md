@@ -1,3 +1,8 @@
+---
+layout: default
+title: "6-Week Onboarding Plan"
+---
+
 # FEAST Student Developer Onboarding Plan
 
 ## Constraints
@@ -30,7 +35,17 @@ Students are labeled by experience tier:
 
 This is the most important week. Students need to get the project running, understand what it does conceptually, and see how the pieces fit together before touching any code. Senior students act as guides for juniors throughout.
 
-### Group Session Part 1: Domain, Concepts, and Architecture (~60 min)
+### The mission (~5 min)
+
+Open with this before anything else. The team's primary objective:
+
+**Improve the FEAST framework to make it more usable, flexible, and performant, using modern development tooling including agentic coding tools.**
+
+FEAST is a working research tool with real users, but it has rough edges: hardcoded geography, inconsistent data handling, missing tests, no CI, and a frontend that mixes patterns. The team's job over 6 weeks is to ship concrete improvements that make it better for the people who use it, while learning how to work effectively with AI-assisted development tools as part of a professional workflow.
+
+Everything that follows in this session - the domain background, the architecture walkthrough, the tool setup - is in service of this objective. Students aren't just learning about the system; they're preparing to improve it.
+
+### Group Session Part 1: Domain, Concepts, Architecture, and Tools (~70 min)
 
 **Topic: "What this project does, why it matters, and how it's built"**
 
@@ -117,7 +132,7 @@ You don't need to understand Mesa deeply to contribute. The key thing to know: w
 
 **Where the project came from:** FEAST originated through the NSF-funded ICICLE AI institute (OAC 2112606). The current implementation is focused on Brown County, Wisconsin as a proof of concept, with the goal of making it work for any US county.
 
-#### How the three layers work together (~15 min)
+#### How the three layers work together (~10 min)
 
 Draw this on a whiteboard or shared screen:
 
@@ -169,23 +184,58 @@ Draw this on a whiteboard or shared screen:
 - Stores and households are duplicated across steps (step 0, step 1, step 2...) so you can compare state over time
 - Household coordinates stored in EPSG:4326 (lat/lon), store geometries in EPSG:3857 (Web Mercator, meters). This inconsistency is a known issue (see #67).
 
-**Key concept for students**: When a user clicks "Step" in the UI, this happens:
-1. Frontend calls `POST /api/simulation-instances/{id}/advance`
-2. Backend reads all households and stores for the current step from the DB
-3. Backend splits households into chunks (one per CPU core) for parallel processing
-4. Each chunk creates a Mesa `GeoModel` with those households and all stores
-5. Mesa's `RandomActivation` scheduler calls `Household.step()` on every household
-6. Each household calculates distances to all stores, finds closest supermarket and convenience store, simulates monthly shopping trips, computes MFAI score, and assigns a color (red/yellow/green)
-7. Results from all chunks are collected and bulk-inserted to the DB as a new step number (via `copy_records_to_table` for performance)
-8. Frontend fetches the updated households via `GET /api/households?simulation_instance=...&simulation_step=...` and re-renders the map with new colors
+**Key concept for students**: When a user clicks "Step" in the UI, the frontend calls `POST /api/simulation-instances/{id}/advance`. The backend reads households and stores from the DB, splits households across CPU cores, runs each household's `step()` method (distance calculation, store selection, MFAI scoring), bulk-inserts the results as a new simulation step, and the frontend re-renders the map with updated colors. Student D will trace this flow in detail during assigned work; the full 8-step lifecycle is documented in the endpoint trace table below.
 
-#### How LLM tools fit into development (~5 min)
+#### Project management artifacts (~5 min)
 
-**Key rule: You must be able to explain every line in your PR without looking at your chat history.** This is the one rule that doesn't change across all 6 weeks.
+Before jumping to tools, briefly show how this curriculum repo (FEAST_edu) manages itself using three lightweight artifacts:
 
-Brief demo: Show how to use Claude Code to *understand* existing code conversationally. Walk through asking "What does this function do and why?" vs "Write me a function." The first question helps you learn; the second skips learning.
+- **CLAUDE.md**: Project context for both humans and AI agents. Describes what the project is, how to work in it, and what conventions to follow. You'll create one of these in Week 1 solo work.
+- **ROADMAP.md**: What's done, what's in progress, what's next. A living document, not a one-time plan.
+- **DECISIONS.md**: A log of design decisions and the reasoning behind them (also called ADRs, Architecture Decision Records). You'll start writing these in Week 2.
 
-For this week, LLMs are for **asking questions about code you're reading**. Not for writing code.
+Show each file on screen briefly. Don't explain the format in detail; just establish that these exist and that the team will use them. The deeper lesson on project management artifacts comes in Week 4.
+
+#### Agentic coding tools: setup and the landscape (~20 min)
+
+Two rules that don't change across all 6 weeks:
+
+1. **You must be able to explain every line in your PR without looking at your chat history.**
+2. **Write code for future you.** Every function, variable name, and structural choice should be readable and understandable six months from now by someone with no context. "Working" is not enough; code that works but can't be understood is a liability. When you use an AI tool to write code, your job is to iteratively shape the output until it meets this standard, not to accept the first thing it produces.
+
+##### The tool landscape (~5 min)
+
+There are several categories of AI-assisted coding tools. Students should understand the landscape, not just one tool:
+
+- **CLI agents** (Claude Code, Aider): Run in your terminal alongside any editor. You describe what you want in natural language; the agent reads your codebase, proposes changes, and can execute commands. Claude Code uses CLAUDE.md files for project context.
+- **AI-native IDEs** (Cursor, Windsurf): Full editors with AI built into every interaction. Code completion, inline chat, multi-file editing. Heavier-weight, more opinionated about workflow.
+- **Inline assistants** (GitHub Copilot, Codeium): Plugins for existing editors (VS Code, JetBrains). Primarily autocomplete and inline suggestions. Lightest-weight integration.
+
+For this cohort, Claude Code is the primary tool. It works in any editor, its CLAUDE.md files double as project documentation, and its conversational interface matches how we want students to interact with AI: asking questions, not accepting autocomplete. Students are welcome to also use Copilot, Cursor, or other tools they have access to.
+
+**Access logistics:** We'll use whatever is available through GitHub educational accounts (likely Copilot at minimum, possibly Claude via GitHub Models). If students have personal access to other tools, they can use those too. The important thing is that everyone has at least one agentic tool working by end of session. We'll sort out the specifics during setup.
+
+##### CLAUDE.md as agent configuration (~5 min)
+
+Demo: Open the FEAST_edu repo's CLAUDE.md on screen. Point out how it describes the project structure, conventions, and workflow. Then show what happens when you ask Claude Code a question about the project with vs. without a CLAUDE.md. The difference is immediate: with context, the agent gives grounded answers; without it, it guesses.
+
+CLAUDE.md serves two audiences simultaneously:
+1. **A new developer** joining the project (what is this, how do I work in it?)
+2. **An AI agent** working in the codebase (what are the conventions, what should I pay attention to?)
+
+This dual purpose is why CLAUDE.md is more useful than a generic README for day-to-day development. Students will create one for their FEAST repo during solo work this week.
+
+##### Live demo: using an agent to understand code (~5 min)
+
+Open Claude Code in the FEAST backend repo. Show the difference between:
+- "What does `has_resources()` in `household.py` do and why are the thresholds set the way they are?" (good: builds understanding)
+- "Write me a function that checks if a household has resources." (bad: skips understanding)
+
+If students have access to multiple tools, briefly compare: ask the same question in Claude Code and in Copilot/Cursor. Note the differences in how each tool handles context, codebase awareness, and response style. This takes 2-3 minutes and makes the "landscape" tangible rather than abstract.
+
+##### Week 1 rules (~2 min)
+
+For this week, agentic tools are for **asking questions about code you're reading**. Not for writing code. Not for generating tests. Not for fixing bugs. You're building the skill of reading and understanding code first. The tools are installed and configured so you can use them fluently when the restrictions lift in later weeks.
 
 ### Group Session Part 2: Setup (~30 min)
 
@@ -223,7 +273,24 @@ Step 2: Backend setup
    You'll need to create the database and tables. Check if there's
    a schema file or if the app creates tables on startup.
 
-Step 3: Run the backend
+Step 3: Set up agentic coding tools
+   At minimum, get one agentic tool working. Claude Code is preferred:
+   npm install -g @anthropic-ai/claude-code
+   cd Food-Access-Model
+   claude     # verify it launches, ask a test question, then exit
+
+   If Claude Code access isn't available yet, install GitHub Copilot
+   in VS Code (free via GitHub Education) as a baseline. We'll sort
+   out additional tool access as needed.
+
+   Verify: you can ask the tool a question about the codebase and
+   get a response that references actual files. If it's hallucinating
+   file names, something isn't configured right.
+
+   Note: Whatever tool you use, the usage rules for this week still
+   apply. Tools are for asking questions, not generating code.
+
+Step 4: Run the backend
    uv run python run_local.py
 
    This runs: uvicorn food_access_model.main:app --reload --port 8000
@@ -239,7 +306,7 @@ Step 3: Run the backend
    You should get a JSON response (possibly empty list if no data yet).
    Health check: curl http://localhost:8000/api/health
 
-Step 4: Frontend setup
+Step 5: Frontend setup
    cd FASS-Frontend/fass-react
    git checkout Brown-County-Frontend     # active development branch
    npm install
@@ -252,7 +319,7 @@ Step 4: Frontend setup
    npm run dev
    Open http://localhost:5173 in your browser.
 
-Step 5: See it work
+Step 6: See it work
    You should see a Leaflet map centered on Brown County, WI
    (Green Bay area). If there's data in the database, you'll see
    colored household markers (clustered at low zoom, individual
@@ -310,10 +377,10 @@ Then, each student traces one API endpoint through the full stack and writes a s
 
 **S students**: After finishing your own trace, check in with your paired J student. Help them understand their endpoint if they're stuck. Don't do it for them; ask guiding questions.
 
-**LLM usage**: Students can ask the LLM to explain specific functions, but must verify explanations against the code. Deliverable is their own writing, not LLM output.
+**Tool usage**: Students can use their agentic coding tool (Claude Code, Copilot, etc.) to ask questions about specific functions, but must verify explanations against the code. Deliverable is their own writing, not LLM output.
 
 ### Deliverable
-Each student opens a PR adding their trace as a markdown file in `docs/traces/`. These get reviewed as a group next week.
+Each student opens a PR adding their endpoint trace as a markdown file in `docs/traces/` and their CLAUDE.md in the FEAST repo root. These get reviewed by a peer before the Week 2 session.
 
 ### Solo Work (later in the week)
 
@@ -325,7 +392,13 @@ Now that you've traced one endpoint, explore the parts you didn't cover. Some su
 
 **S students**: Read `food_access_model/abm/household.py` carefully, especially `get_mfai()` (line 218), `has_resources()` (line 169), and `step()` (line 259). These are the core of the simulation. Try to understand the MFAI scoring logic. What do the magic numbers mean (95, 55, 0.8, 10000/15000/25000)? Read the data pipeline in `preprocessing/get_data.py` (1134 lines, focus on the main functions, not every line). How does Census data become synthetic households? Also look at `model_multi_processing/batch_running.py` to understand how simulation steps are parallelized.
 
-**Part 2: File issues for everything you found.**
+**Part 2: Create a CLAUDE.md in your FEAST repo.**
+
+Using the template in `FEAST_edu/templates/CLAUDE.md` as a starting point, create a CLAUDE.md in the root of whichever FEAST repo you're primarily working in (backend or frontend). Customize it based on what you learned from the architecture overview and your endpoint trace. The CLAUDE.md should describe the project in a way that would help a new developer (or an AI agent) understand what the repo does and how to work in it.
+
+This is your first project management artifact. Keep it short (under 50 lines). You'll update it as you learn more in later weeks. Open a PR for it alongside your endpoint trace.
+
+**Part 3: File issues for everything you found.**
 
 During your trace and exploration, you encountered things that seemed wrong, confusing, or inconsistent. Now turn each one into a GitHub issue. This is not busywork; this is how real projects build their backlog.
 
@@ -384,12 +457,53 @@ Review each other's filed issues at the start of next week's session. As a group
 
 ## Week 2: Linting, Type Hints, and First Real PRs
 
-### Group Session (30 min)
+### Group Session (50 min)
+
+#### The review pipeline: automated + human (~15 min)
+
+Every PR from this week forward goes through a structured review pipeline. This week starts with two layers; Week 3 adds a third.
+
+**Layer 1: Automated CI checks.** A GitHub Actions workflow runs flake8 (and later, tests) on every PR. If CI fails, the PR doesn't merge. The linting student (#24) sets this up as their first priority this week, so it's available for everyone else's PRs.
+
+**Layer 2: Human peer review.** Every PR gets reviewed by one other student before merge. The reviewer checks: Does the code match the stated intent? Are there obvious errors? Is the PR description clear? Post at least one substantive comment (not just "LGTM").
+
+**Layer 3 (Week 3): LLM adversarial review.** A designated student runs an adversarial review in a fresh Claude Code session and posts findings as PR comments.
+
+Demo: Show a GitHub Actions workflow that runs flake8 on a PR. Show what a failing check looks like. Show what a passing check looks like. Walk through the PR template.
+
+Also introduce: Branch workflow (`dev` -> feature branches), commit conventions.
+
+#### Edge case brainstorming with LLMs (~10 min)
+
 **Topic: "Using LLMs for edge case brainstorming and test design"**
 
-Demo: Show the "interview first" pattern. Instead of "write tests for this function," show how to describe the function's behavior to the LLM and ask "What edge cases should I test?" Then the student writes the tests.
+Demo: Show the "interview first" pattern. Instead of "write tests for this function," show how to describe the function's behavior to the LLM and ask "What edge cases should I test?" Then the student writes the tests. One concrete example; keep it tight.
 
-Also introduce: PR template, branch workflow (`dev` -> feature branches), commit conventions.
+#### Writing code interactively with an AI tool (~10 min)
+
+**Topic: "The tool is a first draft, not a final answer"**
+
+Starting this week, students write real code. The temptation is to prompt the tool, accept the output, and move on. That's how you end up with code that works but that nobody (including you) can maintain.
+
+Demo the iterative pattern using a concrete example from the FEAST codebase (e.g., adding a type-hinted helper function):
+
+1. **Start with intent, not instructions.** Describe what you need and why. "I need a function that converts a lat/lon pair to a hexagonal polygon for store markers. It's called from the store creation endpoint. The existing code is in `helpers.py`." The tool proposes something.
+2. **Read the output critically.** Does the naming make sense? Are there magic numbers? Is the structure obvious to someone who hasn't seen your prompt? If not, push back: "Rename this parameter to something more descriptive" or "Extract that threshold to a named constant and explain what it represents."
+3. **Ask for best practices.** "What's the idiomatic way to handle this in Python/FastAPI?" or "Are there standard patterns for this kind of coordinate transformation?" The tool knows conventions you might not. Use that knowledge, but verify it.
+4. **Ask about complexity.** "Is this the simplest way to do this? What could I remove without losing functionality?" Simpler code is almost always better code. If the tool generates a 30-line function, ask whether it could be 15.
+5. **Verify readability.** "If someone reads this function six months from now with no context, what would confuse them?" Fix whatever the tool identifies, and fix anything else you notice.
+
+The goal is not to get code faster. The goal is to get code that's **functional, readable, and no more complex than it needs to be**. The tool is a collaborator in achieving that, not a code printer.
+
+#### Architecture Decision Records (~5 min)
+
+Show the ADR template from `templates/adr-template.md`. Explain the purpose: when you make a choice that someone else might question later, write a short ADR documenting what you decided and why. This week, the linting student will write one for their configuration choices. By Week 4, everyone will have written at least one.
+
+Quick example: "We chose to ignore E501 (line length) because the project convention allows long lines. Alternative: enforce 120-char limit. We rejected this because the existing codebase has many long lines and reformatting them all would create noisy diffs during onboarding."
+
+#### Review Week 1 CLAUDE.md files (~5 min)
+
+Quick group check-in: each student shows their CLAUDE.md from last week's solo work. Are they capturing useful information? Is anything missing? This takes 1-2 minutes per student and reinforces the habit of maintaining the artifact.
 
 ### Assigned Work
 
@@ -399,17 +513,26 @@ The following issues map directly to the backlog. Pair J students with S student
 
 [SCAFFOLD: Linting Setup Guide]
 ```
+Priority order: Get CI running first so everyone else's PRs benefit.
+
 1. Add flake8 to dev dependencies in pyproject.toml
 2. Create a .flake8 config file:
    - Ignore E501 (line length - per project convention)
    - Set max-complexity to 10
-3. Run flake8 on the codebase. You'll get hundreds of errors.
+3. Add a GitHub Actions workflow that runs flake8 on PRs.
+   THIS IS YOUR FIRST PRIORITY. Once this exists, every PR
+   from every student gets automated linting checks. Ship this
+   as its own PR before moving to step 4.
+4. Run flake8 on the codebase. You'll get hundreds of errors.
    DON'T fix them all. Instead:
    - Fix only the files you can handle in ~45 min
    - Create a .flake8 exclude list for files you didn't touch
    - The goal is to get CI green, not to fix everything
-4. Add a GitHub Actions workflow that runs flake8 on PRs
 5. Add eslint check for the frontend (it already has eslint.config.js)
+6. Write a short ADR (using templates/adr-template.md) documenting
+   your linting configuration choices: which rules you enforced,
+   which you excluded, and why. Put it in docs/decisions/ in the
+   FEAST repo. This is your first Architecture Decision Record.
 
 LLM usage: Ask the LLM to explain what each flake8 error code means
    if you encounter one you don't recognize. Don't ask it to fix the code.
@@ -488,7 +611,7 @@ LLM usage: After writing your tests, ask the LLM:
 ```
 
 ### Deliverable
-Each student opens a PR for their assigned work. PRs are reviewed by a peer (not the author) in Week 3.
+Each student opens a PR for their assigned work. Every PR must pass CI (once the linting student ships the GitHub Actions workflow) and receive one peer review before merge. Reviews happen asynchronously during the week, not deferred to Week 3. The linting student's CI workflow PR is the highest priority and should be reviewed and merged first so it applies to everyone else's PRs.
 
 ### Solo Work (later in the week)
 
@@ -518,12 +641,24 @@ At the start of week 3's group session, spend 10 minutes as a team:
 
 ## Week 3: Bug Fixes and Code Quality
 
-### Group Session (30 min)
-**Topic: "Specs before code, and adversarial review"**
+### Group Session (40 min)
+**Topic: "Specs before code, and completing the review pipeline"**
 
-Demo: Show the adversarial review workflow. Take a recent PR and run it through Claude Code in a fresh session with the skeptical reviewer prompt. Show how to evaluate valid vs. false positive criticisms.
+#### Adding the third review layer: LLM adversarial review (~15 min)
 
-Introduce the concept: Every PR from here on gets (1) human peer review and (2) LLM adversarial review by a different student.
+The team has been using two review layers since Week 2 (automated CI + human peer review). This week adds the third: LLM adversarial review.
+
+Demo: Take a recent PR and run it through Claude Code in a fresh session with a skeptical reviewer prompt. Walk through the output. Show how to evaluate valid vs. false positive criticisms. Show the prompt that works well (e.g., "Review this diff for correctness, performance, and maintainability issues. Be thorough and skeptical. For each finding, rate your confidence and explain why it matters.").
+
+**The rotation:** Each PR gets a designated adversarial reviewer (not the author, not the peer reviewer). The adversarial reviewer opens a fresh Claude Code session (no prior context about the PR), feeds it the diff, and posts findings as PR comments, marking each as "Valid" or "False positive (because...)". Assign the rotation at the start of each week so everyone knows their review responsibilities.
+
+Every PR from here on gets all three layers: (1) CI checks (automated), (2) human peer review, (3) LLM adversarial review by a different student.
+
+#### Specs before code (~10 min)
+
+Demo the "spec first" pattern: before implementing, write a short specification in the issue comment describing what you'll change, why, and how you'll verify it worked. For design decisions (choosing between approaches, changing behavior), write this as a short ADR using the template. For straightforward fixes, a paragraph in the issue comment is sufficient.
+
+Show an example: the optimization student (#74) should write an ADR; the bug fix student (#47) should write a diagnosis paragraph.
 
 ### Assigned Work
 
@@ -552,7 +687,12 @@ This is a reported bug: after running a simulation step, all houses appear to ha
 4. Now investigate: Does distances_map need to be recalculated
    when stores are added or removed between steps?
 
-5. Write the fix. The test should now pass.
+5. Before implementing, write a diagnosis in the issue comment:
+   what's broken, what causes it, and how you'll fix it. This
+   documents your reasoning for future readers and gives the
+   team a chance to catch flawed assumptions before you code.
+
+6. Write the fix. The test should now pass.
 
 LLM usage: Describe the bug and your hypothesis to the LLM.
    Ask "What else could cause all households to report the
@@ -570,12 +710,17 @@ The step function iterates all stores multiple times per household: once in `cal
    Answer: at least 4 times (calculate_distances, get_closest_cspm,
    get_closest_spm, stores_with_1_miles).
 
-2. Write a SPEC (put it in the issue comment) before coding:
+2. Write this spec as a short ADR (using templates/adr-template.md)
+   before coding. It should cover: current behavior, proposed change,
+   alternatives considered, and performance implications. Example:
    "I propose consolidating into a single pass that computes:
    - distances_map (all store distances)
    - closest_spm and closest_cspm (by filtering distances_map)
    - stores_within_1_mile count (from distances_map)
-   This reduces O(4*S) to O(S) per household where S = store count."
+   This reduces O(4*S) to O(S) per household where S = store count.
+   Alternative: keep separate functions but cache intermediate results.
+   Rejected because a single pass is simpler and equally performant."
+   Post it in the issue comment for team review BEFORE coding.
 
 3. Write tests for the CURRENT behavior first (so you can verify
    your refactor doesn't change results).
@@ -648,11 +793,12 @@ LLM usage: Ask the LLM "What are best practices for structured
    but implement it yourself.
 ```
 
-### Review Protocol (starts this week)
+### Review Protocol (full pipeline, completing what started in Week 2)
 For each PR:
-1. Author writes PR with summary, test plan, tradeoffs
-2. One peer does human review
-3. A different student runs adversarial LLM review in a fresh session and posts findings as PR comments, marking each as "Valid" or "False positive (because...)"
+1. CI checks must pass (automated, set up in Week 2)
+2. Author writes PR with summary, test plan, tradeoffs
+3. One peer does human review (continuing from Week 2)
+4. A different student runs adversarial LLM review per the rotation and posts findings as PR comments, marking each as "Valid" or "False positive (because...)" (new this week)
 
 ### Solo Work (later in the week)
 
@@ -685,6 +831,8 @@ Good candidates for solo work this week:
 
 **LLM usage unlock**: You can now use the LLM to help you write a spec for your chosen issue (use the "interview first" pattern from the group session). You can also use it for adversarial review of your own PR in a fresh session before requesting peer review.
 
+When working with the tool on spec writing or code review, use the iterative pattern from Week 2: don't accept the first output. Push back on complexity, ask about best practices, and verify that the result is readable to someone with no context. For specs specifically, a good workflow is: (1) describe the problem to the tool, (2) ask it to interview you about your proposed approach, (3) use its questions to strengthen the spec, (4) ask "what's the simplest version of this that solves the problem?" before finalizing.
+
 ### Roadmap Activity
 Before the week 4 session, each student comments on 1-2 issues they think should be prioritized for weeks 4-5, with a sentence explaining why. The group reviews these nominations at the top of the week 4 session and adjusts assignments.
 
@@ -692,10 +840,35 @@ Before the week 4 session, each student comments on 1-2 issues they think should
 
 ## Week 4: Core Algorithm and Data Improvements
 
-### Group Session (30 min)
-**Topic: "ADRs: Documenting decisions you're about to make"**
+### Group Session (40 min)
+**Topic: "Project management artifacts: manual vs. auto-generated"**
 
-Demo: Walk through writing an ADR for issue #91 (multiple stores for scoring). Show the MADR template. Emphasize that the ADR is reviewed *before* implementation begins.
+Students have been writing ADRs by hand since Week 2. This session goes deeper into project management artifacts and introduces LLM-assisted generation.
+
+#### Manual vs. auto-generated ADRs (~15 min)
+
+Demo: Take issue #91 (multiple stores for scoring) as the example. First, show a hand-written ADR for it (or write one live). Then, show Claude Code generating an ADR from the issue description and relevant diff. Compare the two:
+- What did the auto-generated version get right?
+- What did it miss? (Usually: the reasoning behind rejected alternatives, unstated constraints, stakeholder concerns)
+- When is each approach appropriate?
+
+**Guidelines for the team going forward:**
+- Auto-generated ADRs are good starting drafts. Feed the tool the diff, the PR description, and the issue context. Review and edit the output.
+- Manual ADRs are essential when the reasoning matters more than the facts: design tradeoffs, stakeholder constraints, "why not" decisions.
+- The "explain every line" rule applies to prose too. If you can't explain why your ADR says what it says, rewrite it.
+
+#### Roadmaps as living artifacts (~10 min)
+
+Show FEAST_edu's ROADMAP.md as an example. Discuss how it stays useful:
+- Updated after each milestone, not written once and forgotten
+- Tracks dependencies between milestones
+- Identifies the critical path to the next deliverable
+
+Demo: Show Claude Code generating a roadmap summary from `git log`. Compare to the manually maintained ROADMAP.md. What's lost when you auto-generate? (Priorities, dependencies, judgment about what matters, forward-looking decisions.) Auto-generated changelogs are useful artifacts, but they're not roadmaps.
+
+#### CLAUDE.md check-in (~5 min)
+
+Quick round: each student opens their CLAUDE.md. Has it been updated since Week 1? Does it reflect what you've learned about the codebase? Take 2-3 minutes to update it now. This is a maintenance habit, not a one-time task.
 
 ### Assigned Work
 
@@ -831,10 +1004,25 @@ At the week 5 session, spend 15 minutes on roadmap planning:
 
 ## Week 5: Integration and Polish
 
-### Group Session (30 min)
-**Topic: "Security review and deployment readiness"**
+### Group Session (45 min)
+**Topic: "Security review, deployment readiness, and process retrospective"**
+
+#### Security review demo (~15 min)
 
 Demo: Run Claude Code's adversarial security review on the current codebase. Show the real issues it finds (raw SQL patterns, hardcoded CORS, no input validation, global mutable state). Discuss which are real risks vs. theoretical.
+
+#### Review pipeline retrospective (~15 min)
+
+The full three-layer review pipeline has been running since Week 3. Take stock as a group:
+- **CI checks:** What's it catching? Are there false positives or noisy checks that should be tuned? Should we add more checks (type checking, test suite)?
+- **Human peer review:** What's working? What patterns do reviewers keep flagging? Are reviews happening promptly or becoming a bottleneck?
+- **LLM adversarial review:** What's it catching that humans miss? What are the most common false positives? Is the rotation working, or should we adjust?
+
+Adjust the process based on what the team has learned. This is an explicit process improvement step, not just a chat.
+
+#### CLAUDE.md and artifact audit (~5 min)
+
+Each student reviews their CLAUDE.md and commits any updates. Also review: are the ADRs you've written still accurate? Has any decision been superseded by later work? This maintenance habit matters more than the initial writing.
 
 ### Assigned Work
 
@@ -928,8 +1116,10 @@ Final prioritization before week 6. Each student reviews the full issue list and
 
 1. **Demo** (20 min): Each student demos one thing they shipped.
 2. **Retro** (20 min): What worked? What didn't? Specifically:
-   - Which LLM usage patterns were most helpful?
-   - Where did LLM tools lead you astray?
+   - Which agentic tool patterns were most helpful? (Claude Code, Copilot, etc.)
+   - Where did AI tools lead you astray? What did you learn to watch for?
+   - How did the review pipeline (CI + human + LLM adversarial) affect code quality?
+   - Were the project management artifacts (CLAUDE.md, ADRs, roadmaps) worth the effort? Which would you keep, drop, or change?
    - What would you tell the next cohort?
 3. **Handoff** (20 min): Finalize the roadmap for the next cohort.
 
@@ -957,7 +1147,17 @@ This is the team's final output beyond the code itself. Write a `docs/ROADMAP.md
 | Medium | #91: Multi-store MFAI scoring | Algorithmic change. Current impl uses only closest SPM + closest CSPM. Paper suggests considering multiple. ADR needed. |
 | (add rows) | (student-filed issues) | (context from the students who filed them) |
 
-4. **What we learned about LLM-assisted development**: 3-5 bullet points of advice for the next cohort, written by the students.
+4. **Tool configuration handoff**: Document the team's development infrastructure for the next cohort:
+   - CLAUDE.md files: what's in them, how they shaped agent behavior, what the next team should update
+   - CI/CD pipeline: what checks run, how to add new ones, known limitations
+   - Review process: the three-layer protocol (CI + human + LLM adversarial), the rotation system, what each layer catches
+   - ADRs written this cohort: list them with one-line summaries so the next team knows what decisions are settled
+
+5. **What we learned about LLM-assisted development and project management**: 3-5 bullet points each on:
+   - Which agentic tool patterns were most helpful and which led you astray
+   - How the progressive LLM usage restriction affected your learning (would you change the progression?)
+   - Which project management artifacts (CLAUDE.md, ADRs, roadmaps) were most useful in practice
+   - Advice for the next cohort on working with AI tools and maintaining project artifacts
 
 ### Solo Work (week 6)
 
@@ -967,14 +1167,14 @@ This is the team's final output beyond the code itself. Write a `docs/ROADMAP.md
 
 ## Issue-to-Week Mapping Summary
 
-| Week | Assigned Issues (group session) | Solo Work Focus | LLM Pattern | Roadmap Activity |
-|------|-------------------------------|----------------|-------------|-----------------|
-| 1 | (orientation, codebase traces) | File issues for everything found | LLM as explainer | Seed the backlog |
-| 2 | #24, #18, #19, #20 + first tests | Apply same skill to adjacent files | LLM for edge case brainstorming | Triage + prioritize backlog |
-| 3 | #47, #74, #27, #50 | Pick an issue from backlog, work it | LLM for spec review + adversarial review | Nominate priorities for weeks 4-5 |
-| 4 | #91, #67, #94/#36 (reporting), #79 | File new issues + pick from backlog | LLM as design discussion partner | Roadmap check: what's realistic? |
-| 5 | #63 + security + frontend #10 + integration | Full autonomy: ship highest-impact work | LLM for adversarial security scanning | Tag issues for next cohort |
-| 6 | Documentation + roadmap handoff | Final push: close or reassign everything | Reflection on LLM usage patterns | Write ROADMAP.md for next cohort |
+| Week | Assigned Issues (group session) | Solo Work Focus | Tool/Process Pattern | Roadmap Activity |
+|------|-------------------------------|----------------|---------------------|-----------------|
+| 1 | (orientation, codebase traces) | File issues + create CLAUDE.md | Agentic tools installed, LLM as explainer only, project mgmt artifacts introduced | Seed the backlog |
+| 2 | #24, #18, #19, #20 + first tests | Apply same skill to adjacent files | CI pipeline + peer review start, ADRs introduced, edge case brainstorming | Triage + prioritize backlog |
+| 3 | #47, #74, #27, #50 | Pick an issue from backlog, work it | LLM adversarial review rotation starts (full 3-layer pipeline), ADR-format specs | Nominate priorities for weeks 4-5 |
+| 4 | #91, #67, #94/#36 (reporting), #79 | File new issues + pick from backlog | Manual vs. auto-generated ADRs, LLM as design partner, CLAUDE.md check-in | Roadmap check: what's realistic? |
+| 5 | #63 + security + frontend #10 + integration | Full autonomy: ship highest-impact work | Review pipeline retrospective, security scanning, CLAUDE.md audit | Tag issues for next cohort |
+| 6 | Documentation + roadmap handoff | Final push: close or reassign everything | Tool config handoff, process retrospective, reflection on tool usage | Write ROADMAP.md for next cohort |
 
 Note: Issue numbers above are from the `ICICLE-ai/Food-Access-Model` repo unless prefixed with "frontend" (from `ICICLE-ai/FASS-Frontend`).
 
@@ -994,24 +1194,28 @@ Pair J and S students on cross-cutting work (e.g., #94 backend + #79 frontend).
 
 ---
 
-## LLM Usage Progression
+## LLM Usage and Tooling Progression
 
-| Week | Allowed | Not Yet |
-|------|---------|---------|
-| 1 | Ask for explanations of existing code | Code generation |
-| 2 | Edge case brainstorming, type hint questions, "what does this error mean" | Writing functions, writing tests |
-| 3 | Spec review ("interview me about my approach"), adversarial PR review | "Fix this bug for me" |
-| 4 | Design discussion ("what are the tradeoffs of X vs Y"), small code generation with spec | Generating without a spec |
-| 5-6 | Full workflow, adversarial security review | n/a, full access earned |
+| Week | Tool/Process Milestones | Allowed LLM Usage | Not Yet |
+|------|------------------------|-------------------|---------|
+| 1 | Agentic tools installed (Claude Code, Copilot, etc.). CLAUDE.md created. Project mgmt artifacts introduced. | Ask for explanations of existing code. Compare tool responses. | Code generation |
+| 2 | CI pipeline live. Peer review required. First ADR written (linting student). Iterative code quality pattern introduced. | Edge case brainstorming, type hint questions, "what does this error mean." ADR drafting assistance (student owns the decision). Interactive code refinement (push back on complexity, ask for best practices). | Writing functions, writing tests |
+| 3 | Full 3-layer review pipeline (CI + human + LLM adversarial). ADR-format specs for design decisions. | Spec review ("interview me about my approach"), adversarial PR review rotation. | "Fix this bug for me" |
+| 4 | LLM-generated ADRs from diffs/PRs (compare to manual). Roadmap maintenance. CLAUDE.md updates. | Design discussion ("what are the tradeoffs of X vs Y"), small code generation with spec. Auto-generate ADR drafts, then review and edit. | Generating without a spec |
+| 5-6 | Review pipeline retrospective. Tool and process audit. Tool config handoff. | Full workflow, adversarial security review. Choose manual vs. assisted artifact generation based on decision complexity. | n/a, full access earned |
 
 The progression matters because students need to build the muscle of *thinking first* before they get the power of *generating*. A freshman who learns to generate code in week 1 will never learn to read code. A senior who is forced to read code in week 1 will use generation more effectively later.
+
+Across all weeks, the "write for future you" principle applies: when students use AI tools to produce code, their job is to iteratively refine the output until it is functional, readable, and no more complex than necessary. The tool is a collaborator in achieving code quality, not a shortcut past it.
+
+The tooling progression runs in parallel: tools are set up early (Week 1), processes build incrementally (CI in Week 2, full review pipeline in Week 3, artifact generation in Week 4), and the team reflects on and adjusts their processes in Weeks 5-6.
 
 ---
 
 ## Coordination Mechanics
 
 **Weekly rhythm:**
-- **Group session** (~2 hours): Lesson (30 min) + roadmap check (10 min) + guided work (remaining time)
+- **Group session** (~2 hours): Lesson (30-45 min, varies by week) + roadmap check (10 min) + guided work (remaining time)
 - **Solo work** (async, later in the week): Self-directed work applying that week's patterns
 - **Friday**: PRs due for review (both assigned and solo work)
 - **Before next session**: Reviews completed so PRs can merge
@@ -1026,7 +1230,8 @@ The progression matters because students need to build the muscle of *thinking f
 - Max ~200 lines of changed code (non-test). Smaller is better.
 - Must include: summary, what was tested, one tradeoff considered
 - Must link to the issue it addresses
-- Must be reviewed by one peer + one adversarial LLM review (starting week 3)
+- Must pass CI checks (starting week 2, once linting workflow is merged)
+- Must be reviewed by one peer (starting week 2) + one adversarial LLM review (starting week 3)
 
 **Communication:**
 - GitHub Issues for technical discussion (keeps it with the code)
@@ -1058,15 +1263,17 @@ The progression matters because students need to build the muscle of *thinking f
 
 **For the students:**
 - Can read and understand unfamiliar code without LLM help
-- Know how to write specs and ADRs before implementing
+- Know how to write specs and ADRs before implementing, both manually and with LLM assistance
 - Can write meaningful tests (not just happy-path)
-- Use LLM tools to accelerate work they understand, not replace understanding
-- Have shipped real features through a real PR workflow
+- Fluent with agentic coding tools (Claude Code and at least one alternative); know when to use them and when not to
+- Understand and can maintain project management artifacts (CLAUDE.md, ADRs, roadmaps)
+- Have shipped real features through a real PR workflow with a three-layer review pipeline
 - Can do adversarial code review (with and without LLM assistance)
+- Can set up and operate CI checks, peer review, and LLM-assisted review as part of a team workflow
 - Have filed, triaged, and prioritized real issues on a real project
 - Can self-direct: identify what needs doing, scope it, and ship it
 - Have a portfolio-worthy open source contribution
-- Left a roadmap that makes the next cohort's onboarding faster
+- Left a roadmap and tool configuration that makes the next cohort's onboarding faster
 
 ---
 

@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Adding Type Hints"
+---
+
 # Guide: Adding Type Hints and Docstrings
 
 **Related issues**: #18, #19, #20

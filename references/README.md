@@ -1,3 +1,9 @@
+---
+layout: default
+title: "References"
+permalink: /references/
+---
+
 # References
 
 Research and resources that inform the pedagogical choices in this program.

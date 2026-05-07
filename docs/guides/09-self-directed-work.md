@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Self-Directed Work"
+---
+
 # Guide: Self-Directed Work
 
 ## Context

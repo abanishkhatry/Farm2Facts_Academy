@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Guide: Adversarial Code Review"
+---
+
 # Guide: Adversarial LLM Code Review
 
 ## Context

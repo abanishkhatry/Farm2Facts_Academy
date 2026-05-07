@@ -1,11 +1,16 @@
+---
+layout: default
+title: "Roadmap"
+---
+
 # ROADMAP
 
-Last updated: 2026-05-06
+Last updated: 2026-05-07
 
 ## Current State
 
 **What works:**
-- Complete 6-week onboarding plan with weekly breakdowns, issue mappings, student assignment strategy, and LLM usage progression (`STUDENT_ONBOARDING_PLAN.md`)
+- Complete 6-week onboarding plan with agentic tools, review pipelines, project management artifacts, issue mappings, student assignment strategy, and LLM/tooling usage progression (`STUDENT_ONBOARDING_PLAN.md`, restructured per DEC-004)
 - 9 scaffolded student guides covering environment setup through self-directed work (`docs/guides/`)
 - Templates for FEAST repos: CLAUDE.md, CONTRIBUTING.md, ADR template (`templates/`)
 - Annotated reference bibliography with pedagogical and domain sources (`references/`)
@@ -13,7 +18,7 @@ Last updated: 2026-05-06
 - Project management scaffold: CLAUDE.md, ROADMAP.md, DECISIONS.md, post-commit hook
 
 **In progress:**
-- Slide decks for weeks 2-6
+- Slide decks for weeks 2-6 (Week 1 slides also need updating per DEC-004)
 
 **Not started:**
 - README for this repo
@@ -23,6 +28,7 @@ Last updated: 2026-05-06
 **Open questions:**
 - How much slide content should duplicate vs. reference the onboarding plan?
 - What level of FEAST-environment readiness is needed before the first cohort starts?
+- What agentic tool access will students have via GitHub educational accounts? (Affects Week 1 setup scaffold)
 
 ---
 
@@ -36,6 +42,16 @@ Last updated: 2026-05-06
 - [x] FEAST repo templates (`templates/`)
 - [x] Reference bibliography (`references/README.md`)
 - [x] GitHub issue and PR templates (`.github/`)
+- [x] **Curriculum restructuring (DEC-004):** Integrate agentic tools, review pipelines, and project management artifacts
+  - [x] Week 1: Expand LLM tools section (tool landscape, CLAUDE.md as config, Claude Code setup), add project mgmt artifacts seed, add CLAUDE.md creation to solo work
+  - [x] Week 2: Add review pipeline intro, reorder linting scaffold to prioritize CI, introduce ADRs, require peer review on Week 2 PRs
+  - [x] Week 3: Add manual LLM review rotation, require ADR-format specs for more assigned work
+  - [x] Week 4: Reframe as "manual vs. auto-generated artifacts," add ADR generation from diffs demo
+  - [x] Week 5: Add review pipeline retrospective and CLAUDE.md audit
+  - [x] Week 6: Add tool config handoff and process retrospective to handoff document
+  - [x] Update LLM Usage Progression table
+  - [x] Update Issue-to-Week Mapping Summary table
+- [x] Update CONTENT_MAP.md to reflect curriculum changes (slide impact per week)
 - [ ] Consistency review across all written materials (cross-references, terminology, scaffolding tiers)
 - [ ] Verify FEAST code references (file paths, line numbers) against current codebase state
 
@@ -43,10 +59,11 @@ Last updated: 2026-05-06
 **Goal:** Slide decks ready for all weekly group sessions.
 
 - [x] Week 1: Orientation, domain concepts, architecture, LLM tools intro (`slides/week-1/`)
-- [ ] Week 2: Linting, type hints, edge case brainstorming with LLMs
-- [ ] Week 3: Specs before code, adversarial review workflow
-- [ ] Week 4: ADRs and design decision documentation
-- [ ] Week 5: Security review and deployment readiness
+- [ ] Week 1 update: Expand LLM tools slides (tool landscape, CLAUDE.md, Claude Code demo), add project mgmt artifacts slide, add Claude Code to setup slides
+- [ ] Week 2: Review pipelines, CI setup, ADR introduction, edge case brainstorming, PR workflow
+- [ ] Week 3: Adversarial review (manual + LLM rotation), specs before code, ADR practice
+- [ ] Week 4: Manual vs. auto-generated artifacts, roadmap maintenance, ADR generation from diffs
+- [ ] Week 5: Security review, deployment readiness, review pipeline retrospective
 - [ ] Week 6: Retrospective and handoff (may be discussion-driven, slides optional)
 
 ### M3: Repo Scaffold [Complete]

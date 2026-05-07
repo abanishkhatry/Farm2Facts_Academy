@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/design-system.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a href="{{ site.baseurl }}/">FEAST Edu</a>
+    <nav>
+      <a href="{{ site.baseurl }}/STUDENT_ONBOARDING_PLAN">Curriculum</a>
+      <a href="{{ site.baseurl }}/docs/guides/">Guides</a>
+      <a href="{{ site.baseurl }}/slides/week-1/">Slides</a>
+      <a href="{{ site.baseurl }}/references/">References</a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1" class="page-container markdown-body">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <a href="https://dsi.wisc.edu">UW-Madison Data Science Institute</a>
+  </footer>
+</body>
+</html>

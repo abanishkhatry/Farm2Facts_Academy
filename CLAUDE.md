@@ -16,10 +16,13 @@ This repo is also a demonstration of a lightweight, repo-local project managemen
 
 ```
 STUDENT_ONBOARDING_PLAN.md    # Master 6-week curriculum
+CONTENT_MAP.md                # Maps curriculum sections to slide deck slides (keeps them in sync)
 docs/
   guides/                      # Scaffolded student guides (01 through 09)
 slides/
   week-1/                      # Week 1 slide deck (self-contained HTML + deck-stage web component)
+assets/
+  css/                         # Shared design system (design-system.css) + site styles (site.css)
 templates/                     # Files to copy into FEAST repos (CLAUDE.md, CONTRIBUTING.md, ADR template)
 references/                    # Annotated bibliography of pedagogical and domain resources
 .github/                       # Issue and PR templates (for copying into FEAST repos)
@@ -52,6 +55,20 @@ This cycle applies to every deliverable, not just at milestone boundaries. Small
 - When referencing FEAST code, include file and line numbers so students can verify against the actual codebase.
 - Code examples should be minimal and self-contained.
 - No em dashes in any output.
+
+## Curriculum-Slides Sync
+
+The curriculum (`STUDENT_ONBOARDING_PLAN.md`) and slide decks (`slides/week-N/index.html`) share overlapping content. `CONTENT_MAP.md` documents which curriculum sections map to which slides and lists the specific shared values (URLs, scores, thresholds, line references) that must stay consistent.
+
+After modifying either the curriculum or a slide deck:
+
+1. Open `CONTENT_MAP.md` and find the affected section.
+2. Identify the corresponding slides or curriculum sections.
+3. Check whether any shared facts changed (the "Key shared values" section lists the most drift-prone ones).
+4. Update the other source to match. If the change doesn't apply to slides (e.g., adding solo work details that aren't presented), note that in your commit message.
+5. If you added new content that maps to slides, add a row to the content map.
+
+When adding material to the curriculum for a week that already has a slide deck, decide whether the new material belongs in the slides (presented during group session) or is reference-only (solo work details, scaffolded guides). Only group session content needs slide coverage.
 
 ## Roadmap Maintenance
 

@@ -1,0 +1,11 @@
+title: "FEAST Educational Materials"
+description: "Student developer onboarding for the Food Equity Access Simulation Technology project"
+baseurl: "/FEAST_eduational_materials"
+exclude:
+  - templates/
+  - .claude/
+  - CLAUDE.md
+  - LICENSE
+  - "*.pyc"
+  - __pycache__/
+  - node_modules/
