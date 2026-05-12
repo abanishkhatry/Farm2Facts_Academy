@@ -24,6 +24,10 @@ title: Home
     <p class="card-title">Week 1 Slides</p>
     <p class="card-desc">Orientation deck: what FEAST does, how the codebase works, and how we develop with LLMs.</p>
   </a>
+  <a href="slides/week-2/">
+    <p class="card-title">Week 2 Slides</p>
+    <p class="card-desc">Review pipeline, git workflow for teams, edge case brainstorming, iterative coding, and ADRs.</p>
+  </a>
   <a href="references/">
     <p class="card-title">References</p>
     <p class="card-desc">Research and resources behind the pedagogical design.</p>
