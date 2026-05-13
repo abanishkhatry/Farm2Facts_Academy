@@ -333,7 +333,7 @@
 
   "Here's what CI looks like in practice. When you push a commit or open a PR, GitHub Actions automatically runs the flake8 workflow. Green check means it passed. Red X means it failed. Click into the details to see which lines have issues. Fix them, push again, and the check reruns. You cannot merge with a red X.",
 
-  "As a reviewer, your job is to actually read the code. Check the diff, not just the description. Does the code do what the PR says it does? Are there edge cases the author missed? Is the naming clear? Could you maintain this code six months from now? Leave at least one comment that shows you read it. If something is confusing, say so. If something is good, say that too.",
+  "As a reviewer, your job is to actually read the code. Check the diff, not just the description. Does the code do what the PR says it does? Are there edge cases the author missed? Is the naming clear? Could you maintain this code six months from now? Leave at least one comment that shows you read it. If something is confusing, say so. If something is good, say that too. Bigger picture: you're learning to give and receive critical feedback clearly and constructively. This skill — finding problems, articulating them specifically, suggesting improvements — appears in every professional role. Code review is practice for the hardest version of it.",
 
   "The PR template has five sections. Summary: one or two sentences on what this PR does and why. Changes: bullet list of what you actually changed. Test plan: how you verified it works. Tradeoffs: what alternatives you considered and why you chose this approach. Checklist: CI passes, reviewer assigned, issue linked. Fill in every section. The template exists because 'see diff' is not a useful PR description.",
 
@@ -343,7 +343,7 @@
 
   "The PR lifecycle, step by step. First, file an issue describing what you're going to do. Then create a feature branch from dev. Write your code, making commits as you go. Push to GitHub. Open a PR using the template. Link it to the issue with Closes hash number. Request a reviewer. Respond to feedback, push fixes. Once approved and CI is green, merge to dev.",
 
-  "Commit messages matter. Good messages use imperative mood, like giving a command. Add flake8 configuration. Fix store count bug. Not added, not fixed, not stuff. Reference the issue number so there's a trail. And keep each commit to one logical change. If you did two things, make two commits.",
+  "Commit messages matter. Good messages use imperative mood, like giving a command. Add flake8 configuration. Fix store count bug. Not added, not fixed, not stuff. Reference the issue number so there's a trail. And keep each commit to one logical change. If you did two things, make two commits. Think of it this way: a commit message is a micro-conversation with people you may never meet, who will read it without context. The discipline of writing clearly for an absent audience transfers to emails, documentation, and any situation where your reasoning needs to outlast the conversation.",
 
   "Here is your daily git rhythm. Tape this to your monitor until it becomes muscle memory. Starting work: checkout dev, pull, create or switch to your feature branch. While working: git status to check where you are, git add specific files, git commit with a descriptive message. Sharing work: git push, then open a PR on GitHub. When in doubt at any point: git status.",
 
@@ -554,6 +554,9 @@
           <div class="desc">Show that you read it. If something is confusing, say so. If something is good, say that too.</div></div>
         </li>
       </ul>
+      <div style="margin-top: 24px; padding: 20px 28px; background: var(--cream); border-left: 4px solid var(--badger-red); border-radius: 0 10px 10px 0; font-size: 20px; color: var(--fg-2); line-height: 1.5; max-width: 1400px;">
+        <strong style="color: var(--ink);">Beyond this project:</strong> You're learning to give and receive critical feedback clearly and constructively. This skill (finding problems, articulating them specifically, suggesting improvements) appears in every professional role. Code review is practice for the hardest version of it.
+      </div>
       <div class="deck-footer">
         <span>Week 2 · Review pipeline</span>
         <span><span class="dot">●</span> Peer review</span>
@@ -735,6 +738,9 @@
         </div>
       </div>
       <p class="body-text" style="margin-top: 24px; font-size: 24px;">Imperative mood ("Add", not "Added"). Reference issue numbers. One logical change per commit.</p>
+      <div style="margin-top: 24px; padding: 20px 28px; background: var(--cream); border-left: 4px solid var(--badger-red); border-radius: 0 10px 10px 0; font-size: 20px; color: var(--fg-2); line-height: 1.5;">
+        <strong style="color: var(--ink);">Beyond this project:</strong> A commit message is a micro-conversation with people you may never meet, who will read it without context. The discipline of writing clearly for an absent audience transfers to emails, documentation, and any situation where your reasoning needs to outlast the conversation.
+      </div>
       <div class="deck-footer">
         <span>Week 2 · Git workflow</span>
         <span><span class="dot">●</span> Commit conventions</span>

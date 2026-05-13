@@ -789,13 +789,13 @@
 
   "Then each of you traces one endpoint through the full stack and writes a short description — three to five paragraphs in your own words — of how that endpoint works. Five endpoints, mapped to five students by experience level. Junior students get the simpler ones. Senior students get the simulation core. Go to docs slash traces in the repo to find the template.",
 
-  "Deliverable: each of you opens a PR with your trace as a markdown file in docs slash traces. We review them as a group next week. Don't make this a chore. Write clearly, like you're explaining it to a future you who's forgotten everything. The trace is your understanding made visible.",
+  "Deliverable: each of you opens a PR with your trace as a markdown file in docs slash traces. We review them as a group next week. Don't make this a chore. Write clearly, like you're explaining it to a future you who's forgotten everything. The trace is your understanding made visible. And here's a broader point: writing down what you learned in your own words is how professionals transfer knowledge in any field. The people who write things down become go-to resources. The people who keep knowledge in their heads become bottlenecks.",
 
   "Section seven: solo work this week. Two parts. Explore the parts you didn't trace. And file issues for everything you noticed.",
 
   "If you're a junior, your hunting ground is the frontend code. Match what you see in the browser to what you see in the code. Which component renders the map. Which one handles add store. Where do household colors come from. If you're a senior, focus on household.py — that's where the simulation lives. Read get_mfai, has_resources, and step. Try to understand what the magic numbers mean — 95, 55, 0.8, the income thresholds. Read get_data.py too — that's how Census data turns into synthetic households.",
 
-  "Now the part that matters most: file issues for everything you found. This is not busywork. This is how the team builds a real backlog. Title should be clear and specific. Body should describe what you observed, where it is, why it's a problem, and optionally what the fix might be. Label it bug, enhancement, or refactor. Goal: at least three issues per student.",
+  "Now the part that matters most: file issues for everything you found. This is not busywork. This is how the team builds a real backlog. Title should be clear and specific. Body should describe what you observed, where it is, why it's a problem, and optionally what the fix might be. Label it bug, enhancement, or refactor. Goal: at least three issues per student. And notice: the structure of a good issue — what you observed, where, why it matters, proposed fix — is the same structure you'd use to describe a problem to a manager, write a bug report for a vendor, or scope a project request. Master this format here and you'll use it everywhere.",
 
   "Things you will probably find. Inconsistent imports. Hardcoded CORS. A version mismatch between pyproject and the Dockerfile. Print statements instead of logging. Magic numbers with no explanation. Bootstrap mixed with Tailwind. No error handling for unreachable APIs. These are real things that are real in the real codebase right now. File them.",
 
@@ -2525,6 +2525,9 @@
         <p class="body-text muted" style="font-size: 22px; margin-top: 24px;">
           Reviewed by a peer before the Week 2 session. Write for future you.
         </p>
+        <div style="margin-top: 24px; padding: 20px 28px; background: var(--white); border-left: 4px solid var(--badger-red); border-radius: 0 10px 10px 0; font-size: 20px; color: var(--fg-2); line-height: 1.5;">
+          <strong style="color: var(--ink);">Beyond this project:</strong> Writing down what you learned, in your own words, is how professionals transfer knowledge. The people who write things down become go-to resources; the people who keep knowledge in their heads become bottlenecks.
+        </div>
       </div>
       <div>
         <div class="card" style="padding: 36px; background: var(--white);">
@@ -2665,6 +2668,9 @@
           </ul>
           <div style="margin-top: 32px; padding: 24px; background: var(--cream); border-radius: 12px; border: 1px solid var(--border-strong);">
             <div style="font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--ink);">Goal: at least 3 issues per student.</div>
+          </div>
+          <div style="margin-top: 20px; padding: 18px 24px; background: var(--white); border-left: 4px solid var(--badger-red); border-radius: 0 10px 10px 0; font-size: 19px; color: var(--fg-2); line-height: 1.5;">
+            <strong style="color: var(--ink);">Beyond this project:</strong> The structure of a good issue (what you observed, where, why it matters, proposed fix) is the same structure you'd use to describe a problem to a manager, write a bug report for a vendor, or scope a project request.
           </div>
         </div>
         <div>
