@@ -28,4 +28,4 @@ Scaffolded guides that walk you through increasingly complex contributions to th
 ## Reference Guides
 
 10. [Deployment Configuration](10-deployment-configuration) -- understand how frontend, backend, and database connect across environments
-11. [Planning with Claude Code](11-planning-with-claude-code) -- when and how to use `/plan`, `/ultraplan`, and `/ultrareview`
+11. [Structured Planning with CLI Agents](11-planning-with-claude-code) -- when and how to use structured planning, multi-issue planning, and branch-level review

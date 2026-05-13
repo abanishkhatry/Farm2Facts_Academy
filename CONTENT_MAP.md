@@ -26,12 +26,12 @@ This file maps sections of `STUDENT_ONBOARDING_PLAN.md` to slide numbers in each
 | Use cases and stakeholders (L118-133) | 09 Stakeholders, 18 Origin | Stakeholder list, example scenarios, ICICLE/NSF origin |
 | **Architecture** (L135-187) | 19 Section, 20 Three layers, 21 Frontend, 22 Backend, 23 Database, 24 Step lifecycle (condensed) | Three-layer diagram, frontend tech (React 19/Vite/Leaflet), backend tech (FastAPI/Mesa/asyncpg), DB schema, CRS (4326 vs 3857), entry points, step lifecycle (condensed summary), multiprocessing, client.js hardcoded URL, port numbers |
 | **Deployment configurations** (L189-234) | NEW: slide(s) needed (after slide 24) | Deployment topology diagram (3 environments x 3 layers), configuration matrix table, three configuration levers (client.js, .env, CORS), common configurations, cross-environment safety warning |
-| **Project mgmt artifacts** (L236-244) | NEW: slide(s) needed | CLAUDE.md, ROADMAP.md, DECISIONS.md overview; brief on-screen display |
-| **Agentic coding tools** (L246-297) | 25 Section (REWORK), NEW: agentic engineering vs vibe coding slide, 25b The one rule, NEW: tool landscape slides, NEW: CLAUDE.md as config slide, NEW: live demo slide, 27 Week 1 rules | Agentic engineering vs. vibe coding distinction, tool landscape (Claude Code, Gemini CLI, Cursor, Copilot), CLAUDE.md as agent config, the one rule (explain every line), live demo comparing tools, week 1 LLM restrictions |
+| **Project mgmt artifacts** (L236-244) | NEW: slide(s) needed | Project context file (CLAUDE.md), ROADMAP.md, DECISIONS.md overview; brief on-screen display |
+| **Agentic coding tools** (L246-297) | 25 Section (REWORK), NEW: agentic engineering vs vibe coding slide, 25b The one rule, NEW: tool landscape slides, NEW: project context file as config slide, NEW: live demo slide, 27 Week 1 rules | Agentic engineering vs. vibe coding distinction, tool landscape (Claude Code, Gemini CLI, Cursor, Copilot), project context file as agent config, the one rule (explain every line), live demo comparing tools, week 1 LLM restrictions |
 | **Git fundamentals** (NEW, in Guide 01) | 28b Git concepts, 28c Git commands | Core concepts (repo, commit, branch), five commands (clone, checkout, add+commit, push, status) |
-| **Setup** (L299-423) | 28 Section, 28b Git concepts, 28c Git commands, 29 Prerequisites, 30 Setup steps (NOW INCLUDES Claude Code install as Step 3), 31 Working state, 32 Common problems | Prerequisites list, git fundamentals, clone/branch/install steps, Claude Code install, run_local.py port 8000, client.js edit, common problems list, live instance URL |
+| **Setup** (L299-423) | 28 Section, 28b Git concepts, 28c Git commands, 29 Prerequisites, 30 Setup steps (NOW INCLUDES CLI agent install as Step 3), 31 Working state, 32 Common problems | Prerequisites list, git fundamentals, clone/branch/install steps, CLI agent install, run_local.py port 8000, client.js edit, common problems list, live instance URL |
 | Assigned work (L425-454) | 33 Section, 34 Use the app, 35 Endpoint traces, 36 Deliverable | Endpoint trace table (5 students), deliverable (PR with trace), live instance URL |
-| Solo work (L455-522) | 37 Section, 38 Solo explore, NEW: CLAUDE.md creation slide, 39 Solo file issues, 40 Things you'll find, 41 Stretch | J vs S exploration targets, CLAUDE.md creation in FEAST repo, issue filing expectations (3+), example issues list, stretch goals |
+| Solo work (L455-522) | 37 Section, 38 Solo explore, NEW: project context file creation slide, 39 Solo file issues, 40 Things you'll find, 41 Stretch | J vs S exploration targets, project context file creation in FEAST repo, issue filing expectations (3+), example issues list, stretch goals |
 | Roadmap activity (L523-526) | 42 Roadmap kickoff | Review + label + project board |
 | -- | 01 Title, 03b Live demo, 04a Act I, 24b Act II, 43 Recap, 44 Q&A | Structural slides, no curriculum counterpart |
 
@@ -52,10 +52,10 @@ These specific values appear in both the curriculum and slides. If any change, b
 - **get_mfai() line ref:** household.py:218
 - **Agentic tools listed:** Claude Code, Gemini CLI, Cursor, Copilot
 - **Review pipeline layers:** CI checks (Week 2), peer review (Week 2), LLM adversarial review (Week 3)
-- **Project mgmt artifacts:** CLAUDE.md, ROADMAP.md, DECISIONS.md
+- **Project mgmt artifacts:** project context file (CLAUDE.md), ROADMAP.md, DECISIONS.md
 - **Configuration levers:** client.js baseURL (frontend->backend), .env DB_HOST (backend->DB), CORS origins (backend->frontend). Appears in three places: `STUDENT_ONBOARDING_PLAN.md` (Week 1 deployment config section), `docs/guides/01-environment-setup.md` (Configuration Points), and `docs/guides/10-deployment-configuration.md`. All three must stay in sync.
 - **Common configurations:** full local, local FE + staging API, full staging, mixed (mistake)
-- **Planning tools:** `/plan` (Week 3), `/ultraplan` (Week 4), `/ultrareview` (Week 4)
+- **Planning tools:** structured planning (Week 3), multi-issue planning (Week 4), branch-level review (Week 4)
 
 ## Week 2
 
@@ -67,9 +67,9 @@ These specific values appear in both the curriculum and slides. If any change, b
 | **Review pipeline** (L532-542) | 03 Section, 04 Three layers, 05 CI in practice, 06 Peer review, 07 PR template | Three-layer pipeline (CI/peer/LLM), PR template sections (summary, changes, test plan, tradeoffs, checklist), PR size limit (~200 lines) |
 | **Git workflow for teams** (L544-614) | 08 Section, 09 Branch strategy, 10 PR lifecycle, 11 Commit conventions, 12 Daily git rhythm | Branch strategy (main/dev/feature), branch naming convention (feature/issue-NUMBER-desc), commit conventions (imperative mood, issue refs), PR lifecycle steps, daily git rhythm |
 | **Edge case brainstorming** (L616-620) | 13 Section, 14 Interview first, 15 Edge case example | Interview-first pattern, has_resources() edge cases, income thresholds |
-| **Writing code with AI tools** (L622-638) | 16 Section, 17 Five steps, 18 Vibe vs agentic, 19 Plan preview | Five-step iterative pattern, vibe coding vs agentic engineering, /plan preview |
+| **Writing code with AI tools** (L622-638) | 16 Section, 17 Five steps, 18 Vibe vs agentic, 19 Plan preview | Five-step iterative pattern, vibe coding vs agentic engineering, structured planning preview |
 | **ADRs** (L640-644) | 20 Section, 21 ADR template, 22 ADR example | ADR template fields (title+status, context, decision, alternatives), E501 example |
-| **CLAUDE.md review** (L646-648) | 23 Section, 24 CLAUDE.md review | Review checklist |
+| **Project context file review** (L646-648) | 23 Section, 24 Project context file review | Review checklist |
 | **Assigned work** (L650-667+) | 25 Section, 26 Assigned issues, 27 Solo work | Issue #24 (linting), Issues #18/#19/#20 (type hints), solo work deliverables |
 | -- | 28 Recap | Structural slide, no curriculum counterpart |
 
@@ -90,7 +90,7 @@ Slide decks for these weeks do not exist yet. When created, add mappings here fo
 
 | Week | Curriculum topics (post-DEC-004/DEC-005 restructuring) | Slide deck | Status |
 |---|---|---|---|
-| 3 | LLM adversarial review rotation (completing 3-layer pipeline), specs before code, `/plan` for feature specs, ADR-format specs | `slides/week-3/index.html` | Not started |
-| 4 | Manual vs. auto-generated artifacts, ADR generation from diffs, `/plan` vs. `/ultraplan` vs. `/ultrareview`, roadmap maintenance, CLAUDE.md check-in | `slides/week-4/index.html` | Not started |
-| 5 | Security review, deployment configuration audit, `/ultrareview` evaluation, review pipeline retrospective, CLAUDE.md audit | `slides/week-5/index.html` | Not started |
+| 3 | LLM adversarial review rotation (completing 3-layer pipeline), specs before code, structured planning for feature specs, ADR-format specs | `slides/week-3/index.html` | Not started |
+| 4 | Manual vs. auto-generated artifacts, ADR generation from diffs, single-feature vs. multi-issue planning vs. branch-level review, roadmap maintenance, project context file check-in | `slides/week-4/index.html` | Not started |
+| 5 | Security review, deployment configuration audit, branch-level review evaluation, review pipeline retrospective, project context file audit | `slides/week-5/index.html` | Not started |
 | 6 | Retrospective (tools + process), demo, handoff (may be discussion-driven, slides optional) | `slides/week-6/index.html` | Not started |

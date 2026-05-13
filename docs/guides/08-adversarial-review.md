@@ -17,7 +17,7 @@ Starting in week 3, every PR gets both a human peer review and an adversarial LL
 
 ## Steps
 
-### 1. Open a FRESH Claude Code session
+### 1. Open a FRESH LLM session
 
 Do not use the same session that helped write the code. Start clean.
 

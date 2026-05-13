@@ -31,7 +31,7 @@ For the ADR template used in the FEAST application repos, see `templates/adr-tem
 - Week 5: Add a deployment configuration audit exercise (~10 min) and a security checklist item. Revisits the Week 1 mental model with hands-on experience.
 - New reference guide: `docs/guides/10-deployment-configuration.md`.
 
-**Planning workflows:**
+**Planning workflows** (commands below are Claude Code-specific; the general pattern of structured planning, multi-issue planning, and branch-level review applies to any CLI agent):
 - Week 2: Brief preview of `/plan` during the iterative code pattern demo (2-3 sentences, no new subsection).
 - Week 3: Expand "specs before code" to include a `/plan` demo alongside hand-written specs (~5 min added). Add `/plan` usage notes to the #47 and #74 scaffolds.
 - Week 4: New subsection "Planning at different scales" covering `/plan` vs. `/ultraplan` vs. `/ultrareview` (~10 min). Add planning note to the reporting feature scaffold.
@@ -80,10 +80,10 @@ The overriding design constraint: get students contributing real work as soon as
 **Decision:** Restructure the curriculum to integrate all three topics earlier, with a progression from manual to tool-assisted:
 
 **Week 1 changes:**
-- Expand "How LLM tools fit" from 5 min to 20 min. Rename to "Agentic coding tools: setup and the landscape." Cover Claude Code, Gemini CLI, Cursor, Copilot. Demo CLAUDE.md as both documentation and agent configuration. Include a brief hands-on comparison if students have access to multiple tools.
+- Expand "How LLM tools fit" from 5 min to 20 min. Rename to "Agentic coding tools: setup and the landscape." Cover Claude Code, Gemini CLI, Cursor, Copilot. Demo the project context file (CLAUDE.md, .cursorrules, etc.) as both documentation and agent configuration. Include a brief hands-on comparison if students have access to multiple tools.
 - Add Claude Code (or best-available agentic tool) to the setup scaffold, alongside repo cloning. Tool access depends on what's available via GitHub educational accounts; the scaffold handles multiple paths.
 - Plant the project management artifacts seed (5 min): show CLAUDE.md, ROADMAP.md, DECISIONS.md in the FEAST_edu repo. No deep dive; just establish they exist.
-- Solo work: students create a CLAUDE.md in their FEAST repo fork.
+- Solo work: students create a project context file (CLAUDE.md or equivalent) in their FEAST repo fork.
 - Trim the architecture step lifecycle from 15 to 10 min (students learn it better by tracing it themselves). Net lesson time increase: ~10 min.
 
 **Week 2 changes:**
@@ -100,11 +100,11 @@ The overriding design constraint: get students contributing real work as soon as
 **Week 4 changes:**
 - Reframe topic from "ADRs" to "Project management artifacts: manual vs. auto-generated." Students have been writing ADRs since Week 2; this session goes deeper.
 - Demo generating an ADR from a diff/PR using Claude Code. Compare manual vs. generated. Discuss when each is appropriate.
-- Cover roadmap maintenance and CLAUDE.md updates.
+- Cover roadmap maintenance and project context file updates.
 
 **Week 5 changes:**
 - Add review pipeline retrospective (10 min): what's the CI catching, what are humans catching, what's the LLM catching? Adjust process if needed.
-- CLAUDE.md audit: each student reviews and updates theirs.
+- Project context file audit: each student reviews and updates theirs.
 
 **Week 6 changes:**
 - Handoff document adds tool configuration handoff and process retrospective sections.
@@ -124,7 +124,7 @@ The overriding design constraint: get students contributing real work as soon as
 - (+) Agentic tools are set up and configured from Week 1, not introduced as a late topic
 - (+) ADR writing is practiced repeatedly before the "manual vs. auto-generated" lesson, so the comparison is grounded in experience
 - (+) The review pipeline matures incrementally (CI in Week 2, peer review in Week 2, LLM adversarial in Week 3) rather than arriving fully formed in Week 3
-- (+) CLAUDE.md creation in Week 1 gives students ownership of their development environment early
+- (+) Project context file creation in Week 1 gives students ownership of their development environment early
 - (-) Week 1 lesson time increases by ~10 min (70 min total, still within tolerance)
 - (-) Week 2 lesson time increases by ~15 min (45 min total, absorbed from guided work time)
 - (-) Tool access logistics are uncertain; the setup scaffold must handle multiple paths depending on what's available via educational accounts

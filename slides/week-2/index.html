@@ -325,7 +325,7 @@
 [
   "Welcome back. Week 1 was about understanding what FEAST is and getting set up. This week we start writing real code and shipping real PRs. By the end of today, you'll understand how every PR gets reviewed, how git branching works for a team, and how to use LLM tools iteratively instead of just accepting the first output.",
 
-  "Quick recap. Last week you cloned the repos, traced an endpoint through the stack, filed issues, and set up your CLAUDE.md. Those issues you filed become the work for this week and beyond. You also learned five git commands: clone, checkout, add and commit, push, and status. Today we build on that foundation.",
+  "Quick recap. Last week you cloned the repos, traced an endpoint through the stack, filed issues, and set up your project context file. Those issues you filed become the work for this week and beyond. You also learned five git commands: clone, checkout, add and commit, push, and status. Today we build on that foundation.",
 
   "Part one: the review pipeline. From this week on, every PR goes through a structured review process before it can merge. We start with two layers and add a third next week.",
 
@@ -359,7 +359,7 @@
 
   "This is the difference between vibe coding and agentic engineering. Vibe coding: prompt, accept, move on. It produces code that works but that nobody can maintain. Agentic engineering: treat the output as a first draft. Push back on naming, structure, complexity. Shape the code until it is functional, readable, and no more complex than it needs to be. The tool is a collaborator, not a printer.",
 
-  "Preview: the plan command. Claude Code has a /plan command that creates a structured plan before making changes. Same principle as the iterative pattern: start with intent, get a plan, review it critically, then execute. We will use /plan hands-on in Week 3. For now, just know it exists.",
+  "Preview: structured planning. Many CLI agents have built-in planning features (e.g., Claude Code's /plan command) that create a structured plan before making changes. Same principle as the iterative pattern: start with intent, get a plan, review it critically, then execute. We will use structured planning hands-on in Week 3. For now, just know the capability exists.",
 
   "Part five: Architecture Decision Records. When you make a choice that someone else might question later, write a short ADR documenting what you decided and why.",
 
@@ -367,7 +367,7 @@
 
   "Example: We chose to ignore E501 because the project convention allows long lines. Alternative: enforce 120-character limit. Rejected because the existing codebase has many long lines and reformatting them all would create noisy diffs during onboarding. That is an ADR. Short, specific, and it answers the question future you will have.",
 
-  "Part six: CLAUDE.md check-in. Quick round. Each student shows their CLAUDE.md from last week. Are you capturing useful information? Is anything missing? One to two minutes per student.",
+  "Part six: context file check-in. Quick round. Each student shows their project context file from last week. Are you capturing useful information? Is anything missing? One to two minutes per student.",
 
   "Part seven: this week's work. Issues from the backlog, paired J with S where possible.",
 
@@ -375,9 +375,9 @@
 
   "Issues 18, 19, 20: add type hints. Three students. Each student takes one module. Start from the function signatures and work inward. Follow the existing patterns in the codebase. Your first PR should be a small, focused set of type hints. Not the whole file at once.",
 
-  "Solo work this week. Update your CLAUDE.md with patterns you learned this week. File at least two more issues for things you discover while working. Review at least one teammate's PR with a substantive comment. Stretch: start on your assigned issue if you haven't already.",
+  "Solo work this week. Update your project context file with patterns you learned this week. File at least two more issues for things you discover while working. Review at least one teammate's PR with a substantive comment. Stretch: start on your assigned issue if you haven't already.",
 
-  "Recap. This week you learned four things. The review pipeline: CI plus peer review on every PR. Git workflow: branches, commits, PRs, and the daily rhythm. Iterative coding: the tool is a first draft, not a final answer. ADRs: document decisions so future you understands why. Next week we add the third review layer, LLM adversarial review, and start using /plan for structured feature work."
+  "Recap. This week you learned four things. The review pipeline: CI plus peer review on every PR. Git workflow: branches, commits, PRs, and the daily rhythm. Iterative coding: the tool is a first draft, not a final answer. ADRs: document decisions so future you understands why. Next week we add the third review layer, LLM adversarial review, and start using structured planning for feature work."
 ]
 </script>
 </head>
@@ -430,7 +430,7 @@
         </div>
         <div class="card" style="padding: 28px;">
           <div class="tag wheat">Config</div>
-          <h3>CLAUDE.md created</h3>
+          <h3>Context file created</h3>
           <p>Your project context file. We'll review these today.</p>
         </div>
       </div>
@@ -478,7 +478,7 @@
         <div class="card" style="padding: 32px; border-top: 6px solid var(--fg-3);">
           <div style="font-family: var(--font-mono); font-size: 14px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;">Layer 3 · Week 3</div>
           <h3>LLM adversarial review</h3>
-          <p>A student runs a structured adversarial review in a fresh Claude Code session and posts findings as PR comments.</p>
+          <p>A student runs a structured adversarial review in a fresh LLM session and posts findings as PR comments.</p>
         </div>
       </div>
       <div class="deck-footer">
@@ -949,22 +949,22 @@
   </section>
 
   <!-- ============================================================
-       19 — /plan preview
+       19 — Structured planning preview
        ============================================================ -->
   <section style="background: var(--cream);" data-screen-label="19 Plan preview">
     <div class="pattern-bg"></div>
     <div style="position: relative;">
       <div class="eyebrow-slide">Coming in week 3</div>
-      <h2 class="slide-title">Preview: the /plan command.</h2>
+      <h2 class="slide-title">Preview: structured planning.</h2>
       <p class="body-text" style="max-width: 1400px;">
-        Claude Code has a <span class="code-chip">/plan</span> command that creates a structured plan before making changes. Same principle as the iterative pattern: start with intent, get a plan, review it critically, then execute.
+        Many CLI agents have planning features (e.g., Claude Code's <span class="code-chip">/plan</span>) that create a structured plan before making changes. Same principle as the iterative pattern: start with intent, get a plan, review it critically, then execute.
       </p>
       <p class="body-text muted" style="margin-top: 24px; max-width: 1400px;">
-        We'll use /plan hands-on in Week 3. For now, just know it exists and that it follows the same "review before accepting" principle.
+        We'll use structured planning hands-on in Week 3. For now, just know it exists and that it follows the same "review before accepting" principle.
       </p>
       <div class="deck-footer">
         <span>Week 2 · Iterative coding</span>
-        <span><span class="dot">●</span> /plan preview</span>
+        <span><span class="dot">●</span> Planning preview</span>
       </div>
     </div>
   </section>
@@ -1047,14 +1047,14 @@
   </section>
 
   <!-- ============================================================
-       23 — SECTION DIVIDER · CLAUDE.md Check-in
+       23 — SECTION DIVIDER · Context File Check-in
        ============================================================ -->
-  <section class="section-divider dark" data-screen-label="23 Section · CLAUDE.md check-in">
+  <section class="section-divider dark" data-screen-label="23 Section · Context file check-in">
     <div class="pattern-bg on-dark"></div>
     <div style="position: relative;">
       <div class="part-label">Part six</div>
       <h2 class="part-title">
-        CLAUDE.md<br/>
+        Context file<br/>
         <span class="accent">check-in.</span>
       </h2>
       <div class="part-meta">5 minutes · quick round</div>
@@ -1062,13 +1062,13 @@
   </section>
 
   <!-- ============================================================
-       24 — CLAUDE.md review
+       24 — Context file review
        ============================================================ -->
-  <section data-screen-label="24 CLAUDE.md review">
+  <section data-screen-label="24 Context file review">
     <div class="pattern-bg"></div>
     <div style="position: relative;">
       <div class="eyebrow-slide">Group review</div>
-      <h2 class="slide-title">Show your CLAUDE.md. One minute each.</h2>
+      <h2 class="slide-title">Show your project context file. One minute each.</h2>
       <div class="two-col">
         <div class="col">
           <h3>What to check</h3>
@@ -1090,7 +1090,7 @@
         </div>
       </div>
       <div class="deck-footer">
-        <span>Week 2 · CLAUDE.md</span>
+        <span>Week 2 · Context files</span>
         <span><span class="dot">●</span> Review</span>
       </div>
     </div>
@@ -1149,7 +1149,7 @@
       <ul class="num-list" style="max-width: 1400px;">
         <li>
           <div class="num">1</div>
-          <div><div class="label">Update your CLAUDE.md</div>
+          <div><div class="label">Update your project context file</div>
           <div class="desc">Add patterns you learned this week. Build and test commands. Architecture notes.</div></div>
         </li>
         <li>
@@ -1201,7 +1201,7 @@
           <p style="font-size: 20px; color: var(--mist); line-height: 1.45;">Document decisions so future you understands why.</p>
         </div>
       </div>
-      <p style="margin-top: 40px; font-family: var(--font-display); font-size: 24px; color: var(--mist);">Next week: LLM adversarial review and /plan for structured feature work.</p>
+      <p style="margin-top: 40px; font-family: var(--font-display); font-size: 24px; color: var(--mist);">Next week: LLM adversarial review and structured planning for feature work.</p>
       <div class="deck-footer">
         <span style="color: var(--mist);">FEAST Academy · Week 2</span>
         <span style="color: var(--mist);"><span class="dot">●</span> End</span>

@@ -237,7 +237,7 @@ You don't need to memorize this table. The point is to understand that the three
 
 Before jumping to tools, briefly show how this curriculum repo (FEAST_edu) manages itself using three lightweight artifacts:
 
-- **CLAUDE.md**: Project context for both humans and AI agents. Describes what the project is, how to work in it, and what conventions to follow. You'll create one of these in Week 1 solo work.
+- **Project context file**: Project context for both humans and AI agents. Describes what the project is, how to work in it, and what conventions to follow. Different tools read different filenames (`CLAUDE.md` for Claude Code, `GEMINI.md` for Gemini CLI, `.cursorrules` for Cursor), but the content is the same. You'll create one in Week 1 solo work.
 - **ROADMAP.md**: What's done, what's in progress, what's next. A living document, not a one-time plan.
 - **DECISIONS.md**: A log of design decisions and the reasoning behind them (also called ADRs, Architecture Decision Records). You'll start writing these in Week 2.
 
@@ -266,31 +266,31 @@ These rules are the practical test for agentic engineering: if you can't explain
 
 There are several categories of AI-assisted coding tools. Students should understand the landscape, not just one tool:
 
-- **CLI agents** (Claude Code, Gemini CLI): Run in your terminal alongside any editor. You describe what you want in natural language; the agent reads your codebase, proposes changes, and can execute commands. Claude Code uses CLAUDE.md files for project context; Gemini CLI is free and open source (Apache 2.0) with a generous daily quota on any Google account.
+- **CLI agents** (Claude Code, Gemini CLI): Run in your terminal alongside any editor. You describe what you want in natural language; the agent reads your codebase, proposes changes, and can execute commands. Both use project context files for grounding (see below). Claude Code is our recommendation if access is available; Gemini CLI is free and open source (Apache 2.0) with a generous daily quota on any Google account.
 - **AI-native IDEs** (Cursor, Windsurf): Full editors with AI built into every interaction. Code completion, inline chat, multi-file editing. Heavier-weight, more opinionated about workflow.
 - **Inline assistants** (GitHub Copilot, Codeium): Plugins for existing editors (VS Code, JetBrains). Primarily autocomplete and inline suggestions. Lightest-weight integration.
 
-For this cohort, Claude Code is the primary tool. It works in any editor, its CLAUDE.md files double as project documentation, and its conversational interface matches how we want students to interact with AI: asking questions, not accepting autocomplete. Students are welcome to also use Copilot, Cursor, or other tools they have access to.
+For this cohort, we recommend Claude Code if access is available. Its conversational interface matches how we want students to interact with AI (asking questions, not accepting autocomplete), and its project context files double as documentation. If Claude Code access isn't available, Gemini CLI is the recommended alternative: same terminal-based agent paradigm, free on any Google account, and the skills transfer directly. Students are welcome to also use Copilot, Cursor, or other tools they have access to.
 
-**Access logistics:** We'll use whatever is available through GitHub educational accounts (likely Copilot at minimum, possibly Claude via GitHub Models). If students have personal access to other tools, they can use those too. The important thing is that everyone has at least one agentic tool working by end of session. We'll sort out the specifics during setup.
+**Access logistics:** Tool availability changes frequently. Check what's currently available through GitHub educational accounts (Copilot, GitHub Models) and whether the institution has a Claude for Education or similar plan. Gemini CLI requires only a personal Google account and has no signup gates. The important thing is that everyone has at least one CLI agent working by end of session. The concepts we teach (project context files, spec-first planning, adversarial review) work with any tool.
 
-##### CLAUDE.md as agent configuration (~5 min)
+##### Project context files (~5 min)
 
-Demo: Open the FEAST_edu repo's CLAUDE.md on screen. Point out how it describes the project structure, conventions, and workflow. Then show what happens when you ask Claude Code a question about the project with vs. without a CLAUDE.md. The difference is immediate: with context, the agent gives grounded answers; without it, it guesses.
+Demo: Open the FEAST_edu repo's CLAUDE.md on screen. Point out how it describes the project structure, conventions, and workflow. Then show what happens when you ask your CLI agent a question about the project with vs. without a context file. The difference is immediate: with context, the agent gives grounded answers; without it, it guesses.
 
-CLAUDE.md serves two audiences simultaneously:
+A project context file serves two audiences simultaneously:
 1. **A new developer** joining the project (what is this, how do I work in it?)
 2. **An AI agent** working in the codebase (what are the conventions, what should I pay attention to?)
 
-This dual purpose is why CLAUDE.md is more useful than a generic README for day-to-day development. Students will create one for their FEAST repo during solo work this week.
+This dual purpose is why a project context file is more useful than a generic README for day-to-day development. Different tools read different filenames: Claude Code reads `CLAUDE.md`, Gemini CLI reads `GEMINI.md`, Cursor reads `.cursorrules`. The content is identical; you just name the file for your tool (or create multiple files if the team uses different tools). Students will create one for their FEAST repo during solo work this week.
 
 ##### Live demo: using an agent to understand code (~5 min)
 
-Open Claude Code in the FEAST backend repo. Show the difference between:
+Open your CLI agent in the FEAST backend repo. Show the difference between:
 - "What does `has_resources()` in `household.py` do and why are the thresholds set the way they are?" (good: builds understanding)
 - "Write me a function that checks if a household has resources." (bad: skips understanding)
 
-If students have access to multiple tools, briefly compare: ask the same question in Claude Code and in Copilot/Cursor. Note the differences in how each tool handles context, codebase awareness, and response style. This takes 2-3 minutes and makes the "landscape" tangible rather than abstract.
+If students have access to multiple tools, briefly compare: ask the same question in two different tools. Note the differences in how each handles context, codebase awareness, and response style. This takes 2-3 minutes and makes the "landscape" tangible rather than abstract.
 
 ##### Week 1 rules (~2 min)
 
@@ -333,14 +333,20 @@ Step 2: Backend setup
    a schema file or if the app creates tables on startup.
 
 Step 3: Set up agentic coding tools
-   At minimum, get one agentic tool working. Claude Code is preferred:
+   At minimum, get one CLI agent working.
+
+   Option A (preferred): Claude Code
    npm install -g @anthropic-ai/claude-code
    cd Food-Access-Model
    claude     # verify it launches, ask a test question, then exit
 
-   If Claude Code access isn't available yet, install GitHub Copilot
-   in VS Code (free via GitHub Education) as a baseline. We'll sort
-   out additional tool access as needed.
+   Option B (free, no signup required): Gemini CLI
+   npm install -g @anthropic-ai/gemini-cli   # or: see https://github.com/google-gemini/gemini-cli
+   cd Food-Access-Model
+   gemini     # verify it launches, ask a test question, then exit
+
+   Option C (baseline): GitHub Copilot in VS Code (free via GitHub
+   Education). Less agentic than the CLI tools, but functional.
 
    Verify: you can ask the tool a question about the codebase and
    get a response that references actual files. If it's hallucinating
@@ -452,7 +458,7 @@ Then, each student traces one API endpoint through the full stack and writes a s
 > **Beyond this project:** Writing down what you learned, in your own words, is how professionals transfer knowledge. It forces you to verify you actually understand it, and it creates something others can learn from. In any job, the people who write things down become go-to resources; the people who keep knowledge in their heads become bottlenecks.
 
 ### Deliverable
-Each student opens a PR adding their endpoint trace as a markdown file in `docs/traces/` and their CLAUDE.md in the FEAST repo root. These get reviewed by a peer before the Week 2 session.
+Each student opens a PR adding their endpoint trace as a markdown file in `docs/traces/` and their project context file in the FEAST repo root. These get reviewed by a peer before the Week 2 session.
 
 ### Solo Work (later in the week)
 
@@ -464,9 +470,9 @@ Now that you've traced one endpoint, explore the parts you didn't cover. Some su
 
 **S students**: Read `food_access_model/abm/household.py` carefully, especially `get_mfai()` (line 218), `has_resources()` (line 169), and `step()` (line 259). These are the core of the simulation. Try to understand the MFAI scoring logic. What do the magic numbers mean (95, 55, 0.8, 10000/15000/25000)? Read the data pipeline in `preprocessing/get_data.py` (1134 lines, focus on the main functions, not every line). How does Census data become synthetic households? Also look at `model_multi_processing/batch_running.py` to understand how simulation steps are parallelized.
 
-**Part 2: Create a CLAUDE.md in your FEAST repo.**
+**Part 2: Create a project context file in your FEAST repo.**
 
-Using the template in `FEAST_edu/templates/CLAUDE.md` as a starting point, create a CLAUDE.md in the root of whichever FEAST repo you're primarily working in (backend or frontend). Customize it based on what you learned from the architecture overview and your endpoint trace. The CLAUDE.md should describe the project in a way that would help a new developer (or an AI agent) understand what the repo does and how to work in it.
+Using the template in `FEAST_edu/templates/CLAUDE.md` as a starting point, create a project context file in the root of whichever FEAST repo you're primarily working in (backend or frontend). Name it for your tool: `CLAUDE.md` for Claude Code, `GEMINI.md` for Gemini CLI (or create both). Customize it based on what you learned from the architecture overview and your endpoint trace. The file should describe the project in a way that would help a new developer (or an AI agent) understand what the repo does and how to work in it.
 
 This is your first project management artifact. Keep it short (under 50 lines). You'll update it as you learn more in later weeks. Open a PR for it alongside your endpoint trace.
 
@@ -539,7 +545,7 @@ Every PR from this week forward goes through a structured review pipeline. This 
 
 **Layer 2: Human peer review.** Every PR gets reviewed by one other student before merge. The reviewer checks: Does the code match the stated intent? Are there obvious errors? Is the PR description clear? Post at least one substantive comment (not just "LGTM").
 
-**Layer 3 (Week 3): LLM adversarial review.** A designated student runs an adversarial review in a fresh Claude Code session and posts findings as PR comments.
+**Layer 3 (Week 3): LLM adversarial review.** A designated student runs an adversarial review in a fresh LLM session (any CLI agent or chat interface) and posts findings as PR comments.
 
 > **Beyond this project:** You're learning to give and receive critical feedback clearly and constructively. This skill (finding problems, articulating them specifically, suggesting improvements) appears in every professional role. Code review is practice for the hardest version of it.
 
@@ -641,7 +647,7 @@ Demo the iterative pattern using a concrete example from the FEAST codebase (e.g
 
 The goal is not to get code faster. The goal is to get code that's **functional, readable, and no more complex than it needs to be**. The tool is a collaborator in achieving that, not a code printer.
 
-**Preview: structured planning.** Claude Code also has a `/plan` command that creates a structured plan before making changes. The concept is the same as the iterative pattern above: start with intent, get a plan, review it critically, then execute. We'll use `/plan` hands-on in Week 3; for now, just know it exists and that it follows the same "review before accepting" principle.
+**Preview: structured planning.** Many CLI agents have built-in planning features (e.g., Claude Code's `/plan` command) that create a structured plan before making changes. The concept is the same as the iterative pattern above: start with intent, get a plan, review it critically, then execute. We'll use structured planning hands-on in Week 3; for now, just know it exists and that it follows the same "review before accepting" principle.
 
 #### Architecture Decision Records (~5 min)
 
@@ -649,9 +655,9 @@ Show the ADR template from `templates/adr-template.md`. Explain the purpose: whe
 
 Quick example: "We chose to ignore E501 (line length) because the project convention allows long lines. Alternative: enforce 120-char limit. We rejected this because the existing codebase has many long lines and reformatting them all would create noisy diffs during onboarding."
 
-#### Review Week 1 CLAUDE.md files (~5 min)
+#### Review Week 1 project context files (~5 min)
 
-Quick group check-in: each student shows their CLAUDE.md from last week's solo work. Are they capturing useful information? Is anything missing? This takes 1-2 minutes per student and reinforces the habit of maintaining the artifact.
+Quick group check-in: each student shows their project context file from last week's solo work. Are they capturing useful information? Is anything missing? This takes 1-2 minutes per student and reinforces the habit of maintaining the artifact.
 
 ### Assigned Work
 
@@ -796,9 +802,9 @@ At the start of week 3's group session, spend 10 minutes as a team:
 
 The team has been using two review layers since Week 2 (automated CI + human peer review). This week adds the third: LLM adversarial review.
 
-Demo: Take a recent PR and run it through Claude Code in a fresh session with a skeptical reviewer prompt. Walk through the output. Show how to evaluate valid vs. false positive criticisms. Show the prompt that works well (e.g., "Review this diff for correctness, performance, and maintainability issues. Be thorough and skeptical. For each finding, rate your confidence and explain why it matters.").
+Demo: Take a recent PR and run it through your CLI agent in a fresh session with a skeptical reviewer prompt. Walk through the output. Show how to evaluate valid vs. false positive criticisms. Show the prompt that works well (e.g., "Review this diff for correctness, performance, and maintainability issues. Be thorough and skeptical. For each finding, rate your confidence and explain why it matters.").
 
-**The rotation:** Each PR gets a designated adversarial reviewer (not the author, not the peer reviewer). The adversarial reviewer opens a fresh Claude Code session (no prior context about the PR), feeds it the diff, and posts findings as PR comments, marking each as "Valid" or "False positive (because...)". Assign the rotation at the start of each week so everyone knows their review responsibilities.
+**The rotation:** Each PR gets a designated adversarial reviewer (not the author, not the peer reviewer). The adversarial reviewer opens a fresh LLM session (no prior context about the PR), feeds it the diff, and posts findings as PR comments, marking each as "Valid" or "False positive (because...)". Assign the rotation at the start of each week so everyone knows their review responsibilities.
 
 Every PR from here on gets all three layers: (1) CI checks (automated), (2) human peer review, (3) LLM adversarial review by a different student.
 
@@ -810,18 +816,18 @@ Demo the "spec first" pattern: before implementing, write a short specification 
 
 Show an example: the optimization student (#74) should write an ADR; the bug fix student (#47) should write a diagnosis paragraph.
 
-##### Using `/plan` for structured feature planning
+##### Using structured planning tools
 
-After showing hand-written specs, demo Claude Code's `/plan` command. Take one of this week's assigned issues (e.g., #74 optimization) and show the workflow:
+After showing hand-written specs, demo your CLI agent's planning capability. (In Claude Code this is the `/plan` command; other agents have similar features, or you can simply prompt the agent to "create a plan before making changes.") Take one of this week's assigned issues (e.g., #74 optimization) and show the workflow:
 
-1. **Invoke `/plan`** with a description of what you want to accomplish: "I want to optimize the household step function to iterate over stores once instead of four times. The relevant code is in `food_access_model/abm/household.py`."
-2. **Claude Code explores the codebase** and produces a structured plan: which files to change, in what order, what tests to write, how to verify the refactor didn't change behavior.
+1. **Ask the agent to plan** what you want to accomplish: "I want to optimize the household step function to iterate over stores once instead of four times. The relevant code is in `food_access_model/abm/household.py`. Create a plan before making any changes."
+2. **The agent explores the codebase** and produces a structured plan: which files to change, in what order, what tests to write, how to verify the refactor didn't change behavior.
 3. **Review the plan critically.** Same rules as reviewing generated code. Does it make sense? Did it miss anything? Is it over-scoped? Did it identify files or dependencies you wouldn't have thought of?
 4. **Compare to a hand-written spec** for the same issue. What's different? (The tool usually maps file-level specifics better; the human usually captures intent and constraints better.)
 
-Key teaching point: `/plan` is most useful for **single-feature implementations** where you know what you want but need to map the code changes. It is not a substitute for thinking about *whether* to do something (that's the ADR). It's a tool for mapping *how* after you've decided *what*.
+Key teaching point: structured planning is most useful for **single-feature implementations** where you know what you want but need to map the code changes. It is not a substitute for thinking about *whether* to do something (that's the ADR). It's a tool for mapping *how* after you've decided *what*.
 
-Best workflow: write your hand-written spec first (the *what* and *why*), then feed it to `/plan` as context to get the *how*. You get your reasoning about intent and the tool's mapping of implementation details.
+Best workflow: write your hand-written spec first (the *what* and *why*), then feed it to your agent's planning feature as context to get the *how*. You get your reasoning about intent and the tool's mapping of implementation details.
 
 ### Assigned Work
 
@@ -861,11 +867,11 @@ LLM usage: Describe the bug and your hypothesis to the LLM.
    Ask "What else could cause all households to report the
    same store count?" See if it suggests causes you missed.
 
-LLM planning: After writing your diagnosis, try Claude Code's
-   /plan command to map the implementation. Compare its plan to
-   yours. Did it identify files or dependencies you missed? Did
-   it over-scope the change? Use the plan as a cross-check, not
-   a replacement for your own thinking.
+LLM planning: After writing your diagnosis, ask your CLI agent to
+   create a plan before implementing. Compare its plan to yours.
+   Did it identify files or dependencies you missed? Did it
+   over-scope the change? Use the plan as a cross-check, not a
+   replacement for your own thinking.
 ```
 
 #### Issue #74: Optimize step function (1 student, S)
@@ -903,8 +909,8 @@ LLM usage: After writing your spec, ask the LLM to interview you:
    household. Ask me questions about my approach."
    The LLM should push back on edge cases you might miss.
 
-LLM planning: After your spec is reviewed, use Claude Code's
-   /plan command to map the refactor. It's particularly useful
+LLM planning: After your spec is reviewed, ask your CLI agent to
+   plan the refactor before implementing. This is particularly useful
    here because a single-pass optimization touches multiple
    functions and the plan will identify all the call sites.
    Compare its plan to your ADR. Did it find dependencies you
@@ -1023,7 +1029,7 @@ Students have been writing ADRs by hand since Week 2. This session goes deeper i
 
 #### Manual vs. auto-generated ADRs (~15 min)
 
-Demo: Take issue #91 (multiple stores for scoring) as the example. First, show a hand-written ADR for it (or write one live). Then, show Claude Code generating an ADR from the issue description and relevant diff. Compare the two:
+Demo: Take issue #91 (multiple stores for scoring) as the example. First, show a hand-written ADR for it (or write one live). Then, show your CLI agent generating an ADR from the issue description and relevant diff. Compare the two:
 - What did the auto-generated version get right?
 - What did it miss? (Usually: the reasoning behind rejected alternatives, unstated constraints, stakeholder concerns)
 - When is each approach appropriate?
@@ -1040,34 +1046,34 @@ Show FEAST_edu's ROADMAP.md as an example. Discuss how it stays useful:
 - Tracks dependencies between milestones
 - Identifies the critical path to the next deliverable
 
-Demo: Show Claude Code generating a roadmap summary from `git log`. Compare to the manually maintained ROADMAP.md. What's lost when you auto-generate? (Priorities, dependencies, judgment about what matters, forward-looking decisions.) Auto-generated changelogs are useful artifacts, but they're not roadmaps.
+Demo: Show your CLI agent generating a roadmap summary from `git log`. Compare to the manually maintained ROADMAP.md. What's lost when you auto-generate? (Priorities, dependencies, judgment about what matters, forward-looking decisions.) Auto-generated changelogs are useful artifacts, but they're not roadmaps.
 
-#### Planning at different scales: `/plan` vs. `/ultraplan` (~10 min)
+#### Planning at different scales (~10 min)
 
-In Week 3, you used `/plan` for a single feature. That's the fine-grained use case: "I know what I'm building, help me map the code changes." This week introduces tools for larger-scope planning.
+In Week 3, you used your agent's planning capability for a single feature. That's the fine-grained use case: "I know what I'm building, help me map the code changes." This week introduces planning at a larger scope.
 
-**`/ultraplan`** is for planning across multiple related issues or an entire project phase. Demo: take the reporting feature cluster (#94 + #79 + frontend #36). These three issues are interdependent: the backend needs an API (#94) that serves metrics (#79) that the frontend displays (#36). Show `/ultraplan` generating a plan that covers all three, identifies the dependency chain (backend API contract must exist before frontend can consume it), and proposes an implementation order.
+**Multi-issue planning.** Demo: take the reporting feature cluster (#94 + #79 + frontend #36). These three issues are interdependent: the backend needs an API (#94) that serves metrics (#79) that the frontend displays (#36). Ask your agent to plan across all three, identifying the dependency chain (backend API contract must exist before frontend can consume it) and proposing an implementation order. (In Claude Code, `/ultraplan` is designed for this; with other tools, provide the full set of issues as context and ask for a sequenced plan.)
 
 Compare to the team's manually maintained roadmap:
-- What does `/ultraplan` capture that the manual roadmap doesn't? (Usually: file-level specifics, dependency ordering, implementation sequencing.)
-- What does the manual roadmap capture that `/ultraplan` doesn't? (Usually: priorities, stakeholder context, what *not* to build, judgment about what matters.)
+- What does the agent-generated plan capture that the manual roadmap doesn't? (Usually: file-level specifics, dependency ordering, implementation sequencing.)
+- What does the manual roadmap capture that the plan doesn't? (Usually: priorities, stakeholder context, what *not* to build, judgment about what matters.)
 
-**`/ultrareview`** is the review counterpart. Like the adversarial review rotation from Week 3, but more comprehensive: it can review an entire branch's changes rather than a single PR's diff. This is the tool-assisted version of what students have been doing manually in the adversarial review rotation. We'll use this more in Week 5.
+**Comprehensive review.** Like the adversarial review rotation from Week 3, but broader: reviewing an entire branch's accumulated changes rather than a single PR's diff. This catches cross-cutting issues that per-PR reviews miss. (In Claude Code, `/ultrareview` does this; with other tools, feed the full branch diff and ask for a thorough review.) We'll use this more in Week 5.
 
 **When to use each:**
 
-| Tool | Scope | Input | Good for |
-|------|-------|-------|----------|
-| `/plan` | Single feature | Issue description + codebase | Mapping code changes for one task |
-| `/ultraplan` | Multiple issues / project phase | Set of issues + codebase | Sequencing work, finding dependencies |
-| `/ultrareview` | Branch or PR set | Diff against base branch | Comprehensive review before merge |
+| Approach | Scope | Input | Good for |
+|----------|-------|-------|----------|
+| Single-feature planning | One feature | Issue description + codebase | Mapping code changes for one task |
+| Multi-issue planning | Project phase | Set of issues + codebase | Sequencing work, finding dependencies |
+| Branch-level review | Branch or PR set | Diff against base branch | Comprehensive review before merge |
 | Hand-written spec/ADR | Any | Your reasoning | Capturing *why* and *what*, not just *how* |
 
-Neither `/plan` nor `/ultraplan` replaces the human judgment of *which* goals matter. That's the roadmap and ADR layer. The tools map *how*; you decide *what* and *why*.
+No planning tool replaces the human judgment of *which* goals matter. That's the roadmap and ADR layer. The tools map *how*; you decide *what* and *why*.
 
-#### CLAUDE.md check-in (~5 min)
+#### Project context file check-in (~5 min)
 
-Quick round: each student opens their CLAUDE.md. Has it been updated since Week 1? Does it reflect what you've learned about the codebase? Take 2-3 minutes to update it now. This is a maintenance habit, not a one-time task.
+Quick round: each student opens their project context file. Has it been updated since Week 1? Does it reflect what you've learned about the codebase? Take 2-3 minutes to update it now. This is a maintenance habit, not a one-time task.
 
 ### Assigned Work
 
@@ -1177,13 +1183,13 @@ LLM usage: Both students can use the LLM to brainstorm what
    can ask for help with React component structure.
    Both must understand and be able to explain their code.
 
-Planning across the feature: Before splitting up work, use
-   Claude Code's /plan (or /ultraplan for the combined scope)
-   to map the full feature across backend API, metrics
-   calculation, and frontend display. This helps identify the
-   API contract both students need to agree on. The backend
-   student should define the API spec first; /plan can help
-   map the endpoint design and response model.
+Planning across the feature: Before splitting up work, ask
+   your CLI agent to plan the full feature across backend API,
+   metrics calculation, and frontend display. This helps
+   identify the API contract both students need to agree on.
+   The backend student should define the API spec first; the
+   agent's planning output can help map the endpoint design
+   and response model.
 ```
 
 ### Solo Work (later in the week)
@@ -1216,7 +1222,7 @@ At the week 5 session, spend 15 minutes on roadmap planning:
 
 #### Security review demo (~15 min)
 
-Demo: Run Claude Code's adversarial security review on the current codebase. Show the real issues it finds (raw SQL patterns, hardcoded CORS, no input validation, global mutable state). Discuss which are real risks vs. theoretical.
+Demo: Run an adversarial security review using your CLI agent on the current codebase. Show the real issues it finds (raw SQL patterns, hardcoded CORS, no input validation, global mutable state). Discuss which are real risks vs. theoretical.
 
 #### Deployment configuration audit (~10 min)
 
@@ -1238,11 +1244,11 @@ The full three-layer review pipeline has been running since Week 3. Take stock a
 
 Adjust the process based on what the team has learned. This is an explicit process improvement step, not just a chat.
 
-**Try `/ultrareview`:** If the team hasn't used it yet, run `/ultrareview` on the current branch (the accumulated changes since branching from main). Compare its findings to the per-PR adversarial review comments from Weeks 3-5. Is it catching cross-cutting issues that per-PR reviews missed? Is it generating noise? Discuss whether `/ultrareview` should be part of the pre-merge checklist for the next cohort, and if so, at what cadence (per PR, per milestone, before merge to main).
+**Try a branch-level review:** If the team hasn't done one yet, feed the full branch diff (the accumulated changes since branching from main) to your CLI agent and ask for a comprehensive review. (In Claude Code, `/ultrareview` does this automatically.) Compare its findings to the per-PR adversarial review comments from Weeks 3-5. Is it catching cross-cutting issues that per-PR reviews missed? Is it generating noise? Discuss whether branch-level review should be part of the pre-merge checklist for the next cohort, and if so, at what cadence (per PR, per milestone, before merge to main).
 
-#### CLAUDE.md and artifact audit (~5 min)
+#### Project context file and artifact audit (~5 min)
 
-Each student reviews their CLAUDE.md and commits any updates. Also review: are the ADRs you've written still accurate? Has any decision been superseded by later work? This maintenance habit matters more than the initial writing.
+Each student reviews their project context file and commits any updates. Also review: are the ADRs you've written still accurate? Has any decision been superseded by later work? This maintenance habit matters more than the initial writing.
 
 ### Assigned Work
 
@@ -1343,9 +1349,9 @@ Final prioritization before week 6. Each student reviews the full issue list and
    - Which agentic tool patterns were most helpful? (Claude Code, Copilot, etc.)
    - Where did AI tools lead you astray? What did you learn to watch for?
    - How did the review pipeline (CI + human + LLM adversarial) affect code quality?
-   - Were the project management artifacts (CLAUDE.md, ADRs, roadmaps) worth the effort? Which would you keep, drop, or change?
+   - Were the project management artifacts (context files, ADRs, roadmaps) worth the effort? Which would you keep, drop, or change?
    - Agentic engineering vs. vibe coding: when did you catch yourself slipping into vibe coding? What pulled you back? Did the progressive restrictions help or just slow you down?
-   - How did `/plan`, `/ultraplan`, and `/ultrareview` compare to hand-written specs and manual review? When was each more useful?
+   - How did agent planning tools compare to hand-written specs and manual review? When was each more useful?
    - What would you tell the next cohort?
 3. **Handoff** (20 min): Finalize the roadmap for the next cohort.
 
@@ -1374,7 +1380,7 @@ This is the team's final output beyond the code itself. Write a `docs/ROADMAP.md
 | (add rows) | (student-filed issues) | (context from the students who filed them) |
 
 4. **Tool configuration handoff**: Document the team's development infrastructure for the next cohort:
-   - CLAUDE.md files: what's in them, how they shaped agent behavior, what the next team should update
+   - Project context files: what's in them, how they shaped agent behavior, what the next team should update
    - CI/CD pipeline: what checks run, how to add new ones, known limitations
    - Review process: the three-layer protocol (CI + human + LLM adversarial), the rotation system, what each layer catches
    - ADRs written this cohort: list them with one-line summaries so the next team knows what decisions are settled
@@ -1382,9 +1388,9 @@ This is the team's final output beyond the code itself. Write a `docs/ROADMAP.md
 5. **What we learned about LLM-assisted development and project management**: 3-5 bullet points each on:
    - Agentic engineering vs. vibe coding: concrete examples of when each happened, what the consequences were, and what habits helped you stay in the agentic engineering mode
    - Which agentic tool patterns were most helpful and which led you astray
-   - How `/plan`, `/ultraplan`, and `/ultrareview` compared to hand-written specs and manual review
+   - How agent planning tools compared to hand-written specs and manual review
    - How the progressive LLM usage restriction affected your learning (would you change the progression?)
-   - Which project management artifacts (CLAUDE.md, ADRs, roadmaps) were most useful in practice
+   - Which project management artifacts (project context files, ADRs, roadmaps) were most useful in practice
    - Advice for the next cohort on working with AI tools and maintaining project artifacts
 
 > **Beyond this project:** A handoff document is communication to people you'll never meet, arriving with no context. This is the highest form of professional writing: making your knowledge useful to strangers. You'll do this every time you switch teams, onboard a replacement, or leave a role.
@@ -1399,11 +1405,11 @@ This is the team's final output beyond the code itself. Write a `docs/ROADMAP.md
 
 | Week | Assigned Issues (group session) | Solo Work Focus | Tool/Process Pattern | Roadmap Activity |
 |------|-------------------------------|----------------|---------------------|-----------------|
-| 1 | (orientation, codebase traces) | File issues + create CLAUDE.md | Agentic tools installed, LLM as explainer only, project mgmt artifacts introduced, deployment configuration mental model | Seed the backlog |
-| 2 | #24, #18, #19, #20 + first tests | Apply same skill to adjacent files | CI pipeline + peer review start, ADRs introduced, edge case brainstorming, `/plan` previewed | Triage + prioritize backlog |
-| 3 | #47, #74, #27, #50 | Pick an issue from backlog, work it | LLM adversarial review rotation starts (full 3-layer pipeline), ADR-format specs, `/plan` for feature specs | Nominate priorities for weeks 4-5 |
-| 4 | #91, #67, #94/#36 (reporting), #79 | File new issues + pick from backlog | Manual vs. auto-generated ADRs, `/plan` vs. `/ultraplan` vs. `/ultrareview`, LLM as design partner, CLAUDE.md check-in | Roadmap check: what's realistic? |
-| 5 | #63 + security + frontend #10 + integration | Full autonomy: ship highest-impact work | Review pipeline retrospective, deployment config audit, `/ultrareview` evaluation, security scanning, CLAUDE.md audit | Tag issues for next cohort |
+| 1 | (orientation, codebase traces) | File issues + create project context file | Agentic tools installed, LLM as explainer only, project mgmt artifacts introduced, deployment configuration mental model | Seed the backlog |
+| 2 | #24, #18, #19, #20 + first tests | Apply same skill to adjacent files | CI pipeline + peer review start, ADRs introduced, edge case brainstorming, structured planning previewed | Triage + prioritize backlog |
+| 3 | #47, #74, #27, #50 | Pick an issue from backlog, work it | LLM adversarial review rotation starts (full 3-layer pipeline), ADR-format specs, agent planning for feature specs | Nominate priorities for weeks 4-5 |
+| 4 | #91, #67, #94/#36 (reporting), #79 | File new issues + pick from backlog | Manual vs. auto-generated ADRs, single vs. multi-issue planning, LLM as design partner, context file check-in | Roadmap check: what's realistic? |
+| 5 | #63 + security + frontend #10 + integration | Full autonomy: ship highest-impact work | Review pipeline retrospective, deployment config audit, branch-level review, security scanning, context file audit | Tag issues for next cohort |
 | 6 | Documentation + roadmap handoff | Final push: close or reassign everything | Tool config handoff, process retrospective, reflection on tool usage | Write ROADMAP.md for next cohort |
 
 Note: Issue numbers above are from the `ICICLE-ai/Food-Access-Model` repo unless prefixed with "frontend" (from `ICICLE-ai/FASS-Frontend`).
@@ -1428,11 +1434,11 @@ Pair J and S students on cross-cutting work (e.g., #94 backend + #79 frontend).
 
 | Week | Tool/Process Milestones | Allowed LLM Usage | Not Yet |
 |------|------------------------|-------------------|---------|
-| 1 | Agentic tools installed (Claude Code, Copilot, etc.). CLAUDE.md created. Project mgmt artifacts introduced. Deployment configuration mental model introduced. | Ask for explanations of existing code. Compare tool responses. | Code generation |
-| 2 | CI pipeline live. Peer review required. First ADR written (linting student). Iterative code quality pattern introduced. `/plan` previewed (demonstrated, not yet used independently). | Edge case brainstorming, type hint questions, "what does this error mean." ADR drafting assistance (student owns the decision). Interactive code refinement (push back on complexity, ask for best practices). | Writing functions, writing tests, using `/plan` independently |
-| 3 | Full 3-layer review pipeline (CI + human + LLM adversarial). ADR-format specs for design decisions. `/plan` introduced for single-feature implementation planning. | Spec review ("interview me about my approach"), adversarial PR review rotation. Use `/plan` to cross-check hand-written specs. | "Fix this bug for me." Using `/plan` output without reviewing it. Using `/ultraplan`. |
-| 4 | LLM-generated ADRs from diffs/PRs (compare to manual). `/ultraplan` and `/ultrareview` introduced for project-level scaffolding. Roadmap maintenance. CLAUDE.md updates. | Design discussion ("what are the tradeoffs of X vs Y"), small code generation with spec. Auto-generate ADR drafts, then review and edit. Use `/plan` independently for feature work. `/ultraplan` for multi-issue planning. `/ultrareview` for branch-level review. | Generating without a spec. Skipping hand-written specs entirely in favor of `/plan`. |
-| 5-6 | Review pipeline retrospective. `/ultrareview` evaluated for pre-merge checklist. Deployment configuration audit. Tool and process audit. Tool config handoff. | Full workflow, adversarial security review. Choose manual vs. assisted artifact generation based on decision complexity. Choose between manual specs and `/plan` based on scope. | n/a, full access earned |
+| 1 | CLI agent installed. Project context file created. Project mgmt artifacts introduced. Deployment configuration mental model introduced. | Ask for explanations of existing code. Compare tool responses. | Code generation |
+| 2 | CI pipeline live. Peer review required. First ADR written (linting student). Iterative code quality pattern introduced. Structured planning previewed (demonstrated, not yet used independently). | Edge case brainstorming, type hint questions, "what does this error mean." ADR drafting assistance (student owns the decision). Interactive code refinement (push back on complexity, ask for best practices). | Writing functions, writing tests, using planning tools independently |
+| 3 | Full 3-layer review pipeline (CI + human + LLM adversarial). ADR-format specs for design decisions. Agent planning introduced for single-feature implementation. | Spec review ("interview me about my approach"), adversarial PR review rotation. Use agent planning to cross-check hand-written specs. | "Fix this bug for me." Using plan output without reviewing it. Multi-issue planning. |
+| 4 | LLM-generated ADRs from diffs/PRs (compare to manual). Multi-issue planning and branch-level review introduced for project-level scaffolding. Roadmap maintenance. Context file updates. | Design discussion ("what are the tradeoffs of X vs Y"), small code generation with spec. Auto-generate ADR drafts, then review and edit. Use planning tools independently for feature work. Multi-issue planning. Branch-level review. | Generating without a spec. Skipping hand-written specs entirely in favor of agent planning. |
+| 5-6 | Review pipeline retrospective. Branch-level review evaluated for pre-merge checklist. Deployment configuration audit. Tool and process audit. Tool config handoff. | Full workflow, adversarial security review. Choose manual vs. assisted artifact generation based on decision complexity. Choose between manual specs and agent planning based on scope. | n/a, full access earned |
 
 The progression matters because students need to build the muscle of *thinking first* before they get the power of *generating*. A freshman who learns to generate code in week 1 will never learn to read code. A senior who is forced to read code in week 1 will use generation more effectively later.
 
@@ -1495,11 +1501,11 @@ The tooling progression runs in parallel: tools are set up early (Week 1), proce
 - Can read and understand unfamiliar code without LLM help
 - Practice agentic engineering, not vibe coding: can explain every line, write specs before generating code, and critically review tool output
 - Know how to write specs and ADRs before implementing, both manually and with LLM assistance
-- Can use `/plan` for feature-level implementation mapping, `/ultraplan` for multi-issue coordination, and `/ultrareview` for branch-level review
+- Can use agent planning tools for feature-level implementation mapping, multi-issue coordination, and branch-level review
 - Can write meaningful tests (not just happy-path)
-- Fluent with agentic coding tools (Claude Code and at least one alternative); know when to use them and when not to
+- Fluent with at least one CLI agent (Claude Code, Gemini CLI, or equivalent); know when to use agentic tools and when not to
 - Understand the deployment topology: how frontend, backend, and database connect across environments, and how to configure each
-- Understand and can maintain project management artifacts (CLAUDE.md, ADRs, roadmaps)
+- Understand and can maintain project management artifacts (project context files, ADRs, roadmaps)
 - Have shipped real features through a real PR workflow with a three-layer review pipeline
 - Can do adversarial code review (with and without LLM assistance)
 - Can set up and operate CI checks, peer review, and LLM-assisted review as part of a team workflow

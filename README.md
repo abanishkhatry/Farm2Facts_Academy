@@ -27,7 +27,7 @@ Students spend six weeks progressing from "run the project and understand what i
 - **Progressive LLM access.** Weeks 1-2: LLM as explainer only. Weeks 3-4: spec review, edge case brainstorming, adversarial PR review. Weeks 5-6: full LLM workflow including guided code generation. The constant rule: you must be able to explain every line without looking at your chat history.
 - **Three-layer review pipeline.** CI checks (from Week 2), peer review (from Week 2), and LLM adversarial review (from Week 3) build incrementally so students never submit PRs without structured feedback.
 - **ADR progression.** Students write Architecture Decision Records manually in Weeks 2-3, then learn to generate them from diffs/PRs with LLM tools in Week 4, and choose the right approach for each situation in Weeks 5-6.
-- **Agentic tools from day one.** Claude Code (or best-available tool) is installed in Week 1. Students create a CLAUDE.md for their FEAST repo fork as part of their first solo work.
+- **Agentic tools from day one.** A CLI agent (Claude Code if available, Gemini CLI as a free alternative) is installed in Week 1. Students create a project context file for their FEAST repo fork as part of their first solo work.
 
 See [DECISIONS.md](DECISIONS.md) for the full rationale behind these and other curriculum choices.
 
