@@ -9,6 +9,8 @@ title: "Guide: Writing Tests"
 
 The FEAST codebase has zero test coverage. This guide walks you through setting up pytest and writing tests for the pure functions in `household.py`. These are the easiest functions to test because they have no external dependencies (no database, no network, no filesystem).
 
+> **Beyond this project:** Writing tests forces you to think about boundaries: what inputs break the function? When does behavior change? This same edge-case thinking is how you scope any open-ended problem: a feature has edge cases, a performance problem has boundary conditions, a user complaint has special cases.
+
 ## Before You Start
 
 - [ ] Read `food_access_model/abm/household.py` thoroughly

@@ -9,6 +9,8 @@ title: "Guide: Filing Good Issues"
 
 Issues are how the team builds its backlog. Every problem, inconsistency, or improvement idea you discover should become a GitHub issue. This is not busywork; it's how real projects organize work.
 
+> **Beyond this project:** The structure of a good issue (what you observed, where, why it matters, proposed fix) is the same structure you'd use to describe a problem to a manager, write a bug report for a vendor, or scope a project request. Master this format here and you'll use it everywhere.
+
 ## Before You Start
 
 - [ ] You've completed your codebase trace (or explored the code enough to find things)

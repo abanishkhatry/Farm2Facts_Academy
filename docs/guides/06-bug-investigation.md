@@ -11,6 +11,8 @@ title: "Guide: Investigating Bugs"
 
 Issue #47 reports that after running a simulation step, all households appear to have the same number of stores within 1 mile. This guide walks through how to investigate and fix a bug using a test-first approach.
 
+> **Beyond this project:** This guide walks you through forming a hypothesis, testing it, and understanding the root cause before fixing. This is the scientific method applied to engineering. You'll use this approach every time a production bug gets escalated: evidence first, hypothesis second, fix third.
+
 ## Before You Start
 
 - [ ] Read `food_access_model/abm/household.py`, especially `stores_with_1_miles()` (line 131), `calculate_distances()` (line 246), and `step()` (line 259)

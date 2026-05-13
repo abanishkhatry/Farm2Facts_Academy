@@ -11,6 +11,8 @@ title: "Guide: Setting Up Linting"
 
 The FEAST codebase has no automated linting or CI checks. This means style issues, unused imports, and simple bugs go unnoticed until someone reads the code. Setting up linting is a small change that pays off on every future PR.
 
+> **Beyond this project:** Linting reveals hundreds of issues at once. Notice the approach: assess the full problem, triage by impact, ship the highest-value piece, document what's deferred. This is how professionals scope any large task where you can't fix everything at once.
+
 ## Before You Start
 
 - [ ] Read `pyproject.toml` to understand current dependencies

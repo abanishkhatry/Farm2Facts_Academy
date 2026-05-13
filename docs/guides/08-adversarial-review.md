@@ -60,6 +60,8 @@ For each issue the LLM raises, you (the reviewer) must decide:
 - "The LLM flagged SQL injection risk, but this query uses parameterized queries ($1, $2), so it's safe."
 - "The LLM suggested adding null checks, but this value is guaranteed non-null by the caller (see line X)."
 
+> **Beyond this project:** Notice you can't just say "false positive." You have to explain why, citing specific evidence. This is how professional feedback works: articulate not just what you think, but why you think it. The skill of explaining your reasoning with evidence transfers to every collaborative setting.
+
 ### 5. Post your findings on the PR
 
 Format each finding as:

@@ -449,6 +449,8 @@ Then, each student traces one API endpoint through the full stack and writes a s
 
 **Tool usage**: Students can use their agentic coding tool (Claude Code, Copilot, etc.) to ask questions about specific functions, but must verify explanations against the code. Deliverable is their own writing, not LLM output.
 
+> **Beyond this project:** Writing down what you learned, in your own words, is how professionals transfer knowledge. It forces you to verify you actually understand it, and it creates something others can learn from. In any job, the people who write things down become go-to resources; the people who keep knowledge in their heads become bottlenecks.
+
 ### Deliverable
 Each student opens a PR adding their endpoint trace as a markdown file in `docs/traces/` and their CLAUDE.md in the FEAST repo root. These get reviewed by a peer before the Week 2 session.
 
@@ -539,6 +541,8 @@ Every PR from this week forward goes through a structured review pipeline. This 
 
 **Layer 3 (Week 3): LLM adversarial review.** A designated student runs an adversarial review in a fresh Claude Code session and posts findings as PR comments.
 
+> **Beyond this project:** You're learning to give and receive critical feedback clearly and constructively. This skill (finding problems, articulating them specifically, suggesting improvements) appears in every professional role. Code review is practice for the hardest version of it.
+
 Demo: Show a GitHub Actions workflow that runs flake8 on a PR. Show what a failing check looks like. Show what a passing check looks like. Walk through the PR template.
 
 #### Git workflow for teams (~15 min)
@@ -578,6 +582,8 @@ Bad examples:
 - `updates`
 - `WIP`
 - `asdfasdf`
+
+> **Beyond this project:** A commit message is a micro-conversation with people you may never meet, who will read it without context. The discipline of writing clearly for an absent audience transfers to emails, documentation, and any situation where your reasoning needs to outlast the conversation.
 
 **Pull request workflow.** Once your code is ready to share:
 
@@ -799,6 +805,8 @@ Every PR from here on gets all three layers: (1) CI checks (automated), (2) huma
 #### Specs before code (~15 min)
 
 Demo the "spec first" pattern: before implementing, write a short specification in the issue comment describing what you'll change, why, and how you'll verify it worked. For design decisions (choosing between approaches, changing behavior), write this as a short ADR using the template. For straightforward fixes, a paragraph in the issue comment is sufficient.
+
+> **Beyond this project:** The spec-first habit separates junior from senior professionals in any field. Writing down what you plan to do before doing it protects you from building the wrong thing, gives others a chance to catch problems early, and creates a record of your reasoning.
 
 Show an example: the optimization student (#74) should write an ADR; the bug fix student (#47) should write a diagnosis paragraph.
 
@@ -1378,6 +1386,8 @@ This is the team's final output beyond the code itself. Write a `docs/ROADMAP.md
    - How the progressive LLM usage restriction affected your learning (would you change the progression?)
    - Which project management artifacts (CLAUDE.md, ADRs, roadmaps) were most useful in practice
    - Advice for the next cohort on working with AI tools and maintaining project artifacts
+
+> **Beyond this project:** A handoff document is communication to people you'll never meet, arriving with no context. This is the highest form of professional writing: making your knowledge useful to strangers. You'll do this every time you switch teams, onboard a replacement, or leave a role.
 
 ### Solo Work (week 6)
 
