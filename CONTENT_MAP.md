@@ -15,7 +15,7 @@ This file maps sections of `STUDENT_ONBOARDING_PLAN.md` to slide numbers in each
 
 ## Week 1
 
-**Slide deck:** `slides/week-1/index.html` (54 sections, labels 01-44 plus 28b/28c git inserts)
+**Slide deck:** `slides/week-1/index.html` (58 sections, labels 01-44 plus 01b/28b/28c/38b/38c inserts)
 
 | Curriculum section (line) | Slide(s) | Shared facts to keep in sync |
 |---|---|---|
@@ -31,9 +31,9 @@ This file maps sections of `STUDENT_ONBOARDING_PLAN.md` to slide numbers in each
 | **Git fundamentals** (NEW, in Guide 01) | 28b Git concepts, 28c Git commands | Core concepts (repo, commit, branch), five commands (clone, checkout, add+commit, push, status) |
 | **Setup** (L324-454) | 28 Section, 28b Git concepts, 28c Git commands, 29 Prerequisites, 30 Setup steps (NOW INCLUDES CLI agent install as Step 3), 31 Working state, 32 Common problems | Prerequisites list, git fundamentals, clone from `[COHORT-ORG]`, clone/branch/install steps, CLI agent install, run_local.py port 8000, client.js edit, common problems list, live instance URL |
 | Assigned work (L456-485) | 33 Section, 34 Use the app, 35 Endpoint traces, 36 Deliverable | Endpoint trace table (5 students), deliverable (PR with trace + context file + vision plan), live instance URL |
-| Solo work (L488-590) | 37 Section, 38 Solo explore, NEW: project context file creation slide, NEW: vision plan slide(s), 39 Solo file issues, 40 Things you'll find, 41 Stretch | J vs S exploration targets, project context file creation in FEAST repo, vision plan (template in `templates/vision-plan-template.md`, investigation areas table, tier expectations), issue filing with area labels (area:frontend-state, etc.), example issues list, stretch goals |
-| Plan comparison activity (L592-624) | 42 Roadmap kickoff (NEEDS UPDATE: now plan comparison + encode priorities, not issue triage) | Silent read, round-robin, three-column board ("Everyone noticed" / "Multiple" / "One person"), encode priorities in CLAUDE.md, agent-assisted issue triage via `gh issue list`, connection to assigned work |
-| -- | 01 Title, 03b Live demo, 04a Act I, 24b Act II, 43 Recap, 44 Q&A | Structural slides, no curriculum counterpart |
+| Solo work (L488-590) | 37 Section, 38 Solo explore, 38b Context file, 38c Vision plan, 39 Solo file issues (now Part 4), 40 Things you'll find, 41 Stretch | J vs S exploration targets, project context file creation in FEAST repo, vision plan (template in `templates/vision-plan-template.md`, investigation areas table, tier expectations), issue filing with area labels (area:frontend-state, etc.), example issues list, stretch goals |
+| Plan comparison activity (L592-624) | 42 Plan comparison | Silent read, round-robin, three-column board ("Everyone noticed" / "Multiple" / "One person"), encode priorities in CLAUDE.md, agent-assisted issue triage via `gh issue list`, connection to assigned work |
+| -- | 01 Title, 01b Experience baseline, 03b Live demo, 04a Act I, 24b Act II, 43 Recap, 44 Q&A | Structural slides, no curriculum counterpart |
 
 ### Key shared values (Week 1)
 
