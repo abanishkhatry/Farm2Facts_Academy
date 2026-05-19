@@ -29,6 +29,7 @@
 }
 .site-header nav {
   display: flex;
+  align-items: center;
   gap: var(--space-5);
   margin-left: auto;
 }
@@ -48,11 +49,14 @@
 /* ---- Nav dropdowns ---- */
 .nav-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .nav-dropdown-toggle {
   font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--fs-14);
+  line-height: 1;
   color: var(--uw-white);
   opacity: 0.88;
   letter-spacing: var(--tracking-wide);
