@@ -11,9 +11,9 @@ title: "Week 1 Assignment"
 
 ## What to do
 
-### 1. Use the live app (10 min)
+### 1. Use the live app, then think about what it should become (~30 min)
 
-Open https://fassfrontstage.pods.icicleai.tapis.io/ and spend time clicking around:
+**Part A: Use the app (10 min).** Open https://fassfrontstage.pods.icicleai.tapis.io/ and spend time clicking around:
 
 - [ ] Create a simulation instance
 - [ ] Click on households, read the popup data (income, vehicles, food access score)
@@ -22,6 +22,24 @@ Open https://fassfrontstage.pods.icicleai.tapis.io/ and spend time clicking arou
 - [ ] Remove a store. Step. What happens?
 
 Understanding what the tool does is prerequisite to understanding how it works.
+
+**Part B: Note what could be better right now (~10 min).** While the app is fresh in your mind, write down quick-hit observations. Things like:
+
+- What was confusing or unclear in the interface?
+- What information did you want that wasn't there?
+- What felt slow, broken, or surprising?
+- If you were handing this to a city planner today, what would embarrass you?
+
+These don't need to be technical yet. "I had no idea what the colors meant until I clicked a household" is a valid observation. You'll connect these to specific code later.
+
+**Part C: Think about future directions (~10 min).** Step back from the current state. If this tool were fully realized, what could it do?
+
+- What kinds of questions should the interface help someone answer that it currently can't?
+- What would make this useful for a different city or county, not just Brown County?
+- What additional data or visualizations would make the simulation results more actionable?
+- Are there entirely new features (comparison views, reporting, scenario saving, different agent types) that would change who uses this and how?
+
+Jot down 3-5 ideas. They don't need to be scoped or feasible yet. The point is to form your own opinion about the product direction before you dive into the code. You'll revisit these ideas in your Vision Plan (step 5).
 
 ### 2. Trace one endpoint through the full stack
 
