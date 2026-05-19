@@ -110,7 +110,17 @@ Turn everything you found into GitHub issues. For each issue:
 - What you observed (quote the code)
 - Where it is (file + line number)
 - Why it's a problem
-- Two labels: a **type** (bug, enhancement, refactor) and an **area** (area:frontend-state, area:backend-entry-points, area:simulation-core, etc.)
+- Two labels: a **type** and an **area**
+
+**Type labels:**
+
+| Label | Use when | Examples |
+|-------|----------|---------|
+| **bug** | Something is broken or produces wrong results | CORS hardcoded to Tapis URL (breaks local dev). `profiling` module imported in `api_server.py` but doesn't exist. |
+| **enhancement** | Something works but should be better | `print()` used instead of `logging` module in multiple files. Magic numbers in `household.py` (95, 55, 0.8, income thresholds) with no constants or docstrings. |
+| **refactor** | Code works but is poorly structured | Inconsistent imports (package-relative in one file, shorthand in another). Deprecated `on_event` pattern in `routes.py` (FastAPI moved to lifespan handlers). Raw DOM manipulation in `MapComponent.js` (526 lines, bypasses React). Bootstrap + Tailwind mixed in the same frontend. Python version drift (`pyproject.toml` says 3.11.11, Dockerfile says 3.12). |
+
+**Area labels** (match your investigation areas): `area:frontend-state`, `area:frontend-consistency`, `area:backend-entry-points`, `area:database-access`, `area:simulation-core`, `area:data-pipeline`, `area:testing`
 
 After filing, go back to your vision plan and add the issue links in the "Connections to Issues" section.
 
