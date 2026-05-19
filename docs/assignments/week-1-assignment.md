@@ -53,9 +53,9 @@ Pick one of these endpoints (coordinate with teammates so each person takes a di
 | `GET /households` | `routes.py:273` -> query with simulation_instance + step params -> WKT geometry | How is household data structured? What do the column names mean? What is WKT? |
 | `GET /simulation-instances` | `routes.py:98` -> SQL query -> ORJSONResponse | Simplest endpoint. How does a request become a database query become a JSON response? |
 
-**With Claude Code:** Ask it to explain specific functions you're reading. Verify its explanations against the actual code.
+**Start without Claude Code:** Trace by reading the code directly. Start at the route handler in `routes.py`, follow the function calls, note what goes to the database and what comes back. Form your own understanding first.
 
-**Without Claude Code:** Trace by reading the code directly. Start at the route handler in `routes.py`, follow the function calls, note what goes to the database and what comes back. This is valuable practice either way.
+**Then try with Claude Code:** Ask it to explain the same functions you just read. Compare its explanations to what you figured out on your own. Where did it add something you missed? Where was it wrong or vague? Verify everything against the actual code.
 
 Write your trace as a markdown file. Put it in `docs/traces/` in the FEAST backend repo.
 
