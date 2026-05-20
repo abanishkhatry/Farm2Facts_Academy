@@ -36,7 +36,9 @@ Backend: FastAPI + PostgreSQL + Mesa ABM. Frontend: React + Leaflet + Vite.
 
 ## Git Workflow
 
-- main is stable; dev is integration
+- main is production (stable, deployed)
+- staging is pre-production validation
+- dev is integration
 - Feature branches off dev, named feature/issue-NUMBER-short-desc
 - PRs must link to an issue and include a test plan
 

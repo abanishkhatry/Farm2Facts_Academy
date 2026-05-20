@@ -629,29 +629,16 @@ This is an example of using your context file to encode team knowledge, not just
 
 ### Group Session (50 min)
 
-#### The review pipeline: automated + human (~15 min)
-
-Every PR from this week forward goes through a structured review pipeline. This week starts with two layers; Week 3 adds a third.
-
-**Layer 1: Automated CI checks.** A GitHub Actions workflow runs flake8 (and later, tests) on every PR. If CI fails, the PR doesn't merge. The linting student (#24) sets this up as their first priority this week, so it's available for everyone else's PRs.
-
-**Layer 2: Human peer review.** Every PR gets reviewed by one other student before merge. The reviewer checks: Does the code match the stated intent? Are there obvious errors? Is the PR description clear? Post at least one substantive comment (not just "LGTM").
-
-**Layer 3 (Week 3): LLM adversarial review.** A designated student runs an adversarial review in a fresh LLM session (any CLI agent or chat interface) and posts findings as PR comments.
-
-> **Beyond this project:** You're learning to give and receive critical feedback clearly and constructively. This skill (finding problems, articulating them specifically, suggesting improvements) appears in every professional role. Code review is practice for the hardest version of it.
-
-Demo: Show a GitHub Actions workflow that runs flake8 on a PR. Show what a failing check looks like. Show what a passing check looks like. Walk through the PR template.
-
 #### Git workflow for teams (~15 min)
 
-Week 1 introduced the basic git commands (clone, commit, push). This session covers how the team uses git together: branches, pull requests, and commit conventions.
+Week 1 introduced the basic git commands (clone, commit, push). This session covers how the team uses git together: branches, pull requests, and commit conventions. You need to understand how code moves through the system before we talk about the quality gates on that code.
 
 [SCAFFOLD: Git Workflow Guide]
 
-**Branch strategy.** The FEAST project uses three levels of branches:
+**Branch strategy.** The FEAST project uses four levels of branches:
 
-- `main` is the stable, deployed version. You never push directly to main.
+- `main` is the stable, production version. Only merged from staging after validation.
+- `staging` is the pre-production branch. Merges from dev are tested here before going to main.
 - `dev` is the integration branch. Your feature branches merge into dev via pull request.
 - Feature branches are where you do your work. Always create them from an up-to-date `dev`:
 
@@ -689,7 +676,7 @@ Bad examples:
 2. Open a pull request on GitHub. The PR template asks for: Summary, Changes, Test Plan, Tradeoffs, Checklist.
 3. Link to the issue with "Closes #NUMBER" in the PR description.
 4. Request a reviewer (another student).
-5. Keep PRs small: aim for under ~200 lines of changed code (non-test). Smaller PRs get reviewed faster and have fewer bugs.
+5. Keep PRs small, frequent, and digestible: aim for under ~200 lines of changed code (non-test). A focused PR that does one thing well gets reviewed in minutes. A 500-line PR sits in the queue for days and hides bugs in the noise.
 6. Respond to review comments, push additional commits to the same branch, and re-request review.
 7. Once approved and CI passes, merge to `dev`.
 
@@ -716,6 +703,20 @@ Sharing work:
 ```
 
 **S-tier expectations.** S students should be able to: resolve merge conflicts, rebase a feature branch onto an updated `dev` (`git checkout feature/... && git rebase dev`), and help J students recover from git mistakes. If a J student is stuck on git, pair with them until they're unstuck.
+
+#### The review pipeline: automated + human (~15 min)
+
+Now that you understand how code moves from your branch to dev via pull requests, here are the quality gates every PR goes through. This week starts with two layers; Week 3 adds a third.
+
+**Layer 1: Automated CI checks.** A GitHub Actions workflow runs flake8 (and later, tests) on every PR. If CI fails, the PR doesn't merge. The linting student (#24) sets this up as their first priority this week, so it's available for everyone else's PRs.
+
+**Layer 2: Human peer review.** Every PR gets reviewed by one other student before merge. The reviewer checks: Does the code match the stated intent? Are there obvious errors? Is the PR description clear? Post at least one substantive comment (not just "LGTM").
+
+**Layer 3 (Week 3): LLM adversarial review.** A designated student runs an adversarial review in a fresh LLM session (any CLI agent or chat interface) and posts findings as PR comments.
+
+> **Beyond this project:** You're learning to give and receive critical feedback clearly and constructively. This skill (finding problems, articulating them specifically, suggesting improvements) appears in every professional role. Code review is practice for the hardest version of it.
+
+Demo: Show a GitHub Actions workflow that runs flake8 on a PR. Show what a failing check looks like. Show what a passing check looks like. Walk through the PR template.
 
 #### Edge case brainstorming with LLMs (~10 min)
 

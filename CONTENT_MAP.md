@@ -66,26 +66,28 @@ These specific values appear in both the curriculum and slides. If any change, b
 
 ## Week 2
 
-**Slide deck:** `slides/week-2/index.html` (32 slides, labels 01-28 plus 02b/02c/02d/02e inserts)
+**Slide deck:** `slides/week-2/index.html` (33 slides, labels 01-28 plus 02b/02c/02d/02e/02f inserts)
 
 | Curriculum section (line) | Slide(s) | Shared facts to keep in sync |
 |---|---|---|
 | Week 1 recap | 01 Title, 02 Week 1 recap | Session structure, Week 1 deliverables (5 cards: environment, trace, vision plan, issues, context file) |
-| Plan Comparison Activity (L592-626) | 02b Your experience, 02c Assignment digest, 02d Plan comparison, 02e Encode priorities | Experience discussion (surprised/confused/excited), then LLM digest themes (instructor fills before session), then silent read + round-robin + convergence board, then encode in CLAUDE.md with area labels. Reference: `docs/instructor-guides/week-2-prep.md` |
-| **Git workflow for teams** (L646-718) | 03 Section, 04 Branch strategy, 05 PR lifecycle, 06 Commit conventions, 07 Daily git rhythm | Branch strategy (main/dev/feature), branch naming convention (feature/issue-NUMBER-desc), commit conventions (imperative mood, issue refs), PR lifecycle steps, daily git rhythm |
-| **Review pipeline** (L632-644) | 08 Section, 09 Three layers, 10 CI in practice, 11 Peer review, 12 PR template | Three-layer pipeline (CI/peer/LLM), PR template sections (summary, changes, test plan, tradeoffs, checklist), PR size limit (~200 lines) |
+| Plan Comparison Activity (L592-626) | 02b Your experience, 02c Assignment digest, 02d Vision plans, 02e Plan comparison, 02f Encode priorities | Experience discussion (surprised/confused/excited), then LLM digest themes (instructor fills before session), then vision plan intro + project refresh framing, then silent read + round-robin + convergence board, then encode in shared project context file with area labels (shared vs individual context files distinguished). Reference: `docs/instructor-guides/week-2-prep.md` |
+| **Git workflow for teams** (L632-719) | 03 Section, 04 Branch strategy, 05 PR lifecycle, 06 Commit conventions, 07 Daily git rhythm | Branch strategy (main/staging/dev/feature), branch naming convention (feature/issue-NUMBER-desc), commit conventions (imperative mood, issue refs), PR lifecycle steps, small frequent digestible PRs (~200 lines), daily git rhythm |
+| **Review pipeline** (L721-745) | 08 Section, 09 Three layers, 10 CI in practice, 11 Peer review, 12 PR template | Three-layer pipeline (CI/peer/LLM), PR template sections (summary, changes, test plan, tradeoffs, checklist) |
 | **Edge case brainstorming** (L720-724) | 13 Section, 14 Interview first, 15 Edge case example | Interview-first pattern, has_resources() edge cases, income thresholds |
 | **Writing code with AI tools** (L726-742) | 16 Section, 17 Five steps, 18 Vibe vs agentic, 19 Plan preview | Five-step iterative pattern, vibe coding vs agentic engineering, structured planning preview |
 | **ADRs** (L744-748) | 20 Section, 21 ADR template, 22 ADR example | ADR template fields (title+status, context, decision, alternatives), E501 example |
 | **Project context file review** (L750-752) | 23 Section, 24 Project context file review | Review checklist |
-| **Assigned work** (L754-880) | 25 Section, 26 Assigned issues, 27 Solo work | Issue #24 (linting), Issues #18/#19/#20 (type hints), first tests (household.py pure functions), solo work deliverables |
+| **Assigned work** (L754-880) | 25 Section, 26 Assigned issues, 27 Solo work | Issue #24 (linting), Issues #18/#19/#20 (type hints), first tests (household.py pure functions), solo work deliverables. Slide 26 references guides 03/04/05 and the assignment doc. |
 | -- | 28 Recap | Structural slide, no curriculum counterpart |
+
+**Assignment document:** `docs/assignments/week-2-assignment.md` -- per-track instructions, LLM usage rules, deliverables checklist, quality signals, guide references.
 
 ### Key shared values (Week 2)
 
 These specific values appear in both the curriculum and slides. If any change, both must be updated:
 
-- **Branch strategy:** `main` (stable/deployed), `dev` (integration), `feature/issue-NUMBER-short-desc` (your work). Appears in: STUDENT_ONBOARDING_PLAN.md (Week 2 git workflow scaffold + Coordination Mechanics), docs/guides/01-environment-setup.md (Git Fundamentals), Week 1 slides (28b), Week 2 slides (09), templates/CONTRIBUTING.md
+- **Branch strategy:** `main` (production), `staging` (pre-production validation), `dev` (integration), `feature/issue-NUMBER-short-desc` (your work). Appears in: STUDENT_ONBOARDING_PLAN.md (Week 2 git workflow scaffold + Coordination Mechanics), docs/guides/01-environment-setup.md (Git Fundamentals), Week 1 slides (28b), Week 2 slides (04), templates/CONTRIBUTING.md
 - **Commit conventions:** Imperative mood, reference issue numbers, one logical change per commit. Appears in: STUDENT_ONBOARDING_PLAN.md (Week 2 scaffold), Week 2 slides (11)
 - **PR template sections:** Summary, Changes, Test Plan, Tradeoffs, Checklist. Appears in: STUDENT_ONBOARDING_PLAN.md, Week 2 slides (07), .github/pull_request_template.md
 - **PR size limit:** ~200 lines of changed code (non-test). Appears in: STUDENT_ONBOARDING_PLAN.md (L1380 and Week 2 scaffold), Week 2 slides (10)

@@ -5,7 +5,7 @@ title: "Roadmap"
 
 # ROADMAP
 
-Last updated: 2026-05-19
+Last updated: 2026-05-20
 
 ## Current State
 
@@ -17,8 +17,9 @@ Last updated: 2026-05-19
 - GitHub issue and PR templates (`.github/`)
 - Project management scaffold: CLAUDE.md, ROADMAP.md, DECISIONS.md, post-commit hook
 - Week 1 slide deck (58 sections: orientation, domain, architecture, agentic tools, setup, experience baseline, vision plan, plan comparison)
-- Week 2 slide deck (28+ slides: review pipeline, git workflow, edge cases, iterative coding, ADRs, assigned work)
-- Week 1 assignment document for senior developers (`docs/assignments/week-1-assignment.md`)
+- Week 2 slide deck (33 slides: experience review, vision plan comparison, git workflow, review pipeline, edge cases, iterative coding, ADRs, assigned work)
+- Week 1 assignment document (`docs/assignments/week-1-assignment.md`)
+- Week 2 assignment document (`docs/assignments/week-2-assignment.md`)
 - Vision and Improvement Plan template (`templates/vision-plan-template.md`)
 - Instructor prep guide for Week 2 LLM digest workflow (`docs/instructor-guides/week-2-prep.md`)
 - Cohort org fork pattern with `[COHORT-ORG]` placeholder across curriculum, guides, and templates
@@ -87,7 +88,8 @@ Last updated: 2026-05-19
 - [x] Week 1 update: Expand LLM tools slides (tool landscape, CLAUDE.md, Claude Code demo), add project mgmt artifacts slide, add Claude Code to setup slides
 - [x] Week 1 update: Experience baseline (01b), vision plan (38c), plan comparison (42), area labels in issue filing (39)
 - [x] Week 2: Review pipelines, CI setup, ADR introduction, edge case brainstorming, PR workflow (`slides/week-2/`)
-- [ ] Week 2 update: Add vision plan recap card, assignment digest slide (02b)
+- [x] Week 2 update: Experience review opener (02b-02f), vision plan intro, plan comparison, shared vs individual context files, staging branch, small PR emphasis, ADR broader impact, guide references on assigned-work slide
+- [x] Week 2 assignment document (`docs/assignments/week-2-assignment.md`)
 - [ ] Week 3: Adversarial review (manual + LLM rotation), specs before code, ADR practice
 - [ ] Week 4: Manual vs. auto-generated artifacts, roadmap maintenance, ADR generation from diffs
 - [ ] Week 5: Security review, deployment readiness, review pipeline retrospective

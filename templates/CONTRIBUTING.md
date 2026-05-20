@@ -102,6 +102,7 @@ uv run flake8
 
 ## Branch Strategy
 
-- `main` - stable, deployed
+- `main` - production (stable, deployed)
+- `staging` - pre-production validation
 - `dev` - integration branch
 - `feature/issue-NNN-desc` - feature branches off dev

@@ -35,7 +35,7 @@ Two key pieces:
 |---------|--------------|
 | **Repository (repo)** | A project folder tracked by git. Contains every file and the full history of changes. |
 | **Commit** | A snapshot of your files at a moment in time. Each commit has a message describing what changed. Like a save point you can return to. |
-| **Branch** | A named line of development. The FEAST project uses `main` (stable), `dev` (integration), and feature branches (your work). |
+| **Branch** | A named line of development. The FEAST project uses `main` (production), `staging` (pre-production), `dev` (integration), and feature branches (your work). |
 | **Staging area** | A holding zone between "files you changed" and "files you committed." You choose which changes go into each commit using `git add`. |
 | **Remote** | The copy of the repo on GitHub. `git push` sends your commits there; `git pull` brings down everyone else's. |
 
