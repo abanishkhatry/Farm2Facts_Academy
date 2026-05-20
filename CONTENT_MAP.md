@@ -66,12 +66,13 @@ These specific values appear in both the curriculum and slides. If any change, b
 
 ## Week 2
 
-**Slide deck:** `slides/week-2/index.html` (29 slides, labels 01-28 plus 02b insert)
+**Slide deck:** `slides/week-2/index.html` (32 slides, labels 01-28 plus 02b/02c/02d/02e inserts)
 
 | Curriculum section (line) | Slide(s) | Shared facts to keep in sync |
 |---|---|---|
 | Week 1 recap | 01 Title, 02 Week 1 recap | Session structure, Week 1 deliverables (5 cards: environment, trace, vision plan, issues, context file) |
 | Plan Comparison prep (L592) | 02b Assignment digest | Pre-populated from LLM digest (instructor fills before session). Reference: `docs/instructor-guides/week-2-prep.md` |
+| Plan Comparison Activity (L592-626) | 02c Your experience, 02d Plan comparison, 02e Encode priorities | Surprised/confused/excited discussion, silent read + round-robin + convergence board, encode in CLAUDE.md with area labels |
 | **Review pipeline** (L632-644) | 03 Section, 04 Three layers, 05 CI in practice, 06 Peer review, 07 PR template | Three-layer pipeline (CI/peer/LLM), PR template sections (summary, changes, test plan, tradeoffs, checklist), PR size limit (~200 lines) |
 | **Git workflow for teams** (L646-718) | 08 Section, 09 Branch strategy, 10 PR lifecycle, 11 Commit conventions, 12 Daily git rhythm | Branch strategy (main/dev/feature), branch naming convention (feature/issue-NUMBER-desc), commit conventions (imperative mood, issue refs), PR lifecycle steps, daily git rhythm |
 | **Edge case brainstorming** (L720-724) | 13 Section, 14 Interview first, 15 Edge case example | Interview-first pattern, has_resources() edge cases, income thresholds |
