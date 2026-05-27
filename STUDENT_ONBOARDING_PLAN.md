@@ -105,7 +105,7 @@ The scoring uses the **MFAI (Monthly Food Access Index)** from Koh et al. 2019. 
 
 This means a household's score isn't just about distance. A car-owning household far from a supermarket may score higher than a carless household next to a convenience store, because the car-owner can reach the supermarket.
 
-The `has_resources()` function (household.py:169) determines resource status using income thresholds that vary by household size: $10k for singles, $15k for 2-person, $25k for 3+ person households.
+The `has_resources()` function (household.py:180) determines resource status using income thresholds that vary by household size: $10k for singles, $15k for 2-person, $25k for 3+ person households.
 
 **The Mesa framework:** FEAST uses [Mesa](https://mesa.readthedocs.io/) via [mesa-geo](https://github.com/projectmesa/mesa-geo) v0.8.0, a Python ABM library with geographic extensions. Mesa provides:
 - A `Model` class that holds all agents and manages simulation steps (see `abm/geo_model.py`)
@@ -493,7 +493,7 @@ Now that you've traced one endpoint, explore the parts you didn't cover. As you 
 
 **J students**: Read through the frontend code (`fass-react/src/App.jsx`, the component files in `src/components/`). Try to match what you see in the browser to what's in the code. Which component renders the map? (`MapComponent.js`, 526 lines). Which one handles "Add Store"? (`AddStoreButton.jsx` + `AddStoreModal.jsx`). Where do the household colors come from? (Hint: the backend sends them, but trace it.) Why does the code store things on the `window` object? Ask the LLM to explain things you don't understand, but verify against the code.
 
-**S students**: Read `food_access_model/abm/household.py` carefully, especially `get_mfai()` (line 218), `has_resources()` (line 169), and `step()` (line 259). These are the core of the simulation. Try to understand the MFAI scoring logic. What do the magic numbers mean (95, 55, 0.8, 10000/15000/25000)? Read the data pipeline in `preprocessing/get_data.py` (1134 lines, focus on the main functions, not every line). How does Census data become synthetic households? Also look at `model_multi_processing/batch_running.py` to understand how simulation steps are parallelized.
+**S students**: Read `food_access_model/abm/household.py` carefully, especially `get_mfai()` (line 229), `has_resources()` (line 180), and `step()` (line 278). These are the core of the simulation. Try to understand the MFAI scoring logic. What do the magic numbers mean (95, 55, 0.8, 10000/15000/25000)? Read the data pipeline in `preprocessing/get_data.py` (1134 lines, focus on the main functions, not every line). How does Census data become synthetic households? Also look at `model_multi_processing/batch_running.py` to understand how simulation steps are parallelized.
 
 **Part 2: Create a project context file in your FEAST repo.**
 
@@ -831,7 +831,7 @@ LLM usage: You can ask the LLM "What type does this function return?"
    - Create tests/ directory with __init__.py and conftest.py
 2. Write tests for these pure functions in household.py:
 
-   has_resources() (line 169):
+   has_resources() (line 180):
    - Test: income < 10000 returns False regardless of household size
    - Test: household_size >= 2 and income < 15000 returns False
    - Test: household_size >= 3 and income < 25000 returns False
@@ -936,15 +936,15 @@ This is a reported bug: after running a simulation step, all houses appear to ha
 
 [SCAFFOLD: Bug Investigation Guide]
 ```
-1. UNDERSTAND before you fix. Read food_access_model/abm/household.py:131
+1. UNDERSTAND before you fix. Read food_access_model/abm/household.py:142
    (stores_with_1_miles).
    - It iterates self.model.stores_list
    - It reads self.distances_map[store.unique_id]
    - It counts stores where distance <= 1.0
 
 2. Hypothesis: When is distances_map populated?
-   - Look at calculate_distances() (line 246)
-   - It's called in step() (line 259) only if distances_map is None
+   - Look at calculate_distances() (line 257)
+   - It's called in step() (line 278) only if distances_map is None
    - After step 0, distances_map is never recalculated even if stores change
 
 3. Write a test that reproduces the bug BEFORE fixing it:
@@ -1016,7 +1016,7 @@ LLM planning: After your spec is reviewed, ask your CLI agent to
    missed? Did it suggest a different decomposition?
 ```
 
-#### Issue #27: Clean up redundant functions (1 student, J+S pair)
+#### Issue #8: Clean up redundant functions (1 student, J+S pair)
 
 [SCAFFOLD: Redundancy Audit]
 ```
@@ -1046,7 +1046,7 @@ LLM usage: Ask the LLM to help you trace callers:
    Verify by grepping the codebase yourself.
 ```
 
-#### Issue #50: Improve logging (1 student, J)
+#### Issue #9: Improve logging (1 student, J)
 
 [SCAFFOLD: Logging Guide]
 ```
@@ -1105,7 +1105,7 @@ and move on. Someone else (or you next week) can pick it up.
 
 Good candidates for solo work this week:
 - Any remaining flake8 fixes from #4
-- print() -> logging conversions (related to #50)
+- print() -> logging conversions (related to #9)
 - Documenting magic numbers in household.py
 - Small issues you filed in week 1
 ```
@@ -1198,7 +1198,7 @@ This is the highest-impact algorithmic change in the backlog.
 ```
 1. READ THE PAPER FIRST. Understand the MFAI methodology from
    Koh et al. 2019. The current implementation in
-   food_access_model/abm/household.py:218 (get_mfai) only considers
+   food_access_model/abm/household.py:229 (get_mfai) only considers
    the single closest SPM and CSPM. Note: the bc_pantries branch
    extends this with pantry support for low-income households.
 
@@ -1562,12 +1562,12 @@ This is the team's final output beyond the code itself. Write a `docs/ROADMAP.md
 |------|-------------------------------|----------------|---------------------|-----------------|
 | 1 | (orientation, codebase traces) | File issues + create project context file | Agentic tools installed, LLM as explainer only, project mgmt artifacts introduced, deployment configuration mental model | Seed the backlog |
 | 2 | #4, #1, #2, #3 + first tests | Apply same skill to adjacent files | CI pipeline + peer review start, ADRs introduced, edge case brainstorming, structured planning previewed | Triage + prioritize backlog |
-| 3 | #6, #7, #27, #50 | Pick an issue from backlog, work it | LLM adversarial review rotation starts (full 3-layer pipeline), ADR-format specs, agent planning for feature specs | Nominate priorities for weeks 4-5 |
+| 3 | #6, #7, #8, #9 | Pick an issue from backlog, work it | LLM adversarial review rotation starts (full 3-layer pipeline), ADR-format specs, agent planning for feature specs | Nominate priorities for weeks 4-5 |
 | 4 | #91, #67, #94/#36 (reporting), #79 | File new issues + pick from backlog | Manual vs. auto-generated ADRs, single vs. multi-issue planning, LLM as design partner, context file check-in | Roadmap check: what's realistic? |
 | 5 | #63 + security + frontend #10 + integration | Full autonomy: ship highest-impact work | Review pipeline retrospective, deployment config audit, branch-level review, security scanning, context file audit | Tag issues for next cohort |
 | 6 | Documentation + roadmap handoff | Final push: close or reassign everything | Tool config handoff, process retrospective, reflection on tool usage | Write ROADMAP.md for next cohort |
 
-Note: Issue numbers above are from the `ICICLE-ai/Food-Access-Model` repo unless prefixed with "frontend" (from `ICICLE-ai/FASS-Frontend`).
+Note: Issues #1-#9 are in `FoodAccessSimulator/FEAST-backend`. Higher numbers (#36, #63, #67, #79, #91, #94) are from the original `ICICLE-ai/Food-Access-Model` repo and have not yet been migrated. Frontend issues are from `ICICLE-ai/FASS-Frontend`.
 
 ## Student Assignment Strategy
 
@@ -1577,9 +1577,9 @@ With 5 students of varying experience, assign based on challenge level:
 |------|-----------|-----------------|-----------------|
 | Student A (J) | Freshman/sophomore | #1 (type hints, ABM) | Frontend #36 (reporting view, paired with C) |
 | Student B (J) | Freshman/sophomore | #4 (linting + CI) | #63 (unit conversions) + security checklist + frontend #10 (env var) |
-| Student C (J/S) | Mid-level | #2 (type hints, API) + #50 (logging) | #94 (reporting API, paired with A) + #79 (backend metrics) |
+| Student C (J/S) | Mid-level | #2 (type hints, API) + #9 (logging) | #94 (reporting API, paired with A) + #79 (backend metrics) |
 | Student D (S) | Junior/senior | First tests + #6 (bug fix) | #91 (MFAI algorithm improvement) |
-| Student E (S) | Junior/senior | #3 (preprocessing) + #27 (redundancy) | #67 (spatial refactor) + #7 (optimization) |
+| Student E (S) | Junior/senior | #3 (preprocessing) + #8 (redundancy) | #67 (spatial refactor) + #7 (optimization) |
 
 Pair J and S students on cross-cutting work (e.g., #94 backend + #79 frontend).
 
@@ -1646,10 +1646,10 @@ The tooling progression runs in parallel: tools are set up early (Week 1), proce
 - Optimized step function (#7)
 - Improved MFAI algorithm (#91)
 - Reporting API + metrics display (backend #94, frontend #36, backend #79)
-- Cleaner logging (#50)
+- Cleaner logging (#9)
 - Security basics (input validation, configurable CORS, consolidated entry point)
 - Spatial data handling improvements (#67)
-- Cleaned up redundant code and entry points (#27)
+- Cleaned up redundant code and entry points (#8)
 - Frontend API URL moved to env var (frontend #10)
 
 **For the students:**

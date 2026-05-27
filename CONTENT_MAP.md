@@ -50,8 +50,8 @@ These specific values appear in both the curriculum and slides. If any change, b
 - **Repo branches:** `minimum_viable_product` (backend), `Brown-County-Frontend` (frontend)
 - **CRS:** households EPSG:4326, stores EPSG:3857
 - **Entry points:** run_local.py (correct), api_server.py (legacy), server.py (legacy)
-- **has_resources() line ref:** household.py:169
-- **get_mfai() line ref:** household.py:218
+- **has_resources() line ref:** household.py:180
+- **get_mfai() line ref:** household.py:229
 - **Agentic tools listed:** Claude Code, Gemini CLI, Cursor, Copilot
 - **Review pipeline layers:** CI checks (Week 2), peer review (Week 2), LLM adversarial review (Week 3)
 - **Project mgmt artifacts:** project context file (CLAUDE.md), ROADMAP.md, DECISIONS.md
@@ -97,13 +97,36 @@ These specific values appear in both the curriculum and slides. If any change, b
 - **Week 1 deliverables (recap):** Environment, endpoint trace, vision plan, issues filed, context file. Appears in: Week 2 slides (02, 5 cards), `docs/assignments/week-1-assignment.md` (Deliverables section)
 - **Instructor prep workflow:** `docs/instructor-guides/week-2-prep.md`. Referenced by: STUDENT_ONBOARDING_PLAN.md (L594, instructor prep note before Plan Comparison Activity), Week 2 slides (02b footer)
 
-## Weeks 3-6
+## Week 3
 
-Slide decks for these weeks do not exist yet. When created, add mappings here following the Week 1/Week 2 format.
+**Slide deck:** `slides/week-3/index.html` (14 slides)
+
+| Curriculum section (line) | Slide(s) | Shared facts to keep in sync |
+|---|---|---|
+| Week 2 recap | 01 Title, 02 Week 2 recap | Week 2 deliverables (6 cards: branches+PRs, CI, peer review, iterative pattern, ADRs, assigned issues) |
+| **LLM adversarial review** (L894-902) | 03 Section, 04 Adversarial review, 05 Live demo, 06 Three layers complete | Adversarial review prompt, rotation protocol, three-layer pipeline diagram (CI/peer/LLM), "Valid" vs "False positive (because...)" labeling |
+| **Specs before code** (L904-923) | 07 Section, 08 Why specs first, 09 Planning tools, 10 Hand vs agent plans | Spec-first pattern (ADR for decisions, diagnosis paragraph for fixes), /plan workflow (4 steps), hand-written vs agent plan comparison, best workflow |
+| **Connecting the dots** (L925-929) | 11 You are doing engineering | Six engineering skills grid (decomposition, quality gates, code review, decision records, spec-first planning, coordination), agentic engineering definition |
+| **Assigned work** (L931-1075) | 12 Your track | Four issues: #6 (bug fix), #7 (optimization), #8 (redundancy), #9 (logging). Each with spec-first requirement. |
+| **Roadmap activity** (L1117-1118) | 13 Roadmap check-in | 10-min activity: comment on 1-2 issues for Weeks 4-5, nominate priorities |
+| -- | 14 Recap | Three skills: adversarial review, spec-first planning, agent-assisted planning. Next week pointer. |
+
+**Assignment document:** `docs/assignments/week-3-assignment.md` -- per-issue instructions, review protocol (all 3 layers), LLM usage rules, deliverables checklist.
+
+### Key shared values (Week 3)
+
+- **Review pipeline (complete):** CI checks (automated, Week 2) + peer review (human, Week 2) + LLM adversarial review (student-run, Week 3). Appears in: STUDENT_ONBOARDING_PLAN.md (L894-902), Week 3 slides (04, 06), Week 2 slides (09), CONTENT_MAP.md Week 1 shared values
+- **Adversarial review prompt:** "Review this diff for correctness, performance, and maintainability issues. Be thorough and skeptical. For each finding, rate your confidence and explain why it matters." Appears in: STUDENT_ONBOARDING_PLAN.md (L898), Week 3 slides (04)
+- **Spec-first pattern:** ADR for design decisions, diagnosis paragraph for straightforward fixes. Appears in: STUDENT_ONBOARDING_PLAN.md (L904-906), Week 3 slides (08)
+- **Week 3 assigned issues:** #6 (stores-within-1-mile bug), #7 (step optimization), #8 (redundant functions), #9 (logging). Appears in: STUDENT_ONBOARDING_PLAN.md (L933-1075), Week 3 slides (12), `docs/assignments/week-3-assignment.md`
+- **household.py line refs:** has_resources():180, get_mfai():229, step():278, calculate_distances():257, stores_with_1_miles():142. Appears in: STUDENT_ONBOARDING_PLAN.md, Week 3 assignment doc, CONTENT_MAP.md Week 1 shared values
+
+## Weeks 4-6
+
+Slide decks for these weeks do not exist yet. When created, add mappings here following the Week 1/2/3 format.
 
 | Week | Curriculum topics (post-DEC-004/005/006 restructuring) | Slide deck | Status |
 |---|---|---|---|
-| 3 | LLM adversarial review rotation (completing 3-layer pipeline), specs before code, structured planning for feature specs, ADR-format specs | `slides/week-3/index.html` | Not started |
 | 4 | Manual vs. auto-generated artifacts, ADR generation from diffs, single-feature vs. multi-issue planning vs. branch-level review, roadmap maintenance, project context file check-in | `slides/week-4/index.html` | Not started |
 | 5 | Security review, deployment configuration audit, branch-level review evaluation, review pipeline retrospective, **complete agentic workflow** (spec-plan-execute-verify loop, workflow selection by task size, context file encoding), project context file audit. Reference: Guide 13 | `slides/week-5/index.html` | Not started |
 | 6 | Retrospective (tools + process), demo, handoff (may be discussion-driven, slides optional) | `slides/week-6/index.html` | Not started |

@@ -68,7 +68,7 @@ Write your trace as a markdown file. Put it in `docs/traces/` in the FEAST backe
 Now that you've traced one endpoint, explore the parts you didn't cover. Keep notes on what seems wrong, confusing, or inconsistent. You will use these notes for your Vision Plan (step 5).
 
 Focus areas for senior devs:
-- `food_access_model/abm/household.py`: read `get_mfai()` (line 218), `has_resources()` (line 169), and `step()` (line 259). What do the magic numbers mean (95, 55, 0.8, 10000/15000/25000)?
+- `food_access_model/abm/household.py`: read `get_mfai()` (line 229), `has_resources()` (line 180), and `step()` (line 278). What do the magic numbers mean (95, 55, 0.8, 10000/15000/25000)?
 - `preprocessing/get_data.py`: How does Census data become synthetic households? (1134 lines; focus on the main functions, not every line.)
 - `model_multi_processing/batch_running.py`: How are simulation steps parallelized?
 - The frontend (`fass-react/src/`): Why does the code store things on the `window` object? What's going on with MapComponent.js (526 lines of raw DOM manipulation)?

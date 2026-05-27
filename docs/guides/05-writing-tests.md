@@ -33,7 +33,7 @@ tests/
   test_household.py
 ```
 
-### 2. Write tests for `has_resources()` (line 169)
+### 2. Write tests for `has_resources()` (line 180)
 
 This function returns `False` if the household lacks resources based on income and household size. Read it carefully:
 

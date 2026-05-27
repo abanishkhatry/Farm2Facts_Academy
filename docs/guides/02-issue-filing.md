@@ -25,7 +25,7 @@ Clear and specific. A developer should be able to understand the problem from th
 Good:
 - "Import paths inconsistent between api_server.py and routes.py"
 - "CORS origin hardcoded to Tapis URL, breaks local development"
-- "household.py:74 - normalized formula uses unexplained magic numbers"
+- "household.py:85 - normalized formula uses unexplained magic numbers"
 
 Bad:
 - "fix imports"

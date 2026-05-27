@@ -5,7 +5,7 @@ title: "Roadmap"
 
 # ROADMAP
 
-Last updated: 2026-05-20
+Last updated: 2026-05-27
 
 ## Current State
 
@@ -17,7 +17,9 @@ Last updated: 2026-05-20
 - GitHub issue and PR templates (`.github/`)
 - Project management scaffold: CLAUDE.md, ROADMAP.md, DECISIONS.md, post-commit hook
 - Week 1 slide deck (58 sections: orientation, domain, architecture, agentic tools, setup, experience baseline, vision plan, plan comparison)
-- Week 2 slide deck (33 slides: experience review, vision plan comparison, git workflow, review pipeline, edge cases, iterative coding, ADRs, assigned work)
+- Week 2 slide deck (29 slides: experience review, vision plan comparison, git workflow, review pipeline, edge cases, iterative coding, ADRs, assigned work)
+- Week 3 slide deck (14 slides: adversarial review, specs before code, structured planning, engineering identity, assigned issues)
+- Week 3 assignment document (`docs/assignments/week-3-assignment.md`)
 - Week 1 assignment document (`docs/assignments/week-1-assignment.md`)
 - Week 2 assignment document (`docs/assignments/week-2-assignment.md`)
 - Vision and Improvement Plan template (`templates/vision-plan-template.md`)
@@ -79,7 +81,7 @@ Last updated: 2026-05-20
   - [x] Week 1 assignment document (`docs/assignments/week-1-assignment.md`)
   - [x] Instructor prep guide: LLM digest workflow (`docs/instructor-guides/week-2-prep.md`)
 - [ ] Consistency review across all written materials (cross-references, terminology, scaffolding tiers)
-- [ ] Verify FEAST code references (file paths, line numbers) against current codebase state
+- [x] Verify FEAST code references (file paths, line numbers) against current codebase state (updated for FoodAccessSimulator/FEAST-backend repo, 2026-05-27)
 
 ### M2: Presentation Materials [In Progress]
 **Goal:** Slide decks ready for all weekly group sessions.
@@ -90,7 +92,8 @@ Last updated: 2026-05-20
 - [x] Week 2: Review pipelines, CI setup, ADR introduction, edge case brainstorming, PR workflow (`slides/week-2/`)
 - [x] Week 2 update: Experience review opener (02b-02f), vision plan intro, plan comparison, shared vs individual context files, staging branch, small PR emphasis, ADR broader impact, guide references on assigned-work slide
 - [x] Week 2 assignment document (`docs/assignments/week-2-assignment.md`)
-- [ ] Week 3: Adversarial review (manual + LLM rotation), specs before code, ADR practice
+- [x] Week 3: Adversarial review (LLM rotation), specs before code, structured planning, assigned issues (`slides/week-3/`)
+- [x] Week 3 assignment document (`docs/assignments/week-3-assignment.md`)
 - [ ] Week 4: Manual vs. auto-generated artifacts, roadmap maintenance, ADR generation from diffs
 - [ ] Week 5: Security review, deployment readiness, review pipeline retrospective
 - [ ] Week 6: Retrospective and handoff (may be discussion-driven, slides optional)

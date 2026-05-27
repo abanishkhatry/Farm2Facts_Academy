@@ -60,7 +60,7 @@ For each function in your assigned files:
 2. Create `tests/` directory with `__init__.py` and `conftest.py`
 3. Write tests for pure functions in `household.py`:
 
-   **`has_resources()` (line 169):**
+   **`has_resources()` (line 180):**
    - Income < $10,000 returns False (any household size)
    - Household size >= 2 and income < $15,000 returns False
    - Household size >= 3 and income < $25,000 returns False
