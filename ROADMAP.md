@@ -5,7 +5,7 @@ title: "Roadmap"
 
 # ROADMAP
 
-Last updated: 2026-05-27
+Last updated: 2026-05-29
 
 ## Current State
 
@@ -18,8 +18,10 @@ Last updated: 2026-05-27
 - Project management scaffold: CLAUDE.md, ROADMAP.md, DECISIONS.md, post-commit hook
 - Week 1 slide deck (58 sections: orientation, domain, architecture, agentic tools, setup, experience baseline, vision plan, plan comparison)
 - Week 2 slide deck (29 slides: experience review, vision plan comparison, git workflow, review pipeline, edge cases, iterative coding, ADRs, assigned work)
-- Week 3 slide deck (14 slides: adversarial review, specs before code, structured planning, engineering identity, assigned issues)
-- Week 3 assignment document (`docs/assignments/week-3-assignment.md`)
+- Week 3 slide deck (18 slides: CLAUDE.md proposal review, adversarial review, specs before code, structured planning, engineering identity, assigned issues)
+- Week 3 assignment document with feature development track (`docs/assignments/week-3-assignment.md`)
+- Merged CLAUDE.md template from student proposals (`templates/CLAUDE-backend-merged.md`)
+- Feature issues created from student vision plans: backend #19-24, frontend #1-4
 - Week 1 assignment document (`docs/assignments/week-1-assignment.md`)
 - Week 2 assignment document (`docs/assignments/week-2-assignment.md`)
 - Vision and Improvement Plan template (`templates/vision-plan-template.md`)
@@ -29,7 +31,7 @@ Last updated: 2026-05-27
 - GitHub Pages deployment via GitHub Actions
 
 **In progress:**
-- Slide decks for weeks 3-6
+- Slide decks for weeks 4-6
 
 **Not started:**
 - Consistency review across all written materials
