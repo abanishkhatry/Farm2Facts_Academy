@@ -78,7 +78,7 @@
   left: 50%;
   transform: translateX(-50%);
   padding-top: 8px;
-  min-width: 140px;
+  min-width: 180px;
   z-index: 100;
 }
 .nav-dropdown-menu-inner {
@@ -104,6 +104,45 @@
 .nav-dropdown-menu a:hover {
   background: var(--cream);
   text-decoration: none !important;
+}
+
+/* ---- Weeks mega-dropdown ---- */
+.nav-weeks {
+  padding: var(--space-3) 0 !important;
+}
+.nav-week-group {
+  padding: var(--space-2) var(--space-4);
+}
+.nav-week-group + .nav-week-group {
+  border-top: 1px solid var(--border);
+}
+.nav-week-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-12, 12px);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--fg-3);
+  padding: 0 0 var(--space-1);
+}
+.nav-week-links {
+  display: flex;
+  gap: var(--space-3);
+}
+.nav-week-links a {
+  padding: var(--space-1) 0 !important;
+  font-size: var(--fs-14) !important;
+  color: var(--fg-1) !important;
+  font-weight: 500;
+  opacity: 1 !important;
+  white-space: nowrap;
+}
+.nav-week-links a:hover {
+  color: var(--uw-red) !important;
+  background: none !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
 }
 @media (max-width: 600px) {
   .site-header {
