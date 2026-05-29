@@ -396,7 +396,7 @@
 </style>
 
 <script type="application/json" id="speaker-notes">
-["Welcome to Week 3. Weeks 1 and 2 were about understanding the codebase and learning the team workflow. This week we level up: you complete the review pipeline, learn to write specs before code, and start using your agent's planning tools. By the end of today, every PR gets all three review layers, and you have a spec-first habit.", "Quick check-in. Last week you created feature branches, opened PRs, set up CI, practiced peer review, used the iterative coding pattern, and wrote your first ADR. Some of those are still in progress, and that is fine. This week builds directly on that foundation.", "Part one. Your review pipeline has had two layers: automated CI and human peer review. Today we add the third and final layer: LLM adversarial review. After this, every PR goes through all three gates before it can merge.", "Here is how adversarial review works. You open a fresh session with your CLI agent, with no prior context about the PR. You paste the diff and a skeptical reviewer prompt. The prompt on screen works well. The tool returns findings: potential bugs, performance issues, maintainability concerns. Your job is to evaluate each finding. Some will be valid catches. Some will be false positives. For each one, post a PR comment marking it Valid or False positive with your reasoning. This is a skill: learning to filter signal from noise in LLM output.", "Let's do this live. We will pick one of your open PRs from last week and run adversarial review on it right now. I will walk through the full workflow: paste the diff, read the findings, decide which are real, and post comments. Watch how many findings are actually useful versus how many are noise. That ratio teaches you something important about working with these tools.", "The pipeline is now complete. Layer one, CI: automated, runs on every push, catches style and syntax issues. You set this up in Week 2. Layer two, peer review: human, one reviewer per PR, catches logic and design issues. Also started in Week 2. Layer three, adversarial LLM review: a different student runs a structured review and posts findings. Starts today. The rotation assigns one adversarial reviewer per PR, separate from the peer reviewer. Every PR from here on gets all three.", "Part two. So far you have been jumping straight from issue to code. This week we add a step: write a spec before you implement. For design decisions, write a short ADR. For straightforward fixes, a diagnosis paragraph in the issue comment is enough.", "Why write before you code? Three reasons. First, it forces you to think through the approach before you are tangled in implementation details. Second, it gives the team a chance to catch flawed assumptions before you spend hours coding the wrong thing. Third, it creates a record of reasoning that future readers, including future you, can use to understand not just what changed but why. The habit of planning on paper before planning in code separates junior from senior professionals in any field.", "Your CLI agent has a planning feature. In Claude Code it is the slash plan command. Other tools have similar capabilities. Here is the workflow. Step one: ask the agent to plan. Describe your goal and the relevant code. Tell it to plan before making changes. Step two: the agent explores the codebase and produces a structured plan, which files to change, in what order, what tests to write. Step three: review the plan critically. Same rules as reviewing generated code. Did it miss anything? Is it over-scoped? Step four: compare to your hand-written spec. The tool usually maps file-level details better. You usually capture intent and constraints better.", "Here is the key insight about planning tools. Structured planning is most useful for single-feature implementations where you know what you want but need to map the code changes. It is not a substitute for thinking about whether to do something. That is the ADR. The best workflow: write your hand-written spec first, the what and why, then feed it to your agent's planning feature to get the how. You get your reasoning about intent plus the tool's mapping of implementation details.", "Pause and take stock. Over three weeks you have: filed issues, which is problem decomposition. Reviewed code, which is evaluating quality. Written ADRs, which is documenting decisions. Built a review pipeline, which is designing quality gates. And now, writing specs before code, which is planning. None of these are coding. All of them are engineering. Remember the focus shift from Week 1: when agents handle syntax and boilerplate, the developer's job shifts to these higher-level skills. The agent loop, observe think act, handles implementation. Your job is deciding what to build, why, and how to verify it works. That is agentic engineering. You have been practicing it since Week 1.", "Here are this week's four assigned issues. Each one uses the spec-first pattern you just learned. The bug fix student writes a diagnosis paragraph before fixing. The optimization student writes an ADR before refactoring. The redundancy pair maps the codebase before removing code. The logging student writes a logging configuration spec before changing any files. Create your feature branch now if you have not already.", "Roadmap check-in. Before next week, each of you comments on one or two issues you think should be prioritized for weeks 4 and 5, with a sentence explaining why. We will review nominations at the top of Week 4 and adjust assignments. Take a few minutes now to browse the issue board and think about what matters most. Where is the highest impact work? What would you prioritize if you were leading this project?", "Recap. Three skills you practiced today. Adversarial review: filtering signal from noise in LLM output, and completing the three-layer pipeline. Spec-first planning: writing what and why before how, whether as an ADR or a diagnosis paragraph. Agent-assisted planning: using the tool to map implementation details after you have defined intent. Next week: we look at how to evaluate generated artifacts, compare hand-written versus auto-generated ADRs, and tackle multi-issue planning."]
+["Welcome to Week 3. Weeks 1 and 2 were about understanding the codebase and learning the team workflow. This week we level up: you complete the review pipeline, learn to write specs before code, and start using your agent's planning tools. By the end of today, every PR gets all three review layers, and you have a spec-first habit.", "Quick check-in. Last week you created feature branches, opened PRs, set up CI, practiced peer review, used the iterative coding pattern, and wrote your first ADR. Some of those are still in progress, and that is fine. This week builds directly on that foundation.", "Before we get into new material, let's look at something you all produced: your CLAUDE.md files. Three of you wrote context files for the FEAST backend. I have anonymized them so we can focus on the content, not who wrote what. Take a minute to read the three summaries on screen. Notice the different emphases: one goes deep on architecture and data flow. One focuses on process awareness and guardrails. One covers operational standards and deployment. Each found things the others missed.", "What stands out is how much all three agree on: the entry point, the git workflow, type hint conventions, the review pipeline. That consensus is a strong signal. But look at the right column: things one person noticed that everyone benefits from. A table of dead files, a tricky global variable, a Python version mismatch, platform-specific gotchas. This is exactly why we compare and merge.", "So what does a complete context file actually need? Six sections. Think of two audiences: you coming back to this project in six months, and an agent starting a fresh session with zero context. What is this project: one paragraph so the agent is oriented. How do I run it: the literal commands. How does it fit together: the architecture, what calls what. What are the rules: code standards and conventions. What should I avoid: dead code, legacy patterns, traps. How should the agent behave: workflow rules and guardrails. Look at the grid. All three covered the first two well. But notice the gaps and the stars. Nobody had all six covered fully. Proposal A was strongest on architecture and pitfalls but did not write agent behavior rules. Proposal B was strongest on agent guardrails but only partially mapped the architecture. Proposal C was strongest on code standards but did not inventory the dead code. No single file covered everything, and that is the whole point of this exercise.", "Here is the plan for the merged version. From Proposal A we take the architecture section, the simulation step call graph, and the dead code table. That is the technical map an agent needs to navigate. From Proposal B we take the process guardrails, the current-state caveats, and the How to Work With Me section. Those are the rules the agent needs to follow. From Proposal C we take the deployment configuration, logging standards, and architecture constraints. Those prevent common mistakes. What stays out of the shared file: platform-specific notes like Windows versus Mac, personal workflow preferences, and anything that changes per person rather than per project. The merged file is ready to review. One student opens the PR, everyone reviews it.", "Part one. Your review pipeline has had two layers: automated CI and human peer review. Today we add the third and final layer: LLM adversarial review. After this, every PR goes through all three gates before it can merge.", "Here is how adversarial review works. You open a fresh session with your CLI agent, with no prior context about the PR. You paste the diff and a skeptical reviewer prompt. The prompt on screen works well. The tool returns findings: potential bugs, performance issues, maintainability concerns. Your job is to evaluate each finding. Some will be valid catches. Some will be false positives. For each one, post a PR comment marking it Valid or False positive with your reasoning. This is a skill: learning to filter signal from noise in LLM output.", "Let's do this live. We will pick one of your open PRs from last week and run adversarial review on it right now. I will walk through the full workflow: paste the diff, read the findings, decide which are real, and post comments. Watch how many findings are actually useful versus how many are noise. That ratio teaches you something important about working with these tools.", "The pipeline is now complete. Layer one, CI: automated, runs on every push, catches style and syntax issues. You set this up in Week 2. Layer two, peer review: human, one reviewer per PR, catches logic and design issues. Also started in Week 2. Layer three, adversarial LLM review: a different student runs a structured review and posts findings. Starts today. The rotation assigns one adversarial reviewer per PR, separate from the peer reviewer. Every PR from here on gets all three.", "Part two. So far you have been jumping straight from issue to code. This week we add a step: write a spec before you implement. For design decisions, write a short ADR. For straightforward fixes, a diagnosis paragraph in the issue comment is enough.", "Why write before you code? Three reasons. First, it forces you to think through the approach before you are tangled in implementation details. Second, it gives the team a chance to catch flawed assumptions before you spend hours coding the wrong thing. Third, it creates a record of reasoning that future readers, including future you, can use to understand not just what changed but why. The habit of planning on paper before planning in code separates junior from senior professionals in any field.", "Your CLI agent has a planning feature. In Claude Code it is the slash plan command. Other tools have similar capabilities. Here is the workflow. Step one: ask the agent to plan. Describe your goal and the relevant code. Tell it to plan before making changes. Step two: the agent explores the codebase and produces a structured plan, which files to change, in what order, what tests to write. Step three: review the plan critically. Same rules as reviewing generated code. Did it miss anything? Is it over-scoped? Step four: compare to your hand-written spec. The tool usually maps file-level details better. You usually capture intent and constraints better.", "Here is the key insight about planning tools. Structured planning is most useful for single-feature implementations where you know what you want but need to map the code changes. It is not a substitute for thinking about whether to do something. That is the ADR. The best workflow: write your hand-written spec first, the what and why, then feed it to your agent's planning feature to get the how. You get your reasoning about intent plus the tool's mapping of implementation details.", "Pause and take stock. Over three weeks you have: filed issues, which is problem decomposition. Reviewed code, which is evaluating quality. Written ADRs, which is documenting decisions. Built a review pipeline, which is designing quality gates. And now, writing specs before code, which is planning. None of these are coding. All of them are engineering. Remember the focus shift from Week 1: when agents handle syntax and boilerplate, the developer's job shifts to these higher-level skills. The agent loop, observe think act, handles implementation. Your job is deciding what to build, why, and how to verify it works. That is agentic engineering. You have been practicing it since Week 1.", "Here are this week's four assigned issues. Each one uses the spec-first pattern you just learned. The bug fix student writes a diagnosis paragraph before fixing. The optimization student writes an ADR before refactoring. The redundancy pair maps the codebase before removing code. The logging student writes a logging configuration spec before changing any files. Create your feature branch now if you have not already.", "Roadmap check-in. Before next week, each of you comments on one or two issues you think should be prioritized for weeks 4 and 5, with a sentence explaining why. We will review nominations at the top of Week 4 and adjust assignments. Take a few minutes now to browse the issue board and think about what matters most. Where is the highest impact work? What would you prioritize if you were leading this project?", "Recap. Three skills you practiced today. Adversarial review: filtering signal from noise in LLM output, and completing the three-layer pipeline. Spec-first planning: writing what and why before how, whether as an ADR or a diagnosis paragraph. Agent-assisted planning: using the tool to map implementation details after you have defined intent. Next week: we look at how to evaluate generated artifacts, compare hand-written versus auto-generated ADRs, and tackle multi-issue planning."]
 </script>
 </head>
 
@@ -469,6 +469,232 @@
       <div class="deck-footer">
         <span>Week 3 &middot; Recap</span>
         <span><span class="dot">&bull;</span> Week 2 review</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02b — Context file review: three proposals
+       ============================================================ -->
+  <section data-screen-label="02b Context files: three proposals">
+    <div class="pattern-bg"></div>
+    <div style="position: relative;">
+      <div class="eyebrow-slide">Context file review</div>
+      <h2 class="slide-title">Three files, one repo.</h2>
+      <p class="body-text" style="margin-bottom: 24px;">Each of you wrote a CLAUDE.md for the FEAST backend. Here are three proposals, side by side.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <div class="card" style="border-top: 4px solid var(--badger-red);">
+          <span class="tag">Proposal A</span>
+          <h3 style="font-size: 24px;">The deep dive</h3>
+          <ul style="font-size: 19px; line-height: 1.5; color: var(--fg-2); padding-left: 20px; margin: 12px 0 0;">
+            <li>Drew a map of exactly what happens when you click "step" (which function calls which)</li>
+            <li>Listed every dead file in the repo and why it is dead</li>
+            <li>Explained that the simulation rebuilds from the database every time (no hidden state)</li>
+            <li>Documented how the database gets its initial data (Census + OSM pipeline)</li>
+            <li>Noticed the Docker image uses Python 3.12 but the repo says 3.11</li>
+          </ul>
+          <p style="font-size: 17px; color: var(--fg-3); margin-top: 12px;">174 lines</p>
+        </div>
+        <div class="card" style="border-top: 4px solid var(--badger-red);">
+          <span class="tag slate">Proposal B</span>
+          <h3 style="font-size: 24px;">The process-aware one</h3>
+          <ul style="font-size: 19px; line-height: 1.5; color: var(--fg-2); padding-left: 20px; margin: 12px 0 0;">
+            <li>Honest about current state: "there are no tests or linting yet, don't assume they exist"</li>
+            <li>Wrote explicit rules for how the agent should behave ("wait for approval, stay in scope")</li>
+            <li>Included spec-before-code as a convention the agent should follow</li>
+            <li>Warned about a tricky global variable (<span class="code-chip">pool</span>) that breaks if you miss it</li>
+            <li>Thought about two audiences: the AI agent and the human contributor</li>
+          </ul>
+          <p style="font-size: 17px; color: var(--fg-3); margin-top: 12px;">137 lines</p>
+        </div>
+        <div class="card" style="border-top: 4px solid var(--badger-red);">
+          <span class="tag moss">Proposal C</span>
+          <h3 style="font-size: 24px;">The operational one</h3>
+          <ul style="font-size: 19px; line-height: 1.5; color: var(--fg-2); padding-left: 20px; margin: 12px 0 0;">
+            <li>Mapped the three places where environments connect (frontend, backend, database) and how to configure each</li>
+            <li>Defined exactly when to use <span class="code-chip">logging.info</span> vs <span class="code-chip">.debug</span> vs <span class="code-chip">.error</span></li>
+            <li>Spelled out the workflow: spec first, then plan, then build, then verify</li>
+            <li>Set architecture rules: use async database access, not the old sync pattern</li>
+            <li>Added Windows-specific notes (PowerShell syntax, OneDrive gotchas)</li>
+          </ul>
+          <p style="font-size: 17px; color: var(--fg-3); margin-top: 12px;">141 lines</p>
+        </div>
+      </div>
+
+      <div class="deck-footer">
+        <span>Week 3 &middot; Context files</span>
+        <span><span class="dot">&bull;</span> Three proposals</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02c — Context file review: what each brings
+       ============================================================ -->
+  <section data-screen-label="02c What each brings">
+    <div class="pattern-bg"></div>
+    <div style="position: relative;">
+      <div class="eyebrow-slide">Context file review</div>
+      <h2 class="slide-title">Different strengths, same goal.</h2>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div>
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--ink); margin: 0 0 16px;">What all three agree on</h3>
+          <ul style="font-size: 22px; line-height: 1.6; color: var(--fg-2); padding-left: 24px; margin: 0;">
+            <li>Entry point: <span class="code-chip">main.py</span> via <span class="code-chip">run_local.py</span></li>
+            <li>Git workflow: feature branches from dev</li>
+            <li>Type hints: modern syntax</li>
+            <li>Linting: flake8, ignore E501</li>
+            <li>Three-layer review pipeline</li>
+            <li>"Explain every line" rule</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--ink); margin: 0 0 16px;">What only one person caught</h3>
+          <ul style="font-size: 22px; line-height: 1.6; color: var(--fg-2); padding-left: 24px; margin: 0;">
+            <li>A table of which files are dead and safe to ignore</li>
+            <li>A global variable that silently breaks things if you miss it</li>
+            <li>The Docker image runs a different Python version than the repo says</li>
+            <li>How to make the project work on Windows (different shell syntax)</li>
+            <li>The key architectural insight: nothing is cached between requests</li>
+            <li>Being upfront about what does not exist yet ("there are no tests")</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="deck-footer">
+        <span>Week 3 &middot; Context files</span>
+        <span><span class="dot">&bull;</span> Strengths</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02d — What does a good context file look like?
+       ============================================================ -->
+  <section data-screen-label="02d Ideal context file">
+    <div class="pattern-bg"></div>
+    <div style="position: relative;">
+      <div class="eyebrow-slide">Context file review</div>
+      <h2 class="slide-title">What should a context file cover?</h2>
+      <p class="body-text" style="margin-bottom: 20px;">Six sections. Two audiences: <strong>you six months from now</strong>, and <strong>the agent in a fresh session</strong>.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 60px 60px 60px; gap: 0; font-size: 21px; max-width: 1400px;">
+        <!-- Header row -->
+        <div style="font-family: var(--font-display); font-weight: 700; padding: 12px 0; border-bottom: 2px solid var(--ink); color: var(--ink);">Section</div>
+        <div style="font-family: var(--font-display); font-weight: 700; padding: 12px 0; border-bottom: 2px solid var(--ink); color: var(--ink); text-align: center;">A</div>
+        <div style="font-family: var(--font-display); font-weight: 700; padding: 12px 0; border-bottom: 2px solid var(--ink); color: var(--ink); text-align: center;">B</div>
+        <div style="font-family: var(--font-display); font-weight: 700; padding: 12px 0; border-bottom: 2px solid var(--ink); color: var(--ink); text-align: center;">C</div>
+
+        <!-- Row 1 -->
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+          <strong style="color: var(--ink);">What is this project?</strong>
+          <span style="color: var(--fg-2);"> &mdash; One paragraph so the agent knows what it is working on</span>
+        </div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+
+        <!-- Row 2 -->
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+          <strong style="color: var(--ink);">How do I run it?</strong>
+          <span style="color: var(--fg-2);"> &mdash; The commands to install, start, and test</span>
+        </div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+
+        <!-- Row 3 -->
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+          <strong style="color: var(--ink);">How does it fit together?</strong>
+          <span style="color: var(--fg-2);"> &mdash; Architecture, data flow, what calls what</span>
+        </div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 28px; font-weight: 700;">&#9733;</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: var(--fg-3); font-size: 24px;">partial</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+
+        <!-- Row 4 -->
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+          <strong style="color: var(--ink);">What are the rules?</strong>
+          <span style="color: var(--fg-2);"> &mdash; Code standards, conventions, how to write code here</span>
+        </div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: var(--fg-3); font-size: 24px;">partial</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 28px; font-weight: 700;">&#9733;</div>
+
+        <!-- Row 5 -->
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+          <strong style="color: var(--ink);">What should I avoid?</strong>
+          <span style="color: var(--fg-2);"> &mdash; Dead code, legacy patterns, common traps</span>
+        </div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 28px; font-weight: 700;">&#9733;</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+        <div style="padding: 14px 0; border-bottom: 1px solid var(--border); text-align: center; color: var(--fg-3); font-size: 24px;">&mdash;</div>
+
+        <!-- Row 6 -->
+        <div style="padding: 14px 0;">
+          <strong style="color: var(--ink);">How should the agent behave?</strong>
+          <span style="color: var(--fg-2);"> &mdash; Workflow rules, guardrails, what to ask before doing</span>
+        </div>
+        <div style="padding: 14px 0; text-align: center; color: var(--fg-3); font-size: 24px;">&mdash;</div>
+        <div style="padding: 14px 0; text-align: center; color: #3F5E2A; font-size: 28px; font-weight: 700;">&#9733;</div>
+        <div style="padding: 14px 0; text-align: center; color: #3F5E2A; font-size: 24px;">&#10003;</div>
+      </div>
+
+      <p class="body-text muted" style="margin-top: 24px; font-size: 21px;">&#9733; = strongest version &nbsp;&nbsp; &#10003; = covered &nbsp;&nbsp; partial = touched on but incomplete &nbsp;&nbsp; &mdash; = missing</p>
+
+      <div style="margin-top: 20px; padding: 16px 24px; background: var(--cream); border-radius: 12px; max-width: 1400px;">
+        <p style="font-size: 21px; color: var(--fg-2); margin: 0; line-height: 1.5;"><strong style="color: var(--ink);">No single file covered everything.</strong> That is normal. The point of comparing is to find the gaps. A complete context file needs all six sections.</p>
+      </div>
+
+      <div class="deck-footer">
+        <span>Week 3 &middot; Context files</span>
+        <span><span class="dot">&bull;</span> Ideal structure</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02e — Context file review: merging
+       ============================================================ -->
+  <section data-screen-label="02e Building the shared file">
+    <div class="pattern-bg"></div>
+    <div style="position: relative;">
+      <div class="eyebrow-slide">Context file review</div>
+      <h2 class="slide-title">Building the shared version.</h2>
+      <p class="body-text" style="margin-bottom: 24px;">The merged CLAUDE.md takes the best of all three. Here is what goes in:</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <div class="card">
+          <span class="tag">From A</span>
+          <h3 style="font-size: 22px;">Architecture + data flow</h3>
+          <p style="font-size: 19px;">Simulation step call graph, dead code table, preprocessing docs. The technical map an agent needs to navigate the codebase.</p>
+        </div>
+        <div class="card">
+          <span class="tag slate">From B</span>
+          <h3 style="font-size: 22px;">Process + guardrails</h3>
+          <p style="font-size: 19px;">Current-state caveats, "How to Work With Me" section, spec-before-code guidance. The rules an agent needs to follow.</p>
+        </div>
+        <div class="card">
+          <span class="tag moss">From C</span>
+          <h3 style="font-size: 22px;">Operations + standards</h3>
+          <p style="font-size: 19px;">Deployment config levers, logging standards, agentic workflow rules, architecture constraints. The conventions that prevent mistakes.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 28px; padding: 20px 28px; background: var(--cream); border-radius: 12px; max-width: 1500px;">
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--ink); margin: 0 0 8px;">What stays individual?</p>
+        <p style="font-size: 21px; color: var(--fg-2); margin: 0; line-height: 1.5;">Platform notes (Windows vs Mac), personal agent preferences, and workflow style belong in your <em>personal</em> context file, not the shared one. The shared file captures what every contributor and every agent session needs to know.</p>
+      </div>
+
+      <div class="assign-callout" style="margin-top: 20px;">
+        <strong>Action:</strong> The merged CLAUDE.md is ready to review. One student opens the PR. Everyone reviews it as practice for this week's peer review protocol.
+      </div>
+
+      <div class="deck-footer">
+        <span>Week 3 &middot; Context files</span>
+        <span><span class="dot">&bull;</span> Merging</span>
       </div>
     </div>
   </section>

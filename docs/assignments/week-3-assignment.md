@@ -86,19 +86,39 @@ Every PR gets all three layers:
 
 The adversarial reviewer rotation is assigned at the start of the week. You are responsible for completing your adversarial review within 48 hours of the PR being opened.
 
-## Solo work
+## Solo work: your first feature
 
-**Pick an issue from the backlog and work it yourself.**
+This is the first week you build something new. Your vision plans identified real problems with FEAST. We turned them into issues. Pick one and ship it.
 
-By now the team has a mix of pre-existing issues and student-filed issues from Weeks 1-2. This is the first week you choose your own work.
+### How to pick
 
-1. Go to the GitHub issue board
-2. Pick an issue that matches your comfort level and is not already claimed
+1. Browse the issues labeled `phase:week-3` in both repos:
+   - [FEAST-backend issues](https://github.com/FoodAccessSimulator/FEAST-backend/issues)
+   - [FEAST-frontend issues](https://github.com/FoodAccessSimulator/FEAST-frontend/issues)
+2. Pick one that matches your comfort level and interest
 3. Comment on the issue: "I'm picking this up."
-4. Before coding, write a one-paragraph plan in the issue comment
+4. Write a one-paragraph plan in the issue comment before coding
 5. Implement it. Open a PR (all three review layers apply).
 
-Good candidates:
+### Feature issues (from your vision plans)
+
+**Backend** (in `FoodAccessSimulator/FEAST-backend`):
+
+| Issue | What | Size | Good for |
+|-------|------|------|----------|
+| [#19](https://github.com/FoodAccessSimulator/FEAST-backend/issues/19) | Profile and optimize simulation step performance | Medium | Someone comfortable with profiling and multiprocessing |
+| [#20](https://github.com/FoodAccessSimulator/FEAST-backend/issues/20) | Speed up simulation instance creation | Small | Anyone with SQL experience |
+
+**Frontend** (in `FoodAccessSimulator/FEAST-frontend`):
+
+| Issue | What | Size | Good for |
+|-------|------|------|----------|
+| [#1](https://github.com/FoodAccessSimulator/FEAST-frontend/issues/1) | Export simulation results (CSV download, map screenshot) | Medium | Someone who wants to work across UI and data |
+| [#3](https://github.com/FoodAccessSimulator/FEAST-frontend/issues/3) | Household details on hover (MFAI, income, store count) | Small | Good first frontend issue, Leaflet tooltips |
+| [#4](https://github.com/FoodAccessSimulator/FEAST-frontend/issues/4) | Improve instance management UX with guidance | Small | Good first frontend issue, mostly HTML/text |
+
+### Still good candidates from the maintenance backlog
+
 - Any remaining flake8 fixes from #4
 - `print()` to `logging` conversions (related to #9)
 - Documenting magic numbers in `household.py`
@@ -124,7 +144,7 @@ Good candidates:
 - [ ] **PR for assigned issue** -- passing CI + peer review + adversarial LLM review before merge
 - [ ] **1 adversarial review completed** -- fresh session, findings posted as PR comments with Valid/False positive labels
 - [ ] **1 PR reviewed** (peer review) -- read the diff, post at least one substantive comment
-- [ ] **Solo work PR** -- picked from backlog, paragraph plan in issue, all three review layers
+- [ ] **Feature or solo work PR** -- pick a feature issue from the vision plan backlog (or maintenance issue), paragraph plan in issue comment, all three review layers
 - [ ] **Roadmap nominations** -- comment on 1-2 issues for Weeks 4-5 priorities with reasoning
 
 ### Quality signals
