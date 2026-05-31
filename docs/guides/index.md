@@ -11,7 +11,7 @@ Scaffolded guides that walk you through increasingly complex contributions to th
 
 ## How We Work
 
-1. A task is created as a GitHub Issue and assigned to you.
+1. A task will be created in the Gitlab Issue Boards and assigned to you.
 2. Follow the [branching strategy](#git-workflow-reference) to create a feature branch for that issue.
 3. Read the issue description and complete each step listed there.
 4. When the final checklist in the issue is checked off, open a [Pull Request](#pull-requests).
@@ -44,6 +44,7 @@ Name branches after the issue they address: `feature/issue-24-linting`, `feature
 3. One logical change per commit -- if you did two things, make two commits
 
 Good: `Add flake8 configuration and pre-commit hook (#4)`
+
 Bad: `fixed stuff`, `updates`, `WIP`
 
 ---
