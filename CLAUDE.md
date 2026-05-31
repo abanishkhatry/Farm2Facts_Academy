@@ -2,32 +2,31 @@
 
 ## Project Overview
 
-FEAST_edu is the instructional materials repository for the FEAST (Food Equity Access Simulation Technology) student developer onboarding program. It contains the 6-week curriculum, scaffolded guides, presentation slides, templates, and reference materials that instructors use to run LLM-assisted development cohorts.
+FEAST_edu is the instructional materials repository for the FEAST (Food Equity Access Simulation Technology) student developer onboarding program. It contains the 8-week curriculum, scaffolded guides, templates, and reference materials that instructors use to run LLM-assisted development cohorts.
 
-This repo contains no application code. The FEAST application itself lives in two separate repos:
-- Backend: `ICICLE-ai/Food-Access-Model` (FastAPI + Mesa ABM + PostgreSQL)
-- Frontend: `fass-frontend` (React + Leaflet + Vite)
+This repo contains no application code. The Farm2Facts application lives in two separate repos:
+- Backend: `git.doit.wisc.edu/at-trad/farmers-coalition` (FastAPI + Mesa ABM + MySQL)
+- Frontend: `git.doit.wisc.edu/at-trad/farm2facts-frontend` (Vue 3 + Pinia + MDB Vue UI Kit)
 
 Templates in `templates/` are designed to be copied into those repos when setting up a new cohort.
 
-This repo is also a demonstration of a lightweight, repo-local project management pattern (CLAUDE.md + ROADMAP.md + DECISIONS.md + post-commit hook) intended to be replicable for other subjects and domains.
+This repo is also a demonstration of a lightweight, repo-local project management pattern (CLAUDE.md + DECISIONS.md) intended to be replicable for other subjects and domains.
 
 ## Repo Structure
 
 ```
-STUDENT_ONBOARDING_PLAN.md    # Master 6-week curriculum
-CONTENT_MAP.md                # Maps curriculum sections to slide deck slides (keeps them in sync)
+STUDENT_ONBOARDING_PLAN.md    # Entry point: environment setup, Git concepts, repo links
+DECISIONS.md                   # Architectural decision log for curriculum design choices
 docs/
-  guides/                      # Scaffolded student guides (01 through 09)
-slides/
-  week-1/                      # Week 1 slide deck (self-contained HTML + deck-stage web component)
+  guides/                      # Scaffolded student guides (index through 13)
+taskList/
+  mainTaskList.md              # Central task index: acceptance criteria and file pointers per task
+references/
+  curriculum.md                # Week-by-week curriculum (8 weeks, 4 sprints) with jump-link nav
 assets/
   css/                         # Shared design system (design-system.css) + site styles (site.css)
 templates/                     # Files to copy into FEAST repos (CLAUDE.md, CONTRIBUTING.md, ADR template)
-references/                    # Annotated bibliography of pedagogical and domain resources
 .github/                       # Issue and PR templates (for copying into FEAST repos)
-ROADMAP.md                     # Milestone tracking
-DECISIONS.md                   # Architectural decision log for curriculum design choices
 ```
 
 ## Development Workflow
@@ -39,9 +38,9 @@ This repo uses main/dev/feature branch workflow:
 
 ### Checkpoint-Review-Refine Cycle
 
-After completing a discrete unit of work (a guide, a slide deck, a template):
+After completing a discrete unit of work (a guide, a template, a curriculum section):
 
-1. **Checkpoint**: Commit the work. Update ROADMAP.md if it touches a milestone.
+1. **Checkpoint**: Commit the work.
 2. **Review**: Re-read the material from a student's perspective. Does it stand alone? Are scaffolding levels appropriate for the target tier (J vs S)?
 3. **Refine**: Fix gaps, adjust difficulty, ensure consistency with adjacent materials. Commit refinements separately.
 
@@ -50,37 +49,7 @@ This cycle applies to every deliverable, not just at milestone boundaries. Small
 ## Content Conventions
 
 - All written materials are Markdown.
-- Slide decks are self-contained HTML files.
 - Keep language direct and concrete. Avoid jargon not defined in the domain section of `STUDENT_ONBOARDING_PLAN.md`.
 - When referencing FEAST code, include file and line numbers so students can verify against the actual codebase.
 - Code examples should be minimal and self-contained.
 - No em dashes in any output.
-
-## Curriculum-Slides Sync
-
-The curriculum (`STUDENT_ONBOARDING_PLAN.md`) and slide decks (`slides/week-N/index.html`) share overlapping content. `CONTENT_MAP.md` documents which curriculum sections map to which slides and lists the specific shared values (URLs, scores, thresholds, line references) that must stay consistent.
-
-After modifying either the curriculum or a slide deck:
-
-1. Open `CONTENT_MAP.md` and find the affected section.
-2. Identify the corresponding slides or curriculum sections.
-3. Check whether any shared facts changed (the "Key shared values" section lists the most drift-prone ones).
-4. Update the other source to match. If the change doesn't apply to slides (e.g., adding solo work details that aren't presented), note that in your commit message.
-5. If you added new content that maps to slides, add a row to the content map.
-
-When adding material to the curriculum for a week that already has a slide deck, decide whether the new material belongs in the slides (presented during group session) or is reference-only (solo work details, scaffolded guides). Only group session content needs slide coverage.
-
-## Roadmap Maintenance
-
-After completing work related to a milestone in `ROADMAP.md`:
-
-1. Update the relevant milestone's checkbox items.
-2. Update the "Current State" section if the overall picture changed.
-3. Update milestone status if it's now complete.
-4. Commit the ROADMAP.md update alongside or immediately after the work.
-
-A post-commit hook (`.claude/settings.json`) will nudge about ROADMAP.md updates after git commits.
-
-## Reuse Goal
-
-This repo is intended as a replicable pattern for LLM-assisted development onboarding in other domains. Curriculum design choices are documented in `DECISIONS.md` so future adapters understand not just what we did but why. The repo structure, project management files, and hook configuration are part of the deliverable, not just the content.
