@@ -5,7 +5,7 @@
 FEAST_edu is the instructional materials repository for the FEAST (Food Equity Access Simulation Technology) student developer onboarding program. It contains the 8-week curriculum, scaffolded guides, templates, and reference materials that instructors use to run LLM-assisted development cohorts.
 
 This repo contains no application code. The Farm2Facts application lives in two separate repos:
-- Backend: `git.doit.wisc.edu/at-trad/farmers-coalition` (FastAPI + Mesa ABM + MySQL)
+- Backend: `git.doit.wisc.edu/at-trad/farmers-coalition` (Rails 6.1 + MySQL + Grape API)
 - Frontend: `git.doit.wisc.edu/at-trad/farm2facts-frontend` (Vue 3 + Pinia + MDB Vue UI Kit)
 
 Templates in `templates/` are designed to be copied into those repos when setting up a new cohort.
