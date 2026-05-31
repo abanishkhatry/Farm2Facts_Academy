@@ -42,8 +42,12 @@
   /* DSI accents — restrained */
   --slate:      #2E4756;   /* cool counterweight, links on light */
   --slate-soft: #5C7785;   /* hover state for slate */
-  --wheat:      #C9A227;   /* single warm highlight */
+  --wheat:      #C9A227;   /* F2F gold — primary accent */
+  --wheat-dark: #A07D10;   /* hover/focus state for wheat */
   --moss:       #59833A;   /* UW secondary green — used for env/sustainability tags only */
+
+  /* F2F brand */
+  --f2f-dark:   #2C2015;   /* Farm2Facts navbar dark brown */
 
   /* Semantic */
   --fg-1:       var(--ink);
@@ -57,8 +61,8 @@
   --border-strong: #B8B0A0;
   --link:       var(--slate);
   --link-hover: var(--ink);
-  --accent:     var(--badger-red);
-  --accent-hover: var(--crimson);
+  --accent:     var(--wheat);
+  --accent-hover: var(--wheat-dark);
   --success:    var(--moss);
   --warning:    #B07700;
   --danger:     var(--badger-red);
@@ -242,14 +246,14 @@ a:hover { text-decoration-thickness: 2px; color: var(--link-hover); }
    uses --uw-red-dark for separation.
    ========================================================= */
 :focus-visible {
-  outline: 2px solid var(--uw-red);
+  outline: 2px solid var(--wheat);
   outline-offset: 2px;
   border-radius: 2px;
 }
-.on-red :focus-visible,
-[data-on-red] :focus-visible,
+.on-dark :focus-visible,
+[data-on-dark] :focus-visible,
 .btn-primary:focus-visible {
-  outline-color: var(--uw-red-dark);
+  outline-color: var(--wheat-dark);
 }
 
 hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-7) 0; }
