@@ -93,7 +93,7 @@ Fill out every field before requesting review. An incomplete description delays 
 ## Reference Guides
 
 1. [Environment Setup]({{ site.baseurl }}/STUDENT_ONBOARDING_PLAN) -- git fundamentals, clone repos, configure tools, run the app locally
-2. [Setting Up Linting](04-linting-setup) -- configure flake8 and pre-commit hooks
+2. [Setting Up Linting](04-linting-setup) -- configure linting tools and pre-commit hooks
 3. [Writing Tests](05-writing-tests) -- add unit and integration tests
 4. [Investigating Bugs](06-bug-investigation) -- trace, diagnose, and fix a real bug
 5. [Self-Directed Work](09-self-directed-work) -- choose and complete a contribution independently

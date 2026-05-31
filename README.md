@@ -5,7 +5,7 @@ title: "README"
 
 # F2F Academy
 
-Instructional materials for the F2F (Farm2Facts) student developer onboarding program. An eight-week curriculum that teaches LLM-assisted development practices while students make real contributions to a food access simulation tool.
+Instructional materials for the F2F (Farm2Facts) student developer onboarding program. An eight-week curriculum that teaches LLM-assisted development practices while students make real contributions to a farmers' market metrics platform.
 
 **Live site:** [uw-madison-dsi.github.io/FEAST_educational_materials](https://uw-madison-dsi.github.io/FEAST_educational_materials/)
 
@@ -14,7 +14,7 @@ Instructional materials for the F2F (Farm2Facts) student developer onboarding pr
 This repo contains everything an instructor needs to run a cohort of student developers through the F2F onboarding program: a master curriculum, scaffolded guides, repo templates, and reference materials. It contains no application code.
 
 The Farm2Facts application lives in two separate repos:
-- **Backend:** [git.doit.wisc.edu/at-trad/farmers-coalition](https://git.doit.wisc.edu/at-trad/farmers-coalition) (FastAPI + Mesa ABM + PostgreSQL)
+- **Backend:** [git.doit.wisc.edu/at-trad/farmers-coalition](https://git.doit.wisc.edu/at-trad/farmers-coalition) (Rails 6.1 + MySQL + Grape API)
 - **Frontend:** [git.doit.wisc.edu/at-trad/farm2facts-frontend](https://git.doit.wisc.edu/at-trad/farm2facts-frontend) (Vue 3 + Pinia + MDB Vue UI Kit)
 
 Students do not need direct database access -- all data flows through the backend API.
