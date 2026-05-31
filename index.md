@@ -13,7 +13,7 @@ title: Home
 
 ## Project Info
 
-Farm2Facts is a UW-Madison initiative that supports farmers markets by collecting vendor, attendance, and sales data and modeling food access across communities. The platform allows market organizations to submit data through a web application, which feeds a simulation backend used to analyze and visualize food equity across the region. Student developers contribute directly to the two-repo application -- a Vue 3 frontend and a FastAPI + Mesa agent-based model backend.
+Farm2Facts is a UW-Madison initiative that supports farmers markets by collecting vendor, attendance, and sales data and modeling food access across communities. The platform allows market organizations to submit data through a web application, which feeds a simulation backend used to analyze and visualize food equity across the region. Student developers contribute directly to the two-repo application -- a Vue 3 frontend and a Rails 6.1 + MySQL backend.
 
 **Our Platform:** <a href="https://account.farm2facts.org/app/" target="_blank" rel="noopener noreferrer">Farm2Facts App</a>
 
