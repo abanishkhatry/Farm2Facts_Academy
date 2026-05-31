@@ -53,6 +53,27 @@ Farm2Facts is split across two repositories. Each has a dedicated guide with set
 
 ## Database
 
-Farm2Facts uses **PostgreSQL** as its database. As a student developer, you will not need direct database access -- none of the tasks in this program involve manipulating the database directly. All interaction with the database happens through the backend API, which exposes the farmers market data (vendor records, attendance, sales, survey responses, etc.) as JSON endpoints that the frontend consumes.
+Farm2Facts uses a **MySQL** relational database hosted through the Department of Information Technology (DoIT) at UW-Madison. As a student developer, you will not interact with the database directly -- all data flows through the backend API, which exposes farmers market data as JSON endpoints that the frontend consumes. The access details below are for reference and instructor use.
+
+**Hosting panel:** [webhosting.doit.wisc.edu/panel](https://webhosting.doit.wisc.edu/panel/)
+
+For login credentials, contact **Garrett Smith** at garrett.smith@wisc.edu.
+
+### Domain layout
+
+After logging in you will see four domains. Two are associated with Farm2Facts:
+
+| Domain | Purpose |
+| ------ | ------- |
+| `farm2facts.org` | Hosts the WordPress instance |
+| `account.farm2facts.org` | Hosts the main application and the database |
+
+### Accessing the database
+
+1. Select **account.farm2facts.org** from the hosting dashboard.
+2. Navigate to **Files & Databases** → **Databases**.
+3. Click **phpMyAdmin** to open the graphical interface.
+
+From phpMyAdmin you can view and manipulate live data entries from markets and market organizations using the GUI or raw SQL queries.
 
 ---
