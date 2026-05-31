@@ -11,24 +11,19 @@ This guide covers what the backend is, how to clone it, and how to run it locall
 
 ## About this Repo
 
-A Python API server that runs the food access simulation. It exposes REST endpoints the frontend calls, manages simulation instances in the database, and runs a Mesa agent-based model to compute food access scores for thousands of households.
+A Rails 6.1 metrics platform for farmers' markets and individual producers. It tracks sales, visitors, vendors, and ecosystem services. The backend exposes both a Grape REST API (consumed by the frontend) and a traditional Rails web interface.
 
 **Key technologies:**
-- FastAPI (REST API framework)
-- Mesa + mesa-geo 0.8.0 (agent-based modeling with geographic support)
-- asyncpg (async PostgreSQL driver, used for API queries)
-- psycopg2 (sync PostgreSQL driver, used in the data repository layer -- a known inconsistency)
-- shapely, osmnx, pyproj (spatial operations)
-- multiprocessing (parallel simulation steps across CPU cores)
+- Ruby on Rails 6.1
+- MySQL (Homebrew install recommended)
+- Grape (REST API framework, mounted at `/`)
+- DeviseTokenAuth (token-based API authentication)
 
 **Key architecture notes:**
-- Serves the REST API at `/api/` prefix
-- `GeoModel` manages all agents; each `Household` agent runs its own food access calculation on each simulation step
-- Uses multiprocessing to split households across CPU cores -- configurable via `NUMBER_PROCESSES` in `.env`
-- Preprocessing pipeline (`preprocessing/get_data.py`) fetches Census data and OpenStreetMap store locations to initialize a simulation area
-- Currently hardcoded to Brown County, Wisconsin (FIPS 55009, center 44.5/-88.0, 15km radius)
-
-**Active development branch:** `minimum_viable_product`
+- **Dual routing:** A Grape REST API (`app/controllers/api/v1/`) handles all frontend requests. 300+ traditional Rails routes (`config/routes.rb`) handle the web interface.
+- **Authentication:** Web routes use session-based auth (`session[:user_id]` via `ApplicationController`). API routes use DeviseTokenAuth token headers, mounted at `/auth`.
+- **Metric engine:** `ApplicationController` contains a generic `calculate_metric()` method driven by `Metric` model config. Complex metrics use named formula methods (e.g., `metric2_formula` for total sales, `metric16_formula` for vendors per day).
+- **Metric selections** are stored as two integers representing a 37-bit bitmask. Do not manipulate metric selections without understanding this encoding.
 
 ---
 
@@ -38,56 +33,62 @@ Follow the same SSH or HTTPS steps described in the [Frontend Guide](FRONTEND_GU
 
 **SSH:**
 ```bash
-git clone git@git.doit.wisc.edu:at-trad/farm2facts-backend.git
+git clone git@git.doit.wisc.edu:at-trad/farmers-coalition.git
 ```
 
 **HTTPS:**
 ```bash
-git clone https://git.doit.wisc.edu/at-trad/farm2facts-backend.git
+git clone https://git.doit.wisc.edu/at-trad/farmers-coalition.git
 ```
 
 ---
 
 ## Running Locally
 
-### Step 1: Create and activate a virtual environment
+### Step 1: Start MySQL
+
+MySQL must be running before you start the app. With Homebrew:
 
 ```bash
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+brew services start mysql
 ```
+
+**Database config note:** `config/database.yml` uses socket `/tmp/mysql.sock` (Homebrew MySQL). If you use MAMP, update the socket path to `/Applications/MAMP/tmp/mysql/mysql.sock`.
 
 ### Step 2: Install dependencies
 
 ```bash
-pip install -r requirements.txt
+bundle install
 ```
 
-### Step 3: Set up your `.env` file
+### Step 3: Set up the database
 
-Create a `.env` file at the root of the repo with your database credentials:
+For a fresh local setup, use `db:schema:load` -- do not use `db:migrate` for a fresh setup, as some migrations have ordering bugs:
 
-| Variable | Purpose |
-| --- | --- |
-| `DB_HOST` | Database host (e.g., `localhost`) |
-| `DB_PORT` | Database port (e.g., `5432`) |
-| `DB_NAME` | Database name |
-| `DB_USER` | Database user |
-| `DB_PASS` | Database password |
-| `NUMBER_PROCESSES` | CPU cores for simulation steps (e.g., `4`) |
+```bash
+bundle exec rails db:create db:schema:load
+```
 
-**Warning:** Always check `DB_HOST` before running. Never point a local backend at the staging database -- a local process writing to a shared database will corrupt shared data.
+When adding new migrations on top of an existing database:
+
+```bash
+bundle exec rails db:migrate
+```
 
 ### Step 4: Start the server
 
 ```bash
-python run_local.py
+bundle exec rails server
 ```
-
-This runs `uvicorn food_access_model.main:app --reload --port 8000`.
-
-Do not use `api_server.py` or `server.py` -- they have different CORS settings and will cause frontend connection issues.
 
 ### Step 5: Verify it works
 
-Open `http://localhost:8000/docs` in your browser. The FastAPI auto-generated docs should load and list all available routes under `/api/`.
+Open `http://localhost:3000` in your browser. The Rails app should load.
+
+---
+
+## Known Issues
+
+- `ApplicationController` contains SQL string concatenation in metric calculation loops. Treat changes there carefully to avoid injection vulnerabilities.
+- The `market_entry_point_dates` table was never created via migrations. Always use `db:schema:load` for fresh local setup, not `db:migrate`.
+- Geocoding (`Geocoder.search`) fires on every profile save when address fields change.
