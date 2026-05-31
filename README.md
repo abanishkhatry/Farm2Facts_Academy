@@ -21,7 +21,15 @@ Students do not need direct database access -- all data flows through the backen
 
 ## How the program works
 
-Students progress from "run the project and understand what it does" to "independently plan and ship improvements." Each week has a group session and async solo work.
+Students progress from "run the project and understand what it does" to "independently plan and ship improvements." The journey follows four repeating steps each week:
+
+1. **Onboard.** Start with [STUDENT_ONBOARDING_PLAN.md](STUDENT_ONBOARDING_PLAN.md) to set up your environment, understand the Farm2Facts codebase, and configure your LLM tooling. This is the entry point for every new cohort member.
+
+2. **Follow the curriculum.** Each week's scope -- group session topics and solo work -- is outlined in [references/curriculum.md](references/curriculum.md). The curriculum tells you what to do and in what order across all eight weeks.
+
+3. **Get task details.** Before starting any task, read the relevant entry in [taskList/mainTaskList.md](taskList/mainTaskList.md). Each entry has acceptance criteria, context, and pointers to the right files in the codebase.
+
+4. **Use the workflow.** Create a feature branch off the right base, complete the task, open a pull request, and work through the three-layer review pipeline before merging: CI checks, peer review, and LLM adversarial review. The guides in [docs/guides/](docs/guides/) explain each step.
 
 **Key design decisions:**
 
@@ -35,12 +43,13 @@ See [DECISIONS.md](DECISIONS.md) for the full rationale behind these and other c
 ## Repo structure
 
 ```
-STUDENT_ONBOARDING_PLAN.md    Focused onboarding overview (Git concepts, repo links)
+STUDENT_ONBOARDING_PLAN.md    Entry point: environment setup, Git concepts, repo links
+DECISIONS.md                   Curriculum design decisions with rationale
 docs/
-  guides/                      Scaffolded student guides
-    index.md                   How We Work, Git Workflow Reference, Pull Requests, all guides
-    FRONTEND_GUIDE.md          Frontend repo overview, clone steps, run-locally walkthrough
-    BACKEND_GUIDE.md           Backend repo overview, clone steps, run-locally walkthrough
+  guides/                      Scaffolded student guides (used alongside taskList entries)
+    index.md                   How We Work, Git Workflow Reference, Pull Requests
+    FRONTEND_GUIDE.md          Frontend repo overview and run-locally walkthrough
+    BACKEND_GUIDE.md           Backend repo overview and run-locally walkthrough
     04-linting-setup.md
     05-writing-tests.md
     06-bug-investigation.md
@@ -52,9 +61,13 @@ docs/
     12-agentic-engineering-concepts.md
     13-agentic-workflow-best-practices.md
 taskList/
-  mainTaskList.md              Central task index with week-by-week descriptions
+  mainTaskList.md              Central task index: acceptance criteria and file pointers per task
 references/
   curriculum.md                Week-by-week curriculum (Weeks 1-8) with jump-link nav
+assets/
+  css/
+    design-system.css          Shared design tokens
+    site.css                   Site-wide styles
 templates/
   CLAUDE.md                    CLAUDE.md template for Farm2Facts repos
   CONTRIBUTING.md              Contributing guide template
@@ -66,29 +79,6 @@ templates/
   workflows/pages.yml          GitHub Pages deployment
 ```
 
-## Using these materials
-
-**To run a cohort:**
-
-1. Fork or clone this repo.
-2. Copy templates from `templates/` into the Farm2Facts application repos (backend and frontend).
-3. Verify code references (file paths, line numbers in guides) against the current codebase state.
-4. Review [STUDENT_ONBOARDING_PLAN.md](STUDENT_ONBOARDING_PLAN.md) for the onboarding overview.
-5. Walk students through the week-by-week task list at [references/curriculum.md](references/curriculum.md).
-
-**To adapt for a different project:**
-
-This repo is designed as a replicable pattern. The curriculum structure, project management files (CLAUDE.md, ROADMAP.md, DECISIONS.md), guide scaffolding, and review pipeline progression are domain-agnostic. The Farm2Facts-specific content is in the domain sections of the curriculum and the code references in guides. See [DECISIONS.md](DECISIONS.md) to understand why the program is structured the way it is before modifying it.
-
-## Project management
-
-This repo uses the same lightweight project management pattern it teaches:
-
-- **[ROADMAP.md](ROADMAP.md)** tracks milestones and progress
-- **[DECISIONS.md](DECISIONS.md)** records curriculum design decisions with context and rationale
-- **[CLAUDE.md](CLAUDE.md)** serves as both developer documentation and AI agent configuration
-- A post-commit hook reminds about ROADMAP.md updates
-
 ## Deployment
 
 The site is built with Jekyll and deployed to GitHub Pages via GitHub Actions. Pushing to `main` triggers a rebuild automatically. To run locally:
@@ -99,6 +89,3 @@ bundle exec jekyll serve --baseurl "" --port 4001
 
 Always use `--baseurl ""` locally -- `_config.yml` sets the GitHub Pages baseurl which breaks asset loading without the override.
 
-## Credits
-
-Developed at the [UW-Madison Data Science Institute](https://dsi.wisc.edu).
