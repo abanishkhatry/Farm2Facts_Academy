@@ -101,4 +101,4 @@ Fill out every field before requesting review. An incomplete description delays 
 7. [Structured Planning with CLI Agents](11-planning-with-claude-code) -- when and how to use structured planning, multi-issue planning, and branch-level review
 8. [Agentic Engineering Concepts](12-agentic-engineering-concepts) -- what agents are, how they work, and why the focus shifts from syntax to engineering
 9. [Agentic Workflow Best Practices](13-agentic-workflow-best-practices) -- the complete spec-plan-execute-verify loop, workflow selection by task size, and a printable checklist
-10. - [Design Decisions](../../DECISIONS) -- why the program is structured this way
+10. [Design Decisions](../../DECISIONS) -- why the program is structured this way
