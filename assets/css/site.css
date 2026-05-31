@@ -1,11 +1,12 @@
 /* =========================================================
-   FEAST Edu — Site stylesheet
+   F2F Academy — Site stylesheet
    Builds on design-system.css (colors_and_type.css)
    ========================================================= */
 
 /* ---- Site header ---- */
 .site-header {
-  background: var(--uw-red);
+  background: var(--f2f-dark);
+  border-bottom: 2px solid var(--wheat);
   padding: var(--space-3) var(--gutter);
   display: flex;
   align-items: center;
@@ -57,7 +58,7 @@
   font-weight: 500;
   font-size: var(--fs-14);
   line-height: 1;
-  color: var(--uw-white);
+  color: rgba(255,255,255,0.88);
   opacity: 0.88;
   letter-spacing: var(--tracking-wide);
   cursor: pointer;
@@ -139,7 +140,7 @@
   white-space: nowrap;
 }
 .nav-week-links a:hover {
-  color: var(--uw-red) !important;
+  color: var(--wheat) !important;
   background: none !important;
   text-decoration: underline !important;
   text-underline-offset: 3px;
@@ -167,7 +168,7 @@
   font-size: var(--fs-48);
   margin: 0 0 var(--space-5);
   padding-bottom: var(--space-4);
-  border-bottom: 3px solid var(--uw-red);
+  border-bottom: 3px solid var(--wheat);
 }
 .markdown-body h2 {
   font-size: var(--fs-30);
@@ -202,7 +203,7 @@
 .markdown-body blockquote {
   margin: var(--space-5) 0;
   padding: var(--space-4) var(--space-5);
-  border-left: 4px solid var(--uw-red);
+  border-left: 4px solid var(--wheat);
   background: var(--cream);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   color: var(--fg-2);
@@ -260,7 +261,7 @@
               transform var(--dur-base) var(--ease-out);
 }
 .card-grid a:hover {
-  border-color: var(--uw-red);
+  border-color: var(--wheat);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -268,7 +269,7 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--fs-20);
-  color: var(--uw-red);
+  color: var(--wheat-dark);
   margin: 0 0 var(--space-2);
 }
 .card-grid .card-desc {
