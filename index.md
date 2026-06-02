@@ -40,6 +40,8 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
 
 ## Points of contact:
 
-- **Kaufman Lab Director:** Alfonso Morales -- [morales1@wisc.edu](mailto:morales1@wisc.edu)
+- **Kaufman Lab Directors:**
+  - Alfonso Morales -- [morales1@wisc.edu](mailto:morales1@wisc.edu)
+  - Edna Ledesma -- [eledesma@wisc.edu](mailto:eledesma@wisc.edu)
 - **F2F Development Professional Lead:** Garrett Smith -- [garrett.smith@wisc.edu](mailto:garrett.smith@wisc.edu)
 - **F2F Development Student Lead:** Abanish Khatry -- [akhatry@wisc.edu](mailto:akhatry@wisc.edu)
