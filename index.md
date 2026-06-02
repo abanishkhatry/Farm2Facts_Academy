@@ -20,6 +20,12 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
 ## Program Materials
 
 <div class="card-grid">
+
+  <a href="{{ site.baseurl }}/taskList/mainTaskList">
+    <p class="card-title">Curriculum & Tasks</p>
+    <p class="card-desc">Central task index -- sprint themes, task breakdowns, and full task guide links, with related classes and topics tracked per sprint.</p>
+  </a>
+
   <a href="STUDENT_ONBOARDING_PLAN">
     <p class="card-title">Onboarding Steps</p>
     <p class="card-desc">Start here. Git and GitLab concepts, links to both repos, database access details, and everything you need before writing any code.</p>
@@ -29,12 +35,8 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
     <p class="card-desc">How we work: the issue-branch-PR process, Git workflow rules, PR guidelines, and 13 reference guides from linting and testing to agentic workflows.</p>
   </a>
   <a href="references/">
-    <p class="card-title">Curriculum</p>
-    <p class="card-desc">Week-by-week breakdown of all 8 weeks with task headers and direct jump links to each week's goals and guide assignments.</p>
-  </a>
-  <a href="{{ site.baseurl }}/taskList/mainTaskList">
-    <p class="card-title">Task List</p>
-    <p class="card-desc">Central task index -- week themes and high-level descriptions at a glance, with links to per-week detail guides as they are added.</p>
+    <p class="card-title">Study Materials</p>
+    <p class="card-desc">Central index of study resources mapped to each sprint. Links to readings, documentation, and reference material interns should go through alongside their sprint tasks.</p>
   </a>
 </div>
 
