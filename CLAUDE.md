@@ -1,55 +1,56 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 ## Project Overview
 
-FEAST_edu is the instructional materials repository for the FEAST (Food Equity Access Simulation Technology) student developer onboarding program. It contains the 8-week curriculum, scaffolded guides, templates, and reference materials that instructors use to run LLM-assisted development cohorts.
+F2F Academy is the instructional materials and program management repository for student developers joining the Farm2Facts project at UW-Madison. It contains scaffolded workflow guides, sprint task lists, study material references, and onboarding documentation for running LLM-assisted development cohorts.
 
 This repo contains no application code. The Farm2Facts application lives in two separate repos:
 - Backend: `git.doit.wisc.edu/at-trad/farmers-coalition` (Rails 6.1 + MySQL + Grape API)
 - Frontend: `git.doit.wisc.edu/at-trad/farm2facts-frontend` (Vue 3 + Pinia + MDB Vue UI Kit)
 
-Templates in `templates/` are designed to be copied into those repos when setting up a new cohort.
+The site is built with Jekyll and deployed to GitHub Pages at `/Farm2Facts_Academy`.
 
-This repo is also a demonstration of a lightweight, repo-local project management pattern (CLAUDE.md + DECISIONS.md) intended to be replicable for other subjects and domains.
+## Local Development
+
+```bash
+bundle exec jekyll serve   # serve site locally at http://localhost:4000/Farm2Facts_Academy
+bundle exec jekyll build   # build to _site/
+```
+
+The `_site/` directory is the build output -- do not edit files there directly.
 
 ## Repo Structure
 
 ```
-STUDENT_ONBOARDING_PLAN.md    # Entry point: environment setup, Git concepts, repo links
-DECISIONS.md                   # Architectural decision log for curriculum design choices
-docs/
-  guides/                      # Scaffolded student guides (index through 13)
+index.md                       # Site home: program materials cards and points of contact
+STUDENT_ONBOARDING_PLAN.md     # Entry point for new interns: Git/GitLab concepts, repo links, environment setup
 taskList/
-  mainTaskList.md              # Central task index: acceptance criteria and file pointers per task
+  mainTaskList.md              # Central sprint table: task breakdowns, guide links, status, related classes
 references/
-  curriculum.md                # Week-by-week curriculum (8 weeks, 4 sprints) with jump-link nav
-assets/
-  css/                         # Shared design system (design-system.css) + site styles (site.css)
-templates/                     # Files to copy into FEAST repos (CLAUDE.md, CONTRIBUTING.md, ADR template)
-.github/                       # Issue and PR templates (for copying into FEAST repos)
+  curriculum.md                # Study Materials index: sprint-mapped resource links and completion status
+docs/guides/                   # Scaffolded workflow guides (04 through 13 + FRONTEND_GUIDE, BACKEND_GUIDE)
+templates/                     # Files to copy into Farm2Facts repos (CLAUDE.md, CONTRIBUTING.md, ADR template)
+.github/                       # Issue and PR templates
+assets/css/                    # design-system.css (tokens, components) + site.css (layout)
+_layouts/default.html          # Single Jekyll layout wrapping all pages
+_config.yml                    # Jekyll config: baseurl, title, exclude list
 ```
 
-## Development Workflow
+## Branch Workflow
 
-This repo uses main/dev/feature branch workflow:
-- `main`: stable, reviewed materials ready for use with a cohort
+- `main`: stable materials ready for use with a cohort
 - `dev`: integration branch for in-progress work
-- Feature branches off `dev`, named descriptively (e.g., `feature/week1-slides`, `fix/guide-typos`)
+- Feature branches off `dev`, named descriptively (e.g., `feature/sprint2-tasks`, `fix/guide-typos`)
 
-### Checkpoint-Review-Refine Cycle
-
-After completing a discrete unit of work (a guide, a template, a curriculum section):
-
-1. **Checkpoint**: Commit the work.
-2. **Review**: Re-read the material from a student's perspective. Does it stand alone? Are scaffolding levels appropriate for the target tier (J vs S)?
-3. **Refine**: Fix gaps, adjust difficulty, ensure consistency with adjacent materials. Commit refinements separately.
-
-This cycle applies to every deliverable, not just at milestone boundaries. Small, frequent checkpoints keep the materials internally consistent as the curriculum evolves.
+After completing a discrete unit of work, follow the checkpoint-review-refine cycle: commit, re-read from a student's perspective, fix gaps, commit refinements separately.
 
 ## Content Conventions
 
 - All written materials are Markdown.
-- Keep language direct and concrete. Avoid jargon not defined in the domain section of `STUDENT_ONBOARDING_PLAN.md`.
-- When referencing FEAST code, include file and line numbers so students can verify against the actual codebase.
-- Code examples should be minimal and self-contained.
 - No em dashes in any output.
+- Keep language direct and concrete. Avoid jargon not defined in `STUDENT_ONBOARDING_PLAN.md`.
+- When referencing Farm2Facts application code, include file paths and line numbers so students can verify against the actual codebase.
+- Code examples should be minimal and self-contained.
+- `templates/` files are excluded from the Jekyll build (see `_config.yml`) and are meant to be copied into the application repos, not rendered as site pages.
