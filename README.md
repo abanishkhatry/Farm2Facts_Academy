@@ -7,7 +7,7 @@ title: "README"
 
 Instructional materials for the F2F (Farm2Facts) student developer onboarding program. An eight-week curriculum that teaches LLM-assisted development practices while students make real contributions to a farmers' market metrics platform.
 
-**Live site:** [F2F Academy]((https://abanishkhatry.github.io/Farm2Facts_Academy/))
+**Live site:** [F2F Academy](https://abanishkhatry.github.io/Farm2Facts_Academy/)
 
 ## What this is
 
