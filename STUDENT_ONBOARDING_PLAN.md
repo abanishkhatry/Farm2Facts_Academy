@@ -7,6 +7,10 @@ title: "Student Onboarding Plan"
 
 Welcome to the Farm2Facts student developer program. This document is your starting point. It covers the tools, repositories, and systems you will be working with. Each repository also has its own dedicated Markdown guide with deeper technical details, workflow rules, and issue scaffolding specific to that codebase.
 
+- [Git, GitHub, and GitLab](#git-github-and-gitlab)
+- [The Repos](#the-repos)
+- [Database](#database)
+
 ---
 
 ## Git, GitHub, and GitLab

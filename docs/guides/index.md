@@ -7,6 +7,11 @@ title: "Student Guides"
 
 Scaffolded guides that walk you through increasingly complex contributions to the Farm2Facts codebase. Each guide pairs with a week of the [onboarding curriculum]({{ site.baseurl }}/STUDENT_ONBOARDING_PLAN).
 
+- [How We Work](#how-we-work)
+- [Git Workflow Reference](#git-workflow-reference)
+- [Pull Requests](#pull-requests)
+- [Reference Guides](#reference-guides)
+
 ---
 
 ## How We Work
@@ -53,7 +58,7 @@ Bad: `fixed stuff`, `updates`, `WIP`
 
 A Pull Request (PR) is a proposal to merge your feature branch into `dev`. It stays open for review before anything is merged, giving your instructor a chance to leave feedback and approve the work.
 
-**Reviewer:** Assign the program instructor.
+**Reviewer:** Assign Abanish.
 
 **Assignee:** Assign yourself.
 
