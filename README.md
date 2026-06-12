@@ -38,13 +38,10 @@ Students progress from "run the project and understand what it does" to "indepen
 - **ADR progression.** Students write Architecture Decision Records manually in Weeks 2-3, then learn to generate them from diffs/PRs with LLM tools in Week 4, and choose the right approach for each situation in Weeks 5-8.
 - **Agentic tools from day one.** A CLI agent (Claude Code if available, Gemini CLI as a free alternative) is installed in Week 1. Students create a project context file for their repo as part of their first solo work.
 
-See [DECISIONS.md](DECISIONS.md) for the full rationale behind these and other curriculum choices.
-
 ## Repo structure
 
 ```
 STUDENT_ONBOARDING_PLAN.md    Entry point: environment setup, Git concepts, repo links
-DECISIONS.md                   Curriculum design decisions with rationale
 docs/
   guides/                      Scaffolded student guides (used alongside taskList entries)
     index.md                   How We Work, Git Workflow Reference, Pull Requests
@@ -62,6 +59,7 @@ docs/
     13-agentic-workflow-best-practices.md
 taskList/
   mainTaskList.md              Central task index: acceptance criteria and file pointers per task
+  task1.md                     Sprint 1 guide: onboarding, Claude Code 101, F2F article, PR creation
 references/
   curriculum.md                Week-by-week curriculum (Weeks 1-8) with jump-link nav
 assets/

@@ -9,9 +9,9 @@ This page is your week-by-week task guide for the F2F student developer program.
 
 ---
 
-| SPRINT                                 | Week  | Task Description                                                                                                                    | Related Classes & Topics | Full Task Guide   |
-| -------------------------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ----------------- |
-| 1 -- Environment Setup and Orientation | 1 & 2 | - Set Up the Frontend Locally<br>- Set Up the Backend Locally<br>- Read the CLAUDE.md Files                                        |                          | [Week 1 Guide](#) |
-| 2 -- TBD                               | 3 & 4 | TBD                                                                                                                                 |                          | [Week 2 Guide](#) |
-| 3 -- TBD                               | 5 & 6 | TBD                                                                                                                                 |                          | [Week 3 Guide](#) |
-| 4 -- TBD                               | 7 & 8 | TBD                                                                                                                                 |                          | [Week 4 Guide](#) |
+| SPRINT                          | Week  | Task Description                                                                            | Full Task Guide   | Related Classes & Topics |
+| ------------------------------- | ----- | ------------------------------------------------------------------------------------------- | ----------------- | ------------------------ |
+| Welcome to the Barn             | 1 & 2 | - Set Up the Frontend Locally<br>- Set Up the Backend Locally<br>- Read the CLAUDE.md Files | [Task 1 Guide]({{ site.baseurl }}/taskList/task1/) |
+| Cheese Curds and Code           | 3 & 4 | TBD                                                                                         | [Task 2 Guide](#) |                          |
+| Deep in the Cornfield           | 5 & 6 | TBD                                                                                         | [Task 3 Guide](#) |                          |
+| Last Call at the Market         | 7 & 8 | TBD                                                                                         | [Task 4 Guide](#) |                          |

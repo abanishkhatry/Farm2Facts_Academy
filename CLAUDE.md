@@ -28,6 +28,7 @@ index.md                       # Site home: program materials cards and points o
 STUDENT_ONBOARDING_PLAN.md     # Entry point for new interns: Git/GitLab concepts, repo links, environment setup
 taskList/
   mainTaskList.md              # Central sprint table: task breakdowns, guide links, status, related classes
+  task1.md                     # Sprint 1 guide: onboarding, Claude Code 101, F2F article, PR creation
 references/
   curriculum.md                # Study Materials index: sprint-mapped resource links and completion status
 docs/guides/                   # Scaffolded workflow guides (04 through 13 + FRONTEND_GUIDE, BACKEND_GUIDE)
