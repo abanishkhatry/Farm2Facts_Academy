@@ -292,6 +292,16 @@
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   box-shadow: var(--shadow-sm);
+  min-width: 0;
+  overflow: hidden;
+}
+.task-card pre {
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: pre;
+}
+.task-card .section-body {
+  overflow-x: hidden;
 }
 .task-card .card-title {
   font-family: var(--font-display);
@@ -391,6 +401,92 @@ details.task-card > summary:hover {
 .task-card details .section-body {
   padding: var(--space-4) var(--space-4) var(--space-3);
   border-top: 1px solid var(--border);
+}
+
+/* ---- Section cards ---- */
+.section-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-5) 0;
+}
+.section-card > h2:first-child,
+.section-card > h3:first-child {
+  margin-top: 0;
+}
+details.section-card > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-24);
+  color: var(--fg-1);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+details.section-card > summary::-webkit-details-marker { display: none; }
+details.section-card > summary::before {
+  content: '▶';
+  font-size: 0.6em;
+  flex-shrink: 0;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+details.section-card[open] > summary::before {
+  transform: rotate(90deg);
+}
+details.section-card[open] > summary {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+details.section-card > summary:hover {
+  opacity: 0.8;
+}
+
+/* ---- Skills learned grid ---- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+.skill-group-label {
+  font-family: var(--font-display);
+  font-size: var(--fs-12);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--ink-mute);
+  margin-bottom: var(--space-2);
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.skill-tag {
+  background: var(--cream);
+  border: 1px solid var(--mist);
+  border-radius: var(--radius-full);
+  padding: 3px var(--space-3);
+  font-size: var(--fs-14);
+  color: var(--fg-2);
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Table cell white background ---- */
+.markdown-body td {
+  background: var(--white);
 }
 
 /* ---- Footer ---- */
