@@ -21,7 +21,7 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
 
 <div class="card-grid">
 
-  <a href="{{ site.baseurl }}/taskList/mainTaskList">
+  <a href="{{ site.baseurl }}/taskList/curriculum-task-list">
     <p class="card-title">Curriculum & Tasks</p>
     <p class="card-desc">Central task index -- sprint themes, task breakdowns, and full task guide links, with related classes and topics tracked per sprint.</p>
   </a>
@@ -32,7 +32,7 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
   </a>
   <a href="docs/guides/">
     <p class="card-title">Workflow Guides</p>
-    <p class="card-desc">How we work: the issue-branch-PR process, Git workflow rules, PR guidelines, and 13 reference guides from linting and testing to agentic workflows.</p>
+    <p class="card-desc">How we work: the issue-branch-PR process, Git workflow rules, and PR guidelines.</p>
   </a>
   <a href="references/">
     <p class="card-title">Study Materials</p>
