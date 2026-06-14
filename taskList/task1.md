@@ -6,7 +6,7 @@ permalink: /taskList/task1/
 
 # Task 1 Guide
 
-**Sprint:** Welcome to the Barn | **Weeks:** 1 & 2
+**Sprint:** Welcome to the Barn | **Weeks:** 1 &amp; 2 | **Soft Deadline:** Thursday, June 25
 
 ---
 
@@ -21,9 +21,9 @@ permalink: /taskList/task1/
         <div class="section-body">
           <p>Start by reading through the <a href="{{ site.baseurl }}/STUDENT_ONBOARDING_PLAN">Student Onboarding Plan</a> to understand the program structure and the two repositories you will be working with. Then set up each repo locally.</p>
           <h3>a. Frontend Setup</h3>
-          <p>Refer to <a href="{{ site.baseurl }}/docs/guides/FRONTEND_GUIDE">FRONTEND_GUIDE.md</a> for step-by-step instructions to clone, install dependencies, and run the Vue 3 frontend locally.</p>
+          <p>Refer to <a href="{{ site.baseurl }}/docs/guides/FRONTEND_GUIDE">FRONTEND_GUIDE</a> for step-by-step instructions to clone, install dependencies, and run the Vue 3 frontend locally.</p>
           <h3>b. Backend Setup</h3>
-          <p>Refer to <a href="{{ site.baseurl }}/docs/guides/BACKEND_GUIDE">BACKEND_GUIDE.md</a> for step-by-step instructions to clone, configure the database connection, and run the Rails 6.1 backend locally.</p>
+          <p>Refer to <a href="{{ site.baseurl }}/docs/guides/BACKEND_GUIDE">BACKEND_GUIDE</a> for step-by-step instructions to clone, configure the database connection, and run the Rails 6.1 backend locally.</p>
         </div>
       </details>
 
@@ -36,23 +36,49 @@ permalink: /taskList/task1/
           <pre><code>git checkout dev
 
 git pull
-git checkout -b feat/[firstName]_task1</code></pre>
+git checkout -b feat/[firstName]\_task1</code></pre>
+
 <p>Replace <code>[firstName]</code> with your actual first name. Example: <code>feat/abanish_task1</code>.</p>
 <h3>b. Create your assignment directory</h3>
 <p>Inside the frontend repo, create the following directory structure:</p>
 <pre><code>task1_laser/
-laser_[firstName]/</code></pre>
-<p>Replace <code>[firstName]</code> with your first name. All files you produce for this assignment go inside <code>laser\_[firstName]/</code>. That includes:</p>
-<ul>
-<li>Your Claude Code 101 completion certificate (PDF)</li>
-<li>Your F2F article response (<code>f2f_article_response.md</code>)</li>
-<li>Your codebase understanding report (<code>codebase_overview.md</code>)</li>
-</ul>
+└── laser_[firstName]/
+    ├── codebase_overview.md
+    ├── claude_code_101_certificate.pdf
+    ├── f2f_article_response.md
+    └── Claude_[firstName].md</code></pre>
+<p>From the root, create <code>task1_laser/</code> first, then <code>laser_[firstName]/</code> inside it. All four deliverables for this assignment go inside <code>laser_[firstName]/</code>.</p>
 </div>
 </details>
 
       <details>
-        <summary>1.3 Codebase Understanding Report</summary>
+        <summary>1.3 Committing Your Work</summary>
+        <div class="section-body">
+          <p>Each deliverable in this assignment gets its own commit. One piece of work, one commit -- do not bundle everything into a single commit at the end.</p>
+          <h3>Commit message format</h3>
+          <p>Write messages in imperative mood: start with a verb, keep it under 72 characters, and make it clear what was added or completed.</p>
+          <pre><code>git add &lt;file&gt;
+
+git commit -m "Your commit message here"</code></pre>
+
+<h3>Expected commits for this assignment</h3>
+<p>Make each of these commits as you complete the corresponding deliverable -- not all at once at the end.</p>
+<table>
+<thead>
+<tr><th>Deliverable</th><th>Commit message</th></tr>
+</thead>
+<tbody>
+<tr><td>Codebase overview report</td><td><code>Add codebase overview for src/views/ directories</code></td></tr>
+<tr><td>Claude Code 101 certificate</td><td><code>Add Claude Code 101 completion certificate</code></td></tr>
+<tr><td>F2F article response</td><td><code>Add F2F article response</code></td></tr>
+<tr><td>Personal Claude.md</td><td><code>Add personal Claude.md configuration</code></td></tr>
+</tbody>
+</table>
+</div>
+</details>
+
+      <details>
+        <summary>1.4 Codebase Understanding Report</summary>
         <div class="section-body">
           <p>Before writing any code, you need to build a basic map of the frontend codebase. You will use Claude Code to navigate each of the directories listed below under <code>src/views/</code>, read what is inside, and write a short description of what the folder contains and why it exists.</p>
           <p>You do not need to understand every file in detail. The goal is to know what each folder is responsible for at a high level -- what feature or screen it supports, and what kind of code lives there.</p>
@@ -160,6 +186,7 @@ laser_[firstName]/</code></pre>
 **Contains:** [Top-level files and sub-folder names only]
 
 **Role:** [What this section of the app handles at a high level]</code></pre>
+
 </div>
 </details>
 
@@ -172,8 +199,20 @@ laser_[firstName]/</code></pre>
     <div class="card-body">
       <p>Work through Anthropic's Claude Code 101 course to get familiar with the CLI tool you will use throughout the program. This covers the core workflow: opening a project, running commands, and understanding how the agent reads and edits code.</p>
       <p><a href="https://anthropic.skilljar.com/claude-code-101/" target="_blank" rel="noopener noreferrer">Claude Code 101 -- Anthropic Skill Jar</a></p>
-      <p>Completion is counted when you are able to show the completion certificate provided by Anthropic at the end of the Claude 101 course.</p>
+      <p>Completion is counted when you are able to show the completion certificate provided by Anthropic at the end of the course.</p>
+
+      <h3>Understanding CLAUDE.md</h3>
+      <p>One of the key things the course covers is <strong>CLAUDE.md</strong> -- a special file Claude Code reads automatically when you open a project. It gives Claude context about the codebase: what the project is, how it is structured, and what conventions to follow. This is how a team trains Claude to behave consistently across all sessions.</p>
+      <p>The frontend repo already has a <code>CLAUDE.md</code> at its root in its dev branch. Open it and read through it -- notice what kinds of information it includes and why each piece is there.</p>
+
+      <h3>Assignment: Write your own Claude.md</h3>
+      <p>Now that you understand what CLAUDE.md does, create your own. The goal is not to copy the existing one -- it is to write a personal configuration that reflects your own working style and understanding of the codebase at this point in the sprint.</p>
+      <p>Open Claude Code in the frontend repo and use the existing <code>CLAUDE.md</code> as context. Ask Claude to help you draft a personal version:</p>
+      <pre><code>Read the existing CLAUDE.md in this repo. Now help me write my own Claude.md that reflects how I want to work with this codebase as a new developer. Include sections for my preferred workflow, things I want Claude to always keep in mind, and any patterns I have noticed so far.</code></pre>
+      <p>Iterate on what Claude produces. Add or remove anything that does not fit. When you are satisfied, save the file as <code>Claude_[firstName].md</code> inside your <code>laser_[firstName]/</code> directory.</p>
+      <p>Then open a new Claude Code session with your file loaded and compare how Claude responds vs. the session driven by the repo's existing <code>CLAUDE.md</code>. Note the differences -- that observation is part of the learning.</p>
     </div>
+
   </details>
 
   <details class="task-card">
@@ -214,6 +253,7 @@ from the article. 2-4 sentences.]
 [Identify one part of the F2F system you would most want to improve or
 build on. Explain why -- connect it to something you read in the article.
 2-4 sentences.]</code></pre>
+
 </div>
 
   </details>
@@ -225,24 +265,87 @@ build on. Explain why -- connect it to something you read in the article.
 
       <h3>Before you open the PR</h3>
       <p>Confirm your feature branch matches the expected structure:</p>
-      <pre><code>feat/[firstName]_task1/
+<pre><code>branch: feat/[firstName]_task1
 
-task1*laser/
-laser*[firstName]/
-codebase*overview.md
-claude_code_101_certificate.pdf
-f2f_article_response.md</code></pre>
+task1_laser/
+└── laser_[firstName]/
+    ├── codebase_overview.md
+    ├── claude_code_101_certificate.pdf
+    ├── f2f_article_response.md
+    └── Claude_[firstName].md</code></pre>
+
 <ul>
-<li>[ ] Branch is named <code>feat/[firstName]\_task1</code> and was created from <code>dev</code></li>
-<li>[ ] <code>task1_laser/laser*[firstName]/</code> directory exists in the frontend repo</li>
+<li>[ ] Branch is named <code>feat/[firstName]_task1</code> and was created from <code>dev</code></li>
+<li>[ ] <code>task1_laser/laser_[firstName]/</code> directory exists in the frontend repo</li>
 <li>[ ] <code>codebase_overview.md</code> is present and covers all 10 directories</li>
 <li>[ ] <code>claude_code_101_certificate.pdf</code> is present</li>
 <li>[ ] <code>f2f_article_response.md</code> is present and addresses all 3 questions</li>
+<li>[ ] <code>Claude_[firstName].md</code> is present and reflects your personal workflow context</li>
 </ul>
 
-      <h3>Opening the PR</h3>
-      <p>Once all items above are checked off, push your branch and open a PR from <code>feat/[firstName]_task1</code> into <code>dev</code>. Follow the <a href="{{ site.baseurl }}/docs/guides/#pull-requests">PR template in the Workflow Guide</a> for the title format, description fields, and reviewer assignment. Fill out every field -- an incomplete description delays review for everyone.</p>
-      <p>Your PR description should make it clear what this assignment covers: the codebase overview, the Claude Code 101 certification, and the F2F article response. Link the issue if one was assigned to you.</p>
+      <h3>Opening the Merge Request on GitLab</h3>
+      <p>GitLab calls this a <strong>Merge Request (MR)</strong> -- it is the same concept as a Pull Request on GitHub. The name is different; the workflow is identical.</p>
+      <p>To open one, follow these steps inside the frontend repo on GitLab:</p>
+      <ol>
+        <li>In the left sidebar, go to <strong>Code</strong> &rarr; <strong>Merge requests</strong>.</li>
+        <li>Click <strong>New merge request</strong>.</li>
+        <li>Set <strong>Source branch</strong> to your feature branch: <code>feat/[firstName]_task1</code>.</li>
+        <li>Set <strong>Target branch</strong> to <code>dev</code>.</li>
+        <li>Click <strong>Compare branches and continue</strong>.</li>
+        <li>Fill out the title and description using the <a href="{{ site.baseurl }}/docs/guides/#pull-requests">Pull Requests guide in the Workflow Guides</a> -- it covers the title format, description template, and reviewer assignment. Fill out every field before submitting.</li>
+      </ol>
+      <p>Your description should make clear what this assignment covers: the codebase overview, the Claude Code 101 certificate, the F2F article response, and your personal Claude.md.</p>
+      <p>Aim to have your Merge Request open on or before <strong>Thursday, June 25</strong>.</p>
+    </div>
+
+  </details>
+
+  <details class="task-card">
+    <summary>What You Learned</summary>
+    <div class="card-body">
+      <p>Skills and concepts from this sprint that carry forward into every sprint that follows.</p>
+      <div class="skills-grid">
+        <div>
+          <p class="skill-group-label">Git Fundamentals</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Staging &amp; commits</span>
+            <span class="skill-tag">git status / git diff</span>
+            <span class="skill-tag">Local vs. remote</span>
+          </div>
+        </div>
+        <div>
+          <p class="skill-group-label">Git Branching</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Feature branch isolation</span>
+            <span class="skill-tag">Branch from dev</span>
+            <span class="skill-tag">4-level structure</span>
+          </div>
+        </div>
+        <div>
+          <p class="skill-group-label">Pull Requests</p>
+          <div class="skill-tags">
+            <span class="skill-tag">PR as unit of review</span>
+            <span class="skill-tag">Imperative titles</span>
+            <span class="skill-tag">Description template</span>
+          </div>
+        </div>
+        <div>
+          <p class="skill-group-label">Codebase Navigation</p>
+          <div class="skill-tags">
+            <span class="skill-tag">src/views/ layout</span>
+            <span class="skill-tag">Directory-first reading</span>
+            <span class="skill-tag">Claude as navigator</span>
+          </div>
+        </div>
+        <div>
+          <p class="skill-group-label">CLAUDE.md</p>
+          <div class="skill-tags">
+            <span class="skill-tag">What CLAUDE.md does</span>
+            <span class="skill-tag">Writing context prompts</span>
+            <span class="skill-tag">Comparing outputs</span>
+          </div>
+        </div>
+      </div>
     </div>
   </details>
 
