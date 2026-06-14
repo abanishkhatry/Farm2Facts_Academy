@@ -10,20 +10,21 @@ Scaffolded guides that walk you through increasingly complex contributions to th
 - [How We Work](#how-we-work)
 - [Git Workflow Reference](#git-workflow-reference)
 - [Pull Requests](#pull-requests)
-- [Reference Guides](#reference-guides)
 
 ---
 
-## How We Work
+<details id="how-we-work" class="section-card" markdown="1">
+<summary>How We Work</summary>
 
 1. A task will be created in the Gitlab Issue Boards and assigned to you.
 2. Follow the [branching strategy](#git-workflow-reference) to create a feature branch for that issue.
 3. Read the issue description and complete each step listed there.
 4. When the final checklist in the issue is checked off, open a [Pull Request](#pull-requests).
 
----
+</details>
 
-## Git Workflow Reference
+<details id="git-workflow-reference" class="section-card" markdown="1">
+<summary>Git Workflow Reference</summary>
 
 ### Branch strategy
 
@@ -52,9 +53,10 @@ Good: `Add flake8 configuration and pre-commit hook (#4)`
 
 Bad: `fixed stuff`, `updates`, `WIP`
 
----
+</details>
 
-## Pull Requests
+<details id="pull-requests" class="section-card" markdown="1">
+<summary>Pull Requests</summary>
 
 A Pull Request (PR) is a proposal to merge your feature branch into `dev`. It stays open for review before anything is merged, giving your instructor a chance to leave feedback and approve the work.
 
@@ -94,17 +96,5 @@ Closes #N
 
 Fill out every field before requesting review. An incomplete description delays the review cycle for everyone on the team.
 
----
+</details>
 
-## Reference Guides
-
-1. [Environment Setup]({{ site.baseurl }}/STUDENT_ONBOARDING_PLAN) -- git fundamentals, clone repos, configure tools, run the app locally
-2. [Setting Up Linting](04-linting-setup) -- configure linting tools and pre-commit hooks
-3. [Writing Tests](05-writing-tests) -- add unit and integration tests
-4. [Investigating Bugs](06-bug-investigation) -- trace, diagnose, and fix a real bug
-5. [Self-Directed Work](09-self-directed-work) -- choose and complete a contribution independently
-6. [Deployment Configuration](10-deployment-configuration) -- understand how frontend, backend, and database connect across environments
-7. [Structured Planning with CLI Agents](11-planning-with-claude-code) -- when and how to use structured planning, multi-issue planning, and branch-level review
-8. [Agentic Engineering Concepts](12-agentic-engineering-concepts) -- what agents are, how they work, and why the focus shifts from syntax to engineering
-9. [Agentic Workflow Best Practices](13-agentic-workflow-best-practices) -- the complete spec-plan-execute-verify loop, workflow selection by task size, and a printable checklist
-10. [Design Decisions](../../DECISIONS) -- why the program is structured this way
