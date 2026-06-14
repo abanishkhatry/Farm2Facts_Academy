@@ -5,13 +5,13 @@ title: "README"
 
 # F2F Academy
 
-Instructional materials for the F2F (Farm2Facts) student developer onboarding program. An eight-week curriculum that teaches LLM-assisted development practices while students make real contributions to a farmers' market metrics platform.
+Instructional materials for the F2F (Farm2Facts) student developer onboarding program. Students work through sprint-based task guides using LLM-assisted development while making real contributions to a farmers' market metrics platform.
 
 **Live site:** [F2F Academy](https://abanishkhatry.github.io/Farm2Facts_Academy/)
 
 ## What this is
 
-This repo contains everything an instructor needs to run a cohort of student developers through the F2F onboarding program: a master curriculum, scaffolded guides, repo templates, and reference materials. It contains no application code.
+This repo contains everything needed to run a cohort of student developers through the F2F onboarding program: sprint task guides, workflow references, study materials, and onboarding documentation. It contains no application code.
 
 The Farm2Facts application lives in two separate repos:
 - **Backend:** [git.doit.wisc.edu/at-trad/farmers-coalition](https://git.doit.wisc.edu/at-trad/farmers-coalition) (Rails 6.1 + MySQL + Grape API)
@@ -21,60 +21,41 @@ Students do not need direct database access -- all data flows through the backen
 
 ## How the program works
 
-Students progress from "run the project and understand what it does" to "independently plan and ship improvements." The journey follows four repeating steps each week:
+Each sprint has a soft deadline and a dedicated task guide. Students work through the guide, commit each deliverable separately, and submit a Merge Request on GitLab when complete.
 
-1. **Onboard.** Start with [STUDENT_ONBOARDING_PLAN.md](STUDENT_ONBOARDING_PLAN.md) to set up your environment, understand the Farm2Facts codebase, and configure your LLM tooling. This is the entry point for every new cohort member.
-
-2. **Follow the curriculum.** Each week's scope -- group session topics and solo work -- is outlined in [references/curriculum.md](references/curriculum.md). The curriculum tells you what to do and in what order across all eight weeks.
-
-3. **Get task details.** Before starting any task, read the relevant entry in [taskList/mainTaskList.md](taskList/mainTaskList.md). Each entry has acceptance criteria, context, and pointers to the right files in the codebase.
-
-4. **Use the workflow.** Create a feature branch off the right base, complete the task, open a pull request, and work through the three-layer review pipeline before merging: CI checks, peer review, and LLM adversarial review. The guides in [docs/guides/](docs/guides/) explain each step.
-
-**Key design decisions:**
-
-- **Progressive LLM access.** Weeks 1-2: LLM as explainer only. Weeks 3-4: spec review, edge case brainstorming, adversarial PR review. Weeks 5-8: full LLM workflow including guided code generation. The constant rule: you must be able to explain every line without looking at your chat history.
-- **Three-layer review pipeline.** CI checks (from Week 2), peer review (from Week 2), and LLM adversarial review (from Week 3) build incrementally so students never submit PRs without structured feedback.
-- **ADR progression.** Students write Architecture Decision Records manually in Weeks 2-3, then learn to generate them from diffs/PRs with LLM tools in Week 4, and choose the right approach for each situation in Weeks 5-8.
-- **Agentic tools from day one.** A CLI agent (Claude Code if available, Gemini CLI as a free alternative) is installed in Week 1. Students create a project context file for their repo as part of their first solo work.
+1. **Onboard.** Read [STUDENT_ONBOARDING_PLAN.md](STUDENT_ONBOARDING_PLAN.md) to understand the two repos, Git and GitLab concepts, and database access details.
+2. **Review study materials.** Check [references/study-materials.md](references/study-materials.md) for readings and resources mapped to the current sprint.
+3. **Follow the task guide.** Open the relevant sprint entry in [taskList/curriculum-task-list.md](taskList/curriculum-task-list.md) and work through each task in order.
+4. **Use the workflow guides.** The [docs/guides/](docs/guides/) index covers branching strategy, commit conventions, and how to open a Merge Request on GitLab.
 
 ## Repo structure
 
 ```
-STUDENT_ONBOARDING_PLAN.md    Entry point: environment setup, Git concepts, repo links
-docs/
-  guides/                      Scaffolded student guides (used alongside taskList entries)
-    index.md                   How We Work, Git Workflow Reference, Pull Requests
-    FRONTEND_GUIDE.md          Frontend repo overview and run-locally walkthrough
-    BACKEND_GUIDE.md           Backend repo overview and run-locally walkthrough
-    04-linting-setup.md
-    05-writing-tests.md
-    06-bug-investigation.md
-    07-optimization.md
-    08-adversarial-review.md
-    09-self-directed-work.md
-    10-deployment-configuration.md
-    11-planning-with-claude-code.md
-    12-agentic-engineering-concepts.md
-    13-agentic-workflow-best-practices.md
+index.md                          Site home: program materials cards and points of contact
+STUDENT_ONBOARDING_PLAN.md        Onboarding: Git/GitLab concepts, repo links, database access
 taskList/
-  mainTaskList.md              Central task index: acceptance criteria and file pointers per task
-  task1.md                     Sprint 1 guide: onboarding, Claude Code 101, F2F article, PR creation
+  curriculum-task-list.md         Sprint table: sprint names, full task guide links, related classes
+  task1.md                        Sprint 1 -- Welcome to the Barn: onboarding, Claude Code 101,
+                                  F2F article, personal Claude.md, codebase overview, MR submission
 references/
-  curriculum.md                Week-by-week curriculum (Weeks 1-8) with jump-link nav
+  study-materials.md              Study materials index: sprint-mapped readings and resource links
+docs/guides/
+  index.md                        Workflow guides: How We Work, Git Workflow Reference, Pull Requests
+  FRONTEND_GUIDE.md               Frontend repo overview and run-locally walkthrough
+  BACKEND_GUIDE.md                Backend repo overview and run-locally walkthrough
 assets/
   css/
-    design-system.css          Shared design tokens
-    site.css                   Site-wide styles
+    design-system.css             Design tokens: colors, type, spacing, shadows
+    site.css                      Site-wide layout and component styles
+  J6_Ledesma_Sustainability_2_2021.pdf  F2F research article (Sprint 1 reading)
 templates/
-  CLAUDE.md                    CLAUDE.md template for Farm2Facts repos
-  CONTRIBUTING.md              Contributing guide template
-  adr-template.md              ADR template
-  vision-plan-template.md      Vision and improvement plan template
+  CLAUDE.md                       CLAUDE.md template for Farm2Facts repos
+  CONTRIBUTING.md                 Contributing guide template
+  adr-template.md                 ADR template
 .github/
-  ISSUE_TEMPLATE/              Bug report, enhancement, refactor templates
-  pull_request_template.md     PR template
-  workflows/pages.yml          GitHub Pages deployment
+  ISSUE_TEMPLATE/                 Bug report, enhancement, refactor templates
+  pull_request_template.md        PR template
+  workflows/pages.yml             GitHub Pages deployment
 ```
 
 ## Deployment
@@ -82,8 +63,7 @@ templates/
 The site is built with Jekyll and deployed to GitHub Pages via GitHub Actions. Pushing to `main` triggers a rebuild automatically. To run locally:
 
 ```bash
-bundle exec jekyll serve --baseurl "" --port 4001
+bundle exec jekyll serve
 ```
 
-Always use `--baseurl ""` locally -- `_config.yml` sets the GitHub Pages baseurl which breaks asset loading without the override.
-
+The site is served at `http://localhost:4000/Farm2Facts_Academy`.
