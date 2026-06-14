@@ -13,7 +13,8 @@ Welcome to the Farm2Facts student developer program. This document is your start
 
 ---
 
-## Git, GitHub, and GitLab
+<details class="section-card" markdown="1">
+<summary>Git, GitHub, and GitLab</summary>
 
 **Git** is a version control system that tracks changes to files over time. Every change you make to code is recorded as a commit -- a snapshot with a message explaining what changed and why. Git runs locally on your machine.
 
@@ -33,29 +34,31 @@ Welcome to the Farm2Facts student developer program. This document is your start
 | Push / Pull       | Send your commits to GitHub / download others' commits to your machine             |
 | Fork              | A personal copy of someone else's repo, used to propose changes                    |
 
----
+</details>
 
-## The Repos
+<details class="section-card" markdown="1">
+<summary>The Repos (Frontend & Backend) </summary>
 
 Farm2Facts is split across two repositories. Each has a dedicated guide with setup instructions, architecture details, and issue scaffolding.
 
 ### Frontend: Farm2Facts Frontend
 
-**Repo:** [Farm2Facts Frontend](https://git.doit.wisc.edu/at-trad/farm2facts-frontend)
+**Repo:** <a href="https://git.doit.wisc.edu/at-trad/farm2facts-frontend" target="_blank" rel="noopener noreferrer">Farm2Facts Frontend</a>
 
-**Guide To Run It Locally:** [FRONTEND_GUIDE.md]({{ site.baseurl }}/docs/guides/FRONTEND_GUIDE)
+**Guide To Run It Locally:** [FRONTEND_GUIDE]({{ site.baseurl }}/docs/guides/FRONTEND_GUIDE)
 
 ---
 
 ### Backend: Farm2Facts Backend
 
-**Repo:** [Farm2Facts Backend](https://git.doit.wisc.edu/at-trad/farmers-coalition)
+**Repo:** <a href="https://git.doit.wisc.edu/at-trad/farmers-coalition" target="_blank" rel="noopener noreferrer">Farm2Facts Backend</a>
 
-**Guide To Run It Locally:** [BACKEND_GUIDE.md]({{ site.baseurl }}/docs/guides/BACKEND_GUIDE)
+**Guide To Run It Locally:** [BACKEND_GUIDE]({{ site.baseurl }}/docs/guides/BACKEND_GUIDE)
 
----
+</details>
 
-## Database
+<details class="section-card" markdown="1">
+<summary>Database</summary>
 
 Farm2Facts uses a **MySQL** relational database hosted through the Department of Information Technology (DoIT) at UW-Madison. As a student developer, you will not interact with the database directly -- all data flows through the backend API, which exposes farmers market data as JSON endpoints that the frontend consumes. The access details below are for reference and instructor use.
 
@@ -67,9 +70,9 @@ For login credentials, contact **Garrett Smith** at garrett.smith@wisc.edu.
 
 After logging in you will see four domains. Two are associated with Farm2Facts:
 
-| Domain | Purpose |
-| ------ | ------- |
-| `farm2facts.org` | Hosts the WordPress instance |
+| Domain                   | Purpose                                     |
+| ------------------------ | ------------------------------------------- |
+| `farm2facts.org`         | Hosts the WordPress instance                |
 | `account.farm2facts.org` | Hosts the main application and the database |
 
 ### Accessing the database
@@ -80,4 +83,4 @@ After logging in you will see four domains. Two are associated with Farm2Facts:
 
 From phpMyAdmin you can view and manipulate live data entries from markets and market organizations using the GUI or raw SQL queries.
 
----
+</details>
