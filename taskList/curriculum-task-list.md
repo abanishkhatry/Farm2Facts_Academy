@@ -12,3 +12,4 @@ This page is your week-by-week task guide for the F2F student developer program.
 | SPRINT                  | Week  | Full Task Guide                                    | Related Classes               |
 | ----------------------- | ----- | -------------------------------------------------- | ----------------------------- |
 | **Welcome to the Barn** | 1 & 2 | [Task 1 Guide]({{ site.baseurl }}/taskList/task1/) | - CS200<br>- CS300<br>- CS571 |
+| **Cheese Curds & Code** | 3, 4 & 5 | [Task 2.1 Guide]({{ site.baseurl }}/taskList/task2_1/) | -- |
