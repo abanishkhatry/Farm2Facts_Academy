@@ -17,15 +17,36 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
 
 **Our Platform:** <a href="https://account.farm2facts.org/app/" target="_blank" rel="noopener noreferrer">Farm2Facts App</a>
 
-## Program Materials
+## Programs
+
+<details class="program-block program-laser" open>
+  <summary class="program-block-header">
+    <div class="program-eyebrow">Program</div>
+    <div class="program-name">LASER</div>
+  </summary>
+  <div class="program-block-body">
+    <div class="card-grid">
+      <a href="{{ site.baseurl }}/taskList/curriculum-task-list">
+        <p class="card-title">Curriculum & Tasks</p>
+        <p class="card-desc">Central task index -- sprint themes, task breakdowns, and full task guide links, with related classes and topics tracked per sprint.</p>
+      </a>
+    </div>
+  </div>
+</details>
+
+<details class="program-block program-wiscurds" open>
+  <summary class="program-block-header">
+    <div class="program-eyebrow">Program</div>
+    <div class="program-name">WISCURDS</div>
+  </summary>
+  <div class="program-block-body">
+    <p style="color: var(--fg-3); font-size: var(--fs-16); margin: 0;">Materials for this program are coming soon.</p>
+  </div>
+</details>
+
+## Core Materials
 
 <div class="card-grid">
-
-  <a href="{{ site.baseurl }}/taskList/curriculum-task-list">
-    <p class="card-title">Curriculum & Tasks</p>
-    <p class="card-desc">Central task index -- sprint themes, task breakdowns, and full task guide links, with related classes and topics tracked per sprint.</p>
-  </a>
-
   <a href="STUDENT_ONBOARDING_PLAN">
     <p class="card-title">Onboarding Steps</p>
     <p class="card-desc">Start here. Git and GitLab concepts, links to both repos, database access details, and everything you need before writing any code.</p>
