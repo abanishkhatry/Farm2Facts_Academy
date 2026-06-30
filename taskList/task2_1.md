@@ -21,48 +21,52 @@ permalink: /taskList/task2_1/
         <div class="section-body">
           <p>All work for this sub-task happens in the <strong>frontend repo</strong>. Create your branch from <code>dev</code>:</p>
           <pre><code>git checkout dev
+
 git pull
-git checkout -b feat/[firstName]_task2</code></pre>
-          <p>Replace <code>[firstName]</code> with your actual first name. Example: <code>feat/abanish_task2</code>.</p>
-        </div>
-      </details>
+git checkout -b feat/[firstName]\_task2</code></pre>
+<p>Replace <code>[firstName]</code> with your actual first name. Example: <code>feat/abanish_task2</code>.</p>
+</div>
+</details>
 
       <details>
         <summary>1.2 Create Your Assignment Directory</summary>
         <div class="section-body">
           <p>Inside the frontend repo, create the following directory structure:</p>
           <pre><code>task2_laser/
-└── laser_[firstName]/
-    ├── assignment1_api_detective.md
-    ├── assignment2_postman_explorer.md
-    ├── assignment3_soil_temperature.md
-    └── assignment4_summary.md</code></pre>
-          <p>From the root, create <code>task2_laser/</code> first, then <code>laser_[firstName]/</code> inside it. All four deliverable files go inside <code>laser_[firstName]/</code>.</p>
-        </div>
-      </details>
+
+└── laser*[firstName]/
+├── assignment1_api_detective.md
+├── assignment2_postman_explorer.md
+├── assignment3_soil_temperature.md
+└── assignment4_summary.md</code></pre>
+<p>From the root, create <code>task2_laser/</code> first, then <code>laser*[firstName]/</code> inside it. All four deliverable files go inside <code>laser\_[firstName]/</code>.</p>
+</div>
+</details>
 
       <details>
         <summary>1.3 Committing Your Work</summary>
         <div class="section-body">
           <p>Each assignment deliverable gets its own commit. Do not bundle everything into a single commit at the end.</p>
           <pre><code>git add &lt;file&gt;
+
 git commit -m "Your commit message here"</code></pre>
-          <h3>Expected commits for this sub-task</h3>
-          <table>
-            <thead>
-              <tr><th>Deliverable</th><th>Commit message</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Assignment 1</td><td><code>Add API detective browser exploration</code></td></tr>
-              <tr><td>Assignment 2</td><td><code>Add Postman explorer responses and screenshots</code></td></tr>
-              <tr><td>Assignment 3</td><td><code>Add soil temperature deep dive findings</code></td></tr>
-              <tr><td>Assignment 4</td><td><code>Add API summary and use case proposal</code></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
+<h3>Expected commits for this sub-task</h3>
+<table>
+<thead>
+<tr><th>Deliverable</th><th>Commit message</th></tr>
+</thead>
+<tbody>
+<tr><td>Assignment 1</td><td><code>Add API detective browser exploration</code></td></tr>
+<tr><td>Assignment 2</td><td><code>Add Postman explorer responses and screenshots</code></td></tr>
+<tr><td>Assignment 3</td><td><code>Add soil temperature deep dive findings</code></td></tr>
+<tr><td>Assignment 4</td><td><code>Add API summary and use case proposal</code></td></tr>
+</tbody>
+</table>
+</div>
+</details>
 
     </div>
+
   </div>
 
   <details class="task-card">
@@ -102,12 +106,13 @@ git commit -m "Your commit message here"</code></pre>
       <ol>
         <li><a href="https://www.youtube.com/watch?v=s7wmiS2mSXY" target="_blank" rel="noopener noreferrer">What is an API? (MuleSoft, 5 min)</a> -- watch this first</li>
         <li><a href="https://www.youtube.com/watch?v=GZvSYJDk-us" target="_blank" rel="noopener noreferrer">APIs for Beginners -- Full Course (freeCodeCamp)</a> -- watch the first 45 minutes at minimum</li>
-        <li><a href="https://academy.postman.com/path/api-fundamentals-student-expert" target="_blank" rel="noopener noreferrer">Postman API Fundamentals Student Expert</a> -- complete the first 3 modules</li>
+        <li><a href="https://academy.postman.com/path/api-beginner-v12" target="_blank" rel="noopener noreferrer">Postman API Fundamentals Student Expert</a> -- complete the first 3 modules</li>
         <li><a href="https://restapitutorial.com" target="_blank" rel="noopener noreferrer">REST API Tutorial</a> -- read "What is REST" and "HTTP Methods"</li>
         <li><a href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank" rel="noopener noreferrer">JSON Introduction (W3Schools)</a> -- focus on objects, arrays, and data types</li>
         <li><a href="https://api.wisconet.wisc.edu/docs" target="_blank" rel="noopener noreferrer">Wisconet API Documentation</a> -- explore this after resources 1--3</li>
       </ol>
     </div>
+
   </details>
 
   <details class="task-card">
@@ -138,6 +143,7 @@ git commit -m "Your commit message here"</code></pre>
         <li>In your own words: what is the difference between the station list endpoint and the <code>latest_measures</code> endpoint?</li>
       </ol>
     </div>
+
   </details>
 
   <details class="task-card">
@@ -178,6 +184,7 @@ git commit -m "Your commit message here"</code></pre>
         <li>In 2--3 sentences: what is the difference between a <strong>path parameter</strong> (like <code>/ALTN/</code>) and a <strong>query parameter</strong> (like <code>?fields=...</code>)?</li>
       </ul>
     </div>
+
   </details>
 
   <details class="task-card">
@@ -219,6 +226,7 @@ git commit -m "Your commit message here"</code></pre>
         <li>If you wanted hourly instead of 5-minute data, what would you change in the field name?</li>
       </ol>
     </div>
+
   </details>
 
   <details class="task-card">
@@ -245,6 +253,7 @@ git commit -m "Your commit message here"</code></pre>
       <h3>Deliverable</h3>
       <p>Save your response as <code>assignment4_summary.md</code> inside your <code>laser_[firstName]/</code> directory. Include Part A and Part C as written text. For Part B, either embed an image or describe the diagram in words.</p>
     </div>
+
   </details>
 
   <details class="task-card">
@@ -256,18 +265,18 @@ git commit -m "Your commit message here"</code></pre>
       <p>Confirm your feature branch matches the expected structure:</p>
       <pre><code>branch: feat/[firstName]_task2
 
-task2_laser/
-└── laser_[firstName]/
-    ├── assignment1_api_detective.md
-    ├── assignment2_postman_explorer.md
-    ├── assignment3_soil_temperature.md
-    └── assignment4_summary.md</code></pre>
-      <ul>
-        <li>[ ] Branch is named <code>feat/[firstName]_task2</code> and was created from <code>dev</code></li>
-        <li>[ ] <code>task2_laser/laser_[firstName]/</code> directory exists in the frontend repo</li>
-        <li>[ ] All 4 assignment files are present and answer every question</li>
-        <li>[ ] Each deliverable has its own commit with a descriptive message</li>
-      </ul>
+task2*laser/
+└── laser*[firstName]/
+├── assignment1*api_detective.md
+├── assignment2_postman_explorer.md
+├── assignment3_soil_temperature.md
+└── assignment4_summary.md</code></pre>
+<ul>
+<li>[ ] Branch is named <code>feat/[firstName]\_task2</code> and was created from <code>dev</code></li>
+<li>[ ] <code>task2_laser/laser*[firstName]/</code> directory exists in the frontend repo</li>
+<li>[ ] All 4 assignment files are present and answer every question</li>
+<li>[ ] Each deliverable has its own commit with a descriptive message</li>
+</ul>
 
       <h3>Opening the Merge Request on GitLab</h3>
       <ol>
@@ -279,6 +288,7 @@ task2_laser/
         <li>Fill out the title and description using the <a href="{{ site.baseurl }}/docs/guides/#pull-requests">Pull Requests guide</a> -- fill out every field before submitting</li>
       </ol>
     </div>
+
   </details>
 
   <details class="task-card">
