@@ -54,3 +54,30 @@ For meetings:
 - **Once Fall begins,** we will set the meeting time and frequency together, based on everyone's availability.
 
 </details>
+
+<details class="section-card" markdown="1">
+<summary>Phase 1: Understanding F2F and Its Repositories' Current State</summary>
+
+With your environment set up from Phase 0, this phase is about building a clear mental model of how Farm2Facts works today, before you change anything. The goal is to understand the current state of both repositories and how their pieces fit together.
+
+### What to Study
+
+Work through both repositories and get familiar with how each is structured and what its main components do.
+
+- **Frontend repo:** Understand the overall structure, the main components, and how data moves through the Vue 3 application. Start from the [Frontend setup guide]({{ site.baseurl }}/docs/guides/FRONTEND_GUIDE) and explore the codebase alongside it.
+- **Backend repo:** Understand the Rails 6.1 structure, the models and services, and how the Grape API exposes data to the frontend. Start from the [Backend setup guide]({{ site.baseurl }}/docs/guides/BACKEND_GUIDE) and explore the codebase alongside it.
+
+Each repository contains an **ADR (Architecture Decision Record) document**. Use these as your primary reference for understanding why the system is built the way it is. The ADRs explain the key architectural decisions, the trade-offs behind them, and the context you cannot get from reading code alone. Read the ADR in each repo and let it guide how you interpret the components you explore.
+
+### Deliverable
+
+A **Current State Understanding Report**. In it, capture your understanding of both repositories as they stand today:
+
+- The main components of the frontend and backend and what each is responsible for.
+- How the frontend and backend communicate.
+- The key architectural decisions from each ADR and why they were made.
+- Any open questions or areas that were unclear as you explored.
+
+This report is your reference point for the rest of the program, and it shows us that you have a solid grasp of the system before you begin contributing to it.
+
+</details>
