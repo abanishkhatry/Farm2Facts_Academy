@@ -170,7 +170,7 @@ Once the proposal is agreed upon, each team builds it.
 </details>
 
 <details class="section-card" markdown="1">
-<summary>Phase 6: Usability Evaluation and Testing</summary>
+<summary>Phase 5: Usability Evaluation and Testing</summary>
 
 This phase puts the work in front of real users and validates that everything built across the earlier phases actually functions as intended.
 
