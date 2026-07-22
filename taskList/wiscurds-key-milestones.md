@@ -7,6 +7,16 @@ title: "Key Milestones draft"
 
 This page lays out the WISCURDS program as a series of phases. Each phase below is its own card. Open a card to see what that phase covers and what you are expected to complete before moving on.
 
+### Phase Overview
+
+- **Phase 0: Project Onboarding and Team Setup** -- repos, accounts, and how the team communicates.
+- **Phase 1: Understanding F2F and Its Repositories' Current State** -- study both repos and their ADRs.
+- **Phase 2: Data Source Investigation** -- teams split to investigate the local database and the Wisconet API.
+- **Phase 3: Data Cleaning and Feature Integration** -- clean and extend the database; integrate Wisconet into the Market Profile.
+- **Phase 4: Data Analytics** -- propose and build data processing and visualizations.
+- **Phase 5: Usability Evaluation and Testing** -- evaluate with users and test each development.
+- **Phase 6: Documentation and Handoff** -- document the work and hand it off.
+
 ---
 
 <details class="section-card" markdown="1">
@@ -226,8 +236,6 @@ By the end of the program, we expect:
 - A **cleaner, more reliable database** backing the Admin Dashboard, with a data model that better reflects the real state of the markets.
 - The **Wisconet API integrated into the Market Profile**, giving markets access to relevant external data alongside their own.
 - **Meaningful analytics and visualizations** in both the Admin Dashboard and the Market Profile, shaped by what the Market and Research team and end users actually need.
-- Students who can **investigate an unfamiliar codebase, propose changes, and ship them** through a real team workflow.
-- A project that is **documented and ready to hand off** to the next cohort or team without loss of context.
 
 ### Anticipated Deliverables
 
@@ -247,6 +255,5 @@ The program is successful if:
 - Both teams **complete their build work** and it is merged into the codebase through the standard issue-branch-PR workflow.
 - The database team's cleaning and schema changes **improve data quality** without breaking existing functionality.
 - The Wisconet integration and the analytics features **work reliably** and are validated through Phase 5 testing.
-- The features are **usable and valuable to real users**, confirmed by the Kaufman Lab and, where possible, the markets during usability evaluation.
 - The work is **clearly documented**, so a future developer can understand and extend it.
 - Students demonstrate growth in **technical skills, collaboration, and working within a real development team**.
