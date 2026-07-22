@@ -9,7 +9,7 @@ This page lays out the WISCURDS program as a series of phases. Each phase below 
 
 ---
 
-<details class="section-card" markdown="1" open>
+<details class="section-card" markdown="1">
 <summary>Phase 0: Project Onboarding and Team Setup</summary>
 
 This phase gets you set up with the codebase, the accounts you need, and the ways we communicate as a team. Work through both sections before starting any development work.
