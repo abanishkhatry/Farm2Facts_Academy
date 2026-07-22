@@ -212,3 +212,41 @@ A **final report** submitted by each team, covering:
 - Reflections: what went well, what you liked, what could have been better, and recommendations going forward.
 
 </details>
+
+---
+
+## Outcomes, Deliverables, and Success Criteria
+
+This section frames what the WISCURDS program is expected to produce and how we will judge whether it succeeded.
+
+### Anticipated Outcomes
+
+By the end of the program, we expect:
+
+- A **cleaner, more reliable database** backing the Admin Dashboard, with a data model that better reflects the real state of the markets.
+- The **Wisconet API integrated into the Market Profile**, giving markets access to relevant external data alongside their own.
+- **Meaningful analytics and visualizations** in both the Admin Dashboard and the Market Profile, shaped by what the Market and Research team and end users actually need.
+- Students who can **investigate an unfamiliar codebase, propose changes, and ship them** through a real team workflow.
+- A project that is **documented and ready to hand off** to the next cohort or team without loss of context.
+
+### Anticipated Deliverables
+
+| Phase | Deliverable |
+| ----- | ----------- |
+| Phase 1 | Current State Understanding Report for both repositories |
+| Phase 2 | Data source investigation proposal from each team (database and Wisconet API) |
+| Phase 3 | A cleaned and extended local database; a new Market Profile tab integrating Wisconet data |
+| Phase 4 | An agreed analytics and visualization proposal, implemented in each platform |
+| Phase 5 | Usability evaluation feedback and functionality testing results |
+| Phase 6 | Final documentation and a handoff report from each team |
+
+### Success Criteria
+
+The program is successful if:
+
+- Both teams **complete their build work** and it is merged into the codebase through the standard issue-branch-PR workflow.
+- The database team's cleaning and schema changes **improve data quality** without breaking existing functionality.
+- The Wisconet integration and the analytics features **work reliably** and are validated through Phase 5 testing.
+- The features are **usable and valuable to real users**, confirmed by the Kaufman Lab and, where possible, the markets during usability evaluation.
+- The work is **clearly documented**, so a future developer can understand and extend it.
+- Students demonstrate growth in **technical skills, collaboration, and working within a real development team**.
