@@ -115,3 +115,25 @@ Each team produces a **proposal report** covering:
 This proposal is the bridge into the build phases: it defines what each team will actually work on next.
 
 </details>
+
+<details class="section-card" markdown="1">
+<summary>Phase 3: Data Cleaning and Feature Integration</summary>
+
+This is the first build phase. Each team turns the proposal from Phase 2 into actual changes in the codebase. Both teams stay on their respective projects.
+
+### Project A: Admin Dashboard -- Clean and Extend the Database
+
+This team acts on their database findings from Phase 2.
+
+- **Clean the local database.** Address the data quality issues surfaced in the proposal: stale records, gaps, duplicates, and inconsistent or malformed entries. The goal is a database that accurately reflects the real state of the markets.
+- **Introduce new fields and tables.** Where the Phase 2 proposal identified missing data, add the new fields or tables needed to capture it, **but only where it makes sense**. Validate each proposed addition against the actual schema and how the data is used before adding it. Not every idea from the proposal has to ship; part of this phase is judging what genuinely improves the data model.
+
+### Project B: Wisconet API -- Integrate Into the Market Profile
+
+This team moves from investigation into software development, integrating the Wisconet API data points into the platform's frontend.
+
+- **Add a new tab to the Market Profile.** Create a new tab in the **Market Profile navigation bar** to surface the Wisconet data.
+- **Integrate the API data points.** Pull the useful data points identified in Phase 2 from the Wisconet API and display them within the new tab, so a market profile can show relevant external data alongside its own information.
+- Follow the frontend structure and patterns already in the repo (see the [Frontend setup guide]({{ site.baseurl }}/docs/guides/FRONTEND_GUIDE)) so the new tab fits naturally into the existing navigation.
+
+</details>
