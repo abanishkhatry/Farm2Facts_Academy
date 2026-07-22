@@ -7,7 +7,7 @@ title: Home
   <img src="{{ site.baseurl }}/assets/f2f-icon.png" alt="FEAST icon" width="120" height="120" style="border-radius: 12px; flex-shrink: 0;">
   <div>
     <h1 style="margin: 0; border: none; padding: 0;">F2F Academy</h1>
-    <p style="margin: 8px 0 0; font-size: 1.125rem; color: var(--fg-2);">8-week onboarding curriculum for student developers joining the <a href="https://farm2facts.org/" target="_blank" rel="noopener noreferrer">Farm2Facts</a> project. Students work through scaffolded guides with LLM-assisted development, progressing from environment setup to independent contributions.</p>
+    <p style="margin: 8px 0 0; font-size: 1.125rem; color: var(--fg-2);">Onboarding curriculum for student developers joining the <a href="https://farm2facts.org/" target="_blank" rel="noopener noreferrer">Farm2Facts</a> project. Students work through scaffolded guides with LLM-assisted development, progressing from environment setup to independent contributions.</p>
   </div>
 </div>
 
@@ -40,7 +40,12 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
     <div class="program-name">WISCURDS</div>
   </summary>
   <div class="program-block-body">
-    <p style="color: var(--fg-3); font-size: var(--fs-16); margin: 0;">Materials for this program are coming soon.</p>
+    <div class="card-grid">
+      <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones">
+        <p class="card-title">Key Milestones draft</p>
+        <p class="card-desc">Central milestone index -- sprint themes, task breakdowns, and full task guide links, with related classes and topics tracked per milestone.</p>
+      </a>
+    </div>
   </div>
 </details>
 
