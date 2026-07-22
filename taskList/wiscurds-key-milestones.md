@@ -187,3 +187,28 @@ This phase puts the work in front of real users and validates that everything bu
 - Log any bugs or issues found so they can be tracked and fixed through the standard issue-to-PR flow.
 
 </details>
+
+<details class="section-card" markdown="1">
+<summary>Phase 6: Documentation and Handoff</summary>
+
+The final phase captures everything that was built and reflects on the experience, so the work can be picked up cleanly by the next cohort or team. Both teams document their own project.
+
+### Documentation
+
+- **Document the work you built.** Write up what your team created across the program: the changes made to the database or platform, how the features work, and anything a future developer would need to understand or extend them.
+- **Describe the process.** Capture the whole process you went through, from investigation to proposal to implementation, so the reasoning behind the work is preserved alongside the code.
+- **Reflect on the experience.** Include your honest reflections on the project: what you liked about it, what you think could have been better, and any lessons or suggestions for future cohorts.
+
+### Handoff
+
+- Make sure the documentation lives somewhere the team can find it, and that any open issues, known limitations, or unfinished ideas are clearly noted for whoever continues the work.
+
+### Deliverable
+
+A **final report** submitted by each team, covering:
+
+- A description of the whole process and the team's involvement across the phases.
+- An overview of what was built and how it works.
+- Reflections: what went well, what you liked, what could have been better, and recommendations going forward.
+
+</details>
