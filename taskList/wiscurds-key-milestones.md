@@ -146,3 +146,25 @@ This team moves from investigation into software development, integrating the Wi
 - Follow the frontend structure and patterns already in the repo (see the [Frontend setup guide]({{ site.baseurl }}/docs/guides/FRONTEND_GUIDE)) so the new tab fits naturally into the existing navigation.
 
 </details>
+
+<details class="section-card" markdown="1">
+<summary>Phase 4: Data Analytics</summary>
+
+By now each team has a strong understanding of its data source. This phase turns that data into insight: deciding how to process and visualize it, and then building those visualizations into the platform. Both teams follow the same two-part structure on their respective projects.
+
+### Part 1: Propose Data Processing and Visualizations
+
+Each team proposes the data processing and visualization options they think make the most sense for their platform.
+
+- **Explore the alternatives.** Based on your understanding of the data, identify how it could be processed and what visualizations (charts, summaries, dashboards, and so on) would best communicate it to users.
+- **Recommend what makes the most sense.** For each proposed analytic or visualization, explain what it shows, who it helps, and why it is worth displaying on the platform.
+- **Coordinate with the Market and Research team.** Review your proposal with the Market and Research team. They understand what our users and stakeholders actually need, so their input decides which analytics and visualizations are worth building. The goal of this part is a clear, agreed-upon set of visualizations to implement.
+
+### Part 2: Implement the Agreed Visualizations
+
+Once the proposal is agreed upon, each team builds it.
+
+- **Implement the agreed data processing and visualizations** into the actual platform, on the respective project (the Admin Dashboard for the database team, the Market Profile for the Wisconet API team).
+- Follow the same working flow and branching practices from Phase 3: track the work as issues, branch off `dev`, and open PRs for review.
+
+</details>
