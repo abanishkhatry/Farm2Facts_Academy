@@ -168,3 +168,22 @@ Once the proposal is agreed upon, each team builds it.
 - Follow the same working flow and branching practices from Phase 3: track the work as issues, branch off `dev`, and open PRs for review.
 
 </details>
+
+<details class="section-card" markdown="1">
+<summary>Phase 6: Usability Evaluation and Testing</summary>
+
+This phase puts the work in front of real users and validates that everything built across the earlier phases actually functions as intended.
+
+### Usability Evaluation
+
+- **Evaluate with the Kaufman Lab.** Run usability evaluations with all members of the Kaufman Lab. Have them work through the features your teams built and gather their feedback on how clear, useful, and easy to use everything is.
+- **Include the markets if possible.** Where feasible, run the same evaluation with the markets themselves, since they are the end users of much of this data. Their feedback is especially valuable for the market-facing features.
+- Capture the feedback in a form the teams can act on: what worked, what confused people, and what should change.
+
+### Functionality Testing
+
+- **Test each development thoroughly.** Use this phase to do extra testing on the functionality delivered in every prior phase, across both projects (the Admin Dashboard and the Market Profile work).
+- Confirm the data cleaning, new fields and tables, the Wisconet integration, and the analytics and visualizations all behave correctly, including edge cases and unexpected input.
+- Log any bugs or issues found so they can be tracked and fixed through the standard issue-to-PR flow.
+
+</details>
