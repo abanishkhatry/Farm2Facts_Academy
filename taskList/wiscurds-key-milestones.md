@@ -121,6 +121,15 @@ This proposal is the bridge into the build phases: it defines what each team wil
 
 This is the first build phase. Each team turns the proposal from Phase 2 into actual changes in the codebase. Both teams stay on their respective projects.
 
+### Working Flow and Branching Practices
+
+Because this is the first phase where you write code, follow our standard working flow from the start. Both teams work the same way:
+
+- Work is tracked as **issues on the GitLab issue board** and assigned to you. See [How We Work]({{ site.baseurl }}/docs/guides/#how-we-work) for the full issue-to-PR cycle.
+- The repos use a four-level branch structure: `main`, `staging`, `dev`, and feature branches. **Never commit directly to `main` or `dev`.** Always branch off an up-to-date `dev` for your work.
+- Create one feature branch per issue, named after that issue, for example `feature/issue-12-clean-market-records`. The full branch strategy and commit message rules are in the [Git Workflow Reference]({{ site.baseurl }}/docs/guides/#git-workflow-reference).
+- When your work is ready, open a Pull Request into `dev` and assign it for review. Follow the [Pull Requests guide]({{ site.baseurl }}/docs/guides/#pull-requests).
+
 ### Project A: Admin Dashboard -- Clean and Extend the Database
 
 This team acts on their database findings from Phase 2.
