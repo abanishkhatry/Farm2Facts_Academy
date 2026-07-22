@@ -81,3 +81,37 @@ A **Current State Understanding Report**. In it, capture your understanding of b
 This report is your reference point for the rest of the program, and it shows us that you have a solid grasp of the system before you begin contributing to it.
 
 </details>
+
+<details class="section-card" markdown="1">
+<summary>Phase 2: Data Source Investigation</summary>
+
+In this phase the four WISCURDS students split into **two projects, with a team of two on each**. Each team investigates a different data source that feeds the Farm2Facts platform. The goal is to understand what data we have, where it comes from, and what condition it is in before anyone proposes changes.
+
+### Project A: Admin Dashboard -- Local Database Analysis
+
+This team investigates the platform's own data by analyzing the local database.
+
+- **Get access first.** The database access steps are already documented. Follow the [Database section of the Student Onboarding Plan]({{ site.baseurl }}/STUDENT_ONBOARDING_PLAN#database) to reach phpMyAdmin, rather than repeating the steps here.
+- **Assess the current state of the database.** Get familiar with the schema: what tables exist, how they relate, and what each one stores.
+- **Look at the market records.** Find the records for markets and market organizations. Understand what a market record contains and how markets connect to the data collected around them.
+- **Judge how active the data is.** Check how current and complete the records are. Are markets actively submitting data, or are many entries stale or empty? Which markets are active and which are not?
+- **Other understanding steps.** Note data quality issues, gaps, duplicates, or anything that looks off as you explore.
+
+### Project B: Getting Data from the Wisconet API
+
+This team investigates an external data source, the Wisconet API. This work overlaps with the LASER program's API task, so use that as a starting point.
+
+- **Reference the LASER API work.** The [LASER Task 2.1 Guide]({{ site.baseurl }}/taskList/task2_1/) walks through exploring the Wisconet API with the browser and Postman. Work through it to build your understanding of the API's structure, endpoints, and field naming.
+- **Understand the external source.** Learn how the Wisconet API is organized, what stations and measures it exposes, and how data would flow from it into the Farm2Facts platform.
+- **Identify useful data points.** Beyond the watershed data already in use, investigate what other data points the API offers (for example soil temperature, air temperature, and other station measures) and evaluate which of them could be valuable to the Farm2Facts platform and its users.
+
+### Deliverable
+
+Each team produces a **proposal report** covering:
+
+- The **current state** of their data source, based on what they found during their investigation.
+- What they see that **needs to be fixed** (data quality issues, gaps, stale records) or **introduced** (new data points, integrations, or improvements).
+
+This proposal is the bridge into the build phases: it defines what each team will actually work on next.
+
+</details>
