@@ -17,9 +17,8 @@ Pick your operating system below. Every step that differs between macOS and Wind
   </div>
 </div>
 
----
-
-## About this Repo
+<details id="about-this-repo" class="section-card" markdown="1">
+<summary>About this Repo</summary>
 
 A Rails 6.1 metrics platform for farmers' markets and individual producers. It tracks sales, visitors, vendors, and ecosystem services. The backend exposes both a Grape REST API (consumed by the frontend) and a traditional Rails web interface.
 
@@ -35,9 +34,10 @@ A Rails 6.1 metrics platform for farmers' markets and individual producers. It t
 - **Metric engine:** `ApplicationController` contains a generic `calculate_metric()` method driven by `Metric` model config. Complex metrics use named formula methods (e.g., `metric2_formula` for total sales, `metric16_formula` for vendors per day).
 - **Metric selections** are stored as two integers representing a 37-bit bitmask. Do not manipulate metric selections without understanding this encoding.
 
----
+</details>
 
-## Prerequisites
+<details id="prerequisites" class="section-card" markdown="1">
+<summary>Prerequisites</summary>
 
 The backend needs Ruby, Bundler, and MySQL. This is the harder of the two repos to set up, so work through this section before cloning.
 
@@ -167,9 +167,10 @@ Expect more friction on this path than your teammates have. If you hit a wall on
 
 </div>
 
----
+</details>
 
-## Cloning the Repository
+<details id="cloning-the-repository" class="section-card" markdown="1">
+<summary>Cloning the Repository</summary>
 
 Follow the same SSH or HTTPS steps described in the [Frontend Guide](FRONTEND_GUIDE#cloning-the-repository), substituting the backend repo URL:
 
@@ -191,9 +192,10 @@ If you are using WSL2, run the clone from the **Ubuntu** terminal and set up you
 
 </div>
 
----
+</details>
 
-## Running Locally
+<details id="running-locally" class="section-card" markdown="1">
+<summary>Running Locally</summary>
 
 ### Step 1: Start MySQL
 
@@ -294,17 +296,19 @@ On WSL2, open that URL in your normal Windows browser. WSL2 forwards `localhost`
 
 </div>
 
----
+</details>
 
-## Known Issues
+<details id="known-issues" class="section-card" markdown="1">
+<summary>Known Issues</summary>
 
 - `ApplicationController` contains SQL string concatenation in metric calculation loops. Treat changes there carefully to avoid injection vulnerabilities.
 - The `market_entry_point_dates` table was never created via migrations. Always use `db:schema:load` for fresh local setup, not `db:migrate`.
 - Geocoding (`Geocoder.search`) fires on every profile save when address fields change.
 
----
+</details>
 
-## Troubleshooting
+<details id="troubleshooting" class="section-card" markdown="1">
+<summary>Troubleshooting</summary>
 
 <div class="os-block" data-os="mac" markdown="1">
 
@@ -334,3 +338,5 @@ On WSL2, open that URL in your normal Windows browser. WSL2 forwards `localhost`
 | Port 3000 already in use | On WSL2, `lsof -i :3000`. On native Windows, `Get-NetTCPConnection -LocalPort 3000` in PowerShell, then stop the process in Task Manager. |
 
 </div>
+
+</details>

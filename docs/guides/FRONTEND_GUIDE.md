@@ -17,9 +17,8 @@ Pick your operating system below. Every step that differs between macOS and Wind
   </div>
 </div>
 
----
-
-## About this Repo
+<details id="about-this-repo" class="section-card" markdown="1">
+<summary>About this Repo</summary>
 
 A Vue 3 data collection and reporting platform for farmers markets. Producers, market organizations, and researchers each see a different interface based on their role. It handles data entry, CSV uploads, analysis, and report generation across a set of instruments (vendor applications, attendance, sales slips, visitor surveys, and others).
 
@@ -36,9 +35,10 @@ A Vue 3 data collection and reporting platform for farmers markets. Producers, m
 - Three-file view pattern: each view has a `.vue` template, a `_ViewName.js` logic file, and a `_ViewName.less` style file co-located in its own folder
 - API base URL configured via `VUE_APP_API_DOMAIN` in `.env`
 
----
+</details>
 
-## Prerequisites
+<details id="prerequisites" class="section-card" markdown="1">
+<summary>Prerequisites</summary>
 
 You need Git and Node.js installed before anything else. Install them once, then verify.
 
@@ -108,9 +108,10 @@ git config --global core.autocrlf input
 
 </div>
 
----
+</details>
 
-## Cloning the Repository
+<details id="cloning-the-repository" class="section-card" markdown="1">
+<summary>Cloning the Repository</summary>
 
 Inside the repository page:
 
@@ -329,9 +330,10 @@ Use **HTTPS** if:
 - You are on a restrictive network
 - SSH times out
 
----
+</details>
 
-## Running Locally
+<details id="running-locally" class="section-card" markdown="1">
+<summary>Running Locally</summary>
 
 ### Step 1: Install dependencies
 
@@ -397,9 +399,10 @@ This proxies `/api/v1` requests to `localhost:3000`. Open `http://localhost:8080
 
 Log in with a test account. If the nav menu loads and you can reach a data entry form, the frontend is connected to the backend correctly.
 
----
+</details>
 
-## Other Commands
+<details id="other-commands" class="section-card" markdown="1">
+<summary>Other Commands</summary>
 
 ```bash
 # Production build (output to dist/)
@@ -411,9 +414,10 @@ npm run lint
 
 There is no test suite in this project.
 
----
+</details>
 
-## Troubleshooting
+<details id="troubleshooting" class="section-card" markdown="1">
+<summary>Troubleshooting</summary>
 
 <div class="os-block" data-os="mac" markdown="1">
 
@@ -442,3 +446,5 @@ There is no test suite in this project.
 | Paths too long, or install fails deep in `node_modules` | Clone into a short path such as `C:\dev\farm2facts-frontend` rather than a deeply nested folder under Documents. |
 
 </div>
+
+</details>
