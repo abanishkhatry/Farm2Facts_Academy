@@ -42,7 +42,7 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
   <div class="program-block-body">
     <div class="card-grid">
       <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones">
-        <p class="card-title">Key Milestones draft</p>
+        <p class="card-title">Project Milestones</p>
         <p class="card-desc">Central milestone index -- sprint themes, task breakdowns, and full task guide links, with related classes and topics tracked per milestone.</p>
       </a>
     </div>

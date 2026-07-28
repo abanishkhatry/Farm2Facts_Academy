@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Key Milestones draft"
+title: "Project Milestones"
 ---
 
-# Key Milestones draft
+# Project Milestones
 
 This page lays out the WISCURDS program as a series of phases. Each phase below is its own card. Open a card to see what that phase covers and what you are expected to complete before moving on.
 
@@ -13,9 +13,8 @@ This page lays out the WISCURDS program as a series of phases. Each phase below 
 - **Phase 1: Understanding F2F and Its Repositories' Current State** -- study both repos and their ADRs.
 - **Phase 2: Data Source Investigation** -- teams split to investigate the local database and the Wisconet API.
 - **Phase 3: Data Cleaning and Feature Integration** -- clean and extend the database; integrate Wisconet into the Market Profile.
-- **Phase 4: Data Analytics** -- propose and build data processing and visualizations.
-- **Phase 5: Usability Evaluation and Testing** -- evaluate with users and test each development.
-- **Phase 6: Documentation and Handoff** -- document the work and hand it off.
+- **Phase 4: Data Analytics and Usability Testing** -- propose and build data processing and visualizations, then evaluate with users and test each development.
+- **Phase 5: Documentation and Handoff** -- document the work and hand it off.
 
 ---
 
@@ -158,9 +157,9 @@ This team moves from investigation into software development, integrating the Wi
 </details>
 
 <details class="section-card" markdown="1">
-<summary>Phase 4: Data Analytics</summary>
+<summary>Phase 4: Data Analytics and Usability Testing</summary>
 
-By now each team has a strong understanding of its data source. This phase turns that data into insight: deciding how to process and visualize it, and then building those visualizations into the platform. Both teams follow the same two-part structure on their respective projects.
+By now each team has a strong understanding of its data source. This phase turns that data into insight: deciding how to process and visualize it, building those visualizations into the platform, and then putting the work in front of real users to validate that everything built across the earlier phases actually functions as intended.
 
 ### Part 1: Propose Data Processing and Visualizations
 
@@ -177,29 +176,22 @@ Once the proposal is agreed upon, each team builds it.
 - **Implement the agreed data processing and visualizations** into the actual platform, on the respective project (the Admin Dashboard for the database team, the Market Profile for the Wisconet API team).
 - Follow the same working flow and branching practices from Phase 3: track the work as issues, branch off `dev`, and open PRs for review.
 
-</details>
-
-<details class="section-card" markdown="1">
-<summary>Phase 5: Usability Evaluation and Testing</summary>
-
-This phase puts the work in front of real users and validates that everything built across the earlier phases actually functions as intended.
-
-### Usability Evaluation
+### Part 3: Usability Evaluation
 
 - **Evaluate with the Kaufman Lab.** Run usability evaluations with all members of the Kaufman Lab. Have them work through the features your teams built and gather their feedback on how clear, useful, and easy to use everything is.
 - **Include the markets if possible.** Where feasible, run the same evaluation with the markets themselves, since they are the end users of much of this data. Their feedback is especially valuable for the market-facing features.
 - Capture the feedback in a form the teams can act on: what worked, what confused people, and what should change.
 
-### Functionality Testing
+### Part 4: Functionality Testing
 
-- **Test each development thoroughly.** Use this phase to do extra testing on the functionality delivered in every prior phase, across both projects (the Admin Dashboard and the Market Profile work).
+- **Test each development thoroughly.** Use this part of the phase to do extra testing on the functionality delivered in every prior phase, across both projects (the Admin Dashboard and the Market Profile work).
 - Confirm the data cleaning, new fields and tables, the Wisconet integration, and the analytics and visualizations all behave correctly, including edge cases and unexpected input.
 - Log any bugs or issues found so they can be tracked and fixed through the standard issue-to-PR flow.
 
 </details>
 
 <details class="section-card" markdown="1">
-<summary>Phase 6: Documentation and Handoff</summary>
+<summary>Phase 5: Documentation and Handoff</summary>
 
 The final phase captures everything that was built and reflects on the experience, so the work can be picked up cleanly by the next cohort or team. Both teams document their own project.
 
@@ -244,9 +236,8 @@ By the end of the program, we expect:
 | Phase 1 | Current State Understanding Report for both repositories |
 | Phase 2 | Data source investigation proposal from each team (database and Wisconet API) |
 | Phase 3 | A cleaned and extended local database; a new Market Profile tab integrating Wisconet data |
-| Phase 4 | An agreed analytics and visualization proposal, implemented in each platform |
-| Phase 5 | Usability evaluation feedback and functionality testing results |
-| Phase 6 | Final documentation and a handoff report from each team |
+| Phase 4 | An agreed analytics and visualization proposal, implemented in each platform; usability evaluation feedback and functionality testing results |
+| Phase 5 | Final documentation and a handoff report from each team |
 
 ### Success Criteria
 
@@ -254,6 +245,6 @@ The program is successful if:
 
 - Both teams **complete their build work** and it is merged into the codebase through the standard issue-branch-PR workflow.
 - The database team's cleaning and schema changes **improve data quality** without breaking existing functionality.
-- The Wisconet integration and the analytics features **work reliably** and are validated through Phase 5 testing.
+- The Wisconet integration and the analytics features **work reliably** and are validated through the Phase 4 testing.
 - The work is **clearly documented**, so a future developer can understand and extend it.
 - Students demonstrate growth in **technical skills, collaboration, and working within a real development team**.
