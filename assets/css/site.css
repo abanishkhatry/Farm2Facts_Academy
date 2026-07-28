@@ -258,6 +258,28 @@
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
 }
+/* ---- Centered diagram figures ---- */
+.diagram {
+  margin: var(--space-6) 0;
+  text-align: center;
+}
+.diagram img {
+  display: block;
+  margin: 0 auto;
+  /* Diagrams are wide and line-art, so cap them rather than filling the
+     column, and drop the default photo shadow. */
+  max-width: min(100%, 900px);
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4);
+}
+.diagram figcaption {
+  margin-top: var(--space-3);
+  font-size: var(--fs-14);
+  color: var(--fg-3);
+}
+
 .markdown-body strong { color: var(--fg-1); }
 .markdown-body hr {
   border: 0;
