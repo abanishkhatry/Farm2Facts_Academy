@@ -73,8 +73,8 @@ With your environment set up from Phase 0, this phase is about building a clear 
 
 Work through both repositories and get familiar with how each is structured and what its main components do.
 
-- **Frontend repo:** Understand the overall structure, the main components, and how data moves through the Vue 3 application. Start from the [Frontend setup guide]({{ site.baseurl }}/docs/guides/FRONTEND_GUIDE) and explore the codebase alongside it.
-- **Backend repo:** Understand the Rails 6.1 structure, the models and services, and how the Grape API exposes data to the frontend. Start from the [Backend setup guide]({{ site.baseurl }}/docs/guides/BACKEND_GUIDE) and explore the codebase alongside it.
+- **Frontend:** Understand the overall structure, the main components, and how data moves through the Vue 3 application. Explore the <a href="https://git.doit.wisc.edu/at-trad/farm2facts-frontend" target="_blank" rel="noopener noreferrer">Farm2Facts Frontend</a> codebase directly.
+- **Backend:** Understand the Rails 6.1 structure, the models and services, and how the Grape API exposes data to the frontend. Explore the <a href="https://git.doit.wisc.edu/at-trad/farmers-coalition" target="_blank" rel="noopener noreferrer">Farm2Facts Backend</a> codebase directly.
 
 Each repository contains an **ADR (Architecture Decision Record) document**. Use these as your primary reference for understanding why the system is built the way it is. The ADRs explain the key architectural decisions, the trade-offs behind them, and the context you cannot get from reading code alone. Read the ADR in each repo and let it guide how you interpret the components you explore.
 
