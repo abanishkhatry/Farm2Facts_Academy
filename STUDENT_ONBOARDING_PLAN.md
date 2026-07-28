@@ -10,10 +10,11 @@ Welcome to the Farm2Facts student developer program. This document is your start
 - [Git, GitHub, and GitLab](#git-github-and-gitlab)
 - [The Repos](#the-repos)
 - [Database](#database)
+- [Running Lab Machines](#running-lab-machines)
 
 ---
 
-<details class="section-card" markdown="1">
+<details id="git-github-and-gitlab" class="section-card" markdown="1">
 <summary>Git, GitHub, and GitLab</summary>
 
 **Git** is a version control system that tracks changes to files over time. Every change you make to code is recorded as a commit -- a snapshot with a message explaining what changed and why. Git runs locally on your machine.
@@ -36,7 +37,7 @@ Welcome to the Farm2Facts student developer program. This document is your start
 
 </details>
 
-<details class="section-card" markdown="1">
+<details id="the-repos" class="section-card" markdown="1">
 <summary>The Repos (Frontend & Backend) </summary>
 
 Farm2Facts is split across two repositories. Each has a dedicated guide with setup instructions, architecture details, and issue scaffolding.
@@ -59,7 +60,7 @@ Both guides cover **macOS and Windows**. Open a guide and use the switch at the 
 
 </details>
 
-<details class="section-card" markdown="1">
+<details id="database" class="section-card" markdown="1">
 <summary>Database</summary>
 
 Farm2Facts uses a **MySQL** relational database hosted through the Department of Information Technology (DoIT) at UW-Madison. As a student developer, you will not interact with the database directly -- all data flows through the backend API, which exposes farmers market data as JSON endpoints that the frontend consumes. The access details below are for reference and instructor use.
@@ -84,5 +85,55 @@ After logging in you will see four domains. Two are associated with Farm2Facts:
 3. Click **phpMyAdmin** to open the graphical interface.
 
 From phpMyAdmin you can view and manipulate live data entries from markets and market organizations using the GUI or raw SQL queries.
+
+</details>
+
+<details id="running-lab-machines" class="section-card" markdown="1">
+<summary>Running Lab Machines</summary>
+
+How to run Farm2Facts locally on the Kaufman Lab machines. These are Macs, and everything you need is already installed, so you do not have to work through the setup guides to use them.
+
+Log into the machine. The username and password are on a sticker on the monitor.
+
+### Database (MAMP)
+
+1. Open **MAMP** (it should be in the dock).
+2. Click **Start**.
+3. Starting the server opens a browser window. Go to **MySQL** then **phpMyAdmin** to explore the local farm2facts database. You can get back to that page any time with the **Web Start** button.
+
+### Backend server
+
+1. In VS Code, open the **farmers-coalition** project (it should be under recent projects).
+2. In the terminal, run `bin/rails server`.
+
+The server then runs on `localhost:3000`.
+
+### Frontend app
+
+1. In a **new** VS Code window, open the **farm2facts** project (it should be under recent projects).
+2. In the terminal, run `npm run serve`.
+
+The app then runs on `localhost:8080`.
+
+### Config notes
+
+These two files decide which database and which backend you are talking to. Check both before you start working.
+
+**Backend.** In `config/database.yml`, the database should point at the local MAMP database:
+
+```yaml
+database: farm2facts
+port: 3306
+socket: /Applications/MAMP/tmp/mysql/mysql.sock
+```
+
+**Frontend.** The `.env` file should point at the local backend:
+
+```
+VUE_APP_API_DOMAIN=http://localhost:3000/api/v1
+VUE_APP_API_ROOT=http://localhost:3000/
+```
+
+This ensures you are working with local data and will not affect production data.
 
 </details>
