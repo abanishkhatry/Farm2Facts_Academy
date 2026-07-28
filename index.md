@@ -41,13 +41,13 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
   </summary>
   <div class="program-block-body">
     <div class="card-grid">
+      <a href="{{ site.baseurl }}/taskList/wiscurds-development-structure">
+        <p class="card-title">Development Structure Overview</p>
+        <p class="card-desc">How the Farm2Facts project is put together and how development work is organized. Coming soon.</p>
+      </a>
       <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones">
         <p class="card-title">Project Milestones</p>
         <p class="card-desc">The program as a series of phases. What each phase covers, what you are expected to complete before moving on, and the deliverables and success criteria for the program as a whole.</p>
-      </a>
-      <a href="{{ site.baseurl }}/taskList/wiscurds-development-structure">
-        <p class="card-title">Development Structure Overview</p>
-        <p class="card-desc">How Farm2Facts is put together: the two repos and how they talk to each other, the branch structure, and the path an issue takes from assignment to merge.</p>
       </a>
       <a href="{{ site.baseurl }}/taskList/wiscurds-phase-tasks">
         <p class="card-title">Tasks by Phase</p>
