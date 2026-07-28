@@ -51,7 +51,7 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
       </a>
       <a href="{{ site.baseurl }}/taskList/wiscurds-phase-tasks">
         <p class="card-title">Tasks by Phase</p>
-        <p class="card-desc">The concrete work for each phase in checklist form, split by team from Phase 2 onward. The "what do I actually do" companion to Project Milestones.</p>
+        <p class="card-desc">The task guide for each phase, published as that phase begins. The "what do I actually do" companion to Project Milestones.</p>
       </a>
     </div>
   </div>
