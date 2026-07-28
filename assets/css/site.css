@@ -355,6 +355,10 @@ summary.program-block-header:hover { opacity: 0.9; }
   gap: var(--space-4);
   margin: var(--space-6) 0;
 }
+/* One card per row, for a set meant to be read in order rather than scanned. */
+.card-grid.is-stacked {
+  grid-template-columns: 1fr;
+}
 .card-grid a {
   display: block;
   background: var(--white);
