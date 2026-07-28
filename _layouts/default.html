@@ -7,6 +7,22 @@
   <link rel="icon" href="{{ site.baseurl }}/assets/f2f-icon.png" type="image/png">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/design-system.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css">
+  <script>
+    // Set the OS before first paint so only one variant of each os-block renders.
+    // Stored choice wins; otherwise guess from the platform string.
+    (function () {
+      try {
+        var os = localStorage.getItem('f2f-os');
+        if (os !== 'mac' && os !== 'win') {
+          var p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+          os = /win/i.test(p) ? 'win' : 'mac';
+        }
+        document.documentElement.setAttribute('data-os', os);
+      } catch (e) {
+        document.documentElement.setAttribute('data-os', 'mac');
+      }
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -25,5 +41,24 @@
     <a href="https://farm2facts.org/">Farm2Facts @KaufmanLab</a>
     <span class="site-version">v{{ site.version }}</span>
   </footer>
+  <script>
+    // Wire up every OS switch on the page. The choice is remembered across guides.
+    (function () {
+      var root = document.documentElement;
+      function apply(os) {
+        root.setAttribute('data-os', os);
+        try { localStorage.setItem('f2f-os', os); } catch (e) {}
+        document.querySelectorAll('.os-switch button').forEach(function (b) {
+          var on = b.getAttribute('data-os') === os;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+      document.querySelectorAll('.os-switch button').forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.getAttribute('data-os')); });
+      });
+      apply(root.getAttribute('data-os') || 'mac');
+    })();
+  </script>
 </body>
 </html>

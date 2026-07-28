@@ -41,6 +41,8 @@ Welcome to the Farm2Facts student developer program. This document is your start
 
 Farm2Facts is split across two repositories. Each has a dedicated guide with setup instructions, architecture details, and issue scaffolding.
 
+Both guides cover **macOS and Windows**. Open a guide and use the switch at the top to pick your operating system -- the setup steps then match your machine, and your choice carries over to the other guide.
+
 ### Frontend: Farm2Facts Frontend
 
 **Repo:** <a href="https://git.doit.wisc.edu/at-trad/farm2facts-frontend" target="_blank" rel="noopener noreferrer">Farm2Facts Frontend</a>

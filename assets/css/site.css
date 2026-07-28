@@ -550,6 +550,73 @@ details.section-card > summary:hover {
   background: var(--white);
 }
 
+/* ---- OS switch (macOS / Windows setup steps) ---- */
+.os-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+  margin: var(--space-5) 0;
+  padding: var(--space-4) var(--space-5);
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.os-picker-label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-14);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.markdown-body .os-picker-label { margin-bottom: 0; }
+.os-switch {
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+}
+.os-switch button {
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  font-weight: 600;
+  color: var(--fg-2);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-5);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+.os-switch button:hover { color: var(--fg-1); background: var(--bg-section); }
+.os-switch button.is-active {
+  color: var(--fg-on-red);
+  background: var(--slate);
+}
+.os-switch button:focus-visible {
+  outline: 2px solid var(--accent-hover);
+  outline-offset: 2px;
+}
+
+/* Show only the block matching the selected OS. */
+html[data-os="mac"] .os-block[data-os="win"],
+html[data-os="win"] .os-block[data-os="mac"] { display: none; }
+
+/* Without JS no OS is selected, so both blocks stay visible and label themselves. */
+.os-block-label {
+  display: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--slate);
+}
+html:not([data-os]) .os-switch { display: none; }
+html:not([data-os]) .os-block-label { display: block; }
+
 /* ---- Footer ---- */
 .site-footer {
   margin-top: var(--space-9);
