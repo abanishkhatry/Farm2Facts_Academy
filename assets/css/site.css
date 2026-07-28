@@ -200,6 +200,31 @@
   margin-top: var(--space-2);
   margin-bottom: 0;
 }
+
+/* ---- Task lists (checklists in the phase task guides) ---- */
+.markdown-body .task-list {
+  list-style: none;
+  padding-left: 0;
+}
+/* Hanging indent rather than flex, so inline links inside an item wrap
+   as normal text instead of becoming separate flex items. */
+.markdown-body .task-list-item {
+  padding-left: 1.75em;
+}
+.markdown-body .task-list-item-checkbox {
+  width: 1em;
+  height: 1em;
+  /* -1.75em pulls the box into the item's padding; the 0.75em right margin
+     then puts the text back at the padding edge, so wrapped lines align. */
+  margin: 0 0.75em 0 -1.75em;
+  vertical-align: -0.1em;
+  accent-color: var(--slate);
+}
+/* A nested checklist indents under its parent item. */
+.markdown-body .task-list .task-list {
+  margin-top: var(--space-2);
+  padding-left: var(--space-5);
+}
 .markdown-body blockquote {
   margin: var(--space-5) 0;
   padding: var(--space-4) var(--space-5);

@@ -18,7 +18,7 @@ This page lays out the WISCURDS program as a series of phases. Each phase below 
 
 ---
 
-<details class="section-card" markdown="1">
+<details id="phase-0" class="section-card" markdown="1">
 <summary>Phase 0: Project Onboarding and Team Setup</summary>
 
 This phase gets you set up with the codebase, the accounts you need, and the ways we communicate as a team. Work through both sections before starting any development work.
@@ -64,7 +64,7 @@ For meetings:
 
 </details>
 
-<details class="section-card" markdown="1">
+<details id="phase-1" class="section-card" markdown="1">
 <summary>Phase 1: Understanding F2F and Its Repositories' Current State</summary>
 
 With your environment set up from Phase 0, this phase is about building a clear mental model of how Farm2Facts works today, before you change anything. The goal is to understand the current state of both repositories and how their pieces fit together.
@@ -91,7 +91,7 @@ This report is your reference point for the rest of the program, and it shows us
 
 </details>
 
-<details class="section-card" markdown="1">
+<details id="phase-2" class="section-card" markdown="1">
 <summary>Phase 2: Data Source Investigation</summary>
 
 In this phase the four WISCURDS students split into **two projects, with a team of two on each**. Each team investigates a different data source that feeds the Farm2Facts platform. The goal is to understand what data we have, where it comes from, and what condition it is in before anyone proposes changes.
@@ -125,7 +125,7 @@ This proposal is the bridge into the build phases: it defines what each team wil
 
 </details>
 
-<details class="section-card" markdown="1">
+<details id="phase-3" class="section-card" markdown="1">
 <summary>Phase 3: Data Cleaning and Feature Integration</summary>
 
 This is the first build phase. Each team turns the proposal from Phase 2 into actual changes in the codebase. Both teams stay on their respective projects.
@@ -156,7 +156,7 @@ This team moves from investigation into software development, integrating the Wi
 
 </details>
 
-<details class="section-card" markdown="1">
+<details id="phase-4" class="section-card" markdown="1">
 <summary>Phase 4: Data Analytics and Usability Testing</summary>
 
 By now each team has a strong understanding of its data source. This phase turns that data into insight: deciding how to process and visualize it, building those visualizations into the platform, and then putting the work in front of real users to validate that everything built across the earlier phases actually functions as intended.
@@ -190,7 +190,7 @@ Once the proposal is agreed upon, each team builds it.
 
 </details>
 
-<details class="section-card" markdown="1">
+<details id="phase-5" class="section-card" markdown="1">
 <summary>Phase 5: Documentation and Handoff</summary>
 
 The final phase captures everything that was built and reflects on the experience, so the work can be picked up cleanly by the next cohort or team. Both teams document their own project.
