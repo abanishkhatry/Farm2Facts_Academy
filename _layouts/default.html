@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="icon" href="{{ site.baseurl }}/assets/f2f-icon.png" type="image/png">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/design-system.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css">
+  {%- comment -%}
+    The ?v= stamp changes on every build so browsers never serve a stale
+    stylesheet after a deploy.
+  {%- endcomment -%}
+  {%- assign css_v = site.time | date: '%s' -%}
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/design-system.css?v={{ css_v }}">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css?v={{ css_v }}">
   <script>
     // Set the OS before first paint so only one variant of each os-block renders.
     // Stored choice wins; otherwise guess from the platform string.
@@ -52,6 +57,14 @@
           var on = b.getAttribute('data-os') === os;
           b.classList.toggle('is-active', on);
           b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        // Enforce visibility here as well as in CSS, so a stale cached
+        // stylesheet can never leave both OS variants on screen at once.
+        document.querySelectorAll('.os-block').forEach(function (b) {
+          b.style.display = b.getAttribute('data-os') === os ? '' : 'none';
+        });
+        document.querySelectorAll('.os-block-label').forEach(function (l) {
+          l.style.display = 'none';
         });
       }
       document.querySelectorAll('.os-switch button').forEach(function (b) {
