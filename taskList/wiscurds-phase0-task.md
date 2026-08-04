@@ -12,7 +12,9 @@ permalink: /taskList/wiscurds-phase0/
 
 This is the task companion to the [Phase 0 milestone card]({{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-0). That card describes what the phase covers; this guide is what you actually do, in order.
 
-Phase 0 has one goal: by the end of it you can open both Farm2Facts repositories, run both of them on your own machine, and reach the right person when you get stuck. No development work starts until all three are true.
+Phase 0 has one goal: by the end of it you can open both Farm2Facts repositories, have both of them cloned on your own machine, and reach the right person when you get stuck. No development work starts until all three are true.
+
+**One note before you start.** We are still working through the **licensing required to run the repositories**, so Phase 0 stops at getting the code onto your machine. **Do not try to run either repo locally yet.** Running them is postponed until the licensing is resolved, and we will tell you in Slack when to go ahead. Nothing in this phase needs a running application.
 
 Work through the cards in order. Card 1 gates everything else, so start it the day you read this -- granting repo permissions depends on us, not on you, and it can take a couple of days.
 
@@ -63,11 +65,12 @@ Work through the cards in order. Card 1 gates everything else, so start it the d
   </div>
 
   <details class="task-card">
-    <summary>2. Get Both Repos Running Locally</summary>
+    <summary>2. Get Both Repos Onto Your Machine</summary>
     <div class="card-body">
 
-      <p>Farm2Facts is split across two repositories and you will work in both over the course of the program. In this phase you get each one running on your own machine.</p>
-      <p>The setup steps are already written down. Follow the guides rather than improvising, and do not skip ahead to the frontend before the backend is up -- the frontend has nothing to display without it.</p>
+      <p>Farm2Facts is split across two repositories and you will work in both over the course of the program. In this phase you get both of them <strong>cloned and present locally</strong>. That is the whole scope of this card.</p>
+      <p><strong>You are not running either repo in this phase.</strong> We are still sorting out the licensing needed to run them, so starting the servers is postponed until that is resolved. Clone the code, look around it, and stop there. We will announce in Slack when running is unblocked, and that becomes the first thing you do at the start of Phase 1.</p>
+      <p>This means you can skip the install-and-configure portions of the setup guides for now: no Ruby or Node dependency installs, no database setup, no editing <code>database.yml</code> or <code>.env</code>. Read those sections so you know what is coming, but do not execute them.</p>
 
       <details>
         <summary>2.1 Start With the Student Onboarding Plan</summary>
@@ -75,48 +78,74 @@ Work through the cards in order. Card 1 gates everything else, so start it the d
           <p>Read the <a href="{{ site.baseurl }}/STUDENT_ONBOARDING_PLAN">Student Onboarding Plan</a> before you run any commands. It gives you the full picture: the Git and GitLab concepts we assume, what each repository is, and how the database fits in.</p>
           <p>Two things to take away from it specifically:</p>
           <ul>
-            <li><strong>How the pieces connect.</strong> The frontend talks to the backend over HTTP; the backend talks to MySQL. You are standing up all three locally.</li>
+            <li><strong>How the pieces connect.</strong> The frontend talks to the backend over HTTP; the backend talks to MySQL. Later you will stand up all three locally.</li>
             <li><strong>You do not touch the production database.</strong> As a developer you work against a local database, and all data reaches the frontend through the backend API.</li>
           </ul>
-          <p>If you are working on a <strong>Kaufman Lab machine</strong>, read the <a href="{{ site.baseurl }}/STUDENT_ONBOARDING_PLAN#running-lab-machines">Running Lab Machines</a> section instead of the full setup guides. Those machines already have everything installed, so you only need to start MAMP and run the two servers.</p>
+          <p>The onboarding plan is written for a full local setup, which is what you will eventually do. For <strong>this phase only</strong>, read it for understanding and stop before any step that installs dependencies or starts a server.</p>
+          <p>The same applies to the <a href="{{ site.baseurl }}/STUDENT_ONBOARDING_PLAN#running-lab-machines">Running Lab Machines</a> section. Even on a <strong>Kaufman Lab machine</strong>, where everything is already installed, hold off on starting MAMP and the two servers until we confirm the licensing is settled.</p>
         </div>
       </details>
 
       <details>
-        <summary>2.2 Set Up the Backend</summary>
+        <summary>2.2 Clone the Backend</summary>
         <div class="section-body">
-          <p>Follow the <a href="{{ site.baseurl }}/docs/guides/BACKEND_GUIDE">Backend setup guide</a> end to end. It covers cloning <code>farmers-coalition</code>, installing Ruby and its dependencies, configuring the database connection, and starting the Rails server.</p>
-          <p>The backend is the harder of the two to set up, which is why it comes first. Expect to spend real time on the Ruby and MySQL prerequisites.</p>
-          <p><strong>Done when:</strong> <code>bin/rails server</code> runs without errors and <code>localhost:3000</code> loads in your browser.</p>
-          <p>Before you move on, check <code>config/database.yml</code> and confirm it points at your <strong>local</strong> database, not a remote one. The onboarding plan shows the values it should have.</p>
+          <p>Clone <code>farmers-coalition</code>, the Rails 6.1 metrics API, so the code is on your machine. Get the clone URL from the <strong>Code</strong> button on the <a href="https://git.doit.wisc.edu/at-trad/farmers-coalition" target="_blank" rel="noopener noreferrer">repo's GitLab page</a>, then:</p>
+          <pre><code>git clone &lt;backend-repo-url&gt;
+cd farmers-coalition
+git checkout dev</code></pre>
+          <p>Work from <code>dev</code>, not <code>main</code>. That is the branch all development happens against.</p>
+          <p><strong>Stop there.</strong> Do not install Ruby or its gems, do not set up MySQL, do not edit <code>config/database.yml</code>, and do not run <code>bin/rails server</code>. Those steps are in the <a href="{{ site.baseurl }}/docs/guides/BACKEND_GUIDE">Backend setup guide</a> and you will work through them once the licensing is resolved.</p>
+          <p><strong>Done when:</strong> the <code>farmers-coalition</code> directory exists locally, is on the <code>dev</code> branch, and <code>git status</code> reports a clean working tree.</p>
+          <p>Read through the guide anyway so you know what the setup will involve. Skim the repo's top-level directories too -- <code>app/</code>, <code>config/</code>, <code>db/</code> -- so the structure is not new to you in Phase 1.</p>
         </div>
       </details>
 
       <details>
-        <summary>2.3 Set Up the Frontend</summary>
+        <summary>2.3 Clone the Frontend</summary>
         <div class="section-body">
-          <p>Follow the <a href="{{ site.baseurl }}/docs/guides/FRONTEND_GUIDE">Frontend setup guide</a> end to end. It covers cloning <code>farm2facts-frontend</code>, installing the Node dependencies, and running the Vue 3 development server.</p>
-          <p><strong>Done when:</strong> <code>npm run serve</code> compiles and <code>localhost:8080</code> loads the app in your browser.</p>
-          <p>Check the <code>.env</code> file and confirm it points at your local backend on <code>localhost:3000</code>. If the app loads but every page is empty, this is almost always why.</p>
+          <p>Do the same for <code>farm2facts-frontend</code>, the Vue 3 application. Get the clone URL from the <strong>Code</strong> button on the <a href="https://git.doit.wisc.edu/at-trad/farm2facts-frontend" target="_blank" rel="noopener noreferrer">repo's GitLab page</a>, then:</p>
+          <pre><code>git clone &lt;frontend-repo-url&gt;
+cd farm2facts-frontend
+git checkout dev</code></pre>
+          <p><strong>Stop there as well.</strong> Do not run <code>npm install</code>, do not create or edit the <code>.env</code> file, and do not run <code>npm run serve</code>. The <a href="{{ site.baseurl }}/docs/guides/FRONTEND_GUIDE">Frontend setup guide</a> covers all of that for when running is unblocked.</p>
+          <p><strong>Done when:</strong> the <code>farm2facts-frontend</code> directory exists locally, is on the <code>dev</code> branch, and <code>git status</code> reports a clean working tree.</p>
+          <p>While you are in the repo, open the <code>CLAUDE.md</code> file at the root and read it. It describes the codebase conventions, and it costs you nothing to read without the app running.</p>
         </div>
       </details>
 
       <details>
-        <summary>2.4 Confirm the Two Run Together</summary>
+        <summary>2.4 Confirm Both Clones and Hold on Running</summary>
         <div class="section-body">
-          <p>Running each server on its own is not enough. Confirm they are actually talking to each other.</p>
-          <p>With both servers running, open the frontend at <code>localhost:8080</code> and log in. Open your browser's developer tools, go to the <strong>Network</strong> tab, and reload the page. You should see requests going out to <code>localhost:3000</code> and coming back with data, not with connection errors.</p>
-          <p>This is the point of the whole card. If the frontend renders but the Network tab is full of failed requests, your setup is not finished -- work back through <code>.env</code> and <code>database.yml</code>, and ask in Slack if you are still stuck.</p>
-          <p>Take a screenshot of the running frontend and one of the running backend. You will need both in Card 4.</p>
+          <p>You cannot verify a running application in this phase, so verify the clones instead. In each repository directory, run:</p>
+          <pre><code>git remote -v
+git branch --show-current
+git log --oneline -5</code></pre>
+          <p>Check that:</p>
+          <ul>
+            <li>The remote points at the correct <code>git.doit.wisc.edu/at-trad/...</code> repository.</li>
+            <li>The current branch is <code>dev</code>.</li>
+            <li><code>git log</code> shows real commit history, which confirms the clone completed rather than stopping partway.</li>
+          </ul>
+          <p>Copy the output of those three commands for both repos. You submit it in Card 4 as evidence, in place of the screenshots a running setup would have produced.</p>
+          <h3>What is postponed until licensing is fixed</h3>
+          <p>These steps are deliberately <strong>not</strong> part of Phase 0, and you should not attempt them yet:</p>
+          <ul>
+            <li>Installing Ruby, gems, Node, or npm dependencies</li>
+            <li>Setting up MySQL or MAMP and loading a local database</li>
+            <li>Configuring <code>config/database.yml</code> or the frontend <code>.env</code></li>
+            <li>Running <code>bin/rails server</code> or <code>npm run serve</code></li>
+            <li>Checking frontend-to-backend requests in the browser</li>
+          </ul>
+          <p>We will post in Slack once the licensing is resolved. At that point work through both setup guides in full, backend first, and confirm the frontend is reaching the backend. Until then, being blocked here is expected and is not something you need to debug.</p>
         </div>
       </details>
 
       <details>
         <summary>2.5 Note What Fought You</summary>
         <div class="section-body">
-          <p>As you work through the setup, keep a short running note of anything that did not go as the guide described: a version mismatch, a missing dependency, a step that was unclear, an error you had to search for.</p>
+          <p>As you clone the repos, keep a short running note of anything that did not go as described: an authentication prompt you did not expect, a missing <code>dev</code> branch, a permissions error, a step that was unclear.</p>
           <p>This is not busywork. Our setup guides are living documents, and the fastest time to improve them is while a new developer is going through them. Two or three lines per problem is enough -- what broke, and what fixed it.</p>
-          <p>You submit this note in Card 4.</p>
+          <p>Keep the note going when you come back to the full setup after licensing clears, since that is where most of the friction usually is. You submit what you have so far in Card 4.</p>
         </div>
       </details>
 
@@ -179,10 +208,9 @@ Work through the cards in order. Card 1 gates everything else, so start it the d
         <li>[ ] GitLab account created under my @wisc.edu email</li>
         <li>[ ] Username sent to Abanish and permissions granted</li>
         <li>[ ] I can open both repositories on GitLab and see their <code>dev</code> branches</li>
-        <li>[ ] Both repositories cloned locally</li>
-        <li>[ ] Backend runs: <code>localhost:3000</code> loads</li>
-        <li>[ ] Frontend runs: <code>localhost:8080</code> loads</li>
-        <li>[ ] The frontend is successfully fetching data from the backend</li>
+        <li>[ ] Backend repo cloned locally and on the <code>dev</code> branch</li>
+        <li>[ ] Frontend repo cloned locally and on the <code>dev</code> branch</li>
+        <li>[ ] I have read both setup guides, without executing the install and run steps</li>
         <li>[ ] I am in the project Slack channel and have introduced myself</li>
         <li>[ ] I have the three points of contact saved</li>
         <li>[ ] I have sent my Fall availability</li>
@@ -192,14 +220,15 @@ Work through the cards in order. Card 1 gates everything else, so start it the d
       <p>Post a single message to <strong>Abanish</strong> in the project Slack channel containing:</p>
       <ol>
         <li>The checklist above, with each item marked done.</li>
-        <li>A <strong>screenshot of the frontend running</strong> at <code>localhost:8080</code>, with the URL bar visible.</li>
-        <li>A <strong>screenshot of the backend running</strong> at <code>localhost:3000</code>, with the URL bar visible.</li>
-        <li>Your <strong>setup notes</strong> from Card 2.5 -- what fought you and what fixed it. Write "nothing broke" if that is genuinely the case.</li>
+        <li>The <strong>verification output</strong> from Card 2.4 -- <code>git remote -v</code>, <code>git branch --show-current</code>, and <code>git log --oneline -5</code> for both repos. Paste it as text or send a screenshot of your terminal.</li>
+        <li>Your <strong>notes</strong> from Card 2.5 -- what fought you and what fixed it. Write "nothing broke" if that is genuinely the case.</li>
       </ol>
+      <p>No running-application screenshots this time, since running the repos is postponed until the licensing is resolved. The clone verification takes their place.</p>
       <p>If an item is not done, send the message anyway and say which one and why. A blocked step we know about gets unblocked; one we do not know about does not.</p>
 
       <h3>Then What</h3>
-      <p>Once your setup is confirmed, move on to <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-1">Phase 1: Understanding F2F and Its Repositories' Current State</a>. Phase 1 assumes both repos run on your machine, so do not start it early with a half-working environment.</p>
+      <p>Once your clones are confirmed, move on to <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-1">Phase 1: Understanding F2F and Its Repositories' Current State</a>. Phase 1 is about reading and understanding both codebases and their ADRs, which you can do from the cloned code without either application running.</p>
+      <p>Watch Slack for the licensing update. When it lands, work through both setup guides in full before you get any deeper into the program -- every phase from <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-3">Phase 3</a> on needs a working local environment.</p>
 
     </div>
   </details>
@@ -218,27 +247,27 @@ Work through the cards in order. Card 1 gates everything else, so start it the d
           </div>
         </div>
         <div>
-          <p class="skill-group-label">Local Environment</p>
+          <p class="skill-group-label">Cloning Repos</p>
           <div class="skill-tags">
-            <span class="skill-tag">Rails server</span>
-            <span class="skill-tag">Vue dev server</span>
-            <span class="skill-tag">Local MySQL</span>
+            <span class="skill-tag">git clone</span>
+            <span class="skill-tag">Checking out dev</span>
+            <span class="skill-tag">Verifying a remote</span>
           </div>
         </div>
         <div>
-          <p class="skill-group-label">Configuration</p>
+          <p class="skill-group-label">Reading a Codebase Cold</p>
           <div class="skill-tags">
-            <span class="skill-tag">database.yml</span>
-            <span class="skill-tag">.env</span>
-            <span class="skill-tag">Local vs. remote targets</span>
+            <span class="skill-tag">Repo structure</span>
+            <span class="skill-tag">CLAUDE.md</span>
+            <span class="skill-tag">Setup guides</span>
           </div>
         </div>
         <div>
-          <p class="skill-group-label">Debugging Setup</p>
+          <p class="skill-group-label">Working Around Blockers</p>
           <div class="skill-tags">
-            <span class="skill-tag">Network tab</span>
-            <span class="skill-tag">Frontend-backend requests</span>
-            <span class="skill-tag">Reading error output</span>
+            <span class="skill-tag">Scoping to what is unblocked</span>
+            <span class="skill-tag">Evidence in place of output</span>
+            <span class="skill-tag">Tracking friction</span>
           </div>
         </div>
         <div>
