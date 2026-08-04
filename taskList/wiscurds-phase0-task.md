@@ -39,7 +39,7 @@ Work through the cards in order. Card 1 gates everything else, so start it the d
         <summary>1.2 Send Us Your Username</summary>
         <div class="section-body">
           <p>Once your account exists, find your GitLab username: click your avatar in the top right, and it appears under your name as <code>@username</code>.</p>
-          <p>Send that username to <strong>Abanish Khatry</strong> in the project Slack channel, or by email at <a href="mailto:akhatry@wisc.edu">akhatry@wisc.edu</a>. Include:</p>
+          <p>Send that username to <strong>Abanish Khatry</strong> in the WISCURDS Slack channel, or by email at <a href="mailto:akhatry@wisc.edu">akhatry@wisc.edu</a>. Include:</p>
           <ul>
             <li>Your GitLab username</li>
             <li>The @wisc.edu email the account is registered under</li>
@@ -161,10 +161,10 @@ git log --oneline -5</code></pre>
       <h3>Channels</h3>
       <p>We use two:</p>
       <ul>
-        <li><strong>Slack</strong> for quick, day-to-day communication. Each project has its own dedicated channel, and that is where most conversation happens. Ask questions there rather than sitting on them.</li>
+        <li><strong>Slack</strong> for quick, day-to-day communication. WISCURDS has a <strong>single channel for the whole program</strong> -- it is not split into separate channels for the two projects. Everyone stays in the same channel even after the teams split in Phase 2, so you see what the other team is working on. Ask questions there rather than sitting on them.</li>
         <li><strong>Email</strong> for anything more formal or that needs a lasting record.</li>
       </ul>
-      <p>Make sure you are in the project Slack channel. If you have not been added, tell Abanish and we will add you.</p>
+      <p>Make sure you are in the WISCURDS Slack channel. If you have not been added, tell Abanish and we will add you.</p>
 
       <h3>Who to Contact</h3>
       <p>Knowing who to ask saves you days. Match the question to the person:</p>
@@ -183,15 +183,8 @@ git log --oneline -5</code></pre>
       <h3>Meetings</h3>
       <ul>
         <li><strong>Until the Fall semester begins:</strong> we meet <strong>weekly and virtually</strong> for progress check-ins. Come with what you finished, what you are on, and what is blocking you.</li>
-        <li><strong>Once Fall begins:</strong> we set the meeting time and frequency together, based on everyone's availability.</li>
+        <li><strong>Once Fall begins:</strong> we set the meeting time and frequency together, based on everyone's availability. Send Abanish the days and rough time windows you could make a recurring meeting. We need all four students' availability before the schedule can be set, so a late reply holds up everyone.</li>
       </ul>
-
-      <h3>Your Task Here</h3>
-      <ol>
-        <li>Confirm you are in the project Slack channel and post a short introduction in it.</li>
-        <li>Save the three contacts above somewhere you will actually look.</li>
-        <li>Send Abanish your <strong>Fall availability</strong> -- the days and rough time windows you could make a recurring meeting. We need all four students' availability before we can set the Fall schedule, so a late reply holds up everyone.</li>
-      </ol>
 
     </div>
   </details>
@@ -211,13 +204,13 @@ git log --oneline -5</code></pre>
         <li>[ ] Backend repo cloned locally and on the <code>dev</code> branch</li>
         <li>[ ] Frontend repo cloned locally and on the <code>dev</code> branch</li>
         <li>[ ] I have read both setup guides, without executing the install and run steps</li>
-        <li>[ ] I am in the project Slack channel and have introduced myself</li>
+        <li>[ ] I am in the WISCURDS Slack channel</li>
         <li>[ ] I have the three points of contact saved</li>
         <li>[ ] I have sent my Fall availability</li>
       </ul>
 
       <h3>What to Send</h3>
-      <p>Post a single message to <strong>Abanish</strong> in the project Slack channel containing:</p>
+      <p>Post a single message to <strong>Abanish</strong> in the WISCURDS Slack channel containing:</p>
       <ol>
         <li>The checklist above, with each item marked done.</li>
         <li>The <strong>verification output</strong> from Card 2.4 -- <code>git remote -v</code>, <code>git branch --show-current</code>, and <code>git log --oneline -5</code> for both repos. Paste it as text or send a screenshot of your terminal.</li>
