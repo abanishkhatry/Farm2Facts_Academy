@@ -193,85 +193,32 @@ git log --oneline -5</code></pre>
     <summary>4. Phase 0 Completion</summary>
     <div class="card-body">
 
-      <p>Phase 0 has no pull request. The issue-branch-PR workflow starts in <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-3">Phase 3</a>, the first phase where you write code. For now you confirm your setup directly to Abanish.</p>
+      <p>Copy the template below, fill it out, and send it as a Slack message to <strong>Abanish</strong>.</p>
 
-      <h3>Checklist</h3>
-      <p>Go through this yourself before you send anything:</p>
-      <ul>
-        <li>[ ] GitLab account created under my @wisc.edu email</li>
-        <li>[ ] Username sent to Abanish and permissions granted</li>
-        <li>[ ] I can open both repositories on GitLab and see their <code>dev</code> branches</li>
-        <li>[ ] Backend repo cloned locally and on the <code>dev</code> branch</li>
-        <li>[ ] Frontend repo cloned locally and on the <code>dev</code> branch</li>
-        <li>[ ] I have read both setup guides, without executing the install and run steps</li>
-        <li>[ ] I am in the WISCURDS Slack channel</li>
-        <li>[ ] I have the three points of contact saved</li>
-        <li>[ ] I have sent my Fall availability</li>
-      </ul>
+      <h3>Checklist Template</h3>
+      <pre><code>Phase 0 Completion -- [Your Name]
+
+[ ] GitLab account created under my @wisc.edu email and username shared with Abanish
+[ ] Permissions granted and I can open both repositories on GitLab
+[ ] Backend repo cloned locally and on the dev branch
+[ ] Frontend repo cloned locally and on the dev branch
+[ ] I have read both setup guides, without executing the install and run steps
+[ ] I am in the WISCURDS Slack channel
+
+Clone verification (from Card 2.4), for both repos:
+git remote -v
+git branch --show-current
+git log --oneline -5
+
+[paste the output here, or attach a screenshot of your terminal]
+
+Notes:
+[what fought you and what fixed it, from Card 2.5 -- write "nothing broke" if that is the case]</code></pre>
 
       <h3>What to Send</h3>
-      <p>Post a single message to <strong>Abanish</strong> in the WISCURDS Slack channel containing:</p>
-      <ol>
-        <li>The checklist above, with each item marked done.</li>
-        <li>The <strong>verification output</strong> from Card 2.4 -- <code>git remote -v</code>, <code>git branch --show-current</code>, and <code>git log --oneline -5</code> for both repos. Paste it as text or send a screenshot of your terminal.</li>
-        <li>Your <strong>notes</strong> from Card 2.5 -- what fought you and what fixed it. Write "nothing broke" if that is genuinely the case.</li>
-      </ol>
+      <p>A single Slack message to <strong>Abanish</strong> covering every point in the template above.</p>
       <p>No running-application screenshots this time, since running the repos is postponed until the licensing is resolved. The clone verification takes their place.</p>
-      <p>If an item is not done, send the message anyway and say which one and why. A blocked step we know about gets unblocked; one we do not know about does not.</p>
 
-      <h3>Then What</h3>
-      <p>Once your clones are confirmed, move on to <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-1">Phase 1: Understanding F2F and Its Repositories' Current State</a>. Phase 1 is about reading and understanding both codebases and their ADRs, which you can do from the cloned code without either application running.</p>
-      <p>Watch Slack for the licensing update. When it lands, work through both setup guides in full before you get any deeper into the program -- every phase from <a href="{{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-3">Phase 3</a> on needs a working local environment.</p>
-
-    </div>
-  </details>
-
-  <details class="task-card">
-    <summary>What You Learned</summary>
-    <div class="card-body">
-      <p>What this phase gives you that every later phase depends on.</p>
-      <div class="skills-grid">
-        <div>
-          <p class="skill-group-label">GitLab</p>
-          <div class="skill-tags">
-            <span class="skill-tag">DoIT GitLab instance</span>
-            <span class="skill-tag">Private repo access</span>
-            <span class="skill-tag">main vs. dev</span>
-          </div>
-        </div>
-        <div>
-          <p class="skill-group-label">Cloning Repos</p>
-          <div class="skill-tags">
-            <span class="skill-tag">git clone</span>
-            <span class="skill-tag">Checking out dev</span>
-            <span class="skill-tag">Verifying a remote</span>
-          </div>
-        </div>
-        <div>
-          <p class="skill-group-label">Reading a Codebase Cold</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Repo structure</span>
-            <span class="skill-tag">CLAUDE.md</span>
-            <span class="skill-tag">Setup guides</span>
-          </div>
-        </div>
-        <div>
-          <p class="skill-group-label">Working Around Blockers</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Scoping to what is unblocked</span>
-            <span class="skill-tag">Evidence in place of output</span>
-            <span class="skill-tag">Tracking friction</span>
-          </div>
-        </div>
-        <div>
-          <p class="skill-group-label">Working on a Team</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Slack vs. email</span>
-            <span class="skill-tag">Escalating to the right person</span>
-            <span class="skill-tag">Reporting blockers early</span>
-          </div>
-        </div>
-      </div>
     </div>
   </details>
 
