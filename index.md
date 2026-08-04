@@ -25,12 +25,16 @@ Farm2Facts is a UW-Madison initiative that supports farmers markets by collectin
     <div class="program-name">LASER</div>
   </summary>
   <div class="program-block-body">
+    <p class="program-status">Program LASER 2026 completed.</p>
+    <!-- Curriculum & Tasks card hidden now that the program is complete. The page itself
+         is still published at /taskList/curriculum-task-list. Restore this block to show it again.
     <div class="card-grid">
       <a href="{{ site.baseurl }}/taskList/curriculum-task-list">
         <p class="card-title">Curriculum & Tasks</p>
         <p class="card-desc">Central task index -- sprint themes, task breakdowns, and full task guide links, with related classes and topics tracked per sprint.</p>
       </a>
     </div>
+    -->
   </div>
 </details>
 

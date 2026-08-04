@@ -347,6 +347,14 @@ summary.program-block-header:hover { opacity: 0.9; }
 .program-block-body .card-grid {
   margin: 0;
 }
+/* Status line shown in place of the cards once a program has wrapped up. */
+.program-status {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-16);
+  color: var(--fg-2);
+  margin: 0;
+}
 
 /* ---- Home page cards ---- */
 .card-grid {
