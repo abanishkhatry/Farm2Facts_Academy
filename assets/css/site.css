@@ -423,10 +423,21 @@ summary.program-block-header:hover { opacity: 0.9; }
 /* Long blocks that must not wrap (templates students copy verbatim): scroll in both
    directions with a scrollbar that stays visible, so the cut-off edge is obvious. */
 .task-card pre.pre-scroll {
-  overflow: auto;
+  display: block;
+  overflow-x: auto;
+  overflow-y: auto;
   max-height: 24rem;
+  max-width: 100%;
+  white-space: pre;
   scrollbar-width: thin;
   scrollbar-color: var(--mist) transparent;
+}
+/* The inline <code> child has to establish its own width for the pre to have anything
+   to scroll horizontally; without this, long lines clip at the padding edge instead. */
+.task-card pre.pre-scroll > code {
+  display: inline-block;
+  min-width: max-content;
+  white-space: pre;
 }
 .task-card pre.pre-scroll::-webkit-scrollbar {
   width: 10px;

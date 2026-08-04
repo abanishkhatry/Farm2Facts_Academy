@@ -114,20 +114,8 @@ git checkout dev</code></pre>
       </details>
 
       <details>
-        <summary>2.4 Confirm Both Clones and Hold on Running</summary>
+        <summary>2.4 Hold on Running</summary>
         <div class="section-body">
-          <p>You cannot verify a running application in this phase, so verify the clones instead. In each repository directory, run:</p>
-          <pre><code>git remote -v
-git branch --show-current
-git log --oneline -5</code></pre>
-          <p>Check that:</p>
-          <ul>
-            <li>The remote points at the correct <code>git.doit.wisc.edu/at-trad/...</code> repository.</li>
-            <li>The current branch is <code>dev</code>.</li>
-            <li><code>git log</code> shows real commit history, which confirms the clone completed rather than stopping partway.</li>
-          </ul>
-          <p>Copy the output of those three commands for both repos. You submit it in Card 4 as evidence, in place of the screenshots a running setup would have produced.</p>
-          <h3>What is postponed until licensing is fixed</h3>
           <p>These steps are deliberately <strong>not</strong> part of Phase 0, and you should not attempt them yet:</p>
           <ul>
             <li>Installing Ruby, gems, Node, or npm dependencies</li>
@@ -205,7 +193,7 @@ git log --oneline -5</code></pre>
 [ ] I have read both setup guides, without executing the install and run steps
 [ ] I am in the WISCURDS Slack channel
 
-Clone verification (from Card 2.4), for both repos:
+Clone verification, for both repos:
 git remote -v
 git branch --show-current
 git log --oneline -5
