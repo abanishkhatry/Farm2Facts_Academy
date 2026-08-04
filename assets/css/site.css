@@ -420,6 +420,28 @@ summary.program-block-header:hover { opacity: 0.9; }
   max-width: 100%;
   white-space: pre;
 }
+/* Long blocks that must not wrap (templates students copy verbatim): scroll in both
+   directions with a scrollbar that stays visible, so the cut-off edge is obvious. */
+.task-card pre.pre-scroll {
+  overflow: auto;
+  max-height: 24rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mist) transparent;
+}
+.task-card pre.pre-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.task-card pre.pre-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.task-card pre.pre-scroll::-webkit-scrollbar-thumb {
+  background: var(--mist);
+  border-radius: var(--radius-sm);
+}
+.task-card pre.pre-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--fg-3);
+}
 .task-card .section-body {
   overflow-x: hidden;
 }

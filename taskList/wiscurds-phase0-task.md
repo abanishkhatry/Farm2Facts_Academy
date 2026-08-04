@@ -196,7 +196,7 @@ git log --oneline -5</code></pre>
       <p>Copy the template below, fill it out, and send it as a Slack message to <strong>Abanish</strong>.</p>
 
       <h3>Checklist Template</h3>
-      <pre><code>Phase 0 Completion -- [Your Name]
+      <pre class="pre-scroll"><code>Phase 0 Completion -- [Your Name]
 
 [ ] GitLab account created under my @wisc.edu email and username shared with Abanish
 [ ] Permissions granted and I can open both repositories on GitLab
@@ -215,8 +215,6 @@ git log --oneline -5
 Notes:
 [what fought you and what fixed it, from Card 2.5 -- write "nothing broke" if that is the case]</code></pre>
 
-      <h3>What to Send</h3>
-      <p>A single Slack message to <strong>Abanish</strong> covering every point in the template above.</p>
       <p>No running-application screenshots this time, since running the repos is postponed until the licensing is resolved. The clone verification takes their place.</p>
 
     </div>
