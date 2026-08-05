@@ -72,7 +72,7 @@ Work through the cards in order. Card 1 gates everything else, so start it the d
 
       <p>Farm2Facts is split across two repositories and you will work in both over the course of the program. In this phase you clone each one and get it running on your own machine.</p>
       <p>The setup steps are already written down. Follow the guides rather than improvising, and do the <strong>backend first</strong> -- the frontend has nothing to display without it.</p>
-      <p>Budget real time for this card. It is the one part of Phase 0 that reliably takes longer than expected, and working through the problems is itself the point. Keep your notes as you go (Card 2.5) and ask in Slack as soon as you are properly stuck rather than after two days of it.</p>
+      <p>Budget real time for this card. It is the one part of Phase 0 that reliably takes longer than expected, and working through the problems is itself the point. Keep your notes as you go (Card 2.5).</p>
 
       <details>
         <summary>2.1 Start With the Student Onboarding Plan</summary>
@@ -97,7 +97,7 @@ git checkout dev</code></pre>
           <p>Work from <code>dev</code>, not <code>main</code>. That is the branch all development happens against.</p>
           <p>From there, follow the <a href="{{ site.baseurl }}/docs/guides/BACKEND_GUIDE">Backend setup guide</a> end to end. It covers installing Ruby and its dependencies, configuring the database connection, and starting the Rails server.</p>
           <p>The backend is the harder of the two to set up, which is why it comes first. Expect to spend real time on the Ruby and MySQL prerequisites, and expect at least one version or dependency problem along the way.</p>
-          <p><strong>Done when:</strong> <code>bin/rails server</code> runs without errors and <code>localhost:3000</code> loads in your browser.</p>
+          <p><strong>Done when:</strong> <code>bin/rails server</code> runs without errors and <code>localhost:3000</code> loads in your browser. Note down any problem you hit on the way there and what fixed it.</p>
           <p>Before you move on, check <code>config/database.yml</code> and confirm it points at your <strong>local</strong> database, not a remote one. The onboarding plan shows the values it should have.</p>
         </div>
       </details>
@@ -110,7 +110,7 @@ git checkout dev</code></pre>
 cd farm2facts-frontend
 git checkout dev</code></pre>
           <p>Then follow the <a href="{{ site.baseurl }}/docs/guides/FRONTEND_GUIDE">Frontend setup guide</a> end to end. It covers installing the Node dependencies and running the Vue 3 development server.</p>
-          <p><strong>Done when:</strong> <code>npm run serve</code> compiles and <code>localhost:8080</code> loads the app in your browser.</p>
+          <p><strong>Done when:</strong> <code>npm run serve</code> compiles and <code>localhost:8080</code> loads the app in your browser. Note down any problem you hit on the way there and what fixed it.</p>
           <p>Check the <code>.env</code> file and confirm it points at your local backend on <code>localhost:3000</code>. If the app loads but every page is empty, this is almost always why.</p>
           <p>While you are in the repo, open the <code>CLAUDE.md</code> file at the root and read it. It describes the codebase conventions you will be working within.</p>
         </div>
@@ -121,7 +121,8 @@ git checkout dev</code></pre>
         <div class="section-body">
           <p>Running each server on its own is not enough. Confirm they are actually talking to each other.</p>
           <p>With both servers running, open the frontend at <code>localhost:8080</code> and log in. Open your browser's developer tools, go to the <strong>Network</strong> tab, and reload the page. You should see requests going out to <code>localhost:3000</code> and coming back with data, not with connection errors.</p>
-          <p>This is the point of the whole card. If the frontend renders but the Network tab is full of failed requests, your setup is not finished -- work back through <code>.env</code> and <code>database.yml</code> first, since those are the usual causes.</p>
+          <p>If the frontend renders but those requests fail, your setup is not finished. Check <code>.env</code> and <code>database.yml</code> first, since those are the usual causes.</p>
+          <p><strong>Done when:</strong> the Network tab shows successful requests to <code>localhost:3000</code>. Note down any problem you hit on the way there and what fixed it.</p>
           <p>Take a screenshot of the running frontend and one of the running backend. You submit both in Card 4.</p>
         </div>
       </details>
