@@ -176,7 +176,8 @@ git checkout dev</code></pre>
 
       <h3>Meetings</h3>
       <ul>
-        <li><strong>Until the Fall semester begins:</strong> we meet <strong>weekly and virtually</strong> for progress check-ins. Come with what you finished, what you are on, and what is blocking you.</li>
+        <li><strong>Until the Fall semester begins:</strong> we meet <strong>weekly and virtually on Wednesdays, 12:00 to 12:30 pm CST</strong>, for progress check-ins. Come with what you finished, what you are on, and what is blocking you.</li>
+        <li><strong>No meeting the last week of August.</strong> People are travelling back to Madison and getting ready for the start of Fall, so we skip that week and pick the check-ins back up after it.</li>
         <li><strong>Once Fall begins:</strong> we set the meeting time and frequency together, based on everyone's availability. Send Abanish the days and rough time windows you could make a recurring meeting. We need all four students' availability before the schedule can be set, so a late reply holds up everyone.</li>
       </ul>
 
