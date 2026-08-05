@@ -202,7 +202,7 @@ git checkout dev</code></pre>
 [ ] The frontend is successfully fetching data from the backend
 [ ] I am in the WISCURDS Slack channel
 
-Screenshots attached:
+Screenshots attached (only if you got the repos running locally):
 [ ] Frontend running at localhost:8080, with the URL bar visible
 [ ] Backend running at localhost:3000, with the URL bar visible
 
