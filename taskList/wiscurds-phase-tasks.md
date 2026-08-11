@@ -19,7 +19,7 @@ From Phase 2 onward the four students split into **two teams of two**, each on i
 | Phase | Focus | Task |
 | --- | --- | --- |
 | [Phase 0]({{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-0) | Onboarding and team setup | [Phase 0 Task Guide]({{ site.baseurl }}/taskList/wiscurds-phase0/) |
-| [Phase 1]({{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-1) | Understanding the current state | Coming soon |
+| [Phase 1]({{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-1) | Understanding the current state | [Phase 1 Task Guide]({{ site.baseurl }}/taskList/wiscurds-phase1/) |
 | [Phase 2]({{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-2) | Data source investigation | Coming soon |
 | [Phase 3]({{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-3) | Data cleaning and feature integration | Coming soon |
 | [Phase 4]({{ site.baseurl }}/taskList/wiscurds-key-milestones#phase-4) | Data analytics and usability testing | Coming soon |

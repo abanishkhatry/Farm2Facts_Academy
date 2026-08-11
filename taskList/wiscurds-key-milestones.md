@@ -10,7 +10,7 @@ This page lays out the WISCURDS program as a series of phases. Each phase below 
 ### Phase Overview
 
 - **Phase 0: Project Onboarding and Team Setup** -- repos, accounts, and how the team communicates.
-- **Phase 1: Understanding F2F and Its Repositories' Current State** -- study both repos and their ADRs.
+- **Phase 1: Understanding F2F and Its Repositories' Current State** -- study both repos and how they fit together.
 - **Phase 2: Data Source Investigation** -- teams split to investigate the local database and the Wisconet API.
 - **Phase 3: Data Cleaning and Feature Integration** -- clean and extend the database; integrate Wisconet into the Market Profile.
 - **Phase 4: Data Analytics and Usability Testing** -- propose and build data processing and visualizations, then evaluate with users and test each development.
@@ -76,15 +76,13 @@ Work through both repositories and get familiar with how each is structured and 
 - **Frontend:** Understand the overall structure, the main components, and how data moves through the Vue 3 application. Explore the <a href="https://git.doit.wisc.edu/at-trad/farm2facts-frontend" target="_blank" rel="noopener noreferrer">Farm2Facts Frontend</a> codebase directly.
 - **Backend:** Understand the Rails 6.1 structure, the models and services, and how the Grape API exposes data to the frontend. Explore the <a href="https://git.doit.wisc.edu/at-trad/farmers-coalition" target="_blank" rel="noopener noreferrer">Farm2Facts Backend</a> codebase directly.
 
-Each repository contains an **ADR (Architecture Decision Record) document**. Use these as your primary reference for understanding why the system is built the way it is. The ADRs explain the key architectural decisions, the trade-offs behind them, and the context you cannot get from reading code alone. Read the ADR in each repo and let it guide how you interpret the components you explore.
-
 ### Deliverable
 
 A **Current State Understanding Report**. In it, capture your understanding of both repositories as they stand today:
 
 - The main components of the frontend and backend and what each is responsible for.
 - How the frontend and backend communicate.
-- The key architectural decisions from each ADR and why they were made.
+- One feature traced end to end, from the screen through to the database and back.
 - Any open questions or areas that were unclear as you explored.
 
 This report is your reference point for the rest of the program, and it shows us that you have a solid grasp of the system before you begin contributing to it.
