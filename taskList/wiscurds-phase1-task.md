@@ -16,7 +16,7 @@ Phase 1 has one goal: by the end of it you can explain how Farm2Facts works toda
 
 **You are reading, not building.** Nothing in this phase changes application code. If you find something broken or badly written, write it down instead of fixing it. Those notes are useful later; an unplanned fix this early is not.
 
-**You will still submit through the full Git workflow.** Your reports are committed on a feature branch cut from `dev` and delivered as merge requests, exactly the way every feature will be delivered from here on. Card 1.1 sets the branches up, Card 7 covers the submission. Learning that cycle on a Markdown file, where nothing can break, is far easier than learning it on your first real code change.
+**You will still submit through the full Git workflow.** Your reports are committed on a feature branch cut from `dev` and delivered as merge requests, exactly the way every feature will be delivered from here on. Card 1 sets the branches up, Card 7 covers the submission. Learning that cycle on a Markdown file, where nothing can break, is far easier than learning it on your first real code change.
 
 **You will not understand everything, and you are not supposed to.** This is a real application built over several years by people who are no longer on the project. Parts of it will be confusing, inconsistent, or apparently unused. Reading a codebase you did not write is a skill, and being able to say precisely what you do not understand is most of it. Keep a running list of open questions as you go -- that list is a graded part of the deliverable, not an admission of failure.
 
@@ -29,80 +29,32 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
 <div class="task-card-grid">
 
   <div class="task-card">
-    <p class="card-title">1. Orient Before You Read Code</p>
+    <p class="card-title">1. Update Both Repos and Open Your Branch</p>
     <div class="card-body">
 
-      <p>Opening a large repository and scrolling through folders is the slowest possible way to learn a system. Spend the first part of this phase getting the shape of the thing from the outside, so that when you do open the code you already know what you are looking at.</p>
+      <p>Do this before you read a single file. Your clones from Phase 0 are already out of date, and one of the things you are missing is the directory your reports go in.</p>
 
-      <details>
-        <summary>1.1 Update Both Repos and Open Your Branch</summary>
-        <div class="section-body">
-          <p>Do this before you read a single file. Your clones from Phase 0 are already out of date, and one of the things you are missing is the directory your reports go in.</p>
-          <h3>a. Pull the latest dev in both repos</h3>
-          <p>In <strong>each</strong> repository -- <code>farmers-coalition</code> and <code>farm2facts-frontend</code> -- switch to <code>dev</code> and pull:</p>
-          <pre><code>git checkout dev
+      <h3>a. Pull the latest dev in both repos</h3>
+      <p>In <strong>each</strong> repository -- <code>farmers-coalition</code> and <code>farm2facts-frontend</code> -- switch to <code>dev</code> and pull:</p>
+      <pre><code>git checkout dev
 git pull</code></pre>
-          <p>That brings down a <code>wiscurds/</code> directory at the root of both repos. That directory is where every written deliverable for this program lives, this phase and the ones after it.</p>
-          <p>Pulling first also means you are reading the current state of the code rather than whatever it looked like on the day you cloned. Mapping a stale codebase is wasted work.</p>
-          <h3>b. Create your feature branch in both repos</h3>
-          <p>With <code>dev</code> up to date, cut your branch from it. Same branch name in both repositories:</p>
-          <pre><code>git checkout -b feat-wis-p1-[firstName]</code></pre>
-          <p>Replace <code>[firstName]</code> with your actual first name, lowercase. Example: <code>feat-wis-p1-abanish</code>. The name reads as: a feature branch, WISCURDS, Phase 1, yours.</p>
-          <p>Confirm you are on it with <code>git branch</code> before you go any further. <strong>Never commit to <code>dev</code> or <code>main</code> directly</strong> -- that rule holds for every phase from here on, and the full branch strategy is in the <a href="{{ site.baseurl }}/docs/guides/#git-workflow-reference">Git Workflow Reference</a>.</p>
-          <h3>c. Make your directories</h3>
-          <p>Inside <code>wiscurds/</code> in each repo, create a folder for this phase and one for yourself inside it:</p>
-          <pre><code>wiscurds/
+      <p>That brings down a <code>wiscurds/</code> directory at the root of both repos. That directory is where every written deliverable for this program lives, this phase and the ones after it.</p>
+      <p>Pulling first also means you are reading the current state of the code rather than whatever it looked like on the day you cloned. Mapping a stale codebase is wasted work.</p>
+
+      <h3>b. Create your feature branch in both repos</h3>
+      <p>With <code>dev</code> up to date, cut your branch from it. Same branch name in both repositories:</p>
+      <pre><code>git checkout -b feat-wis-p1-[firstName]</code></pre>
+      <p>Replace <code>[firstName]</code> with your actual first name, lowercase. Example: <code>feat-wis-p1-abanish</code>. The name reads as: a feature branch, WISCURDS, Phase 1, yours.</p>
+      <p>Confirm you are on it with <code>git branch</code> before you go any further. <strong>Never commit to <code>dev</code> or <code>main</code> directly</strong> -- that rule holds for every phase from here on, and the full branch strategy is in the <a href="{{ site.baseurl }}/docs/guides/#git-workflow-reference">Git Workflow Reference</a>.</p>
+
+      <h3>c. Make your directories</h3>
+      <p>Inside <code>wiscurds/</code> in each repo, create a folder for this phase and one for yourself inside it:</p>
+      <pre><code>wiscurds/
 └── phase1/
     └── [firstName]/</code></pre>
-          <p>Your report for that repo goes in that folder. Card 6 covers what goes where.</p>
-          <p><strong>Done when:</strong> both repos are on <code>feat-wis-p1-[firstName]</code>, cut from an up-to-date <code>dev</code>, each with an empty <code>wiscurds/phase1/[firstName]/</code> waiting for your report.</p>
-        </div>
-      </details>
+      <p>Your report for that repo goes in that folder. Card 6 covers what goes where.</p>
 
-      <details>
-        <summary>1.2 Read the Development Structure Overview</summary>
-        <div class="section-body">
-          <p>Start with the <a href="{{ site.baseurl }}/taskList/wiscurds-development-structure">Development Structure Overview</a>. It is three diagrams and a page of text, and it gives you the model everything else hangs off:</p>
-          <ul>
-            <li><strong>The three layers</strong> -- a Vue frontend, a Rails backend, a MySQL database, with requests travelling in both directions.</li>
-            <li><strong>Who the users are</strong> -- individual producers and vendors, farmers markets, and market organizations, nested inside one another.</li>
-            <li><strong>How data moves</strong> -- entered through instruments at the vendor level, flowing up to the market, and up again to the market organization.</li>
-          </ul>
-          <p>That nesting is the single most important idea in the system. Almost every screen, model, and permission check in both repos exists to serve it. If you only remember one thing before opening the code, remember that a market organization contains markets, and a market contains vendors and producers.</p>
-          <p><strong>Done when:</strong> you can draw the three layers and the user hierarchy from memory, without looking at the page.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>1.3 Use the App as a User</summary>
-        <div class="section-body">
-          <p>Start both servers from Phase 0 and spend a solid half hour clicking through the running frontend at <code>localhost:8080</code>. Behave like a market manager who has just been given the tool, not like a developer.</p>
-          <p>As you go, write down:</p>
-          <ul>
-            <li>The <strong>main sections</strong> of the app, as they are named in the navigation.</li>
-            <li>What each section appears to be <strong>for</strong>, in one line.</li>
-            <li>Anything that <strong>surprises you</strong> -- an empty screen, a section you cannot reach, a label you do not understand.</li>
-          </ul>
-          <p>Try to submit or open an <strong>instrument</strong> (a vendor application, a sales slip, a visitor survey). Instruments are how data gets into the platform, so seeing one from the user's side makes the code around them far easier to read.</p>
-          <p>Keep your browser's <strong>Network</strong> tab open while you click. Every screen that shows data is making a request to <code>localhost:3000</code>, and watching those requests appear is the fastest way to learn which screen maps to which endpoint. You will come back to this in Card 4.</p>
-          <p><strong>Done when:</strong> you have a written list of the app's main sections and what each one does, in your own words.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>1.4 Set Up Your Notes Before You Start</summary>
-        <div class="section-body">
-          <p>Create one file for this phase now and write into it as you work. The report in Card 6 is assembled from these notes, and reconstructing them at the end of the phase never works.</p>
-          <p>Keep it wherever you like -- a Markdown file, a Google Doc, a notebook. Four running sections is enough:</p>
-          <ul>
-            <li><strong>Frontend</strong> -- what each part is responsible for.</li>
-            <li><strong>Backend</strong> -- what each part is responsible for.</li>
-            <li><strong>Traces</strong> -- the path a piece of data takes, from Card 4.</li>
-            <li><strong>Open questions</strong> -- anything you could not work out.</li>
-          </ul>
-          <p>When you note something about the code, <strong>write down the file path</strong>. "The store handles authentication" is a note you cannot use in three weeks. "<code>src/store/index.js</code> holds the auth state" is one you can.</p>
-        </div>
-      </details>
+      <p><strong>Done when:</strong> both repos are on <code>feat-wis-p1-[firstName]</code>, cut from an up-to-date <code>dev</code>, each with an empty <code>wiscurds/phase1/[firstName]/</code> waiting for your report.</p>
 
     </div>
   </div>
@@ -111,7 +63,7 @@ git pull</code></pre>
     <summary>2. Map the Frontend</summary>
     <div class="card-body">
 
-      <p>The frontend is <a href="https://git.doit.wisc.edu/at-trad/farm2facts-frontend" target="_blank" rel="noopener noreferrer">farm2facts-frontend</a>, a Vue 3 application using Pinia for state and the MDB Vue UI Kit for components. Work in your local clone on the <code>dev</code> branch.</p>
+      <p>The frontend is <a href="https://git.doit.wisc.edu/at-trad/farm2facts-frontend" target="_blank" rel="noopener noreferrer">farm2facts-frontend</a>, a Vue 3 application using Pinia for state and the MDB Vue UI Kit for components. Work in your local clone, on the branch you created in Card 1.</p>
       <p>Your aim in this card is a map, not a full reading. For each part of the app you should be able to say what it is responsible for and where it lives. You do not need to understand every file.</p>
 
       <details>
@@ -133,7 +85,7 @@ git pull</code></pre>
       <details>
         <summary>2.2 Walk the Main Views</summary>
         <div class="section-body">
-          <p>Most of the app's surface area is in <code>src/views/</code>. Go through the directories below and write down what each one is responsible for and which part of the running app it produces. Connect them back to the sections you listed in Card 1.3.</p>
+          <p>Most of the app's surface area is in <code>src/views/</code>. Go through the directories below and write down what each one is responsible for and which part of the running app it produces. Connect them back to what you see in the running app -- keep it open at <code>localhost:8080</code> and click through the section a folder produces as you read it.</p>
           <p>Describe these in full:</p>
           <ol>
             <li><code>LandingPage</code></li>
@@ -152,7 +104,7 @@ git pull</code></pre>
           </ol>
           <p>Pay particular attention to <strong>Profiles</strong> and <strong>Instrument</strong>. Project B adds a new tab to the Market Profile in Phase 3, and both project teams work with instrument data, so time spent here pays off later.</p>
           <p>Note the pattern rather than the detail: how a view is put together, where it gets its data, and how it is split between view files and components. Once you see the pattern in two or three views, the rest read quickly.</p>
-          <p><strong>Done when:</strong> every directory above has a written description, and you can point to the folder responsible for any screen you saw in Card 1.3.</p>
+          <p><strong>Done when:</strong> every directory above has a written description, and you can point to the folder responsible for any screen in the running app.</p>
         </div>
       </details>
 
@@ -178,7 +130,7 @@ git pull</code></pre>
     <summary>3. Map the Backend</summary>
     <div class="card-body">
 
-      <p>The backend is <a href="https://git.doit.wisc.edu/at-trad/farmers-coalition" target="_blank" rel="noopener noreferrer">farmers-coalition</a>, a Rails 6.1 application with a MySQL database and a Grape API. Work in your local clone on the <code>dev</code> branch.</p>
+      <p>The backend is <a href="https://git.doit.wisc.edu/at-trad/farmers-coalition" target="_blank" rel="noopener noreferrer">farmers-coalition</a>, a Rails 6.1 application with a MySQL database and a Grape API. Work in your local clone, on the branch you created in Card 1.</p>
       <p>Rails is heavily convention-based, which cuts both ways: the layout will be familiar if you have seen a Rails app before, and quietly confusing if you have not, because a lot happens without being written down anywhere. Take this card slowly.</p>
 
       <details>
@@ -199,7 +151,7 @@ git pull</code></pre>
         <summary>3.2 Read the Data Model</summary>
         <div class="section-body">
           <p>This is the most valuable part of Phase 1 for both project teams, so do not rush it.</p>
-          <p>Using <code>db/schema.rb</code> and the model files together, work out how the user hierarchy from Card 1.2 is actually stored:</p>
+          <p>Using <code>db/schema.rb</code> and the model files together, work out how the user hierarchy -- a market organization containing markets, each containing vendors and producers -- is actually stored:</p>
           <ul>
             <li>Which table holds <strong>market organizations</strong>, which holds <strong>markets</strong>, and which holds <strong>vendors and producers</strong>?</li>
             <li>How is the relationship between them expressed -- which table carries the foreign key to which?</li>
@@ -325,7 +277,7 @@ query?</code></pre>
     <div class="card-body">
 
       <p>The deliverable for Phase 1 is a <strong>Current State Understanding Report</strong>. It is your own reference for the rest of the program, and it is how we see that you have a real grasp of the system before you start changing it.</p>
-      <p>Because the report covers two repositories, you write it as <strong>two files, one in each repo</strong>. Each one goes in that repo's <code>wiscurds/phase1/[firstName]/</code> folder, on the branch you created in Card 1.1:</p>
+      <p>Because the report covers two repositories, you write it as <strong>two files, one in each repo</strong>. Each one goes in that repo's <code>wiscurds/phase1/[firstName]/</code> folder, on the branch you created in Card 1:</p>
       <table>
         <thead><tr><th style="width:34%">Repo</th><th>File</th></tr></thead>
         <tbody>
@@ -360,8 +312,8 @@ for someone joining the project next month.]
 
 ## 2. What the App Does
 
-[The main sections of the running app from Card 1.3, and what each one
-is for. One line each.]
+[The main sections of the running app as they appear in the
+navigation, and what each one is for. One line each.]
 
 ## 3. Structure
 
@@ -493,7 +445,7 @@ git add wiscurds/phase1/[firstName]/
 git commit -m "Add Phase 1 frontend current state report for [firstName]"</code></pre>
           <p>Run <code>git status</code> before you add anything, every time. It tells you which branch you are on and exactly what you are about to commit. Two things to check in its output:</p>
           <ul>
-            <li>You are on <strong><code>feat-wis-p1-[firstName]</code></strong>, not <code>dev</code>. If you are on <code>dev</code>, stop and come back to Card 1.1.</li>
+            <li>You are on <strong><code>feat-wis-p1-[firstName]</code></strong>, not <code>dev</code>. If you are on <code>dev</code>, stop and come back to Card 1.</li>
             <li>The only files listed are <strong>yours</strong>, under <code>wiscurds/phase1/[firstName]/</code>. Nothing from <code>src/</code>, <code>app/</code>, or anyone else's folder should appear. If something does, you changed a file by accident -- undo it before committing.</li>
           </ul>
           <p>Write commit messages in the imperative, starting with a verb, under 72 characters. In the backend repo the message is the same with "backend" in place of "frontend". The full rules are in the <a href="{{ site.baseurl }}/docs/guides/#git-workflow-reference">Git Workflow Reference</a>.</p>
