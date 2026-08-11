@@ -542,46 +542,9 @@ git commit -m "Add Phase 1 frontend current state report for [firstName]"</code>
         </div>
       </details>
 
-      <details>
-        <summary>7.5 Post Your Completion Checklist</summary>
-        <div class="section-body">
-          <p>With both MRs open, post this in the WISCURDS Slack channel so we know to review them.</p>
-          <pre class="pre-scroll"><code>Phase 1 Completion -- [Your Name]
-
-Merge requests:
-- Frontend: [link to MR]
-- Backend: [link to MR]
-
-[ ] Pulled the latest dev in both repos
-[ ] Branch feat-wis-p1-[firstName] created from dev in both repos
-[ ] Read the Development Structure Overview
-[ ] Clicked through the running app and listed its main sections
-[ ] Mapped the top level of src/ in the frontend
-[ ] Described all ten view directories from Card 2.2
-[ ] Found where requests are made and how the router restricts access
-[ ] Mapped app/ in the backend and read routes.rb and schema.rb
-[ ] Sketched the data model and the relationships between the main tables
-[ ] Read the Grape API and called at least two endpoints myself
-[ ] Traced one feature end to end and drew the path
-[ ] Both reports committed and both MRs open, targeting dev
-
-Feature I traced:
-[The screen or action]
-
-My top three open questions:
-1.
-2.
-3.
-
-Anything that blocked me:
-[What you could not get to, and why. Include anything that went wrong
-in the Git workflow itself. Write "nothing" only if that is genuinely
-the case.]</code></pre>
-          <p>Bring your three open questions to the next weekly check-in. We would rather spend that half hour answering them than hearing that everything went fine.</p>
-          <p>If Git itself is what stopped you, say so plainly. Getting tangled in branches on a first merge request is completely normal and takes about five minutes to sort out together -- but only if we know about it.</p>
-          <p>If you did not get through everything, open the MRs anyway with what you have and say what is missing. A partial report on time is more useful than a complete one two weeks late, and Phase 2 is built on what you learned here.</p>
-        </div>
-      </details>
+      <p>Bring your three open questions to the next weekly check-in. We would rather spend that half hour answering them than hearing that everything went fine.</p>
+      <p>If Git itself is what stopped you, say so in the WISCURDS Slack channel. Getting tangled in branches on a first merge request is completely normal and takes about five minutes to sort out together -- but only if we know about it.</p>
+      <p>If you did not get through everything, open the merge requests anyway with what you have and say what is missing in the description. A partial report on time is more useful than a complete one two weeks late, and Phase 2 is built on what you learned here.</p>
 
     </div>
   </details>
