@@ -85,6 +85,8 @@ A **Current State Understanding Report**. In it, capture your understanding of b
 - One feature traced end to end, from the screen through to the database and back.
 - Any open questions or areas that were unclear as you explored.
 
+The report is written as two files, one per repository, and submitted through the standard workflow: a feature branch cut from `dev`, committed into the `wiscurds/` directory, and delivered as a merge request in each repo. This is deliberately the same process every code change will follow from Phase 3 onward, practised here on a document that cannot break anything.
+
 This report is your reference point for the rest of the program, and it shows us that you have a solid grasp of the system before you begin contributing to it.
 
 </details>
@@ -130,7 +132,7 @@ This is the first build phase. Each team turns the proposal from Phase 2 into ac
 
 ### Working Flow and Branching Practices
 
-Because this is the first phase where you write code, follow our standard working flow from the start. Both teams work the same way:
+This is the first phase where you write code, so the working flow you practised on the Phase 1 report now applies to the real thing. Both teams work the same way:
 
 - Work is tracked as **issues on the GitLab issue board** and assigned to you. See [How We Work]({{ site.baseurl }}/docs/guides/#how-we-work) for the full issue-to-PR cycle.
 - The repos use a four-level branch structure: `main`, `staging`, `dev`, and feature branches. **Never commit directly to `main` or `dev`.** Always branch off an up-to-date `dev` for your work.

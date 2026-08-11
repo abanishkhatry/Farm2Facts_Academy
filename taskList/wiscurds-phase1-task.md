@@ -14,9 +14,13 @@ This is the task companion to the [Phase 1 milestone card]({{ site.baseurl }}/ta
 
 Phase 1 has one goal: by the end of it you can explain how Farm2Facts works today, in your own words, without opening the code. That means knowing what lives in each repository, how the frontend and the backend talk to each other, and where a single piece of data comes from and goes.
 
-**You are reading, not building.** Nothing in this phase changes the codebase. No branches, no commits, no pull requests -- that starts in Phase 3. If you find something broken or badly written, write it down instead of fixing it. Those notes are useful later; an unplanned fix this early is not.
+**You are reading, not building.** Nothing in this phase changes application code. If you find something broken or badly written, write it down instead of fixing it. Those notes are useful later; an unplanned fix this early is not.
+
+**You will still submit through the full Git workflow.** Your reports are committed on a feature branch cut from `dev` and delivered as merge requests, exactly the way every feature will be delivered from here on. Card 1.1 sets the branches up, Card 7 covers the submission. Learning that cycle on a Markdown file, where nothing can break, is far easier than learning it on your first real code change.
 
 **You will not understand everything, and you are not supposed to.** This is a real application built over several years by people who are no longer on the project. Parts of it will be confusing, inconsistent, or apparently unused. Reading a codebase you did not write is a skill, and being able to say precisely what you do not understand is most of it. Keep a running list of open questions as you go -- that list is a graded part of the deliverable, not an admission of failure.
+
+**Use an LLM or coding agent. We recommend it.** Getting your head around two unfamiliar repositories of this size is a genuinely complex process, and doing it unaided is slow rather than virtuous. Claude Code, or whichever coding agent you prefer, is very good at precisely this work: summarising a folder you have never opened, finding where something is defined, and explaining a framework convention you have not met before. Use one throughout this phase. What matters is that you verify what it tells you against the actual files and write your report in your own words -- Card 5 covers how to get real value out of it and the handful of ways it will mislead you if you let it.
 
 Everyone does this phase **individually**. All four of you write your own report. The split into two project teams happens in Phase 2, and the understanding you build here is what you bring to whichever team you land on.
 
@@ -31,7 +35,32 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
       <p>Opening a large repository and scrolling through folders is the slowest possible way to learn a system. Spend the first part of this phase getting the shape of the thing from the outside, so that when you do open the code you already know what you are looking at.</p>
 
       <details>
-        <summary>1.1 Read the Development Structure Overview</summary>
+        <summary>1.1 Update Both Repos and Open Your Branch</summary>
+        <div class="section-body">
+          <p>Do this before you read a single file. Your clones from Phase 0 are already out of date, and one of the things you are missing is the directory your reports go in.</p>
+          <h3>a. Pull the latest dev in both repos</h3>
+          <p>In <strong>each</strong> repository -- <code>farmers-coalition</code> and <code>farm2facts-frontend</code> -- switch to <code>dev</code> and pull:</p>
+          <pre><code>git checkout dev
+git pull</code></pre>
+          <p>That brings down a <code>wiscurds/</code> directory at the root of both repos. That directory is where every written deliverable for this program lives, this phase and the ones after it.</p>
+          <p>Pulling first also means you are reading the current state of the code rather than whatever it looked like on the day you cloned. Mapping a stale codebase is wasted work.</p>
+          <h3>b. Create your feature branch in both repos</h3>
+          <p>With <code>dev</code> up to date, cut your branch from it. Same branch name in both repositories:</p>
+          <pre><code>git checkout -b feat-wis-p1-[firstName]</code></pre>
+          <p>Replace <code>[firstName]</code> with your actual first name, lowercase. Example: <code>feat-wis-p1-abanish</code>. The name reads as: a feature branch, WISCURDS, Phase 1, yours.</p>
+          <p>Confirm you are on it with <code>git branch</code> before you go any further. <strong>Never commit to <code>dev</code> or <code>main</code> directly</strong> -- that rule holds for every phase from here on, and the full branch strategy is in the <a href="{{ site.baseurl }}/docs/guides/#git-workflow-reference">Git Workflow Reference</a>.</p>
+          <h3>c. Make your directories</h3>
+          <p>Inside <code>wiscurds/</code> in each repo, create a folder for this phase and one for yourself inside it:</p>
+          <pre><code>wiscurds/
+└── phase1/
+    └── [firstName]/</code></pre>
+          <p>Your report for that repo goes in that folder. Card 6 covers what goes where.</p>
+          <p><strong>Done when:</strong> both repos are on <code>feat-wis-p1-[firstName]</code>, cut from an up-to-date <code>dev</code>, each with an empty <code>wiscurds/phase1/[firstName]/</code> waiting for your report.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>1.2 Read the Development Structure Overview</summary>
         <div class="section-body">
           <p>Start with the <a href="{{ site.baseurl }}/taskList/wiscurds-development-structure">Development Structure Overview</a>. It is three diagrams and a page of text, and it gives you the model everything else hangs off:</p>
           <ul>
@@ -45,7 +74,7 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
       </details>
 
       <details>
-        <summary>1.2 Use the App as a User</summary>
+        <summary>1.3 Use the App as a User</summary>
         <div class="section-body">
           <p>Start both servers from Phase 0 and spend a solid half hour clicking through the running frontend at <code>localhost:8080</code>. Behave like a market manager who has just been given the tool, not like a developer.</p>
           <p>As you go, write down:</p>
@@ -61,7 +90,7 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
       </details>
 
       <details>
-        <summary>1.3 Set Up Your Notes Before You Start</summary>
+        <summary>1.4 Set Up Your Notes Before You Start</summary>
         <div class="section-body">
           <p>Create one file for this phase now and write into it as you work. The report in Card 6 is assembled from these notes, and reconstructing them at the end of the phase never works.</p>
           <p>Keep it wherever you like -- a Markdown file, a Google Doc, a notebook. Four running sections is enough:</p>
@@ -104,7 +133,7 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
       <details>
         <summary>2.2 Walk the Main Views</summary>
         <div class="section-body">
-          <p>Most of the app's surface area is in <code>src/views/</code>. Go through the directories below and write down what each one is responsible for and which part of the running app it produces. Connect them back to the sections you listed in Card 1.2.</p>
+          <p>Most of the app's surface area is in <code>src/views/</code>. Go through the directories below and write down what each one is responsible for and which part of the running app it produces. Connect them back to the sections you listed in Card 1.3.</p>
           <p>Describe these in full:</p>
           <ol>
             <li><code>LandingPage</code></li>
@@ -123,7 +152,7 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
           </ol>
           <p>Pay particular attention to <strong>Profiles</strong> and <strong>Instrument</strong>. Project B adds a new tab to the Market Profile in Phase 3, and both project teams work with instrument data, so time spent here pays off later.</p>
           <p>Note the pattern rather than the detail: how a view is put together, where it gets its data, and how it is split between view files and components. Once you see the pattern in two or three views, the rest read quickly.</p>
-          <p><strong>Done when:</strong> every directory above has a written description, and you can point to the folder responsible for any screen you saw in Card 1.2.</p>
+          <p><strong>Done when:</strong> every directory above has a written description, and you can point to the folder responsible for any screen you saw in Card 1.3.</p>
         </div>
       </details>
 
@@ -170,7 +199,7 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
         <summary>3.2 Read the Data Model</summary>
         <div class="section-body">
           <p>This is the most valuable part of Phase 1 for both project teams, so do not rush it.</p>
-          <p>Using <code>db/schema.rb</code> and the model files together, work out how the user hierarchy from Card 1.1 is actually stored:</p>
+          <p>Using <code>db/schema.rb</code> and the model files together, work out how the user hierarchy from Card 1.2 is actually stored:</p>
           <ul>
             <li>Which table holds <strong>market organizations</strong>, which holds <strong>markets</strong>, and which holds <strong>vendors and producers</strong>?</li>
             <li>How is the relationship between them expressed -- which table carries the foreign key to which?</li>
@@ -254,14 +283,15 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
   </details>
 
   <details class="task-card">
-    <summary>5. Using Claude Code to Explore</summary>
+    <summary>5. Using an LLM or Coding Agent</summary>
     <div class="card-body">
 
-      <p>Claude Code is genuinely good at the task in front of you: summarising an unfamiliar folder, finding where something is defined, and explaining a framework convention you have not met before. Use it. It will save you hours in both repos.</p>
-      <p>What it will not do is understand the system on your behalf. The report in Card 6 is a record of <strong>your</strong> understanding, and a report assembled from pasted answers reads exactly like one.</p>
+      <p>We recommend working with a coding agent throughout this phase. <strong>Claude Code</strong> is what the rest of the team uses and what our examples assume, but any capable agent or LLM is fine -- what matters is that you use one, not which one.</p>
+      <p>These tools are genuinely good at the task in front of you: summarising an unfamiliar folder, finding where something is defined, and explaining a framework convention you have not met before. In two repositories this size, that is hours saved.</p>
+      <p>What they will not do is understand the system on your behalf. The report in Card 6 is a record of <strong>your</strong> understanding, and a report assembled from pasted answers reads exactly like one.</p>
 
       <h3>Prompts Worth Using</h3>
-      <p>Open Claude Code at the root of whichever repo you are exploring, so it can read the actual files:</p>
+      <p>Open your agent at the root of whichever repo you are exploring, so it can read the actual files rather than guessing from what you paste in:</p>
       <pre class="pre-scroll"><code>What does src/views/Profiles do? List the files and explain what
 feature this folder supports.
 
@@ -280,12 +310,12 @@ query?</code></pre>
 
       <h3>Three Rules</h3>
       <ul>
-        <li><strong>Verify before you believe.</strong> Claude will occasionally describe a file that does not exist or a function that was deleted two years ago. Every claim that goes into your report should be one you have confirmed by opening the file. If you cannot find the file, the claim does not go in.</li>
-        <li><strong>Write in your own words.</strong> Use what Claude gives you as a starting point, then say it yourself. If you cannot restate it without the answer in front of you, you have not learned it yet.</li>
+        <li><strong>Verify before you believe.</strong> Any agent will occasionally describe a file that does not exist or a function that was deleted two years ago. Every claim that goes into your report should be one you have confirmed by opening the file. If you cannot find the file, the claim does not go in.</li>
+        <li><strong>Write in your own words.</strong> Use what the agent gives you as a starting point, then say it yourself. If you cannot restate it without the answer in front of you, you have not learned it yet.</li>
         <li><strong>Ask it to point, not to conclude.</strong> "Where is X defined?" gets you a file path you can check. "Summarise this whole codebase" gets you a paragraph that sounds right and teaches you nothing.</li>
       </ul>
 
-      <p>In your report, note where Claude Code was genuinely useful and where it led you wrong. We are building an LLM-assisted development practice here, and knowing the failure modes is part of the skill.</p>
+      <p>In your report, note which tool you used, where it was genuinely useful, and where it led you wrong. We are building an LLM-assisted development practice here, and knowing the failure modes is part of the skill.</p>
 
     </div>
   </details>
@@ -295,7 +325,15 @@ query?</code></pre>
     <div class="card-body">
 
       <p>The deliverable for Phase 1 is a <strong>Current State Understanding Report</strong>. It is your own reference for the rest of the program, and it is how we see that you have a real grasp of the system before you start changing it.</p>
-      <p>Write it as a Markdown file named <code>phase1_current_state_[firstName].md</code>. Aim for four to six pages of substance -- long enough to be genuinely useful to you in Phase 3, short enough that you had to decide what mattered.</p>
+      <p>Because the report covers two repositories, you write it as <strong>two files, one in each repo</strong>. Each one goes in that repo's <code>wiscurds/phase1/[firstName]/</code> folder, on the branch you created in Card 1.1:</p>
+      <table>
+        <thead><tr><th style="width:34%">Repo</th><th>File</th></tr></thead>
+        <tbody>
+          <tr><td><code>farm2facts-frontend</code></td><td><code>phase1_frontend_[firstName].md</code></td></tr>
+          <tr><td><code>farmers-coalition</code></td><td><code>phase1_backend_[firstName].md</code></td></tr>
+        </tbody>
+      </table>
+      <p>Splitting it this way means the person reviewing your frontend merge request is reading about the frontend, and it gives you two runs at the workflow instead of one. Aim for three to four pages per file -- long enough to be genuinely useful to you in Phase 3, short enough that you had to decide what mattered.</p>
 
       <h3>What Makes It a Good Report</h3>
       <ul>
@@ -304,11 +342,14 @@ query?</code></pre>
         <li><strong>Be specific about what you do not know.</strong> "I could not work out how X is authorised, because the check is in Y and I could not find where Y is called" is a strong entry. "Some parts were confusing" is not.</li>
       </ul>
 
-      <h3>Report Template</h3>
-      <pre class="pre-scroll"><code># Current State Understanding Report
+      <h3>The Feature Trace Goes in Both</h3>
+      <p>Your trace from Card 4 crosses both repositories, so it does not belong to either one on its own. Put the <strong>diagram in both files</strong>, and in each file write up the half of the path that happens in that repo. Save the diagram image alongside the report in the same folder, for example <code>feature_trace_[firstName].png</code>, so the Markdown can point at it.</p>
+
+      <h3>Template -- Frontend Report</h3>
+      <pre class="pre-scroll"><code># Phase 1 -- Frontend Current State
 
 **Name:** [Your Name]
-**Phase:** 1 -- Understanding F2F and Its Repositories' Current State
+**Repo:** farm2facts-frontend
 **Date:** [Date]
 
 ## 1. The System in Brief
@@ -317,94 +358,202 @@ query?</code></pre>
 the three layers, and how the user hierarchy is organised. Write it
 for someone joining the project next month.]
 
-## 2. Frontend -- farm2facts-frontend
+## 2. What the App Does
 
-### 2.1 Structure
+[The main sections of the running app from Card 1.3, and what each one
+is for. One line each.]
+
+## 3. Structure
 
 [What each top-level folder in src/ is responsible for. One or two
 lines each.]
 
-### 2.2 Main Views
+## 4. Main Views
 
 [What each view directory from Card 2.2 is responsible for and which
 part of the running app it produces. Full descriptions for the first
-five, overviews for the rest.]
+five, overviews for the rest. Name the folders.]
 
-### 2.3 Data and State
+## 5. Data and State
 
 [Where HTTP requests are made, where the base URL comes from, how the
 logged-in user and their role are stored, and how the router restricts
 access. Name the files.]
 
-## 3. Backend -- farmers-coalition
-
-### 3.1 Structure
-
-[What each folder in app/ is responsible for, where the API routes are
-mounted, and what the main configuration files told you.]
-
-### 3.2 Data Model
-
-[The main tables and how they relate. Include your entity sketch.
-Cover market organizations, markets, vendors and producers, and
-instrument data.]
-
-### 3.3 The Grape API
-
-[How endpoints are declared, whether the API is versioned, how a
-caller is authenticated, and what happens between a request arriving
-and a row being read. Include the two or three endpoints you called
-yourself in Card 3.4 and what they returned.]
-
-## 4. How the Two Communicate
-
-[How the frontend reaches the backend: the base URL, the request
-format, and how the backend identifies who is asking.]
-
-## 5. Feature Trace
+## 6. Feature Trace -- Frontend Half
 
 **Feature traced:** [The screen or action you chose]
 
-[Your diagram, embedded as an image or described in text.]
+![Feature trace](feature_trace_[firstName].png)
 
-[Then the path in writing, step by step, naming the file at each step:
-route, view, store or service, request, backend route, endpoint,
-model, tables, response, render.]
+[The path from the click to the request leaving the browser, naming
+the file at each step: route, view, what triggers the fetch, the store
+or service, and the exact request that goes out. Then what comes back
+and how the view renders it.]
 
-## 6. Open Questions
+## 7. Open Questions
 
-[Everything you could not work out. Be specific: what you were trying
-to understand, where you got to, and where you got stuck. Number them
-so we can answer them individually.]
+[Everything about the frontend you could not work out. Be specific:
+what you were trying to understand, where you got to, and where you
+got stuck. Number them so we can answer them individually.]
 
-## 7. Observations
+## 8. Observations
 
-[Anything you noticed that is worth flagging: parts of the code that
-look unused, data that looks stale or inconsistent, patterns that are
-applied in some places but not others, or anything that struck you as
-a candidate for improvement. Do not fix anything -- just record it.
-Phase 2 starts from notes like these.]
+[Anything worth flagging: code that looks unused, patterns applied in
+some places but not others, anything that struck you as a candidate
+for improvement. Do not fix anything -- just record it. Phase 2 starts
+from notes like these.]
 
-## 8. Working With Claude Code
+## 9. Working With an LLM
 
-[Where it helped, where it was wrong, and what you would prompt
-differently next time. A short section, three or four sentences.]</code></pre>
+[Which tool you used, where it helped, where it was wrong, and what
+you would prompt differently next time. Three or four sentences.]</code></pre>
 
-      <p>Sections 6 and 7 are the two we read most closely. Section 6 tells us where the program's documentation is failing you, and Section 7 is where Phase 2's investigation actually begins -- several of the things you notice here will turn into proposals a fortnight from now.</p>
+      <h3>Template -- Backend Report</h3>
+      <pre class="pre-scroll"><code># Phase 1 -- Backend Current State
+
+**Name:** [Your Name]
+**Repo:** farmers-coalition
+**Date:** [Date]
+
+## 1. Structure
+
+[What each folder in app/ is responsible for, where the API routes are
+mounted, and what routes.rb, schema.rb, and the Gemfile told you.]
+
+## 2. Data Model
+
+[The main tables and how they relate. Include your entity sketch.
+Cover market organizations, markets, vendors and producers, and
+instrument data. Name the tables and the models.]
+
+## 3. The Grape API
+
+[How endpoints are declared, whether the API is versioned, how a
+caller is authenticated, and what happens between a request arriving
+and a row being read.]
+
+## 4. Endpoints I Called
+
+[The two or three endpoints you called yourself in Card 3.4: the URL,
+the status code, what came back, and how it compared to what you
+expected from reading the code.]
+
+## 5. How the Two Repos Communicate
+
+[How the frontend reaches the backend: the base URL, the request
+format, and how the backend identifies who is asking. This is the
+seam between the two repositories -- describe it from the backend
+side.]
+
+## 6. Feature Trace -- Backend Half
+
+**Feature traced:** [The same feature as your frontend report]
+
+![Feature trace](feature_trace_[firstName].png)
+
+[The path from the request arriving to the response going back out,
+naming the file at each step: route, endpoint, model or service, the
+query, and the tables the data came from.]
+
+## 7. Open Questions
+
+[Everything about the backend you could not work out. Be specific and
+number them.]
+
+## 8. Observations
+
+[Anything worth flagging: data that looks stale or inconsistent,
+tables that look unused, anything that struck you as a candidate for
+improvement. Record it, do not fix it.]
+
+## 9. Working With an LLM
+
+[Which tool you used, where it helped, where it was wrong, and what
+you would prompt differently next time. Three or four sentences.]</code></pre>
+
+      <p>The Open Questions and Observations sections are the two we read most closely. Open Questions tells us where the program's documentation is failing you, and Observations is where Phase 2's investigation actually begins -- several of the things you notice here will turn into proposals a fortnight from now.</p>
 
     </div>
   </details>
 
   <details class="task-card">
-    <summary>7. Phase 1 Completion</summary>
+    <summary>7. Commit and Submit</summary>
     <div class="card-body">
 
-      <p>Send your report to <strong>Abanish</strong> in the WISCURDS Slack channel, with the checklist below in the message. Attach the report file itself, or a link to it if you wrote it somewhere else.</p>
-      <p>There is no branch and no merge request for this phase. Phase 3 is where code work starts and the issue-branch-PR flow begins.</p>
+      <p>You submit by <strong>merge request</strong>, one in each repository. Nothing is submitted until both are open and assigned.</p>
+      <p>This is the part of Phase 1 that matters most for the rest of the program. From here on, every change any of us makes to Farm2Facts arrives the same way: branch off <code>dev</code>, commit the work, push, open a merge request, get it reviewed, merge. Phase 3 onward you will be doing this with code that can break things. Doing it now, with a Markdown file that cannot, is the point.</p>
 
-      <h3>Checklist Template</h3>
-      <pre class="pre-scroll"><code>Phase 1 Completion -- [Your Name]
+      <details>
+        <summary>7.1 Commit Your Work</summary>
+        <div class="section-body">
+          <p>In each repo, on your <code>feat-wis-p1-[firstName]</code> branch, add your files and commit:</p>
+          <pre><code>git status
+git add wiscurds/phase1/[firstName]/
+git commit -m "Add Phase 1 frontend current state report for [firstName]"</code></pre>
+          <p>Run <code>git status</code> before you add anything, every time. It tells you which branch you are on and exactly what you are about to commit. Two things to check in its output:</p>
+          <ul>
+            <li>You are on <strong><code>feat-wis-p1-[firstName]</code></strong>, not <code>dev</code>. If you are on <code>dev</code>, stop and come back to Card 1.1.</li>
+            <li>The only files listed are <strong>yours</strong>, under <code>wiscurds/phase1/[firstName]/</code>. Nothing from <code>src/</code>, <code>app/</code>, or anyone else's folder should appear. If something does, you changed a file by accident -- undo it before committing.</li>
+          </ul>
+          <p>Write commit messages in the imperative, starting with a verb, under 72 characters. In the backend repo the message is the same with "backend" in place of "frontend". The full rules are in the <a href="{{ site.baseurl }}/docs/guides/#git-workflow-reference">Git Workflow Reference</a>.</p>
+          <p>If you wrote your report over several sittings, several commits are better than one. A commit is a save point, not a submission.</p>
+        </div>
+      </details>
 
+      <details>
+        <summary>7.2 Push Your Branch</summary>
+        <div class="section-body">
+          <p>Your commits exist only on your machine until you push them. The first time you push a new branch, tell Git where it goes:</p>
+          <pre><code>git push -u origin feat-wis-p1-[firstName]</code></pre>
+          <p>After that first push, plain <code>git push</code> is enough for the rest of the phase.</p>
+          <p>GitLab prints a link to open a merge request in the push output. You can use it or go through the UI in the next card -- they do the same thing.</p>
+          <p><strong>Done when:</strong> your branch appears on GitLab in both repos, under <strong>Code &rarr; Branches</strong>, with your commits on it.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>7.3 Open Your Merge Requests</summary>
+        <div class="section-body">
+          <p>GitLab calls it a <strong>Merge Request (MR)</strong>. GitHub calls the same thing a Pull Request. The name differs, the workflow does not.</p>
+          <p>Do this in <strong>both</strong> repositories:</p>
+          <ol>
+            <li>In the left sidebar, go to <strong>Code &rarr; Merge requests</strong>.</li>
+            <li>Click <strong>New merge request</strong>.</li>
+            <li><strong>Source branch:</strong> <code>feat-wis-p1-[firstName]</code>.</li>
+            <li><strong>Target branch:</strong> <code>dev</code>. Never <code>main</code>.</li>
+            <li>Click <strong>Compare branches and continue</strong>.</li>
+            <li>Title it <code>Phase 1 frontend current state report -- [Your Name]</code>, or <code>backend</code> in the backend repo.</li>
+            <li>Fill out the description using the <a href="{{ site.baseurl }}/docs/guides/#pull-requests">Pull Requests guide</a>. Fill in every field -- a description that says "phase 1 report" tells a reviewer nothing.</li>
+            <li>Assign <strong>Abanish</strong> as the reviewer.</li>
+          </ol>
+          <p>Before you submit, open the <strong>Changes</strong> tab and read your own diff. Every line in it should be a line you meant to write. This habit costs thirty seconds and will save you from a bad merge more than once over the program.</p>
+          <p>In your description, include your <strong>top three open questions</strong> from the report. That way they are visible to the reviewer without them having to open the file.</p>
+          <p><strong>Done when:</strong> two merge requests are open, both targeting <code>dev</code>, both assigned to Abanish.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>7.4 Respond to Review</summary>
+        <div class="section-body">
+          <p>An open merge request is not a finished one. Expect comments -- that is what review is for, and on a first MR there are usually a few.</p>
+          <p>When you get feedback, do not open a new branch or a new MR. Commit the changes on the <strong>same branch</strong> and push again; the MR updates itself. Reply to each comment when you have addressed it, and say what you changed.</p>
+          <p>Once both MRs are approved, we merge them into <code>dev</code>. That is the end of Phase 1.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>7.5 Post Your Completion Checklist</summary>
+        <div class="section-body">
+          <p>With both MRs open, post this in the WISCURDS Slack channel so we know to review them.</p>
+          <pre class="pre-scroll"><code>Phase 1 Completion -- [Your Name]
+
+Merge requests:
+- Frontend: [link to MR]
+- Backend: [link to MR]
+
+[ ] Pulled the latest dev in both repos
+[ ] Branch feat-wis-p1-[firstName] created from dev in both repos
 [ ] Read the Development Structure Overview
 [ ] Clicked through the running app and listed its main sections
 [ ] Mapped the top level of src/ in the frontend
@@ -414,7 +563,7 @@ differently next time. A short section, three or four sentences.]</code></pre>
 [ ] Sketched the data model and the relationships between the main tables
 [ ] Read the Grape API and called at least two endpoints myself
 [ ] Traced one feature end to end and drew the path
-[ ] Report written and attached
+[ ] Both reports committed and both MRs open, targeting dev
 
 Feature I traced:
 [The screen or action]
@@ -425,11 +574,14 @@ My top three open questions:
 3.
 
 Anything that blocked me:
-[What you could not get to, and why. Write "nothing" only if that is
-genuinely the case.]</code></pre>
-
-      <p>Bring your three open questions to the next weekly check-in. We would rather spend that half hour answering them than hearing that everything went fine.</p>
-      <p>If you did not get through everything, send the message anyway with what you have. A partial report on time is more useful than a complete one two weeks late, and Phase 2 is built on what you learned here.</p>
+[What you could not get to, and why. Include anything that went wrong
+in the Git workflow itself. Write "nothing" only if that is genuinely
+the case.]</code></pre>
+          <p>Bring your three open questions to the next weekly check-in. We would rather spend that half hour answering them than hearing that everything went fine.</p>
+          <p>If Git itself is what stopped you, say so plainly. Getting tangled in branches on a first merge request is completely normal and takes about five minutes to sort out together -- but only if we know about it.</p>
+          <p>If you did not get through everything, open the MRs anyway with what you have and say what is missing. A partial report on time is more useful than a complete one two weeks late, and Phase 2 is built on what you learned here.</p>
+        </div>
+      </details>
 
     </div>
   </details>
