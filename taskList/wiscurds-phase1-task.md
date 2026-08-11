@@ -28,8 +28,8 @@ Phase 1 assumes both repos are running on your machine from [Phase 0]({{ site.ba
 
 <div class="task-card-grid">
 
-  <div class="task-card">
-    <p class="card-title">1. Update Both Repos and Open Your Branch</p>
+  <details class="task-card">
+    <summary>1. Update Both Repos and Open Your Branch</summary>
     <div class="card-body">
 
       <p>Do this before you read a single file. Your clones from Phase 0 are already out of date, and one of the things you are missing is the directory your reports go in.</p>
@@ -57,7 +57,7 @@ git pull</code></pre>
       <p><strong>Done when:</strong> both repos are on <code>feat-wis-p1-[firstName]</code>, cut from an up-to-date <code>dev</code>, each with an empty <code>wiscurds/phase1/[firstName]/</code> waiting for your report.</p>
 
     </div>
-  </div>
+  </details>
 
   <details class="task-card">
     <summary>2. Map the Frontend</summary>
