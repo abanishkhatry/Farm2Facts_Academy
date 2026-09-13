@@ -18,8 +18,6 @@ Your goal for this phase: by the end of it you can say what is in the Farm2Facts
 
 **You are investigating, not changing.** Nothing in this phase modifies the database. No `UPDATE`, no `DELETE`, no `DROP`, no schema edits. You are building the case for what should change; the changing itself is Phase 3, and it happens through code and review rather than through a GUI. If you find something that obviously needs fixing, write it down with evidence and leave it alone.
 
-The one piece of code you do write is in Card 8: a blank Admin Dashboard page and the navigation entry that opens it. It touches no data, and it exists so the place Phase 3 builds into is already there.
-
 **This is one team deliverable, not two.** The two of you work on a single feature branch and produce a single report. That means agreeing up front on who investigates what and keeping each other current. As discussed during the meeting, you could further branch-off from this feature branch but all the deliverables should be within the main feature branch. Card 2 covers how to split it without standing on each other's work.
 
 **Use an LLM or coding agent. We recommend it.** Reading an unfamiliar schema and working out what a column is for is exactly the kind of task these tools are good at, and writing SQL you have not written before is another. The same rule from Phase 1 applies: verify every claim against the actual database before it goes in the report. One addition for this phase, and it is not optional: **never paste database credentials into an agent prompt, a browser tool, or anything else.** Card 1 covers how to handle them.
@@ -71,7 +69,7 @@ Phase 2 assumes you have finished [Phase 1]({{ site.baseurl }}/taskList/wiscurds
     <summary>2. Open Your Team Branch and Split the Work</summary>
     <div class="card-body">
 
-      <p>The report goes into the <strong>backend repository</strong>, <code>farmers-coalition</code>, since the database is the backend's concern. One branch, shared between the two of you. Card 8 has you open a branch of the same name in the frontend repo for the placeholder page, but everything up to that point happens here.</p>
+      <p>All of your Phase 2 work goes into the <strong>backend repository</strong>, <code>farmers-coalition</code>, since the database is the backend's concern. One branch, shared between the two of you.</p>
 
       <details>
         <summary>2.1 Pull dev and Cut the Team Branch</summary>
@@ -186,7 +184,7 @@ git checkout feat-wis-p2-admin-dashboard</code></pre>
     <summary>4. Map the Three Identities</summary>
     <div class="card-body">
 
-      <p>Farm2Facts is organized around who the user is, and the whole platform nests: individual producers and vendors belong to a market, and markets belong to a market organization. In this card you work out how that nesting is actually stored.</p>
+      <p>Farm2Facts is organised around who the user is, and the whole platform nests: individual producers and vendors belong to a market, and markets belong to a market organization. In this card you work out how that nesting is actually stored.</p>
       <p>Keep this at a <strong>surface level</strong>. You are answering "where does this identity live and how does it connect upward", not documenting every column and permission rule.</p>
 
       <h3>The Three to Cover</h3>
@@ -265,7 +263,7 @@ git checkout feat-wis-p2-admin-dashboard</code></pre>
         <li><strong>What is wrong.</strong> The specific problem, in one sentence.</li>
         <li><strong>Evidence.</strong> The count, where it came from, and an example row or two.</li>
         <li><strong>Why it matters.</strong> What breaks or misleads because of it. A problem with no consequence is not worth a phase of work.</li>
-        <li><strong>What you would do.</strong> Delete, merge, backfill, normalize the format, add a constraint, or leave it alone and document it.</li>
+        <li><strong>What you would do.</strong> Delete, merge, backfill, normalise the format, add a constraint, or leave it alone and document it.</li>
         <li><strong>What could go wrong.</strong> What else points at this data, and what breaks if you change it. Deleting a row that another table still references is how a cleanup becomes an outage.</li>
       </ul>
 
@@ -304,65 +302,58 @@ git checkout feat-wis-p2-admin-dashboard</code></pre>
 
 **Authors:** [Name], [Name]
 **Program:** WISCURDS | **Phase:** 2 -- Data Source Investigation
-**Database:** dummy database, read through the web GUI (credentials in 1Password)
+**Database:** dummy database (credentials held in 1Password)
 **Date:** [Date]
 
 ## 1. Summary
 
-[Half a page. What this database holds, how it is broadly organized, and
+[Half a page. What this database holds, how it is broadly organised, and
 the three or four things a reader most needs to know about the state it
 is in. Write this section last.]
 
 ## 2. How We Worked
 
-[Which GUI you used and how you split the investigation between the two
-of you. Two or three sentences. If there is anything you could not check
-because the GUI made it impractical, say so here rather than leaving a
-silent gap in the findings.]
+[Which GUI you used, how you split the work between you, and anything
+about the process worth recording. Two or three sentences.]
 
 ## 3. Table Inventory
 
-[One row per table, using the row counts the GUI reports. Keep
-descriptions to a line.]
+[One row per table. Keep descriptions to a line.]
 
-| Table | Rows | Primary key | What it stores | Live or dead |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| Table | Rows | What it stores | Notes |
+| ----- | ---- | -------------- | ----- |
+|       |      |                |       |
 
 [Below the table: which tables are central, which are lookup or
 framework tables, and which look unused.]
 
 ## 4. How the Tables Relate
 
-[One row per relationship. "From" is the table that carries the
-reference.]
+[The relationships in writing. For each one: which table carries the
+reference, which table it points to, and whether it is a declared
+foreign key or only implied by the Rails models.]
 
-| From | Column | To | Declared or implied |
-| --- | --- | --- | --- |
-|  |  |  |  |
+| From | Column | To  | Declared or implied |
+| ---- | ------ | --- | ------------------- |
+|      |        |     |                     |
 
-[Then in writing: which of these exist only in the Rails models with no
-constraint in the database, and what that allows to happen.]
-
-[Then: the path you would follow to get from a market organization down
-to a single producer's records.]
+[Then: the join path you would follow to get from a market organization
+down to a single producer's records.]
 
 ## 5. The Three Identities
 
 ### 5.1 Individual Producer
 
-- **Tables:** [which table or tables represent it]
-- **Connects upward by:** [the column that ties it to its market]
-- **A real row:** [which fields are filled in, which are always empty]
-- **How many:** [row count]
+[Which tables represent it, how it connects upward, what a real row
+looks like, and how many there are.]
 
 ### 5.2 Individual Market
 
-[Same four points.]
+[Same four questions.]
 
 ### 5.3 Market Organization
 
-[Same four points.]
+[Same four questions.]
 
 ### 5.4 Notes
 
@@ -373,25 +364,20 @@ organization to market to producer chain you traced.]
 ## 6. Data Findings
 
 [What condition the data is in. Every finding needs a number and a note
-of how you got it, so someone else can repeat the check in the GUI.
-Example of a usable "how we checked": "markets table, filtered to
-created_at before 2023".]
+of how you got it, so someone else can check it.]
 
 ### 6.1 Volume and Freshness
 
-| Finding | Number | How we checked |
-| --- | --- | --- |
-|  |  |  |
+[Real row counts. Date ranges. How much of this data is recent.]
 
 ### 6.2 Completeness
 
-[Which columns are substantially empty. Same table shape as 6.1.]
+[Which columns are substantially empty, with percentages.]
 
 ### 6.3 Duplicates, Orphans, and Inconsistency
 
 [Duplicate records, rows pointing at parents that do not exist, and
-values stored in inconsistent formats. Same table shape as 6.1, plus an
-example row or two for anything that needs seeing to be understood.]
+values stored in inconsistent formats. Counts and examples.]
 
 ## 7. Cleaning Opportunities
 
@@ -400,7 +386,7 @@ example row or two for anything that needs seeing to be understood.]
 ### Opportunity 1: [Short title]
 
 - **What is wrong:**
-- **Evidence:** [the number, and how you checked it]
+- **Evidence:**
 - **Why it matters:**
 - **Proposed action:**
 - **Risk:**
@@ -432,78 +418,13 @@ would prompt differently next time. Three or four sentences.]</code></pre>
   </details>
 
   <details class="task-card">
-    <summary>8. Add the Admin Dashboard Placeholder</summary>
+    <summary>8. Commit and Submit</summary>
     <div class="card-body">
 
-      <p>This is the one piece of code you write in Phase 2, and it is deliberately small. Before Phase 3 puts anything real into the Admin Dashboard, the place it will live has to exist. Your job is to add an <strong>Admin Dashboard</strong> entry to the admin navigation dropdown and give it a page to open, even though that page has nothing in it yet.</p>
-      <p>The value is not the feature. It is proving you can find your way around an unfamiliar frontend and ship a change through review while the change itself carries no risk. Get the workflow wrong here and it costs nothing. Get it wrong in Phase 3 and it costs a rollback.</p>
-
-      <h3>What You Are Building</h3>
-      <ul>
-        <li>A new entry labelled <strong>Admin Dashboard</strong> in the admin nav bar dropdown, in the <strong>same section</strong> that currently lists <strong>Users Account</strong> and <strong>Export Data</strong>.</li>
-        <li>A page for it to open. For now that page is blank, or carries the heading <strong>Admin Dashboard</strong> and nothing else.</li>
-        <li>Nothing else. No data, no components, no styling work. An empty page is the correct outcome.</li>
-      </ul>
-
-      <h3>Where the Work Happens</h3>
-      <p>This one is in the <strong>frontend repository</strong>, <code>farm2facts-frontend</code>, not the backend repo you have been in for the rest of this phase. Branch from <code>dev</code> exactly as before:</p>
-      <pre><code>git checkout dev
-git pull
-git checkout -b feat-wis-p2-admin-dashboard</code></pre>
-      <p>Same branch name as your backend branch, in a different repository. The team rules from Card 2.3 still apply: one of you creates and pushes it, the other checks it out rather than making their own.</p>
-
-      <h3>Find the Placement Before You Create Anything</h3>
-      <p>Do not start by making files. Start by finding the code that renders the dropdown you can already see, because the fastest way to add something to an unfamiliar codebase is to copy what is already working next to it.</p>
-      <ol>
-        <li>Open the running frontend, log in as an admin, and find the dropdown containing <strong>Users Account</strong> and <strong>Export Data</strong>. Note the labels exactly as they appear.</li>
-        <li><strong>Search the repo for those labels.</strong> A visible string is the quickest way into frontend code you do not know. That search should land you in the component that builds the menu.</li>
-        <li>Read how one existing entry is defined: its label, where it links to, and any condition controlling who can see it.</li>
-        <li>Follow that link into the <strong>router</strong> and find the route definition, then the <strong>view file</strong> the route loads.</li>
-      </ol>
-      <p>By the end of this step you should be able to name three things: the component holding the dropdown, the route definition, and the view file it loads. Write those paths down. They go in your merge request description.</p>
-
-      <h3>Then Build It by Copying the Pattern</h3>
-      <ul>
-        <li><strong>Add the entry</strong> to the dropdown in the same section as the other two, following the exact shape of the entries around it.</li>
-        <li><strong>Add the route</strong>, named consistently with the existing routes rather than inventing a new convention.</li>
-        <li><strong>Create the view file</strong> in the same place and the same structure as the neighbouring views. If those views are split across several files, match that; if they are one file, match that.</li>
-        <li><strong>Respect the visibility rule.</strong> If the existing entries are gated so that only admins see them, yours is gated the same way. This is the one part of the card where getting it wrong actually matters.</li>
-      </ul>
-      <p>Resist the urge to build more than this. If you find yourself adding a table or a chart, stop: that is Phase 3 work and it needs the proposal from Card 6 approved first.</p>
-
-      <h3>Check It Works</h3>
-      <ul>
-        <li>Logged in as an admin, the dropdown shows <strong>Admin Dashboard</strong> in the right section.</li>
-        <li>Clicking it changes the URL and loads the page with no errors in the browser console.</li>
-        <li>If the section is admin-only, log in as another user type and confirm the entry is <strong>not</strong> there.</li>
-        <li><strong>Users Account</strong> and <strong>Export Data</strong> still work. A change to a shared menu is exactly the kind of thing that quietly breaks its neighbours.</li>
-      </ul>
-
-      <h3>Open the Merge Request</h3>
-      <p>Same flow as the report, in the frontend repo this time:</p>
-      <ol>
-        <li><strong>Code &rarr; Merge requests &rarr; New merge request</strong>.</li>
-        <li><strong>Source:</strong> <code>feat-wis-p2-admin-dashboard</code>. <strong>Target:</strong> <code>dev</code>.</li>
-        <li>Title it <code>Add Admin Dashboard placeholder to the admin navigation</code>.</li>
-        <li>In the description, name the <strong>three files</strong> you found and changed, and say plainly that the page is intentionally empty and gets filled in Phase 3. A reviewer seeing an empty page with no explanation will assume something is missing.</li>
-        <li>Attach a <strong>screenshot</strong> of the dropdown with the new entry visible.</li>
-        <li>Assign <strong>Abanish</strong> as the reviewer, and read the <strong>Changes</strong> tab before you submit.</li>
-      </ol>
-      <p>This is a separate merge request from the report one. Two repos, two branches, two merge requests, and they are reviewed independently.</p>
-
-      <p><strong>Done when:</strong> the entry appears in the dropdown for an admin, it opens a page without errors, the other entries still work, and the merge request is open against <code>dev</code> and assigned.</p>
-
-    </div>
-  </details>
-
-  <details class="task-card">
-    <summary>9. Commit and Submit the Report</summary>
-    <div class="card-body">
-
-      <p>This card is about the <strong>report</strong>, which lives in the backend repo. You submit it by <strong>merge request</strong> into <code>dev</code>, the same way you submitted Phase 1. One merge request for the team, from your shared branch. The frontend merge request from Card 8 is separate and travels on its own.</p>
+      <p>You submit by <strong>merge request</strong> into <code>dev</code> in the backend repo, the same way you submitted Phase 1. One merge request for the team, from your shared branch.</p>
 
       <details>
-        <summary>9.1 Commit as You Go</summary>
+        <summary>8.1 Commit as You Go</summary>
         <div class="section-body">
           <p>Do not save all of this for the last day. Commit each section of the report as it becomes usable:</p>
           <pre><code>git pull
@@ -519,7 +440,7 @@ git commit -m "Add table inventory to the database current state report"</code><
 </details>
 
       <details>
-        <summary>9.2 Open the Merge Request</summary>
+        <summary>8.2 Open the Merge Request</summary>
         <div class="section-body">
           <p>When the report is complete and both of you have read it end to end, open one merge request in <code>farmers-coalition</code>:</p>
           <ol>
@@ -538,7 +459,7 @@ git commit -m "Add table inventory to the database current state report"</code><
       </details>
 
       <details>
-        <summary>9.3 Respond to Review</summary>
+        <summary>8.3 Respond to Review</summary>
         <div class="section-body">
           <p>Expect comments, and expect some of them to ask for a number you did not include. Commit the changes on the same branch and push again; the merge request updates itself. Reply to each comment saying what you changed.</p>
           <p>Once it is approved we merge it into <code>dev</code>, and the cleaning opportunities you proposed become the starting point for Phase 3.</p>

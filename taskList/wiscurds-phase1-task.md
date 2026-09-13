@@ -50,8 +50,8 @@ git pull</code></pre>
       <h3>c. Make your directories</h3>
       <p>Inside <code>wiscurds/</code> in each repo, create a folder for this phase and one for yourself inside it:</p>
       <pre><code>wiscurds/
-└── phase1/
-    └── [firstName]/</code></pre>
+└──&nbsp;phase1/
+&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;[firstName]/</code></pre>
       <p>Your report for that repo goes in that folder. Card 6 covers what goes where.</p>
 
       <p><strong>Done when:</strong> both repos are on <code>feat-wis-p1-[firstName]</code>, cut from an up-to-date <code>dev</code>, each with an empty <code>wiscurds/phase1/[firstName]/</code> waiting for your report.</p>
